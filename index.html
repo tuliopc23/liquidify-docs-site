@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Docs</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Top bar (optional). Keep minimal; Apple has a global bar. -->
+  <header class="topbar">
+    <button class="sidebar-toggle" aria-label="Toggle sidebar" aria-expanded="false">
+      ☰
+    </button>
+    <div class="topbar__brand">Your Docs</div>
+    <nav class="topbar__nav" aria-label="Global">
+      <a href="#">News</a>
+      <a href="#">Discover</a>
+      <a href="#">Design</a>
+      <a href="#">Develop</a>
+      <a href="#">Support</a>
+      <a href="#">Account</a>
+    </nav>
+  </header>
+
+  <!-- 2‑column app layout -->
+  <main class="layout">
+    <!-- Left: sticky, scrollable sidebar with filter -->
+    <aside class="sidebar" id="sidebar" aria-label="Documentation">
+      <div class="sidebar__inner">
+        <div class="sidebar__header">Documentation</div>
+
+        <nav class="sidebar__nav" role="navigation" aria-label="Sections">
+          <!-- Example groups A–C; add as many as you need -->
+          <div class="sidebar__group">
+            <div class="sidebar__groupLabel">A</div>
+            <a class="sidebar__link" href="#"><span class="icon"></span>Accelerate</a>
+            <a class="sidebar__link" href="#"><span class="icon"></span>Accessibility</a>
+            <a class="sidebar__link" href="#"><span class="icon"></span>Accounts</a>
+            <a class="sidebar__link" href="#"><span class="icon"></span>ActivityKit</a>
+          </div>
+
+          <div class="sidebar__group">
+            <div class="sidebar__groupLabel">B</div>
+            <a class="sidebar__link" href="#"><span class="icon"></span>Background Tasks</a>
+            <a class="sidebar__link" href="#"><span class="icon"></span>Business Chat</a>
+          </div>
+
+          <div class="sidebar__group">
+            <div class="sidebar__groupLabel">C</div>
+            <a class="sidebar__link" href="#"><span class="icon"></span>Core Data</a>
+            <a class="sidebar__link" href="#"><span class="icon"></span>Core ML</a>
+            <a class="sidebar__link" href="#"><span class="icon"></span>Core Motion</a>
+          </div>
+        </nav>
+
+        <!-- Sticky footer filter -->
+        <div class="sidebar__filter">
+          <input id="sidebarFilter" type="search" placeholder="Filter" aria-label="Filter sidebar" />
+          <kbd class="slash">/</kbd>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right: content area -->
+    <section class="content" id="content">
+      <!-- Hero -->
+      <header class="hero">
+        <h1 class="hero__title">Developer Documentation</h1>
+        <p class="hero__subtitle">
+          Browse the latest sample code, articles, tutorials, and API reference.
+        </p>
+      </header>
+
+      <!-- Cards / Features -->
+      <section aria-labelledby="whats-new">
+        <h2 id="whats-new" class="section-title">Dive into What’s New</h2>
+
+        <div class="cardGrid">
+          <a class="card" href="#">
+            <div class="card__media" role="presentation" aria-hidden="true"></div>
+            <h3 class="card__title">What’s new in v2.0</h3>
+            <p class="card__body">Release notes and migration guides.</p>
+            <span class="card__cta">View article →</span>
+          </a>
+
+          <a class="card" href="#">
+            <div class="card__media" role="presentation" aria-hidden="true"></div>
+            <h3 class="card__title">Getting started</h3>
+            <p class="card__body">Install, configure, and your first app.</p>
+            <span class="card__cta">Read guide →</span>
+          </a>
+
+          <a class="card" href="#">
+            <div class="card__media" role="presentation" aria-hidden="true"></div>
+            <h3 class="card__title">API Reference</h3>
+            <p class="card__body">Functions, classes, and types.</p>
+            <span class="card__cta">Browse API →</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Typical content -->
+      <article class="prose">
+        <h2>Overview</h2>
+        <p>
+          This is a sample section to show body copy, lists, and code blocks with the chosen
+          type scale and spacing.
+        </p>
+        <h3>Installation</h3>
+        <pre><code>npm i your-lib
+# or
+pnpm add your-lib</code></pre>
+        <h3>Next steps</h3>
+        <ul>
+          <li>Follow the quickstart.</li>
+          <li>Read the guides.</li>
+          <li>Jump into the API reference.</li>
+        </ul>
+      </article>
+
+      <footer class="footer">
+        <p>© Your Company. Built with a stack‑independent template.</p>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

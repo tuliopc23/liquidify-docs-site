@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/prettierrc.json",
+  "printWidth": 100,
+  "singleQuote": false,
+  "semi": true,
+  "plugins": [
+    "prettier-plugin-astro",
+    "prettier-plugin-tailwindcss",
+    "@shopify/prettier-plugin-liquid"
+  ],
+  "overrides": [
+    { "files": "*.astro", "options": { "parser": "astro" } },
+    { "files": "*.mdx", "options": { "proseWrap": "preserve" } }
+  ]
+}

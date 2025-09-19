@@ -1,0 +1,107 @@
+---
+import type { AstroGlobal } from 'astro';
+import { getSidebar } from "../lib/sidebar";
+const sidebar = await getSidebar();
+const { url } = Astro as unknown as AstroGlobal;
+
+const topNav = [
+  { label: 'Docs', href: '/docs' },
+  { label: 'Guides', href: '/docs/guides' },
+  { label: 'Components', href: '/docs/components' },
+  { label: 'Advanced', href: '/docs/advanced' },
+  { label: 'Contributing', href: '/docs/contributing' },
+];
+const isActive = (href: string) => url.pathname === href || url.pathname.startsWith(href + '/');
+---
+
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LiqUIdify Docs</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <!-- Top bar (optional). Keep minimal; Apple has a global bar. -->
+<header class="topbar">
+      <button class="sidebar-toggle" aria-label="Toggle sidebar" aria-expanded="false">
+        ☰
+      </button>
+      <a class="topbar__brand" href="/" aria-label="LiqUIdify Docs Home">LiqUIdify Docs</a>
+      <nav class="topbar__nav" aria-label="Global">
+        {topNav.map((item) => (
+          <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+        ))}
+        <a class="github-link" href="https://github.com/tuliopc23/LiqUIdify" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository">
+          <svg class="gh" viewBox="0 0 16 16" width="18" height="18" aria-hidden="true" focusable="false">
+            <path fill="currentColor" fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.11 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.91.08 2.11.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"></path>
+          </svg>
+          <span class="sr-only">GitHub</span>
+        </a>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" aria-pressed="false">🌓</button>
+      </nav>
+    </header>
+
+    <!-- 2‑column app layout -->
+    <main class="layout">
+      <!-- Left: sticky, scrollable sidebar with filter -->
+      <aside class="sidebar" id="sidebar" aria-label="Documentation">
+        <div class="sidebar__inner">
+          <div class="sidebar__header">Documentation</div>
+
+          <nav class="sidebar__nav" role="navigation" aria-label="Sections">
+            {/** Populate nav items from generated sidebar structure while preserving classes */}
+            {sidebar.map((group) => (
+              <div class="sidebar__group">
+                {group.label && <div class="sidebar__groupLabel">{group.label}</div>}
+                {group.children?.map((item) => (
+                  item.children && item.children.length > 0 ? (
+                    <>
+                      <a class="sidebar__link" href={item.href ?? '#'}>
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                          <rect x="4" y="5" width="16" height="4" rx="2" />
+                          <rect x="4" y="10" width="16" height="4" rx="2" opacity="0.7" />
+                          <rect x="4" y="15" width="16" height="4" rx="2" opacity="0.5" />
+                        </svg>{item.label}
+                      </a>
+                      {item.children.map((child) => (
+                        <a class="sidebar__link" href={child.href ?? '#'} aria-current={url.pathname === child.href ? 'page' : undefined}>
+                          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <rect x="4" y="5" width="16" height="4" rx="2" />
+                            <rect x="4" y="10" width="16" height="4" rx="2" opacity="0.7" />
+                            <rect x="4" y="15" width="16" height="4" rx="2" opacity="0.5" />
+                          </svg>{child.label}
+                        </a>
+                      ))}
+                    </>
+                  ) : (
+                    <a class="sidebar__link" href={item.href ?? '#'} aria-current={url.pathname === item.href ? 'page' : undefined}>
+                      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <rect x="4" y="5" width="16" height="4" rx="2" />
+                        <rect x="4" y="10" width="16" height="4" rx="2" opacity="0.7" />
+                        <rect x="4" y="15" width="16" height="4" rx="2" opacity="0.5" />
+                      </svg>{item.label}
+                    </a>
+                  )
+                ))}
+              </div>
+            ))}
+          </nav>
+
+          <!-- Sticky footer filter -->
+          <div class="sidebar__filter">
+            <input id="sidebarFilter" type="search" placeholder="Filter" aria-label="Filter sidebar" />
+            <kbd class="slash">/</kbd>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right: content area -->
+      <section class="content" id="content">
+        <slot />
+      </section>
+    </main>
+
+    <script src="/script.js" defer></script>
+  </body>
+</html>

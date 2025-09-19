@@ -1,0 +1,6 @@
+# Markdownlint rules for docs
+# Use GitHub-flavored MD defaults, relax some rules for MDX
+MD013: false          # line length - allow long code lines
+MD033: false          # inline HTML allowed (MDX, custom components)
+MD041: false          # first line heading - some pages use frontmatter
+MD024: false          # no-duplicate-heading - allow in separate sections
