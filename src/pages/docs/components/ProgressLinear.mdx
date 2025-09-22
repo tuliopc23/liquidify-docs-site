@@ -10,13 +10,13 @@ A linear progress bar component that displays completion status with smooth anim
 ## Installation
 
 ```bash
-npm install @liquidify/components
+npm install liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { ProgressLinear } from "@liquidify/components/progressLinear";
+import { ProgressLinear } from "liquidify-react/progressLinear";
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ import { ProgressLinear } from "@liquidify/components/progressLinear";
 
 ```tsx
 import { useState } from "react";
-import { ProgressLinear } from "@liquidify/components/progressLinear";
+import { ProgressLinear } from "liquidify-react/progressLinear";
 
 export default function BasicProgressLinear() {
   const [progress, setProgress] = useState(0);
@@ -65,7 +65,7 @@ export default function BasicProgressLinear() {
 
 ```tsx
 import { useState, useEffect } from "react";
-import { ProgressLinear } from "@liquidify/components/progressLinear";
+import { ProgressLinear } from "liquidify-react/progressLinear";
 
 export default function FileUploadProgress() {
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -136,7 +136,7 @@ export default function FileUploadProgress() {
 
 ```tsx
 import { useState } from "react";
-import { ProgressLinear } from "@liquidify/components/progressLinear";
+import { ProgressLinear } from "liquidify-react/progressLinear";
 
 export default function MultiStepFormProgress() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -281,7 +281,7 @@ export default function MultiStepFormProgress() {
 
 ```tsx
 import { useState, useEffect } from "react";
-import { ProgressLinear } from "@liquidify/components/progressLinear";
+import { ProgressLinear } from "liquidify-react/progressLinear";
 
 export default function LoadingStates() {
   const [loadingStates, setLoadingStates] = useState({
@@ -359,7 +359,7 @@ export default function LoadingStates() {
 ### Skill Level Indicators
 
 ```tsx
-import { ProgressLinear } from "@liquidify/components/progressLinear";
+import { ProgressLinear } from "liquidify-react/progressLinear";
 
 export default function SkillLevelIndicators() {
   const skills = [
@@ -421,7 +421,7 @@ export default function SkillLevelIndicators() {
 ### Project Milestones
 
 ```tsx
-import { ProgressLinear } from "@liquidify/components/progressLinear";
+import { ProgressLinear } from "liquidify-react/progressLinear";
 
 export default function ProjectMilestones() {
   const milestones = [
@@ -526,7 +526,7 @@ export default function ProjectMilestones() {
 ### Different Sizes
 
 ```tsx
-import { ProgressLinear } from "@liquidify/components/progressLinear";
+import { ProgressLinear } from "liquidify-react/progressLinear";
 
 export default function DifferentSizes() {
   const sizes = ["xs", "sm", "md", "lg"];
@@ -564,7 +564,7 @@ export default function DifferentSizes() {
 ### With Custom Styling
 
 ```tsx
-import { ProgressLinear } from "@liquidify/components/progressLinear";
+import { ProgressLinear } from "liquidify-react/progressLinear";
 
 export default function CustomStyledProgress() {
   return (

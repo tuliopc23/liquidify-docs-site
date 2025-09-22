@@ -10,13 +10,13 @@ A floating panel that displays rich content in a portal, triggered by user inter
 ## Installation
 
 ```bash
-bun add @liquidify/components
+bun add liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { Popover } from "@liquidify/components/popover"
+import { Popover } from "liquidify-react/popover"
 ```
 
 ## Basic Usage
@@ -24,8 +24,8 @@ import { Popover } from "@liquidify/components/popover"
 Create a simple popover with content:
 
 ```tsx
-import { Popover } from "@liquidify/components/popover"
-import { Button } from "@liquidify/components/button"
+import { Popover } from "liquidify-react/popover"
+import { Button } from "liquidify-react/button"
 
 export function BasicExample() {
   return (
@@ -56,8 +56,8 @@ Use popovers for inline forms and actions:
 
 ```tsx
 import { useState } from "react"
-import { Popover } from "@liquidify/components/popover"
-import { Button } from "@liquidify/components/button"
+import { Popover } from "liquidify-react/popover"
+import { Button } from "liquidify-react/button"
 
 export function FormExample() {
   const [name, setName] = useState("")
@@ -119,8 +119,8 @@ Control the popover's open state programmatically:
 
 ```tsx
 import { useState } from "react"
-import { Popover } from "@liquidify/components/popover"
-import { Button } from "@liquidify/components/button"
+import { Popover } from "liquidify-react/popover"
+import { Button } from "liquidify-react/button"
 
 export function ControlledExample() {
   const [open, setOpen] = useState(false)
@@ -159,8 +159,8 @@ export function ControlledExample() {
 Customize the popover's position and behavior:
 
 ```tsx
-import { Popover } from "@liquidify/components/popover"
-import { Button } from "@liquidify/components/button"
+import { Popover } from "liquidify-react/popover"
+import { Button } from "liquidify-react/button"
 
 export function PositioningExample() {
   return (
@@ -217,8 +217,8 @@ Create a settings panel using popover:
 
 ```tsx
 import { useState } from "react"
-import { Popover } from "@liquidify/components/popover"
-import { Button } from "@liquidify/components/button"
+import { Popover } from "liquidify-react/popover"
+import { Button } from "liquidify-react/button"
 
 export function SettingsExample() {
   const [notifications, setNotifications] = useState(true)

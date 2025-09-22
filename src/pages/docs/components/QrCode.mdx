@@ -10,13 +10,13 @@ A QR code generator component that creates scannable codes for encoding text, UR
 ## Installation
 
 ```bash
-npm install @liquidify/components
+npm install liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { QrCode } from "@liquidify/components/qrCode";
+import { QrCode } from "liquidify-react/qrCode";
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ import { QrCode } from "@liquidify/components/qrCode";
 ### Basic QR Code
 
 ```tsx
-import { QrCode } from "@liquidify/components/qrCode";
+import { QrCode } from "liquidify-react/qrCode";
 
 export default function BasicQrCode() {
   return (
@@ -43,7 +43,7 @@ export default function BasicQrCode() {
 
 ```tsx
 import { useState } from "react";
-import { QrCode } from "@liquidify/components/qrCode";
+import { QrCode } from "liquidify-react/qrCode";
 
 export default function UrlSharing() {
   const [url, setUrl] = useState("https://github.com/yourusername/project");
@@ -114,7 +114,7 @@ export default function UrlSharing() {
 
 ```tsx
 import { useState } from "react";
-import { QrCode } from "@liquidify/components/qrCode";
+import { QrCode } from "liquidify-react/qrCode";
 
 export default function ContactQrCode() {
   const [contact, setContact] = useState({
@@ -204,7 +204,7 @@ END:VCARD`.replace(/\n/g, '\n');
 
 ```tsx
 import { useState } from "react";
-import { QrCode } from "@liquidify/components/qrCode";
+import { QrCode } from "liquidify-react/qrCode";
 
 export default function WifiQrCode() {
   const [wifi, setWifi] = useState({
@@ -279,7 +279,7 @@ export default function WifiQrCode() {
 ### Event Details
 
 ```tsx
-import { QrCode } from "@liquidify/components/qrCode";
+import { QrCode } from "liquidify-react/qrCode";
 
 export default function EventQrCode() {
   const events = [
@@ -366,7 +366,7 @@ END:VEVENT`;
 ### Product Information
 
 ```tsx
-import { QrCode } from "@liquidify/components/qrCode";
+import { QrCode } from "liquidify-react/qrCode";
 
 export default function ProductQrCode() {
   const products = [
@@ -439,7 +439,7 @@ export default function ProductQrCode() {
 
 ```tsx
 import { useState } from "react";
-import { QrCode } from "@liquidify/components/qrCode";
+import { QrCode } from "liquidify-react/qrCode";
 
 export default function TextMessageQrCode() {
   const [message, setMessage] = useState("Hello! This is a QR code encoded message.");
@@ -513,7 +513,7 @@ export default function TextMessageQrCode() {
 ### Custom Styled QR Code
 
 ```tsx
-import { QrCode } from "@liquidify/components/qrCode";
+import { QrCode } from "liquidify-react/qrCode";
 
 export default function CustomStyledQrCode() {
   const data = "https://example.com/custom-styled-qr";

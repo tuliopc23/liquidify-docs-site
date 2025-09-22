@@ -10,13 +10,13 @@ A dropdown select component that allows users to choose from a list of options.
 ## Installation
 
 ```bash
-bun add @liquidify/components
+bun add liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { Select } from "@liquidify/components/select"
+import { Select } from "liquidify-react/select"
 ```
 
 ## Basic Usage
@@ -24,7 +24,7 @@ import { Select } from "@liquidify/components/select"
 Create a simple select dropdown:
 
 ```tsx
-import { Select } from "@liquidify/components/select"
+import { Select } from "liquidify-react/select"
 
 export function BasicExample() {
   const options = [
@@ -64,7 +64,7 @@ Control the selected value with state:
 
 ```tsx
 import { useState } from "react"
-import { Select } from "@liquidify/components/select"
+import { Select } from "liquidify-react/select"
 
 export function ControlledExample() {
   const [value, setValue] = useState([])
@@ -112,7 +112,7 @@ Allow multiple selections:
 
 ```tsx
 import { useState } from "react"
-import { Select } from "@liquidify/components/select"
+import { Select } from "liquidify-react/select"
 
 export function MultiSelectExample() {
   const [values, setValues] = useState([])
@@ -163,7 +163,7 @@ export function MultiSelectExample() {
 Organize options into groups:
 
 ```tsx
-import { Select } from "@liquidify/components/select"
+import { Select } from "liquidify-react/select"
 
 export function GroupedExample() {
   const options = [
@@ -215,7 +215,7 @@ Add search functionality to filter options:
 
 ```tsx
 import { useState } from "react"
-import { Select } from "@liquidify/components/select"
+import { Select } from "liquidify-react/select"
 
 export function SearchableExample() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -286,7 +286,7 @@ export function SearchableExample() {
 Customize how options are displayed:
 
 ```tsx
-import { Select } from "@liquidify/components/select"
+import { Select } from "liquidify-react/select"
 
 export function CustomRenderingExample() {
   const users = [
@@ -353,7 +353,7 @@ export function CustomRenderingExample() {
 Show a disabled select component:
 
 ```tsx
-import { Select } from "@liquidify/components/select"
+import { Select } from "liquidify-react/select"
 
 export function DisabledExample() {
   const options = [

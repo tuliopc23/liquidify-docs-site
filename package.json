@@ -14,9 +14,16 @@
     "mdlint": "markdownlint --config .markdownlint.yaml \"**/*.{md,mdx}\""
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.5",
-    "astro": "^5.13.8",
-    "liquidify-react": "^0.6.8"
+    "@ark-ui/react": "^5.25.0",
+    "@astrojs/mdx": "^4.3.6",
+    "@astrojs/react": "^4.3.1",
+    "astro": "^5.13.10",
+    "astro-expressive-code": "^0.41.3",
+    "framer-motion": "^12.23.18",
+    "liquidify-react": "^0.6.8",
+    "lucide-react": "^0.544.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.4",

@@ -10,13 +10,13 @@ A hierarchical tree structure component that displays nested data with expandabl
 ## Installation
 
 ```bash
-npm install @liquidify/components
+npm install liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { TreeView } from "@liquidify/components/treeView";
+import { TreeView } from "liquidify-react/treeView";
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ import { TreeView } from "@liquidify/components/treeView";
 ### Basic File Explorer
 
 ```tsx
-import { TreeView } from "@liquidify/components/treeView";
+import { TreeView } from "liquidify-react/treeView";
 
 export default function BasicFileExplorer() {
   return (
@@ -68,7 +68,7 @@ export default function BasicFileExplorer() {
 
 ```tsx
 import { useState } from "react";
-import { TreeView } from "@liquidify/components/treeView";
+import { TreeView } from "liquidify-react/treeView";
 
 export default function NavigationTree() {
   const [expandedItems, setExpandedItems] = useState(["products", "settings"]);
@@ -145,7 +145,7 @@ export default function NavigationTree() {
 ### Organizational Chart
 
 ```tsx
-import { TreeView } from "@liquidify/components/treeView";
+import { TreeView } from "liquidify-react/treeView";
 
 export default function OrganizationalChart() {
   return (
@@ -210,7 +210,7 @@ export default function OrganizationalChart() {
 
 ```tsx
 import { useState } from "react";
-import { TreeView } from "@liquidify/components/treeView";
+import { TreeView } from "liquidify-react/treeView";
 
 export default function DynamicTree() {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -299,7 +299,7 @@ export default function DynamicTree() {
 
 ```tsx
 import { useState } from "react";
-import { TreeView } from "@liquidify/components/treeView";
+import { TreeView } from "liquidify-react/treeView";
 
 export default function TreeWithCheckboxes() {
   const [checkedItems, setCheckedItems] = useState([]);
@@ -405,7 +405,7 @@ export default function TreeWithCheckboxes() {
 
 ```tsx
 import { useState, useMemo } from "react";
-import { TreeView } from "@liquidify/components/treeView";
+import { TreeView } from "liquidify-react/treeView";
 
 export default function TreeWithSearch() {
   const [searchTerm, setSearchTerm] = useState("");

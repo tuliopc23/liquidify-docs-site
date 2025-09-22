@@ -10,13 +10,13 @@ An interactive slider component for selecting numerical values within a specifie
 ## Installation
 
 ```bash
-bun add @liquidify/components
+bun add liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { Slider } from "@liquidify/components/slider"
+import { Slider } from "liquidify-react/slider"
 ```
 
 ## Basic Usage
@@ -24,7 +24,7 @@ import { Slider } from "@liquidify/components/slider"
 Create a simple slider for value selection:
 
 ```tsx
-import { Slider } from "@liquidify/components/slider"
+import { Slider } from "liquidify-react/slider"
 
 export function BasicExample() {
   return (
@@ -48,7 +48,7 @@ Control the slider value with state:
 
 ```tsx
 import { useState } from "react"
-import { Slider } from "@liquidify/components/slider"
+import { Slider } from "liquidify-react/slider"
 
 export function ControlledExample() {
   const [value, setValue] = useState([25])
@@ -80,7 +80,7 @@ Create a dual-thumb slider for selecting ranges:
 
 ```tsx
 import { useState } from "react"
-import { Slider } from "@liquidify/components/slider"
+import { Slider } from "liquidify-react/slider"
 
 export function RangeExample() {
   const [range, setRange] = useState([20, 80])
@@ -115,7 +115,7 @@ export function RangeExample() {
 Use discrete steps for value selection:
 
 ```tsx
-import { Slider } from "@liquidify/components/slider"
+import { Slider } from "liquidify-react/slider"
 
 export function StepExample() {
   return (
@@ -143,7 +143,7 @@ export function StepExample() {
 Create a vertical orientation slider:
 
 ```tsx
-import { Slider } from "@liquidify/components/slider"
+import { Slider } from "liquidify-react/slider"
 
 export function VerticalExample() {
   return (
@@ -174,7 +174,7 @@ Use sliders for color value selection:
 
 ```tsx
 import { useState } from "react"
-import { Slider } from "@liquidify/components/slider"
+import { Slider } from "liquidify-react/slider"
 
 export function ColorPickerExample() {
   const [red, setRed] = useState([128])
@@ -254,7 +254,7 @@ export function ColorPickerExample() {
 Show a disabled slider component:
 
 ```tsx
-import { Slider } from "@liquidify/components/slider"
+import { Slider } from "liquidify-react/slider"
 
 export function DisabledExample() {
   return (
@@ -281,7 +281,7 @@ Format slider values with custom display:
 
 ```tsx
 import { useState } from "react"
-import { Slider } from "@liquidify/components/slider"
+import { Slider } from "liquidify-react/slider"
 
 export function FormattedExample() {
   const [value, setValue] = useState([50])

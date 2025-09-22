@@ -10,13 +10,13 @@ A collection of layered sections of content—known as tab panels—that are dis
 ## Installation
 
 ```bash
-npm install @liquidify/components
+npm install liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { Tabs } from "@liquidify/components/tabs";
+import { Tabs } from "liquidify-react/tabs";
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ import { Tabs } from "@liquidify/components/tabs";
 ### Basic Tabs
 
 ```tsx
-import { Tabs } from "@liquidify/components/tabs";
+import { Tabs } from "liquidify-react/tabs";
 
 export default function BasicTabs() {
   return (
@@ -55,7 +55,7 @@ export default function BasicTabs() {
 
 ```tsx
 import { useState } from "react";
-import { Tabs } from "@liquidify/components/tabs";
+import { Tabs } from "liquidify-react/tabs";
 
 export default function ControlledTabs() {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -93,7 +93,7 @@ export default function ControlledTabs() {
 ### Vertical Tabs
 
 ```tsx
-import { Tabs } from "@liquidify/components/tabs";
+import { Tabs } from "liquidify-react/tabs";
 
 export default function VerticalTabs() {
   return (
@@ -132,7 +132,7 @@ export default function VerticalTabs() {
 ### Tabs with Indicators
 
 ```tsx
-import { Tabs } from "@liquidify/components/tabs";
+import { Tabs } from "liquidify-react/tabs";
 
 export default function TabsWithIndicator() {
   return (
@@ -168,7 +168,7 @@ export default function TabsWithIndicator() {
 ### Disabled Tabs
 
 ```tsx
-import { Tabs } from "@liquidify/components/tabs";
+import { Tabs } from "liquidify-react/tabs";
 
 export default function DisabledTabs() {
   return (
@@ -208,7 +208,7 @@ export default function DisabledTabs() {
 
 ```tsx
 import { useState } from "react";
-import { Tabs } from "@liquidify/components/tabs";
+import { Tabs } from "liquidify-react/tabs";
 
 const ExpensiveComponent = ({ title }: { title: string }) => {
   console.log(`Loading ${title} content...`);

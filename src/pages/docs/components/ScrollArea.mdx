@@ -10,13 +10,13 @@ A custom scrollable container component that provides styled scrollbars and prec
 ## Installation
 
 ```bash
-npm install @liquidify/components
+npm install liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { ScrollArea } from "@liquidify/components/scrollArea";
+import { ScrollArea } from "liquidify-react/scrollArea";
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ import { ScrollArea } from "@liquidify/components/scrollArea";
 ### Basic Scroll Area
 
 ```tsx
-import { ScrollArea } from "@liquidify/components/scrollArea";
+import { ScrollArea } from "liquidify-react/scrollArea";
 
 export default function BasicScrollArea() {
   return (
@@ -67,7 +67,7 @@ export default function BasicScrollArea() {
 
 ```tsx
 import { useState, useRef, useEffect } from "react";
-import { ScrollArea } from "@liquidify/components/scrollArea";
+import { ScrollArea } from "liquidify-react/scrollArea";
 
 export default function ChatInterface() {
   const [messages, setMessages] = useState([
@@ -192,7 +192,7 @@ export default function ChatInterface() {
 ### Data Table with Scroll
 
 ```tsx
-import { ScrollArea } from "@liquidify/components/scrollArea";
+import { ScrollArea } from "liquidify-react/scrollArea";
 
 export default function DataTableScroll() {
   const headers = ["ID", "Name", "Email", "Department", "Status", "Last Login"];
@@ -274,7 +274,7 @@ export default function DataTableScroll() {
 ### Code Viewer
 
 ```tsx
-import { ScrollArea } from "@liquidify/components/scrollArea";
+import { ScrollArea } from "liquidify-react/scrollArea";
 
 export default function CodeViewer() {
   const code = `import React, { useState, useEffect } from 'react';
@@ -368,7 +368,7 @@ export default DataFetcher;`;
 ### Image Gallery with Scroll
 
 ```tsx
-import { ScrollArea } from "@liquidify/components/scrollArea";
+import { ScrollArea } from "liquidify-react/scrollArea";
 
 export default function ImageGalleryScroll() {
   const images = Array.from({ length: 20 }, (_, i) => ({
@@ -429,7 +429,7 @@ export default function ImageGalleryScroll() {
 ### Settings Panel
 
 ```tsx
-import { ScrollArea } from "@liquidify/components/scrollArea";
+import { ScrollArea } from "liquidify-react/scrollArea";
 
 export default function SettingsPanel() {
   const settings = [
@@ -545,7 +545,7 @@ export default function SettingsPanel() {
 ### Horizontal Scroll Area
 
 ```tsx
-import { ScrollArea } from "@liquidify/components/scrollArea";
+import { ScrollArea } from "liquidify-react/scrollArea";
 
 export default function HorizontalScrollArea() {
   const items = Array.from({ length: 20 }, (_, i) => ({

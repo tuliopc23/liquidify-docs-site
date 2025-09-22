@@ -10,13 +10,13 @@ An interactive guided tour component that helps users discover features and navi
 ## Installation
 
 ```bash
-npm install @liquidify/components
+npm install liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { Tour } from "@liquidify/components/tour";
+import { Tour } from "liquidify-react/tour";
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ import { Tour } from "@liquidify/components/tour";
 
 ```tsx
 import { useState } from "react";
-import { Tour } from "@liquidify/components/tour";
+import { Tour } from "liquidify-react/tour";
 
 export default function BasicTour() {
   const [isOpen, setIsOpen] = useState(false);
@@ -117,7 +117,7 @@ export default function BasicTour() {
 
 ```tsx
 import { useState } from "react";
-import { Tour } from "@liquidify/components/tour";
+import { Tour } from "liquidify-react/tour";
 
 export default function ProductFeatureTour() {
   const [tourOpen, setTourOpen] = useState(false);
@@ -267,7 +267,7 @@ export default function ProductFeatureTour() {
 
 ```tsx
 import { useState } from "react";
-import { Tour } from "@liquidify/components/tour";
+import { Tour } from "liquidify-react/tour";
 
 export default function ConditionalTour() {
   const [tourOpen, setTourOpen] = useState(false);

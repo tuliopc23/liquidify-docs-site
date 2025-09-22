@@ -10,13 +10,13 @@ A specialized input component for numeric values with increment/decrement contro
 ## Installation
 
 ```bash
-bun add @liquidify/components
+bun add liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { NumberInput } from "@liquidify/components/number-input"
+import { NumberInput } from "liquidify-react/number-input"
 ```
 
 ## Basic Usage
@@ -24,7 +24,7 @@ import { NumberInput } from "@liquidify/components/number-input"
 Create a simple number input with increment/decrement buttons:
 
 ```tsx
-import { NumberInput } from "@liquidify/components/number-input"
+import { NumberInput } from "liquidify-react/number-input"
 
 export function BasicExample() {
   return (
@@ -46,7 +46,7 @@ Control the number input value with state:
 
 ```tsx
 import { useState } from "react"
-import { NumberInput } from "@liquidify/components/number-input"
+import { NumberInput } from "liquidify-react/number-input"
 
 export function ControlledExample() {
   const [value, setValue] = useState("10")
@@ -70,7 +70,7 @@ export function ControlledExample() {
 Set boundaries and increment steps:
 
 ```tsx
-import { NumberInput } from "@liquidify/components/number-input"
+import { NumberInput } from "liquidify-react/number-input"
 
 export function MinMaxStepExample() {
   return (
@@ -99,7 +99,7 @@ export function MinMaxStepExample() {
 Handle decimal values with specified precision:
 
 ```tsx
-import { NumberInput } from "@liquidify/components/number-input"
+import { NumberInput } from "liquidify-react/number-input"
 
 export function DecimalExample() {
   return (
@@ -125,7 +125,7 @@ export function DecimalExample() {
 Format numbers as currency with custom formatting:
 
 ```tsx
-import { NumberInput } from "@liquidify/components/number-input"
+import { NumberInput } from "liquidify-react/number-input"
 
 export function CurrencyExample() {
   return (
@@ -153,7 +153,7 @@ Show validation errors and invalid states:
 
 ```tsx
 import { useState } from "react"
-import { NumberInput } from "@liquidify/components/number-input"
+import { NumberInput } from "liquidify-react/number-input"
 
 export function ValidationExample() {
   const [value, setValue] = useState("")
@@ -197,7 +197,7 @@ export function ValidationExample() {
 Disable the number input when needed:
 
 ```tsx
-import { NumberInput } from "@liquidify/components/number-input"
+import { NumberInput } from "liquidify-react/number-input"
 
 export function DisabledExample() {
   return (

@@ -10,13 +10,13 @@ A floating card that appears when hovering over an element, perfect for contextu
 ## Installation
 
 ```bash
-bun add @liquidify/components
+bun add liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { HoverCard } from "@liquidify/components/hover-card"
+import { HoverCard } from "liquidify-react/hover-card"
 ```
 
 ## Basic Usage
@@ -24,8 +24,8 @@ import { HoverCard } from "@liquidify/components/hover-card"
 Display contextual information when hovering over a trigger element:
 
 ```tsx
-import { HoverCard } from "@liquidify/components/hover-card"
-import { Button } from "@liquidify/components/button"
+import { HoverCard } from "liquidify-react/hover-card"
+import { Button } from "liquidify-react/button"
 
 export function BasicExample() {
   return (
@@ -52,8 +52,8 @@ export function BasicExample() {
 Create rich profile previews for user mentions or avatars:
 
 ```tsx
-import { HoverCard } from "@liquidify/components/hover-card"
-import { Avatar } from "@liquidify/components/avatar"
+import { HoverCard } from "liquidify-react/hover-card"
+import { Avatar } from "liquidify-react/avatar"
 
 export function UserProfileExample() {
   return (
@@ -90,8 +90,8 @@ Control the hover card's visibility programmatically:
 
 ```tsx
 import { useState } from "react"
-import { HoverCard } from "@liquidify/components/hover-card"
-import { Button } from "@liquidify/components/button"
+import { HoverCard } from "liquidify-react/hover-card"
+import { Button } from "liquidify-react/button"
 
 export function ControlledExample() {
   const [open, setOpen] = useState(false)
@@ -130,8 +130,8 @@ export function ControlledExample() {
 Customize the hover card's position and behavior:
 
 ```tsx
-import { HoverCard } from "@liquidify/components/hover-card"
-import { Button } from "@liquidify/components/button"
+import { HoverCard } from "liquidify-react/hover-card"
+import { Button } from "liquidify-react/button"
 
 export function PositioningExample() {
   return (

@@ -10,13 +10,13 @@ An input component that allows users to enter, edit, and delete multiple tags. P
 ## Installation
 
 ```bash
-npm install @liquidify/components
+npm install liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { TagsInput } from "@liquidify/components/tagsInput";
+import { TagsInput } from "liquidify-react/tagsInput";
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ import { TagsInput } from "@liquidify/components/tagsInput";
 ### Basic TagsInput
 
 ```tsx
-import { TagsInput } from "@liquidify/components/tagsInput";
+import { TagsInput } from "liquidify-react/tagsInput";
 
 export default function BasicTagsInput() {
   return (
@@ -53,7 +53,7 @@ export default function BasicTagsInput() {
 
 ```tsx
 import { useState } from "react";
-import { TagsInput } from "@liquidify/components/tagsInput";
+import { TagsInput } from "liquidify-react/tagsInput";
 
 export default function ControlledTagsInput() {
   const [tags, setTags] = useState(["Design", "Development"]);
@@ -87,7 +87,7 @@ export default function ControlledTagsInput() {
 
 ```tsx
 import { useState } from "react";
-import { TagsInput } from "@liquidify/components/tagsInput";
+import { TagsInput } from "liquidify-react/tagsInput";
 
 export default function ValidatedTagsInput() {
   const [tags, setTags] = useState(["email", "urgent"]);
@@ -138,7 +138,7 @@ export default function ValidatedTagsInput() {
 
 ```tsx
 import { useState } from "react";
-import { TagsInput } from "@liquidify/components/tagsInput";
+import { TagsInput } from "liquidify-react/tagsInput";
 
 export default function CustomDelimitersTagsInput() {
   const [tags, setTags] = useState(["apple", "banana"]);
@@ -172,7 +172,7 @@ export default function CustomDelimitersTagsInput() {
 ### Read-only TagsInput
 
 ```tsx
-import { TagsInput } from "@liquidify/components/tagsInput";
+import { TagsInput } from "liquidify-react/tagsInput";
 
 export default function ReadOnlyTagsInput() {
   const tags = ["Production", "Critical", "Urgent"];
@@ -198,7 +198,7 @@ export default function ReadOnlyTagsInput() {
 ### Disabled TagsInput
 
 ```tsx
-import { TagsInput } from "@liquidify/components/tagsInput";
+import { TagsInput } from "liquidify-react/tagsInput";
 
 export default function DisabledTagsInput() {
   const tags = ["React", "TypeScript", "Next.js"];
@@ -229,7 +229,7 @@ export default function DisabledTagsInput() {
 
 ```tsx
 import { useState } from "react";
-import { TagsInput } from "@liquidify/components/tagsInput";
+import { TagsInput } from "liquidify-react/tagsInput";
 
 export default function InlineEditingTagsInput() {
   const [tags, setTags] = useState(["UI Design", "Frontend Development"]);

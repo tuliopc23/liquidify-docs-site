@@ -10,13 +10,13 @@ A set of radio buttons that allows users to select one option from multiple choi
 ## Installation
 
 ```bash
-bun add @liquidify/components
+bun add liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { RadioGroup } from "@liquidify/components/radio-group"
+import { RadioGroup } from "liquidify-react/radio-group"
 ```
 
 ## Basic Usage
@@ -24,7 +24,7 @@ import { RadioGroup } from "@liquidify/components/radio-group"
 Create a simple radio group with multiple options:
 
 ```tsx
-import { RadioGroup } from "@liquidify/components/radio-group"
+import { RadioGroup } from "liquidify-react/radio-group"
 
 export function BasicExample() {
   return (
@@ -55,7 +55,7 @@ Control the selected value with state:
 
 ```tsx
 import { useState } from "react"
-import { RadioGroup } from "@liquidify/components/radio-group"
+import { RadioGroup } from "liquidify-react/radio-group"
 
 export function ControlledExample() {
   const [value, setValue] = useState("credit-card")
@@ -88,7 +88,7 @@ export function ControlledExample() {
 Display radio buttons in a horizontal layout:
 
 ```tsx
-import { RadioGroup } from "@liquidify/components/radio-group"
+import { RadioGroup } from "liquidify-react/radio-group"
 
 export function HorizontalExample() {
   return (
@@ -114,7 +114,7 @@ export function HorizontalExample() {
 Create radio items with rich content and descriptions:
 
 ```tsx
-import { RadioGroup } from "@liquidify/components/radio-group"
+import { RadioGroup } from "liquidify-react/radio-group"
 
 export function RichContentExample() {
   return (
@@ -176,7 +176,7 @@ export function RichContentExample() {
 Show disabled radio options:
 
 ```tsx
-import { RadioGroup } from "@liquidify/components/radio-group"
+import { RadioGroup } from "liquidify-react/radio-group"
 
 export function DisabledExample() {
   return (
@@ -207,8 +207,8 @@ Show validation errors for radio groups:
 
 ```tsx
 import { useState } from "react"
-import { RadioGroup } from "@liquidify/components/radio-group"
-import { Button } from "@liquidify/components/button"
+import { RadioGroup } from "liquidify-react/radio-group"
+import { Button } from "liquidify-react/button"
 
 export function ValidationExample() {
   const [value, setValue] = useState("")

@@ -10,13 +10,13 @@ A segmented control component that allows users to select one option from a set 
 ## Installation
 
 ```bash
-npm install @liquidify/components
+npm install liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { SegmentGroup } from "@liquidify/components/segmentGroup";
+import { SegmentGroup } from "liquidify-react/segmentGroup";
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ import { SegmentGroup } from "@liquidify/components/segmentGroup";
 
 ```tsx
 import { useState } from "react";
-import { SegmentGroup } from "@liquidify/components/segmentGroup";
+import { SegmentGroup } from "liquidify-react/segmentGroup";
 
 export default function BasicSegmentGroup() {
   const [value, setValue] = useState("option1");
@@ -61,7 +61,7 @@ export default function BasicSegmentGroup() {
 
 ```tsx
 import { useState } from "react";
-import { SegmentGroup } from "@liquidify/components/segmentGroup";
+import { SegmentGroup } from "liquidify-react/segmentGroup";
 
 export default function ViewModeSelector() {
   const [viewMode, setViewMode] = useState("grid");
@@ -146,7 +146,7 @@ export default function ViewModeSelector() {
 
 ```tsx
 import { useState } from "react";
-import { SegmentGroup } from "@liquidify/components/segmentGroup";
+import { SegmentGroup } from "liquidify-react/segmentGroup";
 
 export default function TextFormattingControls() {
   const [alignment, setAlignment] = useState("left");
@@ -231,7 +231,7 @@ export default function TextFormattingControls() {
 
 ```tsx
 import { useState } from "react";
-import { SegmentGroup } from "@liquidify/components/segmentGroup";
+import { SegmentGroup } from "liquidify-react/segmentGroup";
 
 export default function FilterControls() {
   const [statusFilter, setStatusFilter] = useState("all");
@@ -349,7 +349,7 @@ export default function FilterControls() {
 
 ```tsx
 import { useState } from "react";
-import { SegmentGroup } from "@liquidify/components/segmentGroup";
+import { SegmentGroup } from "liquidify-react/segmentGroup";
 
 export default function ThemeSelector() {
   const [theme, setTheme] = useState("light");
@@ -437,7 +437,7 @@ export default function ThemeSelector() {
 
 ```tsx
 import { useState } from "react";
-import { SegmentGroup } from "@liquidify/components/segmentGroup";
+import { SegmentGroup } from "liquidify-react/segmentGroup";
 
 export default function UnitConverter() {
   const [fromUnit, setFromUnit] = useState("celsius");
@@ -565,7 +565,7 @@ export default function UnitConverter() {
 
 ```tsx
 import { useState } from "react";
-import { SegmentGroup } from "@liquidify/components/segmentGroup";
+import { SegmentGroup } from "liquidify-react/segmentGroup";
 
 export default function MediaPlayerControls() {
   const [playbackSpeed, setPlaybackSpeed] = useState("1x");

@@ -10,13 +10,13 @@ A rating component that allows users to rate items using stars or other symbols.
 ## Installation
 
 ```bash
-bun add @liquidify/components
+bun add liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { RatingGroup } from "@liquidify/components/rating-group"
+import { RatingGroup } from "liquidify-react/rating-group"
 ```
 
 ## Basic Usage
@@ -24,7 +24,7 @@ import { RatingGroup } from "@liquidify/components/rating-group"
 Create a simple star rating component:
 
 ```tsx
-import { RatingGroup } from "@liquidify/components/rating-group"
+import { RatingGroup } from "liquidify-react/rating-group"
 
 export function BasicExample() {
   return (
@@ -58,7 +58,7 @@ Control the rating value with state:
 
 ```tsx
 import { useState } from "react"
-import { RatingGroup } from "@liquidify/components/rating-group"
+import { RatingGroup } from "liquidify-react/rating-group"
 
 export function ControlledExample() {
   const [rating, setRating] = useState(0)
@@ -102,7 +102,7 @@ export function ControlledExample() {
 Allow half-star ratings for more precise feedback:
 
 ```tsx
-import { RatingGroup } from "@liquidify/components/rating-group"
+import { RatingGroup } from "liquidify-react/rating-group"
 
 export function HalfStarExample() {
   return (
@@ -148,7 +148,7 @@ export function HalfStarExample() {
 Use custom symbols instead of stars:
 
 ```tsx
-import { RatingGroup } from "@liquidify/components/rating-group"
+import { RatingGroup } from "liquidify-react/rating-group"
 
 export function CustomSymbolsExample() {
   return (
@@ -185,7 +185,7 @@ export function CustomSymbolsExample() {
 Display ratings without allowing user interaction:
 
 ```tsx
-import { RatingGroup } from "@liquidify/components/rating-group"
+import { RatingGroup } from "liquidify-react/rating-group"
 
 export function ReadOnlyExample() {
   return (
@@ -250,7 +250,7 @@ Provide textual feedback based on rating:
 
 ```tsx
 import { useState } from "react"
-import { RatingGroup } from "@liquidify/components/rating-group"
+import { RatingGroup } from "liquidify-react/rating-group"
 
 export function FeedbackExample() {
   const [rating, setRating] = useState(0)
@@ -316,7 +316,7 @@ export function FeedbackExample() {
 Show a disabled rating component:
 
 ```tsx
-import { RatingGroup } from "@liquidify/components/rating-group"
+import { RatingGroup } from "liquidify-react/rating-group"
 
 export function DisabledExample() {
   return (

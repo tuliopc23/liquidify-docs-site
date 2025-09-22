@@ -2,6 +2,10 @@
 layout: ../../../layouts/DocsLayout.astro
 ---
 
+import { Button } from "liquidify-react/button"
+import { ComponentShowcase } from "../../../components/ComponentShowcase"
+import { TestComponent } from "../../../components/TestComponent"
+
 # Button
 
 Interactive elements that trigger actions when clicked. Essential for forms, navigation, and user interactions with multiple variants for different contexts.
@@ -12,17 +16,33 @@ Interactive elements that trigger actions when clicked. Essential for forms, nav
 import { Button } from "liquidify-react/button"
 ```
 
+## Test React Integration
+
+<TestComponent client:load message="Testing React component rendering in MDX" />
+
 ## Basic Usage
 
-```tsx
+<ComponentShowcase
+  title="Button Variants"
+  description="Different button styles for various use cases"
+  client:load
+>
+  <Button variant="primary" client:load>Primary</Button>
+  <Button variant="secondary" client:load>Secondary</Button>
+  <Button variant="ghost" client:load>Ghost</Button>
+</ComponentShowcase>
+
+```tsx title="Button.tsx"
+import { Button } from "liquidify-react/button"
+
 export default function Example() {
-	return (
-		<div style={{ display: "flex", gap: "1rem" }}>
-			<Button variant="primary">Primary</Button>
-			<Button variant="secondary">Secondary</Button>
-			<Button variant="ghost">Ghost</Button>
-		</div>
-	)
+  return (
+    <div style={{ display: "flex", gap: "1rem" }}>
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="ghost">Ghost</Button>
+    </div>
+  )
 }
 ```
 

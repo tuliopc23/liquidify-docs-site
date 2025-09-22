@@ -10,13 +10,13 @@ A navigation component for paginated content that provides intuitive page naviga
 ## Installation
 
 ```bash
-npm install @liquidify/components
+npm install liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { Pagination } from "@liquidify/components/pagination";
+import { Pagination } from "liquidify-react/pagination";
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ import { Pagination } from "@liquidify/components/pagination";
 
 ```tsx
 import { useState } from "react";
-import { Pagination } from "@liquidify/components/pagination";
+import { Pagination } from "liquidify-react/pagination";
 
 export default function BasicPagination() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -58,7 +58,7 @@ export default function BasicPagination() {
 
 ```tsx
 import { useState, useMemo } from "react";
-import { Pagination } from "@liquidify/components/pagination";
+import { Pagination } from "liquidify-react/pagination";
 
 export default function DataTablePagination() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -174,7 +174,7 @@ export default function DataTablePagination() {
 
 ```tsx
 import { useState, useMemo } from "react";
-import { Pagination } from "@liquidify/components/pagination";
+import { Pagination } from "liquidify-react/pagination";
 
 export default function SearchResultsPagination() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -338,7 +338,7 @@ export default function SearchResultsPagination() {
 
 ```tsx
 import { useState } from "react";
-import { Pagination } from "@liquidify/components/pagination";
+import { Pagination } from "liquidify-react/pagination";
 
 export default function ContentGalleryPagination() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -454,7 +454,7 @@ export default function ContentGalleryPagination() {
 
 ```tsx
 import { useState } from "react";
-import { Pagination } from "@liquidify/components/pagination";
+import { Pagination } from "liquidify-react/pagination";
 
 export default function CompactPagination() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -509,7 +509,7 @@ export default function CompactPagination() {
 
 ```tsx
 import { useState, useMemo } from "react";
-import { Pagination } from "@liquidify/components/pagination";
+import { Pagination } from "liquidify-react/pagination";
 
 export default function PaginationWithPageSize() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -641,7 +641,7 @@ export default function PaginationWithPageSize() {
 
 ```tsx
 import { useState, useEffect } from "react";
-import { Pagination } from "@liquidify/components/pagination";
+import { Pagination } from "liquidify-react/pagination";
 
 export default function PaginationAlternative() {
   const [currentPage, setCurrentPage] = useState(1);

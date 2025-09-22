@@ -10,13 +10,13 @@ A collection of toggle buttons that can be configured to allow single selection 
 ## Installation
 
 ```bash
-npm install @liquidify/components
+npm install liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { ToggleGroup } from "@liquidify/components/toggleGroup";
+import { ToggleGroup } from "liquidify-react/toggleGroup";
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ import { ToggleGroup } from "@liquidify/components/toggleGroup";
 
 ```tsx
 import { useState } from "react";
-import { ToggleGroup } from "@liquidify/components/toggleGroup";
+import { ToggleGroup } from "liquidify-react/toggleGroup";
 
 export default function BasicToggleGroup() {
   const [values, setValues] = useState(["bold"]);
@@ -44,7 +44,7 @@ export default function BasicToggleGroup() {
 
 ```tsx
 import { useState } from "react";
-import { ToggleGroup } from "@liquidify/components/toggleGroup";
+import { ToggleGroup } from "liquidify-react/toggleGroup";
 
 export default function SingleSelectionToggleGroup() {
   const [value, setValue] = useState("center");
@@ -67,7 +67,7 @@ export default function SingleSelectionToggleGroup() {
 
 ```tsx
 import { useState } from "react";
-import { ToggleGroup } from "@liquidify/components/toggleGroup";
+import { ToggleGroup } from "liquidify-react/toggleGroup";
 
 export default function TextFormattingToggleGroup() {
   const [formatting, setFormatting] = useState(["bold"]);
@@ -111,7 +111,7 @@ export default function TextFormattingToggleGroup() {
 
 ```tsx
 import { useState } from "react";
-import { ToggleGroup } from "@liquidify/components/toggleGroup";
+import { ToggleGroup } from "liquidify-react/toggleGroup";
 
 export default function ViewModeToggleGroup() {
   const [view, setView] = useState("grid");
@@ -141,7 +141,7 @@ export default function ViewModeToggleGroup() {
 
 ```tsx
 import { useState } from "react";
-import { ToggleGroup } from "@liquidify/components/toggleGroup";
+import { ToggleGroup } from "liquidify-react/toggleGroup";
 
 export default function FilterToggleGroup() {
   const [filters, setFilters] = useState(["active"]);
@@ -192,7 +192,7 @@ export default function FilterToggleGroup() {
 ### Disabled Toggle Group
 
 ```tsx
-import { ToggleGroup } from "@liquidify/components/toggleGroup";
+import { ToggleGroup } from "liquidify-react/toggleGroup";
 
 export default function DisabledToggleGroup() {
   return (
@@ -225,7 +225,7 @@ export default function DisabledToggleGroup() {
 
 ```tsx
 import { useState } from "react";
-import { ToggleGroup } from "@liquidify/components/toggleGroup";
+import { ToggleGroup } from "liquidify-react/toggleGroup";
 
 export default function SizeSelectorToggleGroup() {
   const [size, setSize] = useState("medium");

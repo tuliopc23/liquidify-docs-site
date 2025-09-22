@@ -10,13 +10,13 @@ A dropdown menu component with support for nested submenus and contextual action
 ## Installation
 
 ```bash
-bun add @liquidify/components
+bun add liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { Menu } from "@liquidify/components/menu"
+import { Menu } from "liquidify-react/menu"
 ```
 
 ## Basic Usage
@@ -24,8 +24,8 @@ import { Menu } from "@liquidify/components/menu"
 Create a simple dropdown menu with actions:
 
 ```tsx
-import { Menu } from "@liquidify/components/menu"
-import { Button } from "@liquidify/components/button"
+import { Menu } from "liquidify-react/menu"
+import { Button } from "liquidify-react/button"
 
 export function BasicExample() {
   return (
@@ -57,7 +57,7 @@ export function BasicExample() {
 Create a right-click context menu:
 
 ```tsx
-import { Menu } from "@liquidify/components/menu"
+import { Menu } from "liquidify-react/menu"
 
 export function ContextMenuExample() {
   return (
@@ -92,8 +92,8 @@ export function ContextMenuExample() {
 Create menus with nested submenus:
 
 ```tsx
-import { Menu } from "@liquidify/components/menu"
-import { Button } from "@liquidify/components/button"
+import { Menu } from "liquidify-react/menu"
+import { Button } from "liquidify-react/button"
 
 export function NestedMenuExample() {
   return (
@@ -132,8 +132,8 @@ export function NestedMenuExample() {
 Enhanced menu items with icons and keyboard shortcuts:
 
 ```tsx
-import { Menu } from "@liquidify/components/menu"
-import { Button } from "@liquidify/components/button"
+import { Menu } from "liquidify-react/menu"
+import { Button } from "liquidify-react/button"
 
 export function EnhancedMenuExample() {
   return (
@@ -187,8 +187,8 @@ Control the menu's open state programmatically:
 
 ```tsx
 import { useState } from "react"
-import { Menu } from "@liquidify/components/menu"
-import { Button } from "@liquidify/components/button"
+import { Menu } from "liquidify-react/menu"
+import { Button } from "liquidify-react/button"
 
 export function ControlledMenuExample() {
   const [open, setOpen] = useState(false)

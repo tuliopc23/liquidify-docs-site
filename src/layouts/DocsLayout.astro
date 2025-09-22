@@ -1,6 +1,7 @@
 ---
 import type { AstroGlobal } from 'astro';
 import { getSidebar } from "../lib/sidebar";
+import "liquidify-react/styles";
 const sidebar = await getSidebar();
 const { url } = Astro as unknown as AstroGlobal;
 

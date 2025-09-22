@@ -10,13 +10,13 @@ A progress indicator that shows completion progress of a task or loading state.
 ## Installation
 
 ```bash
-bun add @liquidify/components
+bun add liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { Progress } from "@liquidify/components/progress"
+import { Progress } from "liquidify-react/progress"
 ```
 
 ## Basic Usage
@@ -24,7 +24,7 @@ import { Progress } from "@liquidify/components/progress"
 Create a simple progress bar:
 
 ```tsx
-import { Progress } from "@liquidify/components/progress"
+import { Progress } from "liquidify-react/progress"
 
 export function BasicExample() {
   return (
@@ -45,7 +45,7 @@ Show an animated progress indicator:
 
 ```tsx
 import { useState, useEffect } from "react"
-import { Progress } from "@liquidify/components/progress"
+import { Progress } from "liquidify-react/progress"
 
 export function AnimatedExample() {
   const [progress, setProgress] = useState(0)
@@ -82,8 +82,8 @@ Track file upload progress with detailed information:
 
 ```tsx
 import { useState } from "react"
-import { Progress } from "@liquidify/components/progress"
-import { Button } from "@liquidify/components/button"
+import { Progress } from "liquidify-react/progress"
+import { Button } from "liquidify-react/button"
 
 export function FileUploadExample() {
   const [progress, setProgress] = useState(0)
@@ -134,7 +134,7 @@ export function FileUploadExample() {
 Show multiple progress bars for different tasks:
 
 ```tsx
-import { Progress } from "@liquidify/components/progress"
+import { Progress } from "liquidify-react/progress"
 
 export function MultipleProgressExample() {
   const tasks = [
@@ -167,7 +167,7 @@ export function MultipleProgressExample() {
 Create a circular progress indicator:
 
 ```tsx
-import { Progress } from "@liquidify/components/progress"
+import { Progress } from "liquidify-react/progress"
 
 export function CircularProgressExample() {
   const progress = 75
@@ -230,7 +230,7 @@ export function CircularProgressExample() {
 Show an indeterminate progress for unknown duration tasks:
 
 ```tsx
-import { Progress } from "@liquidify/components/progress"
+import { Progress } from "liquidify-react/progress"
 
 export function IndeterminateExample() {
   return (

@@ -10,13 +10,13 @@ An interactive signature capture component that allows users to draw signatures 
 ## Installation
 
 ```bash
-npm install @liquidify/components
+npm install liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { SignaturePad } from "@liquidify/components/signaturePad";
+import { SignaturePad } from "liquidify-react/signaturePad";
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ import { SignaturePad } from "@liquidify/components/signaturePad";
 
 ```tsx
 import { useState } from "react";
-import { SignaturePad } from "@liquidify/components/signaturePad";
+import { SignaturePad } from "liquidify-react/signaturePad";
 
 export default function BasicSignaturePad() {
   const [signature, setSignature] = useState("");
@@ -98,7 +98,7 @@ export default function BasicSignaturePad() {
 
 ```tsx
 import { useState } from "react";
-import { SignaturePad } from "@liquidify/components/signaturePad";
+import { SignaturePad } from "liquidify-react/signaturePad";
 
 export default function ContractSigningForm() {
   const [formData, setFormData] = useState({
@@ -265,7 +265,7 @@ export default function ContractSigningForm() {
 
 ```tsx
 import { useState } from "react";
-import { SignaturePad } from "@liquidify/components/signaturePad";
+import { SignaturePad } from "liquidify-react/signaturePad";
 
 export default function DeliveryConfirmation() {
   const [deliveryInfo, setDeliveryInfo] = useState({
@@ -405,7 +405,7 @@ export default function DeliveryConfirmation() {
 
 ```tsx
 import { useState } from "react";
-import { SignaturePad } from "@liquidify/components/signaturePad";
+import { SignaturePad } from "liquidify-react/signaturePad";
 
 export default function GuestBook() {
   const [entries, setEntries] = useState([]);
@@ -580,7 +580,7 @@ export default function GuestBook() {
 
 ```tsx
 import { useState } from "react";
-import { SignaturePad } from "@liquidify/components/signaturePad";
+import { SignaturePad } from "liquidify-react/signaturePad";
 
 export default function SignatureWithOptions() {
   const [strokeWidth, setStrokeWidth] = useState(2);
@@ -716,7 +716,7 @@ export default function SignatureWithOptions() {
 
 ```tsx
 import { useState } from "react";
-import { SignaturePad } from "@liquidify/components/signaturePad";
+import { SignaturePad } from "liquidify-react/signaturePad";
 
 export default function MultiSignatureDocument() {
   const [signatures, setSignatures] = useState({

@@ -10,13 +10,13 @@ A two-state button that allows users to switch between an on and off state. Perf
 ## Installation
 
 ```bash
-npm install @liquidify/components
+npm install liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { Toggle } from "@liquidify/components/toggle";
+import { Toggle } from "liquidify-react/toggle";
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ import { Toggle } from "@liquidify/components/toggle";
 ### Basic Toggle
 
 ```tsx
-import { Toggle } from "@liquidify/components/toggle";
+import { Toggle } from "liquidify-react/toggle";
 
 export default function BasicToggle() {
   return (
@@ -39,7 +39,7 @@ export default function BasicToggle() {
 
 ```tsx
 import { useState } from "react";
-import { Toggle } from "@liquidify/components/toggle";
+import { Toggle } from "liquidify-react/toggle";
 
 export default function ControlledToggle() {
   const [isPressed, setIsPressed] = useState(false);
@@ -59,7 +59,7 @@ export default function ControlledToggle() {
 
 ```tsx
 import { useState } from "react";
-import { Toggle } from "@liquidify/components/toggle";
+import { Toggle } from "liquidify-react/toggle";
 
 export default function IconToggle() {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -79,7 +79,7 @@ export default function IconToggle() {
 ### Disabled Toggle
 
 ```tsx
-import { Toggle } from "@liquidify/components/toggle";
+import { Toggle } from "liquidify-react/toggle";
 
 export default function DisabledToggle() {
   return (
@@ -99,7 +99,7 @@ export default function DisabledToggle() {
 
 ```tsx
 import { useState } from "react";
-import { Toggle } from "@liquidify/components/toggle";
+import { Toggle } from "liquidify-react/toggle";
 
 export default function SettingsToggles() {
   const [settings, setSettings] = useState({
@@ -152,7 +152,7 @@ export default function SettingsToggles() {
 
 ```tsx
 import { useState } from "react";
-import { Toggle } from "@liquidify/components/toggle";
+import { Toggle } from "liquidify-react/toggle";
 
 export default function StyledToggle() {
   const [isEnabled, setIsEnabled] = useState(false);

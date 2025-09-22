@@ -10,13 +10,13 @@ A toggle switch component for binary on/off states with visual feedback.
 ## Installation
 
 ```bash
-bun add @liquidify/components
+bun add liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { Switch } from "@liquidify/components/switch"
+import { Switch } from "liquidify-react/switch"
 ```
 
 ## Basic Usage
@@ -24,7 +24,7 @@ import { Switch } from "@liquidify/components/switch"
 Create a simple toggle switch:
 
 ```tsx
-import { Switch } from "@liquidify/components/switch"
+import { Switch } from "liquidify-react/switch"
 
 export function BasicExample() {
   return (
@@ -44,7 +44,7 @@ Control the switch state with your own state:
 
 ```tsx
 import { useState } from "react"
-import { Switch } from "@liquidify/components/switch"
+import { Switch } from "liquidify-react/switch"
 
 export function ControlledExample() {
   const [isChecked, setIsChecked] = useState(false)
@@ -70,7 +70,7 @@ Use switches in a settings configuration:
 
 ```tsx
 import { useState } from "react"
-import { Switch } from "@liquidify/components/switch"
+import { Switch } from "liquidify-react/switch"
 
 export function SettingsExample() {
   const [settings, setSettings] = useState({
@@ -157,7 +157,7 @@ export function SettingsExample() {
 Add icons to provide visual context:
 
 ```tsx
-import { Switch } from "@liquidify/components/switch"
+import { Switch } from "liquidify-react/switch"
 
 export function IconExample() {
   return (
@@ -201,7 +201,7 @@ export function IconExample() {
 Show different switch sizes:
 
 ```tsx
-import { Switch } from "@liquidify/components/switch"
+import { Switch } from "liquidify-react/switch"
 
 export function SizeExample() {
   return (
@@ -236,7 +236,7 @@ export function SizeExample() {
 Show disabled switch states:
 
 ```tsx
-import { Switch } from "@liquidify/components/switch"
+import { Switch } from "liquidify-react/switch"
 
 export function DisabledExample() {
   return (
@@ -269,8 +269,8 @@ Use switches in forms with validation:
 
 ```tsx
 import { useState } from "react"
-import { Switch } from "@liquidify/components/switch"
-import { Button } from "@liquidify/components/button"
+import { Switch } from "liquidify-react/switch"
+import { Button } from "liquidify-react/button"
 
 export function FormExample() {
   const [agreedToTerms, setAgreedToTerms] = useState(false)

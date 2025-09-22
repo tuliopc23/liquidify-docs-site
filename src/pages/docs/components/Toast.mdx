@@ -10,13 +10,13 @@ A temporary notification component that displays brief, auto-dismissing messages
 ## Installation
 
 ```bash
-npm install @liquidify/components
+npm install liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { Toast } from "@liquidify/components/toast";
+import { Toast } from "liquidify-react/toast";
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ import { Toast } from "@liquidify/components/toast";
 
 ```tsx
 import { useState } from "react";
-import { Toast } from "@liquidify/components/toast";
+import { Toast } from "liquidify-react/toast";
 
 export default function BasicToast() {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +54,7 @@ export default function BasicToast() {
 
 ```tsx
 import { useState } from "react";
-import { Toast } from "@liquidify/components/toast";
+import { Toast } from "liquidify-react/toast";
 
 export default function StatusToasts() {
   const [activeToast, setActiveToast] = useState(null);
@@ -98,7 +98,7 @@ export default function StatusToasts() {
 
 ```tsx
 import { useState } from "react";
-import { Toast } from "@liquidify/components/toast";
+import { Toast } from "liquidify-react/toast";
 
 export default function ActionToast() {
   const [isOpen, setIsOpen] = useState(false);
@@ -135,7 +135,7 @@ export default function ActionToast() {
 
 ```tsx
 import { useState, useEffect } from "react";
-import { Toast } from "@liquidify/components/toast";
+import { Toast } from "liquidify-react/toast";
 
 export default function AutoDismissToast() {
   const [isOpen, setIsOpen] = useState(false);
@@ -174,7 +174,7 @@ export default function AutoDismissToast() {
 
 ```tsx
 import { useState, useCallback } from "react";
-import { Toast } from "@liquidify/components/toast";
+import { Toast } from "liquidify-react/toast";
 
 export default function ToastManager() {
   const [toasts, setToasts] = useState([]);
@@ -253,7 +253,7 @@ export default function ToastManager() {
 
 ```tsx
 import { useState } from "react";
-import { Toast } from "@liquidify/components/toast";
+import { Toast } from "liquidify-react/toast";
 
 export default function PersistentToast() {
   const [isOpen, setIsOpen] = useState(false);
@@ -293,7 +293,7 @@ export default function PersistentToast() {
 
 ```tsx
 import { useState } from "react";
-import { Toast } from "@liquidify/components/toast";
+import { Toast } from "liquidify-react/toast";
 
 export default function LoadingToast() {
   const [loadingToast, setLoadingToast] = useState(false);

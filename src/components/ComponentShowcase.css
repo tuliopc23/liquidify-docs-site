@@ -1,0 +1,111 @@
+/* Component Showcase - Apple HIG Design System Integration */
+
+.component-showcase {
+  margin: 24px 0;
+  border-radius: var(--radius);
+  border: 1px solid var(--hairline);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+/* Header */
+.showcase-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--hairline);
+  background: var(--bg);
+}
+
+.showcase-title {
+  font-size: 1.0625rem; /* Apple HIG Title 3 equivalent */
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 4px 0;
+  letter-spacing: -0.01em;
+}
+
+.showcase-description {
+  font-size: var(--fs--1); /* 15px */
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Preview Area */
+.showcase-preview {
+  padding: 24px 20px;
+  background: var(--surface);
+  position: relative;
+}
+
+.preview-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  min-height: 80px;
+}
+
+/* Code Block Styling */
+.showcase-code {
+  border-top: 1px solid var(--hairline);
+  background: var(--bg);
+}
+
+.showcase-code pre {
+  margin: 0;
+  padding: 16px 20px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font-family: ui-monospace, 'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text);
+  overflow-x: auto;
+}
+
+.showcase-code code {
+  color: var(--text);
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* Variants */
+.component-showcase.compact {
+  margin: 16px 0;
+}
+
+.component-showcase.compact .showcase-preview {
+  padding: 16px 20px;
+}
+
+.component-showcase.compact .preview-container {
+  min-height: 60px;
+}
+
+/* Dark/Light theme responsive elements */
+:root[data-theme="light"] .showcase-code pre {
+  color: var(--text);
+}
+
+/* Focus and accessibility */
+.component-showcase:focus-within {
+  box-shadow: var(--focus);
+  border-color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .showcase-header,
+  .showcase-preview,
+  .showcase-code pre {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .preview-container {
+    gap: 12px;
+  }
+}

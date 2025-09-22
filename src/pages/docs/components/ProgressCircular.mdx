@@ -10,13 +10,13 @@ A circular progress indicator component that displays completion status with smo
 ## Installation
 
 ```bash
-npm install @liquidify/components
+npm install liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { ProgressCircular } from "@liquidify/components/progressCircular";
+import { ProgressCircular } from "liquidify-react/progressCircular";
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ import { ProgressCircular } from "@liquidify/components/progressCircular";
 
 ```tsx
 import { useState } from "react";
-import { ProgressCircular } from "@liquidify/components/progressCircular";
+import { ProgressCircular } from "liquidify-react/progressCircular";
 
 export default function BasicProgressCircular() {
   const [progress, setProgress] = useState(0);
@@ -63,7 +63,7 @@ export default function BasicProgressCircular() {
 
 ```tsx
 import { useState, useEffect } from "react";
-import { ProgressCircular } from "@liquidify/components/progressCircular";
+import { ProgressCircular } from "liquidify-react/progressCircular";
 
 export default function FileUploadProgress() {
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -141,7 +141,7 @@ export default function FileUploadProgress() {
 
 ```tsx
 import { useState, useEffect } from "react";
-import { ProgressCircular } from "@liquidify/components/progressCircular";
+import { ProgressCircular } from "liquidify-react/progressCircular";
 
 export default function LoadingStates() {
   const [loadingStates, setLoadingStates] = useState({
@@ -230,7 +230,7 @@ export default function LoadingStates() {
 
 ```tsx
 import { useState } from "react";
-import { ProgressCircular } from "@liquidify/components/progressCircular";
+import { ProgressCircular } from "liquidify-react/progressCircular";
 
 export default function TaskCompletionTracker() {
   const [tasks, setTasks] = useState([
@@ -313,7 +313,7 @@ export default function TaskCompletionTracker() {
 
 ```tsx
 import { useState, useEffect } from "react";
-import { ProgressCircular } from "@liquidify/components/progressCircular";
+import { ProgressCircular } from "liquidify-react/progressCircular";
 
 export default function CountdownTimer() {
   const [timeLeft, setTimeLeft] = useState(60); // 60 seconds
@@ -427,7 +427,7 @@ export default function CountdownTimer() {
 
 ```tsx
 import { useState, useEffect } from "react";
-import { ProgressCircular } from "@liquidify/components/progressCircular";
+import { ProgressCircular } from "liquidify-react/progressCircular";
 
 export default function MultipleProgressIndicators() {
   const [progresses, setProgresses] = useState({
@@ -522,7 +522,7 @@ export default function MultipleProgressIndicators() {
 ### Different Sizes
 
 ```tsx
-import { ProgressCircular } from "@liquidify/components/progressCircular";
+import { ProgressCircular } from "liquidify-react/progressCircular";
 
 export default function DifferentSizes() {
   const sizes = ["xs", "sm", "md", "lg", "xl"];
@@ -564,7 +564,7 @@ export default function DifferentSizes() {
 ### With Custom Styling
 
 ```tsx
-import { ProgressCircular } from "@liquidify/components/progressCircular";
+import { ProgressCircular } from "liquidify-react/progressCircular";
 
 export default function CustomStyledProgress() {
   return (

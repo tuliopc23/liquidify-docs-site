@@ -10,13 +10,13 @@ A multi-step process component that provides clear progress indication and navig
 ## Installation
 
 ```bash
-npm install @liquidify/components
+npm install liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { Steps } from "@liquidify/components/steps";
+import { Steps } from "liquidify-react/steps";
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ import { Steps } from "@liquidify/components/steps";
 
 ```tsx
 import { useState } from "react";
-import { Steps } from "@liquidify/components/steps";
+import { Steps } from "liquidify-react/steps";
 
 export default function CheckoutSteps() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -87,7 +87,7 @@ export default function CheckoutSteps() {
 
 ```tsx
 import { useState } from "react";
-import { Steps } from "@liquidify/components/steps";
+import { Steps } from "liquidify-react/steps";
 
 export default function OnboardingWizard() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -245,7 +245,7 @@ export default function OnboardingWizard() {
 
 ```tsx
 import { useState } from "react";
-import { Steps } from "@liquidify/components/steps";
+import { Steps } from "liquidify-react/steps";
 
 export default function FormWizard() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -407,7 +407,7 @@ export default function FormWizard() {
 
 ```tsx
 import { useState, useEffect } from "react";
-import { Steps } from "@liquidify/components/steps";
+import { Steps } from "liquidify-react/steps";
 
 export default function ProgressIndicator() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -511,7 +511,7 @@ export default function ProgressIndicator() {
 
 ```tsx
 import { useState } from "react";
-import { Steps } from "@liquidify/components/steps";
+import { Steps } from "liquidify-react/steps";
 
 export default function VerticalSteps() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -605,7 +605,7 @@ export default function VerticalSteps() {
 
 ```tsx
 import { useState } from "react";
-import { Steps } from "@liquidify/components/steps";
+import { Steps } from "liquidify-react/steps";
 
 export default function StepsWithProgress() {
   const [currentStep, setCurrentStep] = useState(0);

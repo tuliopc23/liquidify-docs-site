@@ -10,13 +10,13 @@ A floating text box that appears when users hover over, focus on, or touch an el
 ## Installation
 
 ```bash
-npm install @liquidify/components
+npm install liquidify-react
 ```
 
 ## Import
 
 ```tsx
-import { Tooltip } from "@liquidify/components/tooltip";
+import { Tooltip } from "liquidify-react/tooltip";
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ import { Tooltip } from "@liquidify/components/tooltip";
 ### Basic Tooltip
 
 ```tsx
-import { Tooltip } from "@liquidify/components/tooltip";
+import { Tooltip } from "liquidify-react/tooltip";
 
 export default function BasicTooltip() {
   return (
@@ -45,7 +45,7 @@ export default function BasicTooltip() {
 ### Tooltip with Delay
 
 ```tsx
-import { Tooltip } from "@liquidify/components/tooltip";
+import { Tooltip } from "liquidify-react/tooltip";
 
 export default function DelayedTooltip() {
   return (
@@ -67,7 +67,7 @@ export default function DelayedTooltip() {
 
 ```tsx
 import { useState } from "react";
-import { Tooltip } from "@liquidify/components/tooltip";
+import { Tooltip } from "liquidify-react/tooltip";
 
 export default function ControlledTooltip() {
   const [isOpen, setIsOpen] = useState(false);
@@ -99,7 +99,7 @@ export default function ControlledTooltip() {
 ### Positioned Tooltips
 
 ```tsx
-import { Tooltip } from "@liquidify/components/tooltip";
+import { Tooltip } from "liquidify-react/tooltip";
 
 export default function PositionedTooltips() {
   const positions = [
@@ -140,7 +140,7 @@ export default function PositionedTooltips() {
 ### Rich Content Tooltip
 
 ```tsx
-import { Tooltip } from "@liquidify/components/tooltip";
+import { Tooltip } from "liquidify-react/tooltip";
 
 export default function RichContentTooltip() {
   return (
@@ -171,7 +171,7 @@ export default function RichContentTooltip() {
 ### Icon with Tooltip
 
 ```tsx
-import { Tooltip } from "@liquidify/components/tooltip";
+import { Tooltip } from "liquidify-react/tooltip";
 
 export default function IconTooltip() {
   return (
@@ -204,7 +204,7 @@ export default function IconTooltip() {
 ### Multiple Tooltips
 
 ```tsx
-import { Tooltip } from "@liquidify/components/tooltip";
+import { Tooltip } from "liquidify-react/tooltip";
 
 export default function MultipleTooltips() {
   const actions = [
@@ -245,7 +245,7 @@ export default function MultipleTooltips() {
 ### Disabled Element Tooltip
 
 ```tsx
-import { Tooltip } from "@liquidify/components/tooltip";
+import { Tooltip } from "liquidify-react/tooltip";
 
 export default function DisabledElementTooltip() {
   return (
