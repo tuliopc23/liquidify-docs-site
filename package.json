@@ -15,7 +15,8 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.5",
-    "astro": "^5.13.8"
+    "astro": "^5.13.8",
+    "liquidify-react": "^0.6.8"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.2.4",
