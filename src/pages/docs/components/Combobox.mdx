@@ -2,6 +2,8 @@
 layout: ../../../layouts/DocsLayout.astro
 ---
 
+import ComboboxDemo from "../../../components/demos/ComboboxDemo.tsx"
+
 # Combobox
 
 Searchable dropdown with autocomplete functionality. Combines text input with a dropdown list for efficient selection from large datasets.
@@ -9,10 +11,12 @@ Searchable dropdown with autocomplete functionality. Combines text input with a 
 ## Import
 
 ```tsx
-import { Combobox } from "liquidify-react/combobox"
+import { Combobox } from "liquidify-react/ark-ui/combobox"
 ```
 
 ## Basic Usage
+
+<ComboboxDemo client:only="react" />
 
 ```tsx
 export default function Example() {

@@ -3,6 +3,8 @@ title: NumberInput
 description: A specialized input component for numeric values with increment/decrement controls and validation.
 ---
 
+import NumberInputDemo from "../../../components/demos/NumberInputDemo.tsx"
+
 # NumberInput
 
 A specialized input component for numeric values with increment/decrement controls and validation.
@@ -16,15 +18,17 @@ bun add liquidify-react
 ## Import
 
 ```tsx
-import { NumberInput } from "liquidify-react/number-input"
+import { NumberInput } from "liquidify-react/ark-ui/numberInput"
 ```
 
 ## Basic Usage
 
 Create a simple number input with increment/decrement buttons:
 
+<NumberInputDemo client:only="react" />
+
 ```tsx
-import { NumberInput } from "liquidify-react/number-input"
+import { NumberInput } from "liquidify-react/ark-ui/numberInput"
 
 export function BasicExample() {
   return (
@@ -46,7 +50,7 @@ Control the number input value with state:
 
 ```tsx
 import { useState } from "react"
-import { NumberInput } from "liquidify-react/number-input"
+import { NumberInput } from "liquidify-react/ark-ui/numberInput"
 
 export function ControlledExample() {
   const [value, setValue] = useState("10")
@@ -70,7 +74,7 @@ export function ControlledExample() {
 Set boundaries and increment steps:
 
 ```tsx
-import { NumberInput } from "liquidify-react/number-input"
+import { NumberInput } from "liquidify-react/ark-ui/numberInput"
 
 export function MinMaxStepExample() {
   return (
@@ -99,7 +103,7 @@ export function MinMaxStepExample() {
 Handle decimal values with specified precision:
 
 ```tsx
-import { NumberInput } from "liquidify-react/number-input"
+import { NumberInput } from "liquidify-react/ark-ui/numberInput"
 
 export function DecimalExample() {
   return (
@@ -153,7 +157,7 @@ Show validation errors and invalid states:
 
 ```tsx
 import { useState } from "react"
-import { NumberInput } from "liquidify-react/number-input"
+import { NumberInput } from "liquidify-react/ark-ui/numberInput"
 
 export function ValidationExample() {
   const [value, setValue] = useState("")

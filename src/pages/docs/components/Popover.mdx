@@ -3,6 +3,8 @@ title: Popover
 description: A floating panel that displays rich content in a portal, triggered by user interaction.
 ---
 
+import PopoverDemo from "../../../components/demos/PopoverDemo.tsx"
+
 # Popover
 
 A floating panel that displays rich content in a portal, triggered by user interaction.
@@ -16,15 +18,17 @@ bun add liquidify-react
 ## Import
 
 ```tsx
-import { Popover } from "liquidify-react/popover"
+import { Popover } from "liquidify-react/ark-ui/popover"
 ```
 
 ## Basic Usage
 
 Create a simple popover with content:
 
+<PopoverDemo client:only="react" />
+
 ```tsx
-import { Popover } from "liquidify-react/popover"
+import { Popover } from "liquidify-react/ark-ui/popover"
 import { Button } from "liquidify-react/button"
 
 export function BasicExample() {
@@ -56,7 +60,7 @@ Use popovers for inline forms and actions:
 
 ```tsx
 import { useState } from "react"
-import { Popover } from "liquidify-react/popover"
+import { Popover } from "liquidify-react/ark-ui/popover"
 import { Button } from "liquidify-react/button"
 
 export function FormExample() {
@@ -159,7 +163,7 @@ export function ControlledExample() {
 Customize the popover's position and behavior:
 
 ```tsx
-import { Popover } from "liquidify-react/popover"
+import { Popover } from "liquidify-react/ark-ui/popover"
 import { Button } from "liquidify-react/button"
 
 export function PositioningExample() {

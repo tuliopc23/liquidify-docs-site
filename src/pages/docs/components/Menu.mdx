@@ -3,6 +3,8 @@ title: Menu
 description: A dropdown menu component with support for nested submenus and contextual actions.
 ---
 
+import MenuDemo from "../../../components/demos/MenuDemo.tsx"
+
 # Menu
 
 A dropdown menu component with support for nested submenus and contextual actions.
@@ -16,15 +18,17 @@ bun add liquidify-react
 ## Import
 
 ```tsx
-import { Menu } from "liquidify-react/menu"
+import { Menu } from "liquidify-react/ark-ui/menu"
 ```
 
 ## Basic Usage
 
 Create a simple dropdown menu with actions:
 
+<MenuDemo client:only="react" />
+
 ```tsx
-import { Menu } from "liquidify-react/menu"
+import { Menu } from "liquidify-react/ark-ui/menu"
 import { Button } from "liquidify-react/button"
 
 export function BasicExample() {
@@ -57,7 +61,7 @@ export function BasicExample() {
 Create a right-click context menu:
 
 ```tsx
-import { Menu } from "liquidify-react/menu"
+import { Menu } from "liquidify-react/ark-ui/menu"
 
 export function ContextMenuExample() {
   return (
@@ -187,7 +191,7 @@ Control the menu's open state programmatically:
 
 ```tsx
 import { useState } from "react"
-import { Menu } from "liquidify-react/menu"
+import { Menu } from "liquidify-react/ark-ui/menu"
 import { Button } from "liquidify-react/button"
 
 export function ControlledMenuExample() {

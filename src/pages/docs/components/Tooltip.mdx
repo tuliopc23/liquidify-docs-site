@@ -3,6 +3,8 @@ title: "Tooltip"
 description: "Floating text box that provides additional information when hovering or focusing on an element"
 ---
 
+import TooltipDemo from "../../../components/demos/TooltipDemo.tsx"
+
 # Tooltip
 
 A floating text box that appears when users hover over, focus on, or touch an element. Tooltips provide supplementary information without cluttering the interface, perfect for explaining functionality or showing additional context.
@@ -16,15 +18,17 @@ npm install liquidify-react
 ## Import
 
 ```tsx
-import { Tooltip } from "liquidify-react/tooltip";
+import { Tooltip } from "liquidify-react/ark-ui/tooltip";
 ```
 
 ## Usage
 
 ### Basic Tooltip
 
+<TooltipDemo client:only="react" />
+
 ```tsx
-import { Tooltip } from "liquidify-react/tooltip";
+import { Tooltip } from "liquidify-react/ark-ui/tooltip";
 
 export default function BasicTooltip() {
   return (
@@ -45,7 +49,7 @@ export default function BasicTooltip() {
 ### Tooltip with Delay
 
 ```tsx
-import { Tooltip } from "liquidify-react/tooltip";
+import { Tooltip } from "liquidify-react/ark-ui/tooltip";
 
 export default function DelayedTooltip() {
   return (
@@ -99,7 +103,7 @@ export default function ControlledTooltip() {
 ### Positioned Tooltips
 
 ```tsx
-import { Tooltip } from "liquidify-react/tooltip";
+import { Tooltip } from "liquidify-react/ark-ui/tooltip";
 
 export default function PositionedTooltips() {
   const positions = [
@@ -140,7 +144,7 @@ export default function PositionedTooltips() {
 ### Rich Content Tooltip
 
 ```tsx
-import { Tooltip } from "liquidify-react/tooltip";
+import { Tooltip } from "liquidify-react/ark-ui/tooltip";
 
 export default function RichContentTooltip() {
   return (
@@ -171,7 +175,7 @@ export default function RichContentTooltip() {
 ### Icon with Tooltip
 
 ```tsx
-import { Tooltip } from "liquidify-react/tooltip";
+import { Tooltip } from "liquidify-react/ark-ui/tooltip";
 
 export default function IconTooltip() {
   return (
