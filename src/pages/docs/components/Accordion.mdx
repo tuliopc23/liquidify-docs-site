@@ -2,6 +2,10 @@
 layout: ../../../layouts/DocsLayout.astro
 ---
 
+import { Accordion } from "liquidify-react/ark-ui/accordion"
+import AccordionDemo from "../../../components/demos/AccordionDemo.tsx"
+import { ComponentShowcase } from "../../../components/ComponentShowcase"
+
 # Accordion
 
 Collapsible content sections that expand and collapse to reveal or hide information. Perfect for FAQs, settings panels, and organizing large amounts of content.
@@ -9,59 +13,67 @@ Collapsible content sections that expand and collapse to reveal or hide informat
 ## Import
 
 ```tsx
-import { Accordion } from "liquidify-react/accordion"
+import { Accordion } from "liquidify-react/ark-ui/accordion"
 ```
 
 ## Basic Usage
 
+<ComponentShowcase
+  title="Basic Accordion"
+  description="Single-item accordion with collapsible behavior"
+  code={`<Accordion.Root type="single" collapsible>
+  <Accordion.Item value="item-1">
+    <Accordion.ItemTrigger>What is LiqUIdify?</Accordion.ItemTrigger>
+    <Accordion.ItemContent>
+      A React component library inspired by Apple's Human Interface Guidelines.
+    </Accordion.ItemContent>
+  </Accordion.Item>
+  <Accordion.Item value="item-2">
+    <Accordion.ItemTrigger>How do I install it?</Accordion.ItemTrigger>
+    <Accordion.ItemContent>
+      Run npm install liquidify-react to get started.
+    </Accordion.ItemContent>
+  </Accordion.Item>
+</Accordion.Root>`}
+  client:only="react"
+>
+  <AccordionDemo client:only="react" />
+</ComponentShowcase>
+
 ```tsx
-export default function Example() {
-	return (
-		<Accordion.Root type="single" collapsible>
-			<Accordion.Item value="item-1">
-				<Accordion.ItemTrigger>
-					What is LiqUIdify?
-				</Accordion.ItemTrigger>
-				<Accordion.ItemContent>
-					A React component library inspired by Apple's Human Interface Guidelines.
-				</Accordion.ItemContent>
-			</Accordion.Item>
-			
-			<Accordion.Item value="item-2">
-				<Accordion.ItemTrigger>
-					How do I install it?
-				</Accordion.ItemTrigger>
-				<Accordion.ItemContent>
-					Run npm install liquidify-react to get started.
-				</Accordion.ItemContent>
-			</Accordion.Item>
-		</Accordion.Root>
-	)
-}
+<Accordion.Root type="single" collapsible>
+  <Accordion.Item value="item-1">
+    <Accordion.ItemTrigger>What is LiqUIdify?</Accordion.ItemTrigger>
+    <Accordion.ItemContent>
+      A React component library inspired by Apple's Human Interface Guidelines.
+    </Accordion.ItemContent>
+  </Accordion.Item>
+  <Accordion.Item value="item-2">
+    <Accordion.ItemTrigger>How do I install it?</Accordion.ItemTrigger>
+    <Accordion.ItemContent>
+      Run npm install liquidify-react to get started.
+    </Accordion.ItemContent>
+  </Accordion.Item>
+</Accordion.Root>
 ```
 
 ## Multiple Items
 
 ```tsx
-export default function MultipleExample() {
-	return (
-		<Accordion.Root type="multiple">
-			<Accordion.Item value="features">
-				<Accordion.ItemTrigger>Features</Accordion.ItemTrigger>
-				<Accordion.ItemContent>
-					Accessible, performant, and beautiful components.
-				</Accordion.ItemContent>
-			</Accordion.Item>
-			
-			<Accordion.Item value="support">
-				<Accordion.ItemTrigger>Support</Accordion.ItemTrigger>
-				<Accordion.ItemContent>
-					Full TypeScript support and comprehensive documentation.
-				</Accordion.ItemContent>
-			</Accordion.Item>
-		</Accordion.Root>
-	)
-}
+<Accordion.Root type="multiple">
+  <Accordion.Item value="features">
+    <Accordion.ItemTrigger>Features</Accordion.ItemTrigger>
+    <Accordion.ItemContent>
+      Accessible, performant, and beautiful components.
+    </Accordion.ItemContent>
+  </Accordion.Item>
+  <Accordion.Item value="support">
+    <Accordion.ItemTrigger>Support</Accordion.ItemTrigger>
+    <Accordion.ItemContent>
+      Full TypeScript support and comprehensive documentation.
+    </Accordion.ItemContent>
+  </Accordion.Item>
+</Accordion.Root>
 ```
 
 ## API Reference

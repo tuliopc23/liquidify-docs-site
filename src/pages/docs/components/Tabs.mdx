@@ -3,6 +3,10 @@ title: "Tabs"
 description: "Tab component for switching between different content panels"
 ---
 
+import { Tabs } from "liquidify-react/ark-ui/tabs";
+import TabsDemo from "../../../components/demos/TabsDemo.tsx";
+import { ComponentShowcase } from "../../../components/ComponentShowcase";
+
 # Tabs
 
 A collection of layered sections of content—known as tab panels—that are displayed one at a time. Tabs organize content into multiple sections allowing users to navigate between different views while preserving the context of their current location.
@@ -16,15 +20,42 @@ npm install liquidify-react
 ## Import
 
 ```tsx
-import { Tabs } from "liquidify-react/tabs";
+import { Tabs } from "liquidify-react/ark-ui/tabs";
 ```
 
 ## Usage
 
 ### Basic Tabs
 
+<ComponentShowcase
+  title="Basic Tabs"
+  description="Horizontal tabs with three panels"
+  code={`<Tabs.Root defaultValue="overview">
+  <Tabs.List>
+    <Tabs.Trigger value="overview">Overview</Tabs.Trigger>
+    <Tabs.Trigger value="details">Details</Tabs.Trigger>
+    <Tabs.Trigger value="settings">Settings</Tabs.Trigger>
+  </Tabs.List>
+  <Tabs.Content value="overview">
+    <h3>Project Overview</h3>
+    <p>A comprehensive view of your project's current status and key metrics.</p>
+  </Tabs.Content>
+  <Tabs.Content value="details">
+    <h3>Project Details</h3>
+    <p>Detailed information about project specifications and requirements.</p>
+  </Tabs.Content>
+  <Tabs.Content value="settings">
+    <h3>Project Settings</h3>
+    <p>Configure project preferences and advanced options.</p>
+  </Tabs.Content>
+</Tabs.Root>`}
+  client:only="react"
+>
+  <TabsDemo client:only="react" />
+</ComponentShowcase>
+
 ```tsx
-import { Tabs } from "liquidify-react/tabs";
+import { Tabs } from "liquidify-react/ark-ui/tabs";
 
 export default function BasicTabs() {
   return (
@@ -55,7 +86,7 @@ export default function BasicTabs() {
 
 ```tsx
 import { useState } from "react";
-import { Tabs } from "liquidify-react/tabs";
+import { Tabs } from "liquidify-react/ark-ui/tabs";
 
 export default function ControlledTabs() {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -93,7 +124,7 @@ export default function ControlledTabs() {
 ### Vertical Tabs
 
 ```tsx
-import { Tabs } from "liquidify-react/tabs";
+import { Tabs } from "liquidify-react/ark-ui/tabs";
 
 export default function VerticalTabs() {
   return (
@@ -132,7 +163,7 @@ export default function VerticalTabs() {
 ### Tabs with Indicators
 
 ```tsx
-import { Tabs } from "liquidify-react/tabs";
+import { Tabs } from "liquidify-react/ark-ui/tabs";
 
 export default function TabsWithIndicator() {
   return (
@@ -208,7 +239,7 @@ export default function DisabledTabs() {
 
 ```tsx
 import { useState } from "react";
-import { Tabs } from "liquidify-react/tabs";
+import { Tabs } from "liquidify-react/ark-ui/tabs";
 
 const ExpensiveComponent = ({ title }: { title: string }) => {
   console.log(`Loading ${title} content...`);

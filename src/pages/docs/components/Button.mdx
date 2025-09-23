@@ -3,8 +3,7 @@ layout: ../../../layouts/DocsLayout.astro
 ---
 
 import { Button } from "liquidify-react/button"
-import { ComponentShowcase } from "../../../components/ComponentShowcase"
-import { TestComponent } from "../../../components/TestComponent"
+import { ComponentShowcase, SimpleShowcase } from "../../../components/ComponentShowcase"
 
 # Button
 
@@ -16,15 +15,16 @@ Interactive elements that trigger actions when clicked. Essential for forms, nav
 import { Button } from "liquidify-react/button"
 ```
 
-## Test React Integration
-
-<TestComponent client:load message="Testing React component rendering in MDX" />
-
 ## Basic Usage
 
 <ComponentShowcase
   title="Button Variants"
   description="Different button styles for various use cases"
+  code={`<div style={{ display: "flex", gap: "1rem" }}>
+  <Button variant="primary">Primary</Button>
+  <Button variant="secondary">Secondary</Button>
+  <Button variant="ghost">Ghost</Button>
+</div>`}
   client:load
 >
   <Button variant="primary" client:load>Primary</Button>
@@ -48,17 +48,20 @@ export default function Example() {
 
 ## Sizes
 
-```tsx
-export default function SizesExample() {
-	return (
-		<div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-			<Button size="sm">Small</Button>
-			<Button size="md">Medium</Button>
-			<Button size="lg">Large</Button>
-		</div>
-	)
-}
-```
+<ComponentShowcase
+  title="Button Sizes"
+  description="Different sizes for various interface contexts"
+  code={`<div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+  <Button size="sm">Small</Button>
+  <Button size="md">Medium</Button>
+  <Button size="lg">Large</Button>
+</div>`}
+  client:load
+>
+  <Button size="sm" client:load>Small</Button>
+  <Button size="md" client:load>Medium</Button>
+  <Button size="lg" client:load>Large</Button>
+</ComponentShowcase>
 
 ## With Icons
 
@@ -86,38 +89,70 @@ export default function IconsExample() {
 
 ## States
 
-```tsx
-export default function StatesExample() {
-	return (
-		<div style={{ display: "flex", gap: "1rem" }}>
-			<Button>Default</Button>
-			<Button disabled>Disabled</Button>
-			<Button loading>Loading</Button>
-		</div>
-	)
-}
-```
+<ComponentShowcase
+  title="Button States"
+  description="Different interaction states for buttons"
+  code={`<div style={{ display: "flex", gap: "1rem" }}>
+  <Button>Default</Button>
+  <Button disabled>Disabled</Button>
+</div>`}
+  client:load
+>
+  <Button client:load>Default</Button>
+  <Button disabled client:load>Disabled</Button>
+</ComponentShowcase>
 
-## As Link
+## Button Variants
 
-```tsx
-export default function LinkExample() {
-	return (
-		<Button asChild>
-			<a href="/dashboard">Go to Dashboard</a>
-		</Button>
-	)
-}
-```
+<ComponentShowcase
+  title="All Button Variants"
+  description="Complete set of available button variants"
+  code={`<div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+  <Button variant="primary">Primary</Button>
+  <Button variant="secondary">Secondary</Button>
+  <Button variant="ghost">Ghost</Button>
+  <Button variant="danger">Danger</Button>
+  <Button variant="success">Success</Button>
+  <Button variant="warning">Warning</Button>
+</div>`}
+  client:load
+>
+  <Button variant="primary" client:load>Primary</Button>
+  <Button variant="secondary" client:load>Secondary</Button>
+  <Button variant="ghost" client:load>Ghost</Button>
+  <Button variant="danger" client:load>Danger</Button>
+  <Button variant="success" client:load>Success</Button>
+  <Button variant="warning" client:load>Warning</Button>
+</ComponentShowcase>
+
+## Sizes
+
+<ComponentShowcase
+  title="All Button Sizes"
+  description="Complete set of available button sizes"
+  code={`<div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+  <Button size="sm">Small</Button>
+  <Button size="md">Medium</Button>
+  <Button size="lg">Large</Button>
+  <Button size="xl">Extra Large</Button>
+</div>`}
+  background="light"
+  client:load
+>
+  <Button size="sm" client:load>Small</Button>
+  <Button size="md" client:load>Medium</Button>
+  <Button size="lg" client:load>Large</Button>
+  <Button size="xl" client:load>Extra Large</Button>
+</ComponentShowcase>
 
 ## API Reference
 
 ### Props
-- `variant`: `"primary" | "secondary" | "ghost" | "destructive"` - Visual style
-- `size`: `"sm" | "md" | "lg"` - Button size
-- `disabled`: `boolean` - Disable interaction
-- `loading`: `boolean` - Show loading state
-- `asChild`: `boolean` - Render as child element (for links)
+- `variant`: `"primary" | "secondary" | "ghost" | "danger" | "success" | "warning"` - Visual style variant (optional)
+- `size`: `"sm" | "md" | "lg" | "xl"` - Button size (optional)
+- `disabled`: `boolean` - Disable button interaction (inherited from HTML button)
+- `children`: `React.ReactNode` - Button content (required)
+- Standard HTML button attributes are supported
 
 ### Accessibility
 - Full keyboard navigation with Enter and Space

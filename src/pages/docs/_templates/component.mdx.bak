@@ -1,0 +1,147 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+---
+
+{/* TEMPLATE FILE - Replace imports below with actual component imports */}
+{/* import { ComponentName } from "liquidify-react/component-name" */}
+{/* import { ComponentShowcase, SimpleShowcase } from "../../../components/ComponentShowcase" */}
+
+# ComponentName
+
+Brief description of what this component does and when to use it. Keep it to 1-2 sentences maximum.
+
+## Import
+
+```tsx
+import { ComponentName } from "liquidify-react/component-name"
+```
+
+## Basic Usage
+
+{/* TEMPLATE - Uncomment and customize when creating actual component docs */}
+{/*
+<ComponentShowcase
+  title="Basic Example"
+  description="Simple usage of ComponentName"
+  code={`<ComponentName>
+  Basic example code here
+</ComponentName>`}
+  client:load
+>
+  <ComponentName client:load>
+    Basic example here
+  </ComponentName>
+</ComponentShowcase>
+*/}
+
+## Variants
+
+{/* TEMPLATE - Uncomment and customize when creating actual component docs */}
+{/*
+<ComponentShowcase
+  title="Component Variants"
+  description="Different visual styles"
+  code={`<div style={{ display: "flex", gap: "1rem" }}>
+  <ComponentName variant="primary">Primary</ComponentName>
+  <ComponentName variant="secondary">Secondary</ComponentName>
+</div>`}
+  client:load
+>
+  <ComponentName variant="primary" client:load>Primary</ComponentName>
+  <ComponentName variant="secondary" client:load>Secondary</ComponentName>
+</ComponentShowcase>
+*/}
+
+Example code block for reference:
+```tsx
+<div style={{ display: "flex", gap: "1rem" }}>
+  <ComponentName variant="primary">Primary</ComponentName>
+  <ComponentName variant="secondary">Secondary</ComponentName>
+</div>
+```
+
+## Sizes
+
+{/* TEMPLATE - Uncomment and customize when creating actual component docs */}
+{/*
+<ComponentShowcase
+  title="Component Sizes"
+  description="Different sizes for various contexts"
+  code={`<div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+  <ComponentName size="sm">Small</ComponentName>
+  <ComponentName size="md">Medium</ComponentName>
+  <ComponentName size="lg">Large</ComponentName>
+</div>`}
+  client:load
+>
+  <ComponentName size="sm" client:load>Small</ComponentName>
+  <ComponentName size="md" client:load>Medium</ComponentName>
+  <ComponentName size="lg" client:load>Large</ComponentName>
+</ComponentShowcase>
+*/}
+
+Example code block for reference:
+```tsx
+<div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+  <ComponentName size="sm">Small</ComponentName>
+  <ComponentName size="md">Medium</ComponentName>
+  <ComponentName size="lg">Large</ComponentName>
+</div>
+```
+
+## Advanced Example
+
+{/* TEMPLATE - Uncomment and customize when creating actual component docs */}
+{/*
+<ComponentShowcase
+  title="Advanced Usage"
+  description="More complex example showcasing additional features"
+  code={`<ComponentName
+  variant="primary"
+  size="lg"
+  disabled
+>
+  Advanced example
+</ComponentName>`}
+  align="left"
+  background="light"
+  client:load
+>
+  <ComponentName
+    variant="primary"
+    size="lg"
+    disabled
+    client:load
+  >
+    Advanced example
+  </ComponentName>
+</ComponentShowcase>
+*/}
+
+Example code block for reference:
+```tsx
+<ComponentName
+  variant="primary"
+  size="lg"
+  disabled
+>
+  Advanced example
+</ComponentName>
+```
+
+## API Reference
+
+### Props
+- `variant`: `"primary" | "secondary"` - Visual style variant
+- `size`: `"sm" | "md" | "lg"` - Component size
+- `disabled`: `boolean` - Disable component interaction
+
+### Accessibility
+- List key accessibility features
+- Keyboard navigation support
+- ARIA attributes and screen reader support
+- Focus management details
+
+### Related Components
+- [RelatedComponent](/docs/components/RelatedComponent) - When to use instead
+- [AnotherComponent](/docs/components/AnotherComponent) - Works well together

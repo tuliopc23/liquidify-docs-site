@@ -2,6 +2,10 @@
 layout: ../../../layouts/DocsLayout.astro
 ---
 
+import { Badge } from "liquidify-react/badge"
+import { Button } from "liquidify-react/button"
+import { ComponentShowcase } from "../../../components/ComponentShowcase"
+
 # Badge
 
 Small status indicators and labels for displaying categories, counts, or states. Perfect for notifications, tags, and highlighting important information.
@@ -14,48 +18,50 @@ import { Badge } from "liquidify-react/badge"
 
 ## Basic Usage
 
+<ComponentShowcase
+  title="Badge Tones"
+  description="Different badge tones available in liquidify-react"
+  code={`<div style={{ display: "flex", gap: "1rem" }}>
+  <Badge>Default</Badge>
+  <Badge tone="neutral">Neutral</Badge>
+  <Badge tone="blue">Blue</Badge>
+</div>`}
+  client:load
+>
+  <Badge client:load>Default</Badge>
+  <Badge tone="neutral" client:load>Neutral</Badge>
+  <Badge tone="blue" client:load>Blue</Badge>
+</ComponentShowcase>
+
+## Custom Styling
+
+<ComponentShowcase
+  title="Badge Content Examples"
+  description="Different content types in badges"
+  code={`<div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+  <Badge>New</Badge>
+  <Badge tone="blue">3</Badge>
+  <Badge tone="neutral">99+</Badge>
+</div>`}
+  client:load
+>
+  <Badge client:load>New</Badge>
+  <Badge tone="blue" client:load>3</Badge>
+  <Badge tone="neutral" client:load>99+</Badge>
+</ComponentShowcase>
+
+## With Custom Styling
+
 ```tsx
-export default function Example() {
+export default function CustomExample() {
 	return (
 		<div style={{ display: "flex", gap: "1rem" }}>
-			<Badge>Default</Badge>
-			<Badge variant="secondary">Secondary</Badge>
-			<Badge variant="success">Success</Badge>
-			<Badge variant="warning">Warning</Badge>
-			<Badge variant="destructive">Error</Badge>
-		</div>
-	)
-}
-```
-
-## Sizes
-
-```tsx
-export default function SizesExample() {
-	return (
-		<div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-			<Badge size="sm">Small</Badge>
-			<Badge size="md">Medium</Badge>
-			<Badge size="lg">Large</Badge>
-		</div>
-	)
-}
-```
-
-## With Icons
-
-```tsx
-export default function IconExample() {
-	return (
-		<div style={{ display: "flex", gap: "1rem" }}>
-			<Badge variant="success">
-				<CheckIcon />
-				Completed
+			<Badge style={{ backgroundColor: '#10b981', color: 'white' }}>
+				Success
 			</Badge>
-			
-			<Badge variant="warning">
-				<AlertIcon />
-				Pending
+
+			<Badge style={{ backgroundColor: '#f59e0b', color: 'white' }}>
+				Warning
 			</Badge>
 		</div>
 	)
@@ -64,34 +70,49 @@ export default function IconExample() {
 
 ## Notification Badges
 
-```tsx
-export default function NotificationExample() {
-	return (
-		<div style={{ position: "relative", display: "inline-block" }}>
-			<Button>Messages</Button>
-			<Badge 
-				variant="destructive" 
-				size="sm"
-				style={{ 
-					position: "absolute", 
-					top: "-8px", 
-					right: "-8px" 
-				}}
-			>
-				3
-			</Badge>
-		</div>
-	)
-}
-```
+<ComponentShowcase
+  title="Notification Indicator"
+  description="Badge as a notification counter on buttons"
+  code={`<div style={{ position: "relative", display: "inline-block" }}>
+  <Button>Messages</Button>
+  <Badge
+    variant="destructive"
+    size="sm"
+    style={{
+      position: "absolute",
+      top: "-8px",
+      right: "-8px"
+    }}
+  >
+    3
+  </Badge>
+</div>`}
+  client:load
+>
+  <div style={{ position: "relative", display: "inline-block" }}>
+    <Button client:load>Messages</Button>
+    <Badge
+      tone="blue"
+      style={{
+        position: "absolute",
+        top: "-8px",
+        right: "-8px",
+        fontSize: "12px"
+      }}
+      client:load
+    >
+      3
+    </Badge>
+  </div>
+</ComponentShowcase>
 
 ## API Reference
 
 ### Props
-- `variant`: `"default" | "secondary" | "success" | "warning" | "destructive"` - Color variant
-- `size`: `"sm" | "md" | "lg"` - Badge size
+- `tone`: `"neutral" | "blue"` - Visual tone of the badge (optional)
+- Standard HTML span attributes are supported
 
 ### Accessibility
 - Meaningful text content for screen readers
-- Proper color contrast ratios
-- Icon descriptions when present
+- Proper color contrast ratios maintained
+- Inherits standard span semantics
