@@ -79,7 +79,11 @@ window.addEventListener('keydown', (e) => {
 
   function applyTheme(mode){
     root.setAttribute('data-theme', mode);
-    if (toggle) toggle.setAttribute('aria-pressed', String(mode === 'dark'));
+    if (toggle) {
+      toggle.setAttribute('aria-pressed', String(mode === 'dark'));
+      // Update theme toggle aria-label for better accessibility
+      toggle.setAttribute('aria-label', `Switch to ${mode === 'light' ? 'dark' : 'light'} theme`);
+    }
   }
 
   function currentPref(){
