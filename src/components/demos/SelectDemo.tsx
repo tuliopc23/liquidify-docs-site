@@ -8,24 +8,22 @@ export default function SelectDemo(): JSX.Element {
     { label: 'Orange', value: 'orange' },
   ];
   return (
-    <Select.Root items={options}>
-      <Select.Label>Choose a fruit</Select.Label>
-      <Select.Control>
+    <div>
+      <div>Choose a fruit</div>
+      <Select.Root items={options}>
         <Select.Trigger>
-          <Select.ValueText placeholder="Select an option" />
-          <Select.Indicator>▼</Select.Indicator>
+          Open select <Select.Indicator>▼</Select.Indicator>
         </Select.Trigger>
-      </Select.Control>
-      <Select.Positioner>
-        <Select.Content>
-          {options.map((option) => (
-            <Select.Item key={option.value} item={option}>
-              <Select.ItemText>{option.label}</Select.ItemText>
-              <Select.ItemIndicator>✓</Select.ItemIndicator>
-            </Select.Item>
-          ))}
-        </Select.Content>
-      </Select.Positioner>
-    </Select.Root>
+        <Select.Positioner>
+          <Select.Content>
+            {options.map((option) => (
+              <Select.Item key={option.value} item={option}>
+                <Select.ItemText>{option.label}</Select.ItemText>
+              </Select.Item>
+            ))}
+          </Select.Content>
+        </Select.Positioner>
+      </Select.Root>
+    </div>
   );
 }

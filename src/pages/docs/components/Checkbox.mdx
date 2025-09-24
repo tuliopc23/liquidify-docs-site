@@ -2,6 +2,8 @@
 layout: ../../../layouts/DocsLayout.astro
 ---
 
+import CheckboxDemo from "../../../components/demos/CheckboxDemo.tsx"
+
 # Checkbox
 
 Binary input control for selecting multiple options from a list. Essential for forms, settings, and multi-selection interfaces.
@@ -14,19 +16,10 @@ import { Checkbox } from "liquidify-react/checkbox"
 
 ## Basic Usage
 
+<CheckboxDemo client:only="react" />
+
 ```tsx
-export default function Example() {
-	return (
-		<Checkbox.Root>
-			<Checkbox.Control>
-				<Checkbox.Indicator>
-					<CheckIcon />
-				</Checkbox.Indicator>
-			</Checkbox.Control>
-			<Checkbox.Label>Accept terms and conditions</Checkbox.Label>
-		</Checkbox.Root>
-	)
-}
+import { Checkbox } from "liquidify-react/ark-ui/checkbox"
 ```
 
 ## Controlled State

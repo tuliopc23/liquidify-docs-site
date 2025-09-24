@@ -2,6 +2,8 @@
 layout: ../../../layouts/DocsLayout.astro
 ---
 
+import DatePickerDemo from "../../../components/demos/DatePickerDemo.tsx"
+
 # DatePicker
 
 Calendar-based date selection with keyboard navigation and localization support. Perfect for forms, scheduling, and date range selection.
@@ -9,10 +11,12 @@ Calendar-based date selection with keyboard navigation and localization support.
 ## Import
 
 ```tsx
-import { DatePicker } from "liquidify-react/date-picker"
+import { DatePicker } from "liquidify-react/ark-ui/datePicker"
 ```
 
 ## Basic Usage
+
+<DatePickerDemo client:only="react" />
 
 ```tsx
 export default function Example() {
