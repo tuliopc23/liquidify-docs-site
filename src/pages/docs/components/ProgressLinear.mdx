@@ -16,7 +16,7 @@ npm install liquidify-react
 ## Import
 
 ```tsx
-import { ProgressLinear } from "liquidify-react/progressLinear";
+import { ProgressLinear } from "liquidify-react/ark-ui/progressLinear";
 ```
 
 ## Usage
@@ -25,13 +25,13 @@ import { ProgressLinear } from "liquidify-react/progressLinear";
 
 ```tsx
 import { useState } from "react";
-import { ProgressLinear } from "liquidify-react/progressLinear";
+import { ProgressLinear } from "liquidify-react/ark-ui/progressLinear";
 
 export default function BasicProgressLinear() {
   const [progress, setProgress] = useState(0);
 
   const incrementProgress = () => {
-    setProgress(prev => Math.min(100, prev + 15));
+    setProgress((prev) => Math.min(100, prev + 15));
   };
 
   const resetProgress = () => {
@@ -48,9 +48,7 @@ export default function BasicProgressLinear() {
         <button onClick={incrementProgress} disabled={progress >= 100}>
           Advance Progress
         </button>
-        <button onClick={resetProgress}>
-          Reset
-        </button>
+        <button onClick={resetProgress}>Reset</button>
       </div>
 
       <p style={{ marginTop: "1rem", color: "#666", textAlign: "center" }}>
@@ -65,7 +63,7 @@ export default function BasicProgressLinear() {
 
 ```tsx
 import { useState, useEffect } from "react";
-import { ProgressLinear } from "liquidify-react/progressLinear";
+import { ProgressLinear } from "liquidify-react/ark-ui/progressLinear";
 
 export default function FileUploadProgress() {
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -78,7 +76,7 @@ export default function FileUploadProgress() {
     setUploadedFile(file);
 
     const interval = setInterval(() => {
-      setUploadProgress(prev => {
+      setUploadProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
           setIsUploading(false);
@@ -110,7 +108,9 @@ export default function FileUploadProgress() {
 
         {isUploading && (
           <div>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}>
+            <div
+              style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}
+            >
               <span>Uploading {uploadedFile?.name}</span>
               <span>{Math.round(uploadProgress)}%</span>
             </div>
@@ -120,7 +120,14 @@ export default function FileUploadProgress() {
       </div>
 
       {uploadedFile && !isUploading && uploadProgress === 100 && (
-        <div style={{ padding: "1rem", backgroundColor: "#d4edda", borderRadius: "8px", textAlign: "center" }}>
+        <div
+          style={{
+            padding: "1rem",
+            backgroundColor: "#d4edda",
+            borderRadius: "8px",
+            textAlign: "center",
+          }}
+        >
           <h4 style={{ color: "#155724", margin: 0 }}>✅ Upload Complete!</h4>
           <p style={{ color: "#155724", marginTop: "0.5rem" }}>
             {uploadedFile.name} has been successfully uploaded.
@@ -136,7 +143,7 @@ export default function FileUploadProgress() {
 
 ```tsx
 import { useState } from "react";
-import { ProgressLinear } from "liquidify-react/progressLinear";
+import { ProgressLinear } from "liquidify-react/ark-ui/progressLinear";
 
 export default function MultiStepFormProgress() {
   const [currentStep, setCurrentStep] = useState(0);
@@ -144,13 +151,13 @@ export default function MultiStepFormProgress() {
     name: "",
     email: "",
     address: "",
-    preferences: ""
+    preferences: "",
   });
 
   const steps = [
     { title: "Personal Info", fields: ["name", "email"] },
     { title: "Address", fields: ["address"] },
-    { title: "Preferences", fields: ["preferences"] }
+    { title: "Preferences", fields: ["preferences"] },
   ];
 
   const totalSteps = steps.length;
@@ -169,7 +176,7 @@ export default function MultiStepFormProgress() {
   };
 
   const updateFormData = (field, value) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const renderCurrentStep = () => {
@@ -179,9 +186,11 @@ export default function MultiStepFormProgress() {
       <div style={{ marginTop: "2rem" }}>
         <h4>{step.title}</h4>
 
-        {step.fields.map(field => (
+        {step.fields.map((field) => (
           <div key={field} style={{ marginBottom: "1rem" }}>
-            <label style={{ display: "block", marginBottom: "0.5rem", textTransform: "capitalize" }}>
+            <label
+              style={{ display: "block", marginBottom: "0.5rem", textTransform: "capitalize" }}
+            >
               {field}
             </label>
             {field === "preferences" ? (
@@ -189,7 +198,12 @@ export default function MultiStepFormProgress() {
                 value={formData[field]}
                 onChange={(e) => updateFormData(field, e.target.value)}
                 rows={4}
-                style={{ width: "100%", padding: "0.5rem", border: "1px solid #ccc", borderRadius: "4px" }}
+                style={{
+                  width: "100%",
+                  padding: "0.5rem",
+                  border: "1px solid #ccc",
+                  borderRadius: "4px",
+                }}
                 placeholder="Tell us about your preferences..."
               />
             ) : (
@@ -197,7 +211,12 @@ export default function MultiStepFormProgress() {
                 type={field === "email" ? "email" : "text"}
                 value={formData[field]}
                 onChange={(e) => updateFormData(field, e.target.value)}
-                style={{ width: "100%", padding: "0.5rem", border: "1px solid #ccc", borderRadius: "4px" }}
+                style={{
+                  width: "100%",
+                  padding: "0.5rem",
+                  border: "1px solid #ccc",
+                  borderRadius: "4px",
+                }}
                 placeholder={`Enter your ${field}`}
               />
             )}
@@ -213,7 +232,9 @@ export default function MultiStepFormProgress() {
 
       <div style={{ marginBottom: "2rem" }}>
         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}>
-          <span>Step {currentStep + 1} of {totalSteps}</span>
+          <span>
+            Step {currentStep + 1} of {totalSteps}
+          </span>
           <span>{Math.round(progress)}% Complete</span>
         </div>
         <ProgressLinear value={progress} />
@@ -230,7 +251,8 @@ export default function MultiStepFormProgress() {
                 padding: "0.5rem",
                 backgroundColor: index <= currentStep ? "#007bff" : "#e9ecef",
                 color: index <= currentStep ? "white" : "#666",
-                borderRadius: index === 0 ? "4px 0 0 4px" : index === steps.length - 1 ? "0 4px 4px 0" : "0"
+                borderRadius:
+                  index === 0 ? "4px 0 0 4px" : index === steps.length - 1 ? "0 4px 4px 0" : "0",
               }}
             >
               {step.title}
@@ -251,7 +273,7 @@ export default function MultiStepFormProgress() {
             color: "white",
             border: "none",
             borderRadius: "4px",
-            cursor: currentStep === 0 ? "not-allowed" : "pointer"
+            cursor: currentStep === 0 ? "not-allowed" : "pointer",
           }}
         >
           Previous
@@ -266,7 +288,7 @@ export default function MultiStepFormProgress() {
             color: "white",
             border: "none",
             borderRadius: "4px",
-            cursor: currentStep === totalSteps - 1 ? "pointer" : "pointer"
+            cursor: currentStep === totalSteps - 1 ? "pointer" : "pointer",
           }}
         >
           {currentStep === totalSteps - 1 ? "Submit" : "Next"}
@@ -281,14 +303,14 @@ export default function MultiStepFormProgress() {
 
 ```tsx
 import { useState, useEffect } from "react";
-import { ProgressLinear } from "liquidify-react/progressLinear";
+import { ProgressLinear } from "liquidify-react/ark-ui/progressLinear";
 
 export default function LoadingStates() {
   const [loadingStates, setLoadingStates] = useState({
     initializing: 0,
     connecting: 0,
     authenticating: 0,
-    loadingData: 0
+    loadingData: 0,
   });
 
   const [currentPhase, setCurrentPhase] = useState("initializing");
@@ -300,7 +322,7 @@ export default function LoadingStates() {
       setTimeout(() => {
         setCurrentPhase(phase);
         const interval = setInterval(() => {
-          setLoadingStates(prev => {
+          setLoadingStates((prev) => {
             const newValue = prev[phase] + Math.random() * 15;
             if (newValue >= 100) {
               clearInterval(interval);
@@ -317,10 +339,10 @@ export default function LoadingStates() {
     initializing: "Initializing application",
     connecting: "Connecting to server",
     authenticating: "Authenticating user",
-    loadingData: "Loading user data"
+    loadingData: "Loading user data",
   };
 
-  const allComplete = Object.values(loadingStates).every(value => value === 100);
+  const allComplete = Object.values(loadingStates).every((value) => value === 100);
 
   return (
     <div style={{ padding: "2rem", maxWidth: "500px", margin: "0 auto" }}>
@@ -329,22 +351,29 @@ export default function LoadingStates() {
       <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
         {Object.entries(loadingStates).map(([key, value]) => (
           <div key={key}>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}>
+            <div
+              style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}
+            >
               <span style={{ fontWeight: currentPhase === key ? "bold" : "normal" }}>
                 {phaseLabels[key]}
               </span>
               <span>{Math.round(value)}%</span>
             </div>
-            <ProgressLinear
-              value={value}
-              size={currentPhase === key ? "lg" : "md"}
-            />
+            <ProgressLinear value={value} size={currentPhase === key ? "lg" : "md"} />
           </div>
         ))}
       </div>
 
       {allComplete && (
-        <div style={{ marginTop: "2rem", padding: "1rem", backgroundColor: "#d4edda", borderRadius: "8px", textAlign: "center" }}>
+        <div
+          style={{
+            marginTop: "2rem",
+            padding: "1rem",
+            backgroundColor: "#d4edda",
+            borderRadius: "8px",
+            textAlign: "center",
+          }}
+        >
           <h4 style={{ color: "#155724", margin: 0 }}>🎉 Application Ready!</h4>
           <p style={{ color: "#155724", marginTop: "0.5rem" }}>
             All systems have been initialized successfully.
@@ -359,7 +388,7 @@ export default function LoadingStates() {
 ### Skill Level Indicators
 
 ```tsx
-import { ProgressLinear } from "liquidify-react/progressLinear";
+import { ProgressLinear } from "liquidify-react/ark-ui/progressLinear";
 
 export default function SkillLevelIndicators() {
   const skills = [
@@ -368,7 +397,7 @@ export default function SkillLevelIndicators() {
     { name: "TypeScript", level: 75, color: "#3178c6" },
     { name: "Node.js", level: 70, color: "#339933" },
     { name: "Python", level: 65, color: "#3776ab" },
-    { name: "CSS", level: 80, color: "#1572b6" }
+    { name: "CSS", level: 80, color: "#1572b6" },
   ];
 
   const getSkillLevel = (level) => {
@@ -384,9 +413,11 @@ export default function SkillLevelIndicators() {
       <h3>Technical Skills</h3>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-        {skills.map(skill => (
+        {skills.map((skill) => (
           <div key={skill.name}>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}>
+            <div
+              style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}
+            >
               <span style={{ fontWeight: "bold" }}>{skill.name}</span>
               <span style={{ color: "#666" }}>
                 {skill.level}% - {getSkillLevel(skill.level)}
@@ -396,21 +427,38 @@ export default function SkillLevelIndicators() {
               value={skill.level}
               style={{
                 "--progress-linear-track-color": "#e9ecef",
-                "--progress-linear-range-color": skill.color
+                "--progress-linear-range-color": skill.color,
               }}
             />
           </div>
         ))}
       </div>
 
-      <div style={{ marginTop: "2rem", padding: "1rem", backgroundColor: "#f8f9fa", borderRadius: "8px" }}>
+      <div
+        style={{
+          marginTop: "2rem",
+          padding: "1rem",
+          backgroundColor: "#f8f9fa",
+          borderRadius: "8px",
+        }}
+      >
         <h4>Skill Level Guide</h4>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", fontSize: "0.9rem" }}>
-          <span><strong>90%+:</strong> Expert</span>
-          <span><strong>75-89%:</strong> Advanced</span>
-          <span><strong>60-74%:</strong> Intermediate</span>
-          <span><strong>40-59%:</strong> Beginner</span>
-          <span><strong>&lt;40%:</strong> Novice</span>
+          <span>
+            <strong>90%+:</strong> Expert
+          </span>
+          <span>
+            <strong>75-89%:</strong> Advanced
+          </span>
+          <span>
+            <strong>60-74%:</strong> Intermediate
+          </span>
+          <span>
+            <strong>40-59%:</strong> Beginner
+          </span>
+          <span>
+            <strong>&lt;40%:</strong> Novice
+          </span>
         </div>
       </div>
     </div>
@@ -421,7 +469,7 @@ export default function SkillLevelIndicators() {
 ### Project Milestones
 
 ```tsx
-import { ProgressLinear } from "liquidify-react/progressLinear";
+import { ProgressLinear } from "liquidify-react/ark-ui/progressLinear";
 
 export default function ProjectMilestones() {
   const milestones = [
@@ -429,42 +477,47 @@ export default function ProjectMilestones() {
       title: "Planning Phase",
       description: "Requirements gathering and project planning",
       progress: 100,
-      status: "completed"
+      status: "completed",
     },
     {
       title: "Design Phase",
       description: "UI/UX design and prototyping",
       progress: 100,
-      status: "completed"
+      status: "completed",
     },
     {
       title: "Development",
       description: "Core feature implementation",
       progress: 75,
-      status: "in-progress"
+      status: "in-progress",
     },
     {
       title: "Testing",
       description: "Quality assurance and bug fixing",
       progress: 30,
-      status: "in-progress"
+      status: "in-progress",
     },
     {
       title: "Deployment",
       description: "Production deployment and monitoring",
       progress: 0,
-      status: "pending"
-    }
+      status: "pending",
+    },
   ];
 
-  const overallProgress = milestones.reduce((acc, milestone) => acc + milestone.progress, 0) / milestones.length;
+  const overallProgress =
+    milestones.reduce((acc, milestone) => acc + milestone.progress, 0) / milestones.length;
 
   const getStatusColor = (status) => {
     switch (status) {
-      case "completed": return "#28a745";
-      case "in-progress": return "#007bff";
-      case "pending": return "#6c757d";
-      default: return "#6c757d";
+      case "completed":
+        return "#28a745";
+      case "in-progress":
+        return "#007bff";
+      case "pending":
+        return "#6c757d";
+      default:
+        return "#6c757d";
     }
   };
 
@@ -482,28 +535,37 @@ export default function ProjectMilestones() {
 
       <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
         {milestones.map((milestone, index) => (
-          <div key={index} style={{
-            padding: "1rem",
-            border: "1px solid #dee2e6",
-            borderRadius: "8px",
-            backgroundColor: "white"
-          }}>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}>
+          <div
+            key={index}
+            style={{
+              padding: "1rem",
+              border: "1px solid #dee2e6",
+              borderRadius: "8px",
+              backgroundColor: "white",
+            }}
+          >
+            <div
+              style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}
+            >
               <h4 style={{ margin: 0 }}>{milestone.title}</h4>
-              <span style={{
-                padding: "0.25rem 0.5rem",
-                borderRadius: "12px",
-                fontSize: "0.8rem",
-                color: "white",
-                backgroundColor: getStatusColor(milestone.status)
-              }}>
+              <span
+                style={{
+                  padding: "0.25rem 0.5rem",
+                  borderRadius: "12px",
+                  fontSize: "0.8rem",
+                  color: "white",
+                  backgroundColor: getStatusColor(milestone.status),
+                }}
+              >
                 {milestone.status.replace("-", " ")}
               </span>
             </div>
 
             <p style={{ color: "#666", marginBottom: "1rem" }}>{milestone.description}</p>
 
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}>
+            <div
+              style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}
+            >
               <span>Progress</span>
               <span>{milestone.progress}%</span>
             </div>
@@ -512,7 +574,7 @@ export default function ProjectMilestones() {
               value={milestone.progress}
               style={{
                 "--progress-linear-track-color": "#e9ecef",
-                "--progress-linear-range-color": getStatusColor(milestone.status)
+                "--progress-linear-range-color": getStatusColor(milestone.status),
               }}
             />
           </div>
@@ -526,7 +588,7 @@ export default function ProjectMilestones() {
 ### Different Sizes
 
 ```tsx
-import { ProgressLinear } from "liquidify-react/progressLinear";
+import { ProgressLinear } from "liquidify-react/ark-ui/progressLinear";
 
 export default function DifferentSizes() {
   const sizes = ["xs", "sm", "md", "lg"];
@@ -536,9 +598,11 @@ export default function DifferentSizes() {
       <h3>Progress Linear Sizes</h3>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-        {sizes.map(size => (
+        {sizes.map((size) => (
           <div key={size}>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}>
+            <div
+              style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}
+            >
               <span>Size: {size.toUpperCase()}</span>
               <span>75%</span>
             </div>
@@ -564,7 +628,7 @@ export default function DifferentSizes() {
 ### With Custom Styling
 
 ```tsx
-import { ProgressLinear } from "liquidify-react/progressLinear";
+import { ProgressLinear } from "liquidify-react/ark-ui/progressLinear";
 
 export default function CustomStyledProgress() {
   return (
@@ -581,7 +645,7 @@ export default function CustomStyledProgress() {
               "--progress-linear-track-color": "#d4edda",
               "--progress-linear-range-color": "#28a745",
               "--progress-linear-track-height": "8px",
-              borderRadius: "4px"
+              borderRadius: "4px",
             }}
           />
         </div>
@@ -594,7 +658,7 @@ export default function CustomStyledProgress() {
             style={{
               "--progress-linear-track-color": "#fff3cd",
               "--progress-linear-range-color": "#ffc107",
-              "--progress-linear-track-height": "6px"
+              "--progress-linear-track-height": "6px",
             }}
           />
         </div>
@@ -607,7 +671,7 @@ export default function CustomStyledProgress() {
             style={{
               "--progress-linear-track-color": "#f8d7da",
               "--progress-linear-range-color": "#dc3545",
-              "--progress-linear-track-height": "10px"
+              "--progress-linear-track-height": "10px",
             }}
           />
         </div>
@@ -620,7 +684,7 @@ export default function CustomStyledProgress() {
             style={{
               "--progress-linear-track-color": "#d1ecf1",
               "--progress-linear-range-color": "#17a2b8",
-              "--progress-linear-track-height": "12px"
+              "--progress-linear-track-height": "12px",
             }}
           />
         </div>
@@ -638,14 +702,14 @@ The linear progress bar component.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `number` | `0` | The current progress value |
-| `max` | `number` | `100` | The maximum progress value |
-| `size` | `"xs" \| "sm" \| "md" \| "lg"` | `"md"` | The size/height of the progress bar |
-| `label` | `string` | - | The label text to display |
-| `children` | `ReactNode` | - | Custom content to display instead of label |
-| All standard div props | - | - | Standard HTML div attributes |
+| Prop                   | Type                           | Default | Description                                |
+| ---------------------- | ------------------------------ | ------- | ------------------------------------------ |
+| `value`                | `number`                       | `0`     | The current progress value                 |
+| `max`                  | `number`                       | `100`   | The maximum progress value                 |
+| `size`                 | `"xs" \| "sm" \| "md" \| "lg"` | `"md"`  | The size/height of the progress bar        |
+| `label`                | `string`                       | -       | The label text to display                  |
+| `children`             | `ReactNode`                    | -       | Custom content to display instead of label |
+| All standard div props | -                              | -       | Standard HTML div attributes               |
 
 ## Accessibility
 

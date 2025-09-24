@@ -16,7 +16,7 @@ bun add liquidify-react
 ## Import
 
 ```tsx
-import { RatingGroup } from "liquidify-react/rating-group"
+import { RatingGroup } from "liquidify-react/ark-ui/ratingGroup";
 ```
 
 ## Basic Usage
@@ -24,7 +24,7 @@ import { RatingGroup } from "liquidify-react/rating-group"
 Create a simple star rating component:
 
 ```tsx
-import { RatingGroup } from "liquidify-react/rating-group"
+import { RatingGroup } from "liquidify-react/ark-ui/ratingGroup";
 
 export function BasicExample() {
   return (
@@ -37,9 +37,7 @@ export function BasicExample() {
               <RatingGroup.Item key={item} index={item}>
                 <RatingGroup.ItemContext>
                   {({ highlighted }) => (
-                    <span style={{ color: highlighted ? "#fbbf24" : "#d1d5db" }}>
-                      ★
-                    </span>
+                    <span style={{ color: highlighted ? "#fbbf24" : "#d1d5db" }}>★</span>
                   )}
                 </RatingGroup.ItemContext>
               </RatingGroup.Item>
@@ -48,7 +46,7 @@ export function BasicExample() {
         )}
       </RatingGroup.Control>
     </RatingGroup.Root>
-  )
+  );
 }
 ```
 
@@ -57,16 +55,16 @@ export function BasicExample() {
 Control the rating value with state:
 
 ```tsx
-import { useState } from "react"
-import { RatingGroup } from "liquidify-react/rating-group"
+import { useState } from "react";
+import { RatingGroup } from "liquidify-react/ark-ui/ratingGroup";
 
 export function ControlledExample() {
-  const [rating, setRating] = useState(0)
+  const [rating, setRating] = useState(0);
 
   return (
-    <RatingGroup.Root 
-      count={5} 
-      value={rating} 
+    <RatingGroup.Root
+      count={5}
+      value={rating}
       onValueChange={(details) => setRating(details.value)}
     >
       <RatingGroup.Label>How would you rate our service?</RatingGroup.Label>
@@ -77,11 +75,13 @@ export function ControlledExample() {
               <RatingGroup.Item key={item} index={item}>
                 <RatingGroup.ItemContext>
                   {({ highlighted }) => (
-                    <span style={{ 
-                      color: highlighted ? "#f59e0b" : "#e5e7eb",
-                      fontSize: "24px",
-                      cursor: "pointer"
-                    }}>
+                    <span
+                      style={{
+                        color: highlighted ? "#f59e0b" : "#e5e7eb",
+                        fontSize: "24px",
+                        cursor: "pointer",
+                      }}
+                    >
                       ★
                     </span>
                   )}
@@ -93,7 +93,7 @@ export function ControlledExample() {
       </RatingGroup.Control>
       <p>Current rating: {rating}/5</p>
     </RatingGroup.Root>
-  )
+  );
 }
 ```
 
@@ -102,7 +102,7 @@ export function ControlledExample() {
 Allow half-star ratings for more precise feedback:
 
 ```tsx
-import { RatingGroup } from "liquidify-react/rating-group"
+import { RatingGroup } from "liquidify-react/ark-ui/ratingGroup";
 
 export function HalfStarExample() {
   return (
@@ -115,11 +115,13 @@ export function HalfStarExample() {
               <RatingGroup.Item key={item} index={item}>
                 <RatingGroup.ItemContext>
                   {({ half, highlighted }) => (
-                    <span style={{ 
-                      position: "relative",
-                      color: highlighted ? "#f59e0b" : "#e5e7eb",
-                      fontSize: "20px"
-                    }}>
+                    <span
+                      style={{
+                        position: "relative",
+                        color: highlighted ? "#f59e0b" : "#e5e7eb",
+                        fontSize: "20px",
+                      }}
+                    >
                       {half ? (
                         <>
                           <span style={{ position: "absolute", overflow: "hidden", width: "50%" }}>
@@ -139,7 +141,7 @@ export function HalfStarExample() {
         )}
       </RatingGroup.Control>
     </RatingGroup.Root>
-  )
+  );
 }
 ```
 
@@ -148,7 +150,7 @@ export function HalfStarExample() {
 Use custom symbols instead of stars:
 
 ```tsx
-import { RatingGroup } from "liquidify-react/rating-group"
+import { RatingGroup } from "liquidify-react/ark-ui/ratingGroup";
 
 export function CustomSymbolsExample() {
   return (
@@ -161,11 +163,13 @@ export function CustomSymbolsExample() {
               <RatingGroup.Item key={item} index={item}>
                 <RatingGroup.ItemContext>
                   {({ highlighted }) => (
-                    <span style={{ 
-                      color: highlighted ? "#ef4444" : "#e5e7eb",
-                      fontSize: "24px",
-                      cursor: "pointer"
-                    }}>
+                    <span
+                      style={{
+                        color: highlighted ? "#ef4444" : "#e5e7eb",
+                        fontSize: "24px",
+                        cursor: "pointer",
+                      }}
+                    >
                       🔥
                     </span>
                   )}
@@ -176,7 +180,7 @@ export function CustomSymbolsExample() {
         )}
       </RatingGroup.Control>
     </RatingGroup.Root>
-  )
+  );
 }
 ```
 
@@ -185,14 +189,14 @@ export function CustomSymbolsExample() {
 Display ratings without allowing user interaction:
 
 ```tsx
-import { RatingGroup } from "liquidify-react/rating-group"
+import { RatingGroup } from "liquidify-react/ark-ui/ratingGroup";
 
 export function ReadOnlyExample() {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
       <div>
         <h4>Customer Reviews</h4>
-        
+
         <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "8px" }}>
           <RatingGroup.Root count={5} value={4.5} readOnly>
             <RatingGroup.Control>
@@ -202,9 +206,7 @@ export function ReadOnlyExample() {
                     <RatingGroup.Item key={item} index={item}>
                       <RatingGroup.ItemContext>
                         {({ highlighted }) => (
-                          <span style={{ color: highlighted ? "#fbbf24" : "#d1d5db" }}>
-                            ★
-                          </span>
+                          <span style={{ color: highlighted ? "#fbbf24" : "#d1d5db" }}>★</span>
                         )}
                       </RatingGroup.ItemContext>
                     </RatingGroup.Item>
@@ -215,7 +217,7 @@ export function ReadOnlyExample() {
           </RatingGroup.Root>
           <span>4.5 out of 5 (128 reviews)</span>
         </div>
-        
+
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <RatingGroup.Root count={5} value={3} readOnly>
             <RatingGroup.Control>
@@ -225,9 +227,7 @@ export function ReadOnlyExample() {
                     <RatingGroup.Item key={item} index={item}>
                       <RatingGroup.ItemContext>
                         {({ highlighted }) => (
-                          <span style={{ color: highlighted ? "#fbbf24" : "#d1d5db" }}>
-                            ★
-                          </span>
+                          <span style={{ color: highlighted ? "#fbbf24" : "#d1d5db" }}>★</span>
                         )}
                       </RatingGroup.ItemContext>
                     </RatingGroup.Item>
@@ -240,7 +240,7 @@ export function ReadOnlyExample() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 ```
 
@@ -249,27 +249,33 @@ export function ReadOnlyExample() {
 Provide textual feedback based on rating:
 
 ```tsx
-import { useState } from "react"
-import { RatingGroup } from "liquidify-react/rating-group"
+import { useState } from "react";
+import { RatingGroup } from "liquidify-react/ark-ui/ratingGroup";
 
 export function FeedbackExample() {
-  const [rating, setRating] = useState(0)
-  
+  const [rating, setRating] = useState(0);
+
   const getFeedback = (value) => {
     switch (value) {
-      case 1: return "Poor"
-      case 2: return "Fair"
-      case 3: return "Good"
-      case 4: return "Very Good"
-      case 5: return "Excellent"
-      default: return "No rating"
+      case 1:
+        return "Poor";
+      case 2:
+        return "Fair";
+      case 3:
+        return "Good";
+      case 4:
+        return "Very Good";
+      case 5:
+        return "Excellent";
+      default:
+        return "No rating";
     }
-  }
+  };
 
   return (
-    <RatingGroup.Root 
-      count={5} 
-      value={rating} 
+    <RatingGroup.Root
+      count={5}
+      value={rating}
       onValueChange={(details) => setRating(details.value)}
     >
       <RatingGroup.Label>Overall satisfaction</RatingGroup.Label>
@@ -280,12 +286,14 @@ export function FeedbackExample() {
               <RatingGroup.Item key={item} index={item}>
                 <RatingGroup.ItemContext>
                   {({ highlighted }) => (
-                    <span style={{ 
-                      color: highlighted ? "#10b981" : "#e5e7eb",
-                      fontSize: "28px",
-                      cursor: "pointer",
-                      transition: "color 0.2s"
-                    }}>
+                    <span
+                      style={{
+                        color: highlighted ? "#10b981" : "#e5e7eb",
+                        fontSize: "28px",
+                        cursor: "pointer",
+                        transition: "color 0.2s",
+                      }}
+                    >
                       ★
                     </span>
                   )}
@@ -297,17 +305,19 @@ export function FeedbackExample() {
       </RatingGroup.Control>
       <div style={{ marginTop: "8px", minHeight: "24px" }}>
         {rating > 0 && (
-          <p style={{ 
-            margin: 0, 
-            fontWeight: "600",
-            color: rating >= 4 ? "#10b981" : rating >= 3 ? "#f59e0b" : "#ef4444"
-          }}>
+          <p
+            style={{
+              margin: 0,
+              fontWeight: "600",
+              color: rating >= 4 ? "#10b981" : rating >= 3 ? "#f59e0b" : "#ef4444",
+            }}
+          >
             {getFeedback(rating)}
           </p>
         )}
       </div>
     </RatingGroup.Root>
-  )
+  );
 }
 ```
 
@@ -316,7 +326,7 @@ export function FeedbackExample() {
 Show a disabled rating component:
 
 ```tsx
-import { RatingGroup } from "liquidify-react/rating-group"
+import { RatingGroup } from "liquidify-react/ark-ui/ratingGroup";
 
 export function DisabledExample() {
   return (
@@ -329,11 +339,13 @@ export function DisabledExample() {
               <RatingGroup.Item key={item} index={item}>
                 <RatingGroup.ItemContext>
                   {({ highlighted }) => (
-                    <span style={{ 
-                      color: highlighted ? "#9ca3af" : "#e5e7eb",
-                      fontSize: "20px",
-                      opacity: 0.5
-                    }}>
+                    <span
+                      style={{
+                        color: highlighted ? "#9ca3af" : "#e5e7eb",
+                        fontSize: "20px",
+                        opacity: 0.5,
+                      }}
+                    >
                       ★
                     </span>
                   )}
@@ -343,11 +355,9 @@ export function DisabledExample() {
           </>
         )}
       </RatingGroup.Control>
-      <p style={{ color: "#6b7280", fontSize: "14px" }}>
-        Rating submission is currently disabled
-      </p>
+      <p style={{ color: "#6b7280", fontSize: "14px" }}>Rating submission is currently disabled</p>
     </RatingGroup.Root>
-  )
+  );
 }
 ```
 
@@ -357,15 +367,15 @@ export function DisabledExample() {
 
 The root container for the rating group.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `number` | - | Controlled rating value |
-| `defaultValue` | `number` | `0` | Default rating value |
-| `onValueChange` | `(details) => void` | - | Callback when rating changes |
-| `count` | `number` | `5` | Total number of rating items |
-| `allowHalf` | `boolean` | `false` | Whether to allow half ratings |
-| `readOnly` | `boolean` | `false` | Whether the rating is read-only |
-| `disabled` | `boolean` | `false` | Whether the rating is disabled |
+| Prop            | Type                | Default | Description                     |
+| --------------- | ------------------- | ------- | ------------------------------- |
+| `value`         | `number`            | -       | Controlled rating value         |
+| `defaultValue`  | `number`            | `0`     | Default rating value            |
+| `onValueChange` | `(details) => void` | -       | Callback when rating changes    |
+| `count`         | `number`            | `5`     | Total number of rating items    |
+| `allowHalf`     | `boolean`           | `false` | Whether to allow half ratings   |
+| `readOnly`      | `boolean`           | `false` | Whether the rating is read-only |
+| `disabled`      | `boolean`           | `false` | Whether the rating is disabled  |
 
 ### RatingGroup.Label
 
@@ -379,18 +389,18 @@ Container for rating items. Provides render props with `items` array.
 
 Individual rating item.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `index` | `number` | - | Index of the rating item (required) |
+| Prop    | Type     | Default | Description                         |
+| ------- | -------- | ------- | ----------------------------------- |
+| `index` | `number` | -       | Index of the rating item (required) |
 
 ### RatingGroup.ItemContext
 
 Provides context for each rating item with render props.
 
-| Prop | Type | Description |
-|------|------|-------------|
-| `highlighted` | `boolean` | Whether the item is highlighted |
-| `half` | `boolean` | Whether the item shows half rating |
+| Prop          | Type      | Description                        |
+| ------------- | --------- | ---------------------------------- |
+| `highlighted` | `boolean` | Whether the item is highlighted    |
+| `half`        | `boolean` | Whether the item shows half rating |
 
 ## Accessibility
 

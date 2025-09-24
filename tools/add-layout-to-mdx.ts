@@ -43,4 +43,7 @@ async function main() {
   console.log(`Updated ${changed} files with layout frontmatter.`);
 }
 
-main().catch((err) => { console.error(err); process.exit(1); });
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

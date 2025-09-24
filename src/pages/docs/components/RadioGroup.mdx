@@ -3,7 +3,7 @@ title: RadioGroup
 description: A set of radio buttons that allows users to select one option from multiple choices.
 ---
 
-import RadioGroupDemo from "../../../components/demos/RadioGroupDemo.tsx"
+import RadioGroupDemo from "../../../components/demos/RadioGroupDemo.tsx";
 
 # RadioGroup
 
@@ -18,7 +18,7 @@ bun add liquidify-react
 ## Import
 
 ```tsx
-import { RadioGroup } from "liquidify-react/radio-group"
+import { RadioGroup } from "liquidify-react/ark-ui/radioGroup";
 ```
 
 ## Basic Usage
@@ -28,7 +28,7 @@ import { RadioGroup } from "liquidify-react/radio-group"
 Create a simple radio group with multiple options:
 
 ```tsx
-import { RadioGroup } from "liquidify-react/ark-ui/radioGroup"
+import { RadioGroup } from "liquidify-react/ark-ui/radioGroup";
 
 export function BasicExample() {
   return (
@@ -49,7 +49,7 @@ export function BasicExample() {
         </RadioGroup.Item>
       </div>
     </RadioGroup.Root>
-  )
+  );
 }
 ```
 
@@ -58,11 +58,11 @@ export function BasicExample() {
 Control the selected value with state:
 
 ```tsx
-import { useState } from "react"
-import { RadioGroup } from "liquidify-react/radio-group"
+import { useState } from "react";
+import { RadioGroup } from "liquidify-react/ark-ui/radioGroup";
 
 export function ControlledExample() {
-  const [value, setValue] = useState("credit-card")
+  const [value, setValue] = useState("credit-card");
 
   return (
     <RadioGroup.Root value={value} onValueChange={(details) => setValue(details.value)}>
@@ -83,7 +83,7 @@ export function ControlledExample() {
       </div>
       <p>Selected: {value}</p>
     </RadioGroup.Root>
-  )
+  );
 }
 ```
 
@@ -92,7 +92,7 @@ export function ControlledExample() {
 Display radio buttons in a horizontal layout:
 
 ```tsx
-import { RadioGroup } from "liquidify-react/radio-group"
+import { RadioGroup } from "liquidify-react/ark-ui/radioGroup";
 
 export function HorizontalExample() {
   return (
@@ -109,7 +109,7 @@ export function HorizontalExample() {
         </RadioGroup.Item>
       </div>
     </RadioGroup.Root>
-  )
+  );
 }
 ```
 
@@ -118,14 +118,17 @@ export function HorizontalExample() {
 Create radio items with rich content and descriptions:
 
 ```tsx
-import { RadioGroup } from "liquidify-react/radio-group"
+import { RadioGroup } from "liquidify-react/ark-ui/radioGroup";
 
 export function RichContentExample() {
   return (
     <RadioGroup.Root defaultValue="pro">
       <RadioGroup.Label>Choose your plan</RadioGroup.Label>
       <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-        <RadioGroup.Item value="basic" style={{ padding: "16px", border: "1px solid #e5e7eb", borderRadius: "8px" }}>
+        <RadioGroup.Item
+          value="basic"
+          style={{ padding: "16px", border: "1px solid #e5e7eb", borderRadius: "8px" }}
+        >
           <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
             <RadioGroup.ItemControl style={{ marginTop: "4px" }} />
             <div>
@@ -139,8 +142,11 @@ export function RichContentExample() {
             </div>
           </div>
         </RadioGroup.Item>
-        
-        <RadioGroup.Item value="pro" style={{ padding: "16px", border: "1px solid #e5e7eb", borderRadius: "8px" }}>
+
+        <RadioGroup.Item
+          value="pro"
+          style={{ padding: "16px", border: "1px solid #e5e7eb", borderRadius: "8px" }}
+        >
           <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
             <RadioGroup.ItemControl style={{ marginTop: "4px" }} />
             <div>
@@ -154,8 +160,11 @@ export function RichContentExample() {
             </div>
           </div>
         </RadioGroup.Item>
-        
-        <RadioGroup.Item value="enterprise" style={{ padding: "16px", border: "1px solid #e5e7eb", borderRadius: "8px" }}>
+
+        <RadioGroup.Item
+          value="enterprise"
+          style={{ padding: "16px", border: "1px solid #e5e7eb", borderRadius: "8px" }}
+        >
           <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
             <RadioGroup.ItemControl style={{ marginTop: "4px" }} />
             <div>
@@ -171,7 +180,7 @@ export function RichContentExample() {
         </RadioGroup.Item>
       </div>
     </RadioGroup.Root>
-  )
+  );
 }
 ```
 
@@ -180,7 +189,7 @@ export function RichContentExample() {
 Show disabled radio options:
 
 ```tsx
-import { RadioGroup } from "liquidify-react/radio-group"
+import { RadioGroup } from "liquidify-react/ark-ui/radioGroup";
 
 export function DisabledExample() {
   return (
@@ -201,7 +210,7 @@ export function DisabledExample() {
         </RadioGroup.Item>
       </div>
     </RadioGroup.Root>
-  )
+  );
 }
 ```
 
@@ -210,30 +219,30 @@ export function DisabledExample() {
 Show validation errors for radio groups:
 
 ```tsx
-import { useState } from "react"
-import { RadioGroup } from "liquidify-react/radio-group"
-import { Button } from "liquidify-react/button"
+import { useState } from "react";
+import { RadioGroup } from "liquidify-react/ark-ui/radioGroup";
+import { Button } from "liquidify-react/button";
 
 export function ValidationExample() {
-  const [value, setValue] = useState("")
-  const [error, setError] = useState("")
+  const [value, setValue] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = () => {
     if (!value) {
-      setError("Please select an option")
+      setError("Please select an option");
     } else {
-      setError("")
-      console.log("Selected:", value)
+      setError("");
+      console.log("Selected:", value);
     }
-  }
+  };
 
   return (
     <div>
-      <RadioGroup.Root 
-        value={value} 
+      <RadioGroup.Root
+        value={value}
         onValueChange={(details) => {
-          setValue(details.value)
-          setError("")
+          setValue(details.value);
+          setError("");
         }}
         invalid={!!error}
       >
@@ -252,18 +261,14 @@ export function ValidationExample() {
             <RadioGroup.ItemText>Option 3</RadioGroup.ItemText>
           </RadioGroup.Item>
         </div>
-        {error && (
-          <p style={{ color: "red", fontSize: "14px", margin: "8px 0 0 0" }}>
-            {error}
-          </p>
-        )}
+        {error && <p style={{ color: "red", fontSize: "14px", margin: "8px 0 0 0" }}>{error}</p>}
       </RadioGroup.Root>
-      
+
       <Button onClick={handleSubmit} style={{ marginTop: "16px" }}>
         Submit
       </Button>
     </div>
-  )
+  );
 }
 ```
 
@@ -273,15 +278,15 @@ export function ValidationExample() {
 
 The root container for the radio group.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | Controlled selected value |
-| `defaultValue` | `string` | - | Default selected value |
-| `onValueChange` | `(details) => void` | - | Callback when selection changes |
-| `orientation` | `"horizontal" \| "vertical"` | `"vertical"` | Layout orientation |
-| `disabled` | `boolean` | `false` | Whether the group is disabled |
-| `invalid` | `boolean` | `false` | Whether the group is invalid |
-| `required` | `boolean` | `false` | Whether selection is required |
+| Prop            | Type                         | Default      | Description                     |
+| --------------- | ---------------------------- | ------------ | ------------------------------- |
+| `value`         | `string`                     | -            | Controlled selected value       |
+| `defaultValue`  | `string`                     | -            | Default selected value          |
+| `onValueChange` | `(details) => void`          | -            | Callback when selection changes |
+| `orientation`   | `"horizontal" \| "vertical"` | `"vertical"` | Layout orientation              |
+| `disabled`      | `boolean`                    | `false`      | Whether the group is disabled   |
+| `invalid`       | `boolean`                    | `false`      | Whether the group is invalid    |
+| `required`      | `boolean`                    | `false`      | Whether selection is required   |
 
 ### RadioGroup.Label
 
@@ -291,10 +296,10 @@ The label for the radio group.
 
 Individual radio button item.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | Value of the radio item (required) |
-| `disabled` | `boolean` | `false` | Whether the item is disabled |
+| Prop       | Type      | Default | Description                        |
+| ---------- | --------- | ------- | ---------------------------------- |
+| `value`    | `string`  | -       | Value of the radio item (required) |
+| `disabled` | `boolean` | `false` | Whether the item is disabled       |
 
 ### RadioGroup.ItemControl
 

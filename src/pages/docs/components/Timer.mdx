@@ -16,7 +16,7 @@ npm install liquidify-react
 ## Import
 
 ```tsx
-import { Timer } from "liquidify-react/timer";
+import { Timer } from "liquidify-react/ark-ui/timer";
 ```
 
 ## Usage
@@ -24,42 +24,35 @@ import { Timer } from "liquidify-react/timer";
 ### Basic Timer (Stopwatch)
 
 ```tsx
-import { Timer } from "liquidify-react/timer";
+import { Timer } from "liquidify-react/ark-ui/timer";
 
 export default function BasicTimer() {
-  return (
-    <Timer />
-  );
+  return <Timer />;
 }
 ```
 
 ### Countdown Timer
 
 ```tsx
-import { Timer } from "liquidify-react/timer";
+import { Timer } from "liquidify-react/ark-ui/timer";
 
 export default function CountdownTimer() {
   const fiveMinutes = 5 * 60 * 1000; // 5 minutes in milliseconds
 
-  return (
-    <Timer 
-      startMs={fiveMinutes}
-      countdown
-    />
-  );
+  return <Timer startMs={fiveMinutes} countdown />;
 }
 ```
 
 ### Timer with Target
 
 ```tsx
-import { Timer } from "liquidify-react/timer";
+import { Timer } from "liquidify-react/ark-ui/timer";
 
 export default function TimerWithTarget() {
   const targetTime = 10 * 60 * 1000; // 10 minutes in milliseconds
 
   return (
-    <Timer 
+    <Timer
       targetMs={targetTime}
       onTargetReached={() => {
         alert("Target time reached!");
@@ -72,31 +65,35 @@ export default function TimerWithTarget() {
 ### Custom Timer Format
 
 ```tsx
-import { Timer } from "liquidify-react/timer";
+import { Timer } from "liquidify-react/ark-ui/timer";
 
 export default function CustomFormatTimer() {
   return (
     <Timer>
       {(api) => (
-        <div style={{ 
-          display: "flex", 
-          flexDirection: "column", 
-          alignItems: "center",
-          gap: "1rem"
-        }}>
-          <div style={{ 
-            fontSize: "2rem", 
-            fontFamily: "monospace",
+        <div
+          style={{
             display: "flex",
-            gap: "0.5rem"
-          }}>
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "1rem",
+          }}
+        >
+          <div
+            style={{
+              fontSize: "2rem",
+              fontFamily: "monospace",
+              display: "flex",
+              gap: "0.5rem",
+            }}
+          >
             <span>{api.formattedTime.hours.padStart(2, "0")}</span>
             <span>:</span>
             <span>{api.formattedTime.minutes.padStart(2, "0")}</span>
             <span>:</span>
             <span>{api.formattedTime.seconds.padStart(2, "0")}</span>
           </div>
-          
+
           <div style={{ display: "flex", gap: "0.5rem" }}>
             <button onClick={api.start} disabled={api.running}>
               Start
@@ -104,9 +101,7 @@ export default function CustomFormatTimer() {
             <button onClick={api.pause} disabled={!api.running}>
               Pause
             </button>
-            <button onClick={api.reset}>
-              Reset
-            </button>
+            <button onClick={api.reset}>Reset</button>
           </div>
         </div>
       )}
@@ -119,7 +114,7 @@ export default function CustomFormatTimer() {
 
 ```tsx
 import { useState } from "react";
-import { Timer } from "liquidify-react/timer";
+import { Timer } from "liquidify-react/ark-ui/timer";
 
 export default function PomodoroTimer() {
   const [session, setSession] = useState("work");
@@ -139,7 +134,7 @@ export default function PomodoroTimer() {
     if (session === "work") {
       const newCycles = cycles + 1;
       setCycles(newCycles);
-      
+
       if (newCycles % 4 === 0) {
         setSession("longBreak");
       } else {
@@ -153,13 +148,15 @@ export default function PomodoroTimer() {
   return (
     <div style={{ textAlign: "center" }}>
       <h2>Pomodoro Timer</h2>
-      <p>Current Session: <strong>
-        {session === "work" ? "Work" : 
-         session === "break" ? "Short Break" : "Long Break"}
-      </strong></p>
+      <p>
+        Current Session:{" "}
+        <strong>
+          {session === "work" ? "Work" : session === "break" ? "Short Break" : "Long Break"}
+        </strong>
+      </p>
       <p>Completed Cycles: {cycles}</p>
-      
-      <Timer 
+
+      <Timer
         key={session} // Reset timer when session changes
         startMs={getCurrentTime()}
         countdown
@@ -174,7 +171,7 @@ export default function PomodoroTimer() {
 
 ```tsx
 import { useState } from "react";
-import { Timer } from "liquidify-react/timer";
+import { Timer } from "liquidify-react/ark-ui/timer";
 
 export default function MeetingTimer() {
   const [meetingLength, setMeetingLength] = useState(30);
@@ -185,14 +182,14 @@ export default function MeetingTimer() {
   return (
     <div style={{ textAlign: "center", padding: "2rem" }}>
       <h2>Meeting Timer</h2>
-      
+
       {!isStarted ? (
         <div>
           <div style={{ marginBottom: "1rem" }}>
             <label>
-              Meeting Length: 
-              <select 
-                value={meetingLength} 
+              Meeting Length:
+              <select
+                value={meetingLength}
                 onChange={(e) => setMeetingLength(Number(e.target.value))}
                 style={{ marginLeft: "0.5rem" }}
               >
@@ -204,13 +201,11 @@ export default function MeetingTimer() {
               </select>
             </label>
           </div>
-          <button onClick={() => setIsStarted(true)}>
-            Start Meeting
-          </button>
+          <button onClick={() => setIsStarted(true)}>Start Meeting</button>
         </div>
       ) : (
         <div>
-          <Timer 
+          <Timer
             startMs={meetingTime}
             countdown
             onTargetReached={() => {
@@ -219,16 +214,18 @@ export default function MeetingTimer() {
           >
             {(api) => (
               <div>
-                <div style={{ 
-                  fontSize: "3rem", 
-                  fontFamily: "monospace",
-                  marginBottom: "1rem",
-                  color: api.formattedTime.minutes < 5 ? "red" : "inherit"
-                }}>
+                <div
+                  style={{
+                    fontSize: "3rem",
+                    fontFamily: "monospace",
+                    marginBottom: "1rem",
+                    color: api.formattedTime.minutes < 5 ? "red" : "inherit",
+                  }}
+                >
                   {api.formattedTime.minutes.padStart(2, "0")}:
                   {api.formattedTime.seconds.padStart(2, "0")}
                 </div>
-                
+
                 <div style={{ display: "flex", gap: "0.5rem", justifyContent: "center" }}>
                   <button onClick={api.start} disabled={api.running}>
                     Start
@@ -236,11 +233,9 @@ export default function MeetingTimer() {
                   <button onClick={api.pause} disabled={!api.running}>
                     Pause
                   </button>
-                  <button onClick={() => setIsStarted(false)}>
-                    End Meeting
-                  </button>
+                  <button onClick={() => setIsStarted(false)}>End Meeting</button>
                 </div>
-                
+
                 {api.formattedTime.minutes < 5 && api.running && (
                   <p style={{ color: "red", marginTop: "1rem" }}>
                     ⚠️ Less than 5 minutes remaining!
@@ -260,7 +255,7 @@ export default function MeetingTimer() {
 
 ```tsx
 import { useState } from "react";
-import { Timer } from "liquidify-react/timer";
+import { Timer } from "liquidify-react/ark-ui/timer";
 
 export default function MultipleTimers() {
   const [timers, setTimers] = useState([
@@ -270,16 +265,25 @@ export default function MultipleTimers() {
   ]);
 
   return (
-    <div style={{ display: "grid", gap: "2rem", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
+    <div
+      style={{
+        display: "grid",
+        gap: "2rem",
+        gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+      }}
+    >
       {timers.map((timer) => (
-        <div key={timer.id} style={{ 
-          border: "1px solid #ccc", 
-          padding: "1rem", 
-          borderRadius: "8px",
-          textAlign: "center"
-        }}>
+        <div
+          key={timer.id}
+          style={{
+            border: "1px solid #ccc",
+            padding: "1rem",
+            borderRadius: "8px",
+            textAlign: "center",
+          }}
+        >
           <h3>{timer.name}</h3>
-          <Timer 
+          <Timer
             startMs={timer.duration}
             countdown
             onTargetReached={() => {
@@ -301,38 +305,38 @@ The timer component with built-in controls and display.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `startMs` | `number` | `0` | Starting time in milliseconds |
-| `targetMs` | `number` | - | Target time in milliseconds |
-| `countdown` | `boolean` | `false` | Whether to count down instead of up |
-| `autoStart` | `boolean` | `false` | Whether to start automatically |
-| `onTargetReached` | `() => void` | - | Callback when target time is reached |
-| `onTick` | `(time: number) => void` | - | Callback fired on each tick |
-| `interval` | `number` | `10` | Update interval in milliseconds |
-| `children` | `(api: TimerApi) => ReactNode` | - | Render prop for custom display |
+| Prop              | Type                           | Default | Description                          |
+| ----------------- | ------------------------------ | ------- | ------------------------------------ |
+| `startMs`         | `number`                       | `0`     | Starting time in milliseconds        |
+| `targetMs`        | `number`                       | -       | Target time in milliseconds          |
+| `countdown`       | `boolean`                      | `false` | Whether to count down instead of up  |
+| `autoStart`       | `boolean`                      | `false` | Whether to start automatically       |
+| `onTargetReached` | `() => void`                   | -       | Callback when target time is reached |
+| `onTick`          | `(time: number) => void`       | -       | Callback fired on each tick          |
+| `interval`        | `number`                       | `10`    | Update interval in milliseconds      |
+| `children`        | `(api: TimerApi) => ReactNode` | -       | Render prop for custom display       |
 
 ### Timer API (when using children render prop)
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `time` | `number` | Current time in milliseconds |
-| `formattedTime` | `FormattedTime` | Formatted time object |
-| `running` | `boolean` | Whether the timer is currently running |
-| `paused` | `boolean` | Whether the timer is paused |
-| `start()` | `function` | Start the timer |
-| `pause()` | `function` | Pause the timer |
-| `resume()` | `function` | Resume the timer |
-| `reset()` | `function` | Reset the timer |
+| Property        | Type            | Description                            |
+| --------------- | --------------- | -------------------------------------- |
+| `time`          | `number`        | Current time in milliseconds           |
+| `formattedTime` | `FormattedTime` | Formatted time object                  |
+| `running`       | `boolean`       | Whether the timer is currently running |
+| `paused`        | `boolean`       | Whether the timer is paused            |
+| `start()`       | `function`      | Start the timer                        |
+| `pause()`       | `function`      | Pause the timer                        |
+| `resume()`      | `function`      | Resume the timer                       |
+| `reset()`       | `function`      | Reset the timer                        |
 
 ### FormattedTime Object
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `days` | `string` | Days component |
-| `hours` | `string` | Hours component |
-| `minutes` | `string` | Minutes component |
-| `seconds` | `string` | Seconds component |
+| Property       | Type     | Description            |
+| -------------- | -------- | ---------------------- |
+| `days`         | `string` | Days component         |
+| `hours`        | `string` | Hours component        |
+| `minutes`      | `string` | Minutes component      |
+| `seconds`      | `string` | Seconds component      |
 | `milliseconds` | `string` | Milliseconds component |
 
 ## Accessibility
@@ -347,11 +351,11 @@ The Timer component includes comprehensive accessibility features:
 
 ### Keyboard Shortcuts
 
-| Key | Action |
-|-----|--------|
-| `Space` | Start/pause the timer |
-| `Enter` | Activate focused control |
-| `Tab` | Navigate between controls |
+| Key      | Action                         |
+| -------- | ------------------------------ |
+| `Space`  | Start/pause the timer          |
+| `Enter`  | Activate focused control       |
+| `Tab`    | Navigate between controls      |
 | `Escape` | Reset the timer (when focused) |
 
 ## Best Practices

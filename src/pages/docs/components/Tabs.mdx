@@ -199,7 +199,7 @@ export default function TabsWithIndicator() {
 ### Disabled Tabs
 
 ```tsx
-import { Tabs } from "liquidify-react/tabs";
+import { Tabs } from "liquidify-react/ark-ui/tabs";
 
 export default function DisabledTabs() {
   return (
@@ -283,14 +283,14 @@ The root container for the tabs component.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `defaultValue` | `string` | - | The initial tab value when uncontrolled |
-| `value` | `string` | - | The controlled tab value |
-| `onValueChange` | `(value: string) => void` | - | Callback fired when the tab value changes |
-| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | The orientation of the tabs |
-| `disabled` | `boolean` | `false` | Whether the entire tabs component is disabled |
-| `activationMode` | `"automatic" \| "manual"` | `"automatic"` | How tabs are activated |
+| Prop             | Type                         | Default        | Description                                   |
+| ---------------- | ---------------------------- | -------------- | --------------------------------------------- |
+| `defaultValue`   | `string`                     | -              | The initial tab value when uncontrolled       |
+| `value`          | `string`                     | -              | The controlled tab value                      |
+| `onValueChange`  | `(value: string) => void`    | -              | Callback fired when the tab value changes     |
+| `orientation`    | `"horizontal" \| "vertical"` | `"horizontal"` | The orientation of the tabs                   |
+| `disabled`       | `boolean`                    | `false`        | Whether the entire tabs component is disabled |
+| `activationMode` | `"automatic" \| "manual"`    | `"automatic"`  | How tabs are activated                        |
 
 ### Tabs.List
 
@@ -298,9 +298,9 @@ The container for tab triggers.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The tab triggers |
+| Prop       | Type        | Default | Description      |
+| ---------- | ----------- | ------- | ---------------- |
+| `children` | `ReactNode` | -       | The tab triggers |
 
 ### Tabs.Trigger
 
@@ -308,11 +308,11 @@ A button that activates a tab panel.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | The unique value of the tab |
-| `disabled` | `boolean` | `false` | Whether the tab trigger is disabled |
-| `children` | `ReactNode` | - | The tab trigger content |
+| Prop       | Type        | Default | Description                         |
+| ---------- | ----------- | ------- | ----------------------------------- |
+| `value`    | `string`    | -       | The unique value of the tab         |
+| `disabled` | `boolean`   | `false` | Whether the tab trigger is disabled |
+| `children` | `ReactNode` | -       | The tab trigger content             |
 
 ### Tabs.Content
 
@@ -320,10 +320,10 @@ The content area for a tab panel.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | The value that corresponds to the tab trigger |
-| `children` | `ReactNode` | - | The tab content |
+| Prop       | Type        | Default | Description                                   |
+| ---------- | ----------- | ------- | --------------------------------------------- |
+| `value`    | `string`    | -       | The value that corresponds to the tab trigger |
+| `children` | `ReactNode` | -       | The tab content                               |
 
 ### Tabs.Indicator
 
@@ -331,9 +331,9 @@ A visual indicator that shows the active tab.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| All standard HTML attributes | - | - | Standard HTML attributes |
+| Prop                         | Type | Default | Description              |
+| ---------------------------- | ---- | ------- | ------------------------ |
+| All standard HTML attributes | -    | -       | Standard HTML attributes |
 
 ## Accessibility
 
@@ -347,15 +347,15 @@ The Tabs component includes comprehensive accessibility features:
 
 ### Keyboard Shortcuts
 
-| Key | Action |
-|-----|--------|
-| `Tab` | Move focus to the next focusable element |
-| `Shift + Tab` | Move focus to the previous focusable element |
+| Key                | Action                                         |
+| ------------------ | ---------------------------------------------- |
+| `Tab`              | Move focus to the next focusable element       |
+| `Shift + Tab`      | Move focus to the previous focusable element   |
 | `Arrow Left/Right` | Navigate between tabs (horizontal orientation) |
-| `Arrow Up/Down` | Navigate between tabs (vertical orientation) |
-| `Enter` / `Space` | Activate the focused tab |
-| `Home` | Focus the first tab |
-| `End` | Focus the last tab |
+| `Arrow Up/Down`    | Navigate between tabs (vertical orientation)   |
+| `Enter` / `Space`  | Activate the focused tab                       |
+| `Home`             | Focus the first tab                            |
+| `End`              | Focus the last tab                             |
 
 ## Best Practices
 

@@ -16,7 +16,7 @@ npm install liquidify-react
 ## Import
 
 ```tsx
-import { ToggleGroup } from "liquidify-react/toggleGroup";
+import { ToggleGroup } from "liquidify-react/ark-ui/toggleGroup";
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ import { ToggleGroup } from "liquidify-react/toggleGroup";
 
 ```tsx
 import { useState } from "react";
-import { ToggleGroup } from "liquidify-react/toggleGroup";
+import { ToggleGroup } from "liquidify-react/ark-ui/toggleGroup";
 
 export default function BasicToggleGroup() {
   const [values, setValues] = useState(["bold"]);
@@ -44,17 +44,13 @@ export default function BasicToggleGroup() {
 
 ```tsx
 import { useState } from "react";
-import { ToggleGroup } from "liquidify-react/toggleGroup";
+import { ToggleGroup } from "liquidify-react/ark-ui/toggleGroup";
 
 export default function SingleSelectionToggleGroup() {
   const [value, setValue] = useState("center");
 
   return (
-    <ToggleGroup.Root 
-      value={value} 
-      onValueChange={setValue}
-      type="single"
-    >
+    <ToggleGroup.Root value={value} onValueChange={setValue} type="single">
       <ToggleGroup.Item value="left">⬅️ Left</ToggleGroup.Item>
       <ToggleGroup.Item value="center">🔘 Center</ToggleGroup.Item>
       <ToggleGroup.Item value="right">➡️ Right</ToggleGroup.Item>
@@ -67,7 +63,7 @@ export default function SingleSelectionToggleGroup() {
 
 ```tsx
 import { useState } from "react";
-import { ToggleGroup } from "liquidify-react/toggleGroup";
+import { ToggleGroup } from "liquidify-react/ark-ui/toggleGroup";
 
 export default function TextFormattingToggleGroup() {
   const [formatting, setFormatting] = useState(["bold"]);
@@ -88,17 +84,22 @@ export default function TextFormattingToggleGroup() {
           <s>S</s>
         </ToggleGroup.Item>
       </ToggleGroup.Root>
-      
+
       <div style={{ marginTop: "1rem" }}>
         <p>Selected formatting: {formatting.join(", ") || "None"}</p>
-        <p style={{
-          fontWeight: formatting.includes("bold") ? "bold" : "normal",
-          fontStyle: formatting.includes("italic") ? "italic" : "normal",
-          textDecoration: [
-            formatting.includes("underline") ? "underline" : "",
-            formatting.includes("strikethrough") ? "line-through" : ""
-          ].filter(Boolean).join(" ") || "none"
-        }}>
+        <p
+          style={{
+            fontWeight: formatting.includes("bold") ? "bold" : "normal",
+            fontStyle: formatting.includes("italic") ? "italic" : "normal",
+            textDecoration:
+              [
+                formatting.includes("underline") ? "underline" : "",
+                formatting.includes("strikethrough") ? "line-through" : "",
+              ]
+                .filter(Boolean)
+                .join(" ") || "none",
+          }}
+        >
           Sample text with applied formatting
         </p>
       </div>
@@ -111,26 +112,24 @@ export default function TextFormattingToggleGroup() {
 
 ```tsx
 import { useState } from "react";
-import { ToggleGroup } from "liquidify-react/toggleGroup";
+import { ToggleGroup } from "liquidify-react/ark-ui/toggleGroup";
 
 export default function ViewModeToggleGroup() {
   const [view, setView] = useState("grid");
 
   return (
     <div>
-      <ToggleGroup.Root 
-        value={view} 
-        onValueChange={setView}
-        type="single"
-      >
+      <ToggleGroup.Root value={view} onValueChange={setView} type="single">
         <ToggleGroup.Item value="list">📋 List</ToggleGroup.Item>
         <ToggleGroup.Item value="grid">⚏ Grid</ToggleGroup.Item>
         <ToggleGroup.Item value="card">🃏 Card</ToggleGroup.Item>
       </ToggleGroup.Root>
-      
+
       <div style={{ marginTop: "1rem", padding: "1rem", border: "1px solid #ccc" }}>
         <h3>Content Area</h3>
-        <p>Currently displaying in <strong>{view}</strong> view</p>
+        <p>
+          Currently displaying in <strong>{view}</strong> view
+        </p>
       </div>
     </div>
   );
@@ -141,7 +140,7 @@ export default function ViewModeToggleGroup() {
 
 ```tsx
 import { useState } from "react";
-import { ToggleGroup } from "liquidify-react/toggleGroup";
+import { ToggleGroup } from "liquidify-react/ark-ui/toggleGroup";
 
 export default function FilterToggleGroup() {
   const [filters, setFilters] = useState(["active"]);
@@ -153,8 +152,8 @@ export default function FilterToggleGroup() {
     { id: 4, name: "Item 4", status: "pending", category: "personal" },
   ];
 
-  const filteredItems = items.filter(item => 
-    filters.includes(item.status) || filters.includes(item.category)
+  const filteredItems = items.filter(
+    (item) => filters.includes(item.status) || filters.includes(item.category),
   );
 
   return (
@@ -167,7 +166,7 @@ export default function FilterToggleGroup() {
           <ToggleGroup.Item value="pending">Pending</ToggleGroup.Item>
         </ToggleGroup.Root>
       </div>
-      
+
       <div style={{ marginBottom: "1rem" }}>
         <h4>Category Filters:</h4>
         <ToggleGroup.Root value={filters} onValueChange={setFilters}>
@@ -175,11 +174,14 @@ export default function FilterToggleGroup() {
           <ToggleGroup.Item value="personal">Personal</ToggleGroup.Item>
         </ToggleGroup.Root>
       </div>
-      
+
       <div>
         <h4>Results ({filteredItems.length}):</h4>
-        {filteredItems.map(item => (
-          <div key={item.id} style={{ padding: "0.5rem", border: "1px solid #eee", margin: "0.25rem 0" }}>
+        {filteredItems.map((item) => (
+          <div
+            key={item.id}
+            style={{ padding: "0.5rem", border: "1px solid #eee", margin: "0.25rem 0" }}
+          >
             {item.name} - {item.status} ({item.category})
           </div>
         ))}
@@ -192,7 +194,7 @@ export default function FilterToggleGroup() {
 ### Disabled Toggle Group
 
 ```tsx
-import { ToggleGroup } from "liquidify-react/toggleGroup";
+import { ToggleGroup } from "liquidify-react/ark-ui/toggleGroup";
 
 export default function DisabledToggleGroup() {
   return (
@@ -205,7 +207,7 @@ export default function DisabledToggleGroup() {
           <ToggleGroup.Item value="option3">Option 3</ToggleGroup.Item>
         </ToggleGroup.Root>
       </div>
-      
+
       <div>
         <h4>Partially Disabled Group:</h4>
         <ToggleGroup.Root defaultValue={["option1"]}>
@@ -225,18 +227,14 @@ export default function DisabledToggleGroup() {
 
 ```tsx
 import { useState } from "react";
-import { ToggleGroup } from "liquidify-react/toggleGroup";
+import { ToggleGroup } from "liquidify-react/ark-ui/toggleGroup";
 
 export default function SizeSelectorToggleGroup() {
   const [size, setSize] = useState("medium");
 
   return (
     <div>
-      <ToggleGroup.Root 
-        value={size} 
-        onValueChange={setSize}
-        type="single"
-      >
+      <ToggleGroup.Root value={size} onValueChange={setSize} type="single">
         <ToggleGroup.Item value="small" style={{ fontSize: "12px", padding: "4px 8px" }}>
           S
         </ToggleGroup.Item>
@@ -250,9 +248,11 @@ export default function SizeSelectorToggleGroup() {
           XL
         </ToggleGroup.Item>
       </ToggleGroup.Root>
-      
+
       <div style={{ marginTop: "1rem" }}>
-        <p>Selected size: <strong>{size}</strong></p>
+        <p>
+          Selected size: <strong>{size}</strong>
+        </p>
       </div>
     </div>
   );
@@ -267,15 +267,15 @@ The root container for the toggle group.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `type` | `"single" \| "multiple"` | `"multiple"` | Whether to allow single or multiple selection |
-| `value` | `string \| string[]` | - | The controlled value(s) |
-| `defaultValue` | `string \| string[]` | - | The default value(s) when uncontrolled |
-| `onValueChange` | `(value: string \| string[]) => void` | - | Callback fired when selection changes |
-| `disabled` | `boolean` | `false` | Whether the entire group is disabled |
-| `loop` | `boolean` | `true` | Whether keyboard navigation should loop |
-| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | The orientation of the group |
+| Prop            | Type                                  | Default        | Description                                   |
+| --------------- | ------------------------------------- | -------------- | --------------------------------------------- |
+| `type`          | `"single" \| "multiple"`              | `"multiple"`   | Whether to allow single or multiple selection |
+| `value`         | `string \| string[]`                  | -              | The controlled value(s)                       |
+| `defaultValue`  | `string \| string[]`                  | -              | The default value(s) when uncontrolled        |
+| `onValueChange` | `(value: string \| string[]) => void` | -              | Callback fired when selection changes         |
+| `disabled`      | `boolean`                             | `false`        | Whether the entire group is disabled          |
+| `loop`          | `boolean`                             | `true`         | Whether keyboard navigation should loop       |
+| `orientation`   | `"horizontal" \| "vertical"`          | `"horizontal"` | The orientation of the group                  |
 
 ### ToggleGroup.Item
 
@@ -283,12 +283,12 @@ An individual toggle item within the group.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | The unique value for this toggle item |
-| `disabled` | `boolean` | `false` | Whether this item is disabled |
-| `children` | `ReactNode` | - | The toggle item content |
-| All button props | - | - | Standard HTML button attributes |
+| Prop             | Type        | Default | Description                           |
+| ---------------- | ----------- | ------- | ------------------------------------- |
+| `value`          | `string`    | -       | The unique value for this toggle item |
+| `disabled`       | `boolean`   | `false` | Whether this item is disabled         |
+| `children`       | `ReactNode` | -       | The toggle item content               |
+| All button props | -           | -       | Standard HTML button attributes       |
 
 ## Accessibility
 
@@ -302,14 +302,14 @@ The ToggleGroup component includes comprehensive accessibility features:
 
 ### Keyboard Shortcuts
 
-| Key | Action |
-|-----|--------|
-| `Tab` | Move focus into/out of the toggle group |
+| Key                | Action                                     |
+| ------------------ | ------------------------------------------ |
+| `Tab`              | Move focus into/out of the toggle group    |
 | `Arrow Left/Right` | Navigate between toggle items (horizontal) |
-| `Arrow Up/Down` | Navigate between toggle items (vertical) |
-| `Space` / `Enter` | Toggle the focused item |
-| `Home` | Focus the first toggle item |
-| `End` | Focus the last toggle item |
+| `Arrow Up/Down`    | Navigate between toggle items (vertical)   |
+| `Space` / `Enter`  | Toggle the focused item                    |
+| `Home`             | Focus the first toggle item                |
+| `End`              | Focus the last toggle item                 |
 
 ## Best Practices
 

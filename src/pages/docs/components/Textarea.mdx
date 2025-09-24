@@ -1,0 +1,82 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+---
+
+import React from "react";
+import { Textarea } from "liquidify-react/forms";
+
+# Textarea
+
+Multi-line text input component styled with Apple's design language. Perfect for longer text content like comments, descriptions, and messages.
+
+## Import
+
+```tsx
+import { Textarea } from "liquidify-react/forms";
+```
+
+## Basic Usage
+
+
+
+```tsx
+import { Textarea } from "liquidify-react/forms";
+
+export default function Example() {
+  return <Textarea placeholder="Enter your message..." rows={4} />;
+}
+```
+
+## Sizes
+
+
+
+```tsx
+<Textarea size="sm" placeholder="Small" rows={3} />
+<Textarea size="md" placeholder="Medium" rows={3} />
+<Textarea size="lg" placeholder="Large" rows={3} />
+```
+
+## Controlled Textarea
+
+
+
+```tsx
+<Textarea disabled placeholder="Disabled textarea" rows={4} />
+```
+
+## With Label
+
+
+
+```tsx
+<label htmlFor="message-textarea">Message</label>
+<Textarea id="message-textarea" placeholder="Enter your message..." rows={4} />
+```
+
+## API Reference
+
+### Props
+
+- `size`: `"sm" | "md" | "lg"` - Visual size (default: `"md"`)
+- `rows`: `number` - Number of visible text lines
+- All standard HTML textarea attributes (`placeholder`, `value`, `onChange`, `disabled`, `maxLength`, etc.)
+
+### Styling
+
+The Textarea component applies:
+- 14px border radius (field role)
+- Liquid glass background with subtle blur
+- Focus ring with accent color
+- Smooth transitions for all states
+- Apple system font
+- Proper padding for comfortable text entry
+
+### Accessibility
+
+- Native HTML textarea for full keyboard support
+- Proper focus management
+- Label association via `id` and `htmlFor`
+- Placeholder text for guidance
+- Disabled state properly conveyed
+- Supports `aria-describedby` for hints/errors

@@ -2,103 +2,112 @@
 layout: ../../../layouts/DocsLayout.astro
 ---
 
+import { Card } from "liquidify-react/card";
+import CardBasicDemo from "../../../components/demos/CardBasicDemo.tsx";
+import CardVariantsDemo from "../../../components/demos/CardVariantsDemo.tsx";
+
 # Card
 
-Flexible container component for grouping related content. Provides visual boundaries and hierarchy for organizing information into digestible sections.
+Flexible container component for grouping related content. Provides visual boundaries and hierarchy with Apple's liquid glass aesthetics.
 
 ## Import
 
 ```tsx
-import { Card } from "liquidify-react/card"
+import { Card } from "liquidify-react/card";
 ```
 
 ## Basic Usage
 
+<CardBasicDemo client:load />
+
 ```tsx
+import { Card } from "liquidify-react/card";
+
 export default function Example() {
-	return (
-		<Card.Root>
-			<Card.Header>
-				<Card.Title>Card Title</Card.Title>
-				<Card.Description>
-					A brief description of the card content goes here.
-				</Card.Description>
-			</Card.Header>
-			<Card.Body>
-				<p>Main content area for your card information.</p>
-			</Card.Body>
-			<Card.Footer>
-				<Button>Action</Button>
-			</Card.Footer>
-		</Card.Root>
-	)
+  return (
+    <Card variant="glass" padded>
+      <h3>Card Title</h3>
+      <p>Card content with liquid glass styling.</p>
+    </Card>
+  );
 }
 ```
 
-## Simple Card
+## Variants
+
+The Card component offers three visual variants:
+
+- **solid**: Opaque background with subtle border
+- **glass**: Translucent liquid glass with backdrop blur
+- **elevated**: Raised appearance with shadow
+
+<CardVariantsDemo client:load />
 
 ```tsx
-export default function SimpleExample() {
-	return (
-		<Card.Root>
-			<Card.Body>
-				<h3>Simple Card</h3>
-				<p>Just content without header or footer.</p>
-			</Card.Body>
-		</Card.Root>
-	)
-}
+<Card variant="solid" padded>Solid Card</Card>
+<Card variant="glass" padded>Glass Card</Card>
+<Card variant="elevated" padded>Elevated Card</Card>
 ```
 
-## Interactive Card
+## With Padding
+
+The `padded` prop adds consistent internal spacing:
+
+
 
 ```tsx
-export default function InteractiveExample() {
-	return (
-		<Card.Root asChild>
-			<a href="/article" style={{ textDecoration: "none", color: "inherit" }}>
-				<Card.Header>
-					<Card.Title>Read Article</Card.Title>
-					<Card.Description>Click to read more</Card.Description>
-				</Card.Header>
-				<Card.Body>
-					<p>This entire card is clickable and navigates to the article.</p>
-				</Card.Body>
-			</a>
-		</Card.Root>
-	)
-}
+<Card variant="glass">No padding</Card>
+<Card variant="glass" padded>With padding</Card>
 ```
 
-## With Image
+## Complex Content
+
+
 
 ```tsx
-export default function ImageExample() {
-	return (
-		<Card.Root>
-			<img 
-				src="/card-image.jpg" 
-				alt="Card image"
-				style={{ width: "100%", height: "200px", objectFit: "cover" }}
-			/>
-			<Card.Header>
-				<Card.Title>Image Card</Card.Title>
-			</Card.Header>
-			<Card.Body>
-				<p>Card content with an image at the top.</p>
-			</Card.Body>
-		</Card.Root>
-	)
-}
+<Card variant="glass" padded>
+  <h3>Featured Article</h3>
+  <p className="text-muted">Published on September 30, 2024</p>
+  <p>
+    Complex content with headings, metadata, and actions
+    within a liquid glass container.
+  </p>
+  <div style={{ display: "flex", gap: "0.5rem" }}>
+    <button>Read More</button>
+    <button>Share</button>
+  </div>
+</Card>
 ```
 
 ## API Reference
 
-### Root Props
-- `asChild`: `boolean` - Render as child element (for links/buttons)
+### Props
+
+- `variant`: `"solid" | "glass" | "elevated"` - Visual style variant (default: `"solid"`)
+- `padded`: `boolean` - Add internal padding (default: `false`)
+- All standard HTML div attributes are supported
+
+### Styling
+
+The Card component uses a simple div-based structure. For complex layouts, compose your own heading/content structure using standard HTML elements:
+
+```tsx
+<Card variant="glass" padded>
+  <header>
+    <h2>Title</h2>
+    <p>Subtitle</p>
+  </header>
+  <main>
+    <p>Content</p>
+  </main>
+  <footer>
+    <button>Action</button>
+  </footer>
+</Card>
+```
 
 ### Accessibility
-- Proper heading hierarchy with Card.Title
-- Semantic structure for screen readers
-- Focus management for interactive cards
-- High contrast borders and backgrounds
+
+- Semantic HTML structure with proper heading hierarchy
+- Sufficient color contrast for readability
+- Glass variant maintains legibility with backdrop blur

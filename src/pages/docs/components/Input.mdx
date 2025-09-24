@@ -1,0 +1,88 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+---
+
+import { TextInput } from "liquidify-react/forms";
+
+# Text Input
+
+Native HTML input component styled with Apple's design language. Provides a simple, accessible text input with liquid glass aesthetics.
+
+## Import
+
+```tsx
+import { TextInput } from "liquidify-react/forms";
+```
+
+## Basic Usage
+
+```tsx
+import { TextInput } from "liquidify-react/forms";
+
+export default function Example() {
+  return <TextInput placeholder="Enter your name..." />;
+}
+```
+
+## Sizes
+
+The TextInput supports three sizes:
+
+```tsx
+<TextInput size="sm" placeholder="Small" />
+<TextInput size="md" placeholder="Medium" />
+<TextInput size="lg" placeholder="Large" />
+```
+
+## Input Types
+
+Supports all HTML input types:
+
+
+
+```tsx
+<TextInput type="email" placeholder="email@example.com" />
+<TextInput type="password" placeholder="Password" />
+<TextInput type="number" placeholder="123" />
+```
+
+## Controlled Input
+
+
+
+```tsx
+<TextInput disabled placeholder="Disabled input" />
+```
+
+## With Label
+
+
+
+```tsx
+<label htmlFor="name-input">Full Name</label>
+<TextInput id="name-input" placeholder="John Doe" />
+```
+
+## API Reference
+
+### Props
+
+- `size`: `"sm" | "md" | "lg"` - Visual size (default: `"md"`)
+- All standard HTML input attributes (`type`, `placeholder`, `value`, `onChange`, `disabled`, etc.)
+
+### Styling
+
+The TextInput component applies:
+- 14px border radius (field role)
+- Liquid glass background with subtle blur
+- Focus ring with accent color
+- Smooth transitions for all states
+- Apple system font
+
+### Accessibility
+
+- Native HTML input for full keyboard support
+- Proper focus management
+- Label association via `id` and `htmlFor`
+- Placeholder text for guidance
+- Disabled state properly conveyed

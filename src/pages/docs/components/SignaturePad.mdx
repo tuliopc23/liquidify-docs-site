@@ -16,7 +16,7 @@ npm install liquidify-react
 ## Import
 
 ```tsx
-import { SignaturePad } from "liquidify-react/signaturePad";
+import { SignaturePad } from "liquidify-react/ark-ui/signaturePad";
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ import { SignaturePad } from "liquidify-react/signaturePad";
 
 ```tsx
 import { useState } from "react";
-import { SignaturePad } from "liquidify-react/signaturePad";
+import { SignaturePad } from "liquidify-react/ark-ui/signaturePad";
 
 export default function BasicSignaturePad() {
   const [signature, setSignature] = useState("");
@@ -46,7 +46,7 @@ export default function BasicSignaturePad() {
             border: "2px dashed #ccc",
             borderRadius: "8px",
             height: "200px",
-            backgroundColor: "#fafafa"
+            backgroundColor: "#fafafa",
           }}
         >
           <SignaturePad.Guide
@@ -54,7 +54,7 @@ export default function BasicSignaturePad() {
               color: "#999",
               fontSize: "18px",
               textAlign: "center",
-              lineHeight: "200px"
+              lineHeight: "200px",
             }}
           >
             Sign here
@@ -69,7 +69,7 @@ export default function BasicSignaturePad() {
               color: "white",
               border: "none",
               borderRadius: "4px",
-              cursor: "pointer"
+              cursor: "pointer",
             }}
           >
             Clear
@@ -82,7 +82,7 @@ export default function BasicSignaturePad() {
               color: "white",
               border: "none",
               borderRadius: "4px",
-              cursor: "pointer"
+              cursor: "pointer",
             }}
           >
             Save Signature
@@ -98,14 +98,14 @@ export default function BasicSignaturePad() {
 
 ```tsx
 import { useState } from "react";
-import { SignaturePad } from "liquidify-react/signaturePad";
+import { SignaturePad } from "liquidify-react/ark-ui/signaturePad";
 
 export default function ContractSigningForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     agreeToTerms: false,
-    signature: null
+    signature: null,
   });
 
   const handleSubmit = (e) => {
@@ -126,37 +126,33 @@ export default function ContractSigningForm() {
         <div style={{ marginBottom: "2rem" }}>
           <h3>Personal Information</h3>
           <div style={{ marginBottom: "1rem" }}>
-            <label style={{ display: "block", marginBottom: "0.5rem" }}>
-              Full Name *
-            </label>
+            <label style={{ display: "block", marginBottom: "0.5rem" }}>Full Name *</label>
             <input
               type="text"
               required
               value={formData.name}
-              onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+              onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
               style={{
                 width: "100%",
                 padding: "0.5rem",
                 border: "1px solid #ccc",
-                borderRadius: "4px"
+                borderRadius: "4px",
               }}
             />
           </div>
 
           <div style={{ marginBottom: "1rem" }}>
-            <label style={{ display: "block", marginBottom: "0.5rem" }}>
-              Email Address *
-            </label>
+            <label style={{ display: "block", marginBottom: "0.5rem" }}>Email Address *</label>
             <input
               type="email"
               required
               value={formData.email}
-              onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+              onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
               style={{
                 width: "100%",
                 padding: "0.5rem",
                 border: "1px solid #ccc",
-                borderRadius: "4px"
+                borderRadius: "4px",
               }}
             />
           </div>
@@ -164,15 +160,17 @@ export default function ContractSigningForm() {
 
         <div style={{ marginBottom: "2rem" }}>
           <h3>Terms and Conditions</h3>
-          <div style={{
-            border: "1px solid #dee2e6",
-            borderRadius: "4px",
-            padding: "1rem",
-            backgroundColor: "#f8f9fa",
-            marginBottom: "1rem",
-            maxHeight: "150px",
-            overflowY: "auto"
-          }}>
+          <div
+            style={{
+              border: "1px solid #dee2e6",
+              borderRadius: "4px",
+              padding: "1rem",
+              backgroundColor: "#f8f9fa",
+              marginBottom: "1rem",
+              maxHeight: "150px",
+              overflowY: "auto",
+            }}
+          >
             <p>By signing this agreement, you agree to the following terms:</p>
             <ul>
               <li>You will use the service in accordance with applicable laws</li>
@@ -187,7 +185,7 @@ export default function ContractSigningForm() {
               type="checkbox"
               required
               checked={formData.agreeToTerms}
-              onChange={(e) => setFormData(prev => ({ ...prev, agreeToTerms: e.target.checked }))}
+              onChange={(e) => setFormData((prev) => ({ ...prev, agreeToTerms: e.target.checked }))}
               style={{ marginRight: "0.5rem" }}
             />
             I agree to the terms and conditions *
@@ -200,7 +198,7 @@ export default function ContractSigningForm() {
 
           <SignaturePad.Root
             onDrawEnd={(details) => {
-              setFormData(prev => ({ ...prev, signature: details }));
+              setFormData((prev) => ({ ...prev, signature: details }));
             }}
           >
             <SignaturePad.Control
@@ -208,7 +206,7 @@ export default function ContractSigningForm() {
                 border: "2px solid #007bff",
                 borderRadius: "8px",
                 height: "200px",
-                backgroundColor: "#fafafa"
+                backgroundColor: "#fafafa",
               }}
             >
               <SignaturePad.Guide
@@ -216,7 +214,7 @@ export default function ContractSigningForm() {
                   color: "#666",
                   fontSize: "16px",
                   textAlign: "center",
-                  lineHeight: "200px"
+                  lineHeight: "200px",
                 }}
               >
                 Sign here with your finger or mouse
@@ -231,7 +229,7 @@ export default function ContractSigningForm() {
                   color: "white",
                   border: "none",
                   borderRadius: "4px",
-                  cursor: "pointer"
+                  cursor: "pointer",
                 }}
               >
                 Clear Signature
@@ -250,7 +248,7 @@ export default function ContractSigningForm() {
             border: "none",
             borderRadius: "4px",
             cursor: "pointer",
-            fontSize: "16px"
+            fontSize: "16px",
           }}
         >
           Sign and Submit Agreement
@@ -265,14 +263,14 @@ export default function ContractSigningForm() {
 
 ```tsx
 import { useState } from "react";
-import { SignaturePad } from "liquidify-react/signaturePad";
+import { SignaturePad } from "liquidify-react/ark-ui/signaturePad";
 
 export default function DeliveryConfirmation() {
   const [deliveryInfo, setDeliveryInfo] = useState({
     recipientName: "",
     packageId: "PKG-2024-001",
     signature: null,
-    confirmed: false
+    confirmed: false,
   });
 
   const handleConfirmDelivery = () => {
@@ -281,22 +279,33 @@ export default function DeliveryConfirmation() {
       return;
     }
 
-    setDeliveryInfo(prev => ({ ...prev, confirmed: true }));
+    setDeliveryInfo((prev) => ({ ...prev, confirmed: true }));
     console.log("Delivery confirmed:", deliveryInfo);
   };
 
   if (deliveryInfo.confirmed) {
     return (
       <div style={{ maxWidth: "500px", margin: "0 auto", textAlign: "center", padding: "2rem" }}>
-        <div style={{ color: "#28a745", fontSize: "48px", marginBottom: "1rem" }}>
-          ✅
-        </div>
+        <div style={{ color: "#28a745", fontSize: "48px", marginBottom: "1rem" }}>✅</div>
         <h2>Delivery Confirmed!</h2>
         <p>Thank you for confirming receipt of your package.</p>
-        <div style={{ backgroundColor: "#f8f9fa", padding: "1rem", borderRadius: "8px", marginTop: "1rem" }}>
-          <p><strong>Package ID:</strong> {deliveryInfo.packageId}</p>
-          <p><strong>Recipient:</strong> {deliveryInfo.recipientName}</p>
-          <p><strong>Confirmed:</strong> {new Date().toLocaleString()}</p>
+        <div
+          style={{
+            backgroundColor: "#f8f9fa",
+            padding: "1rem",
+            borderRadius: "8px",
+            marginTop: "1rem",
+          }}
+        >
+          <p>
+            <strong>Package ID:</strong> {deliveryInfo.packageId}
+          </p>
+          <p>
+            <strong>Recipient:</strong> {deliveryInfo.recipientName}
+          </p>
+          <p>
+            <strong>Confirmed:</strong> {new Date().toLocaleString()}
+          </p>
         </div>
       </div>
     );
@@ -306,27 +315,38 @@ export default function DeliveryConfirmation() {
     <div style={{ maxWidth: "500px", margin: "0 auto", padding: "2rem" }}>
       <h2>Package Delivery Confirmation</h2>
 
-      <div style={{ backgroundColor: "#e3f2fd", padding: "1rem", borderRadius: "8px", marginBottom: "2rem" }}>
+      <div
+        style={{
+          backgroundColor: "#e3f2fd",
+          padding: "1rem",
+          borderRadius: "8px",
+          marginBottom: "2rem",
+        }}
+      >
         <h3>Package Details</h3>
-        <p><strong>Package ID:</strong> {deliveryInfo.packageId}</p>
-        <p><strong>Estimated Delivery:</strong> Today</p>
-        <p><strong>Contents:</strong> Electronics, Documents</p>
+        <p>
+          <strong>Package ID:</strong> {deliveryInfo.packageId}
+        </p>
+        <p>
+          <strong>Estimated Delivery:</strong> Today
+        </p>
+        <p>
+          <strong>Contents:</strong> Electronics, Documents
+        </p>
       </div>
 
       <div style={{ marginBottom: "2rem" }}>
-        <label style={{ display: "block", marginBottom: "0.5rem" }}>
-          Recipient Name *
-        </label>
+        <label style={{ display: "block", marginBottom: "0.5rem" }}>Recipient Name *</label>
         <input
           type="text"
           required
           value={deliveryInfo.recipientName}
-          onChange={(e) => setDeliveryInfo(prev => ({ ...prev, recipientName: e.target.value }))}
+          onChange={(e) => setDeliveryInfo((prev) => ({ ...prev, recipientName: e.target.value }))}
           style={{
             width: "100%",
             padding: "0.5rem",
             border: "1px solid #ccc",
-            borderRadius: "4px"
+            borderRadius: "4px",
           }}
         />
       </div>
@@ -337,7 +357,7 @@ export default function DeliveryConfirmation() {
 
         <SignaturePad.Root
           onDrawEnd={(details) => {
-            setDeliveryInfo(prev => ({ ...prev, signature: details }));
+            setDeliveryInfo((prev) => ({ ...prev, signature: details }));
           }}
         >
           <SignaturePad.Control
@@ -345,7 +365,7 @@ export default function DeliveryConfirmation() {
               border: "2px solid #28a745",
               borderRadius: "8px",
               height: "150px",
-              backgroundColor: "#f8fff8"
+              backgroundColor: "#f8fff8",
             }}
           >
             <SignaturePad.Guide
@@ -353,7 +373,7 @@ export default function DeliveryConfirmation() {
                 color: "#666",
                 fontSize: "14px",
                 textAlign: "center",
-                lineHeight: "150px"
+                lineHeight: "150px",
               }}
             >
               Sign to confirm delivery
@@ -368,7 +388,7 @@ export default function DeliveryConfirmation() {
                 color: "white",
                 border: "none",
                 borderRadius: "4px",
-                cursor: "pointer"
+                cursor: "pointer",
               }}
             >
               Clear
@@ -387,7 +407,7 @@ export default function DeliveryConfirmation() {
           border: "none",
           borderRadius: "4px",
           cursor: "pointer",
-          fontSize: "16px"
+          fontSize: "16px",
         }}
       >
         Confirm Delivery
@@ -405,14 +425,14 @@ export default function DeliveryConfirmation() {
 
 ```tsx
 import { useState } from "react";
-import { SignaturePad } from "liquidify-react/signaturePad";
+import { SignaturePad } from "liquidify-react/ark-ui/signaturePad";
 
 export default function GuestBook() {
   const [entries, setEntries] = useState([]);
   const [currentEntry, setCurrentEntry] = useState({
     name: "",
     message: "",
-    signature: null
+    signature: null,
   });
 
   const handleAddEntry = () => {
@@ -424,10 +444,10 @@ export default function GuestBook() {
     const newEntry = {
       ...currentEntry,
       id: Date.now(),
-      timestamp: new Date().toLocaleString()
+      timestamp: new Date().toLocaleString(),
     };
 
-    setEntries(prev => [newEntry, ...prev]);
+    setEntries((prev) => [newEntry, ...prev]);
     setCurrentEntry({ name: "", message: "", signature: null });
   };
 
@@ -436,51 +456,52 @@ export default function GuestBook() {
       <h1>Guest Book</h1>
       <p>Leave your mark and share a message!</p>
 
-      <div style={{ backgroundColor: "#f8f9fa", padding: "2rem", borderRadius: "8px", marginBottom: "2rem" }}>
+      <div
+        style={{
+          backgroundColor: "#f8f9fa",
+          padding: "2rem",
+          borderRadius: "8px",
+          marginBottom: "2rem",
+        }}
+      >
         <h3>Add Your Entry</h3>
 
         <div style={{ marginBottom: "1rem" }}>
-          <label style={{ display: "block", marginBottom: "0.5rem" }}>
-            Your Name *
-          </label>
+          <label style={{ display: "block", marginBottom: "0.5rem" }}>Your Name *</label>
           <input
             type="text"
             value={currentEntry.name}
-            onChange={(e) => setCurrentEntry(prev => ({ ...prev, name: e.target.value }))}
+            onChange={(e) => setCurrentEntry((prev) => ({ ...prev, name: e.target.value }))}
             style={{
               width: "100%",
               padding: "0.5rem",
               border: "1px solid #ccc",
-              borderRadius: "4px"
+              borderRadius: "4px",
             }}
           />
         </div>
 
         <div style={{ marginBottom: "1rem" }}>
-          <label style={{ display: "block", marginBottom: "0.5rem" }}>
-            Message (optional)
-          </label>
+          <label style={{ display: "block", marginBottom: "0.5rem" }}>Message (optional)</label>
           <textarea
             value={currentEntry.message}
-            onChange={(e) => setCurrentEntry(prev => ({ ...prev, message: e.target.value }))}
+            onChange={(e) => setCurrentEntry((prev) => ({ ...prev, message: e.target.value }))}
             rows={3}
             style={{
               width: "100%",
               padding: "0.5rem",
               border: "1px solid #ccc",
               borderRadius: "4px",
-              resize: "vertical"
+              resize: "vertical",
             }}
           />
         </div>
 
         <div style={{ marginBottom: "1rem" }}>
-          <label style={{ display: "block", marginBottom: "0.5rem" }}>
-            Your Signature *
-          </label>
+          <label style={{ display: "block", marginBottom: "0.5rem" }}>Your Signature *</label>
           <SignaturePad.Root
             onDrawEnd={(details) => {
-              setCurrentEntry(prev => ({ ...prev, signature: details }));
+              setCurrentEntry((prev) => ({ ...prev, signature: details }));
             }}
           >
             <SignaturePad.Control
@@ -488,7 +509,7 @@ export default function GuestBook() {
                 border: "2px dashed #007bff",
                 borderRadius: "8px",
                 height: "120px",
-                backgroundColor: "#fafafa"
+                backgroundColor: "#fafafa",
               }}
             >
               <SignaturePad.Guide
@@ -496,7 +517,7 @@ export default function GuestBook() {
                   color: "#666",
                   fontSize: "14px",
                   textAlign: "center",
-                  lineHeight: "120px"
+                  lineHeight: "120px",
                 }}
               >
                 Sign here
@@ -512,7 +533,7 @@ export default function GuestBook() {
                   border: "none",
                   borderRadius: "4px",
                   cursor: "pointer",
-                  fontSize: "12px"
+                  fontSize: "12px",
                 }}
               >
                 Clear
@@ -529,7 +550,7 @@ export default function GuestBook() {
             color: "white",
             border: "none",
             borderRadius: "4px",
-            cursor: "pointer"
+            cursor: "pointer",
           }}
         >
           Add Entry
@@ -539,31 +560,42 @@ export default function GuestBook() {
       <div>
         <h3>Recent Entries ({entries.length})</h3>
         {entries.length === 0 ? (
-          <p style={{ color: "#666", fontStyle: "italic" }}>No entries yet. Be the first to sign!</p>
+          <p style={{ color: "#666", fontStyle: "italic" }}>
+            No entries yet. Be the first to sign!
+          </p>
         ) : (
           <div style={{ display: "grid", gap: "1rem" }}>
-            {entries.map(entry => (
-              <div key={entry.id} style={{
-                border: "1px solid #dee2e6",
-                borderRadius: "8px",
-                padding: "1rem",
-                backgroundColor: "white"
-              }}>
-                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}>
+            {entries.map((entry) => (
+              <div
+                key={entry.id}
+                style={{
+                  border: "1px solid #dee2e6",
+                  borderRadius: "8px",
+                  padding: "1rem",
+                  backgroundColor: "white",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    marginBottom: "0.5rem",
+                  }}
+                >
                   <strong>{entry.name}</strong>
                   <small style={{ color: "#666" }}>{entry.timestamp}</small>
                 </div>
-                {entry.message && (
-                  <p style={{ margin: "0.5rem 0" }}>{entry.message}</p>
-                )}
-                <div style={{
-                  border: "1px solid #eee",
-                  borderRadius: "4px",
-                  padding: "0.5rem",
-                  backgroundColor: "#fafafa",
-                  fontSize: "12px",
-                  color: "#666"
-                }}>
+                {entry.message && <p style={{ margin: "0.5rem 0" }}>{entry.message}</p>}
+                <div
+                  style={{
+                    border: "1px solid #eee",
+                    borderRadius: "4px",
+                    padding: "0.5rem",
+                    backgroundColor: "#fafafa",
+                    fontSize: "12px",
+                    color: "#666",
+                  }}
+                >
                   Signature captured
                 </div>
               </div>
@@ -580,7 +612,7 @@ export default function GuestBook() {
 
 ```tsx
 import { useState } from "react";
-import { SignaturePad } from "liquidify-react/signaturePad";
+import { SignaturePad } from "liquidify-react/ark-ui/signaturePad";
 
 export default function SignatureWithOptions() {
   const [strokeWidth, setStrokeWidth] = useState(2);
@@ -611,11 +643,9 @@ export default function SignatureWithOptions() {
         </div>
 
         <div style={{ marginBottom: "1rem" }}>
-          <label style={{ display: "block", marginBottom: "0.5rem" }}>
-            Stroke Color
-          </label>
+          <label style={{ display: "block", marginBottom: "0.5rem" }}>Stroke Color</label>
           <div style={{ display: "flex", gap: "0.5rem" }}>
-            {colors.map(color => (
+            {colors.map((color) => (
               <button
                 key={color}
                 onClick={() => setStrokeColor(color)}
@@ -625,7 +655,7 @@ export default function SignatureWithOptions() {
                   borderRadius: "50%",
                   backgroundColor: color,
                   border: strokeColor === color ? "3px solid #333" : "2px solid #ccc",
-                  cursor: "pointer"
+                  cursor: "pointer",
                 }}
               />
             ))}
@@ -646,7 +676,7 @@ export default function SignatureWithOptions() {
               border: "2px solid #007bff",
               borderRadius: "8px",
               height: "250px",
-              backgroundColor: "#fafafa"
+              backgroundColor: "#fafafa",
             }}
           >
             <SignaturePad.Guide
@@ -654,7 +684,7 @@ export default function SignatureWithOptions() {
                 color: "#666",
                 fontSize: "16px",
                 textAlign: "center",
-                lineHeight: "250px"
+                lineHeight: "250px",
               }}
             >
               Sign here with your chosen style
@@ -669,7 +699,7 @@ export default function SignatureWithOptions() {
                 color: "white",
                 border: "none",
                 borderRadius: "4px",
-                cursor: "pointer"
+                cursor: "pointer",
               }}
             >
               Clear
@@ -678,7 +708,11 @@ export default function SignatureWithOptions() {
             <button
               onClick={() => {
                 if (signature) {
-                  console.log("Signature saved with options:", { strokeWidth, strokeColor, signature });
+                  console.log("Signature saved with options:", {
+                    strokeWidth,
+                    strokeColor,
+                    signature,
+                  });
                   alert("Signature saved!");
                 } else {
                   alert("Please provide a signature first");
@@ -690,7 +724,7 @@ export default function SignatureWithOptions() {
                 color: "white",
                 border: "none",
                 borderRadius: "4px",
-                cursor: "pointer"
+                cursor: "pointer",
               }}
             >
               Save Signature
@@ -702,9 +736,16 @@ export default function SignatureWithOptions() {
       {signature && (
         <div style={{ backgroundColor: "#f8f9fa", padding: "1rem", borderRadius: "8px" }}>
           <h4>Signature Preview</h4>
-          <p><strong>Stroke Width:</strong> {strokeWidth}px</p>
-          <p><strong>Stroke Color:</strong> <span style={{ color: strokeColor }}>●</span> {strokeColor}</p>
-          <p><strong>Paths:</strong> {signature.paths?.length || 0} strokes</p>
+          <p>
+            <strong>Stroke Width:</strong> {strokeWidth}px
+          </p>
+          <p>
+            <strong>Stroke Color:</strong> <span style={{ color: strokeColor }}>●</span>{" "}
+            {strokeColor}
+          </p>
+          <p>
+            <strong>Paths:</strong> {signature.paths?.length || 0} strokes
+          </p>
         </div>
       )}
     </div>
@@ -716,23 +757,23 @@ export default function SignatureWithOptions() {
 
 ```tsx
 import { useState } from "react";
-import { SignaturePad } from "liquidify-react/signaturePad";
+import { SignaturePad } from "liquidify-react/ark-ui/signaturePad";
 
 export default function MultiSignatureDocument() {
   const [signatures, setSignatures] = useState({
     party1: null,
     party2: null,
-    witness: null
+    witness: null,
   });
 
   const parties = [
     { key: "party1", name: "Party 1 (Seller)", required: true },
     { key: "party2", name: "Party 2 (Buyer)", required: true },
-    { key: "witness", name: "Witness (Optional)", required: false }
+    { key: "witness", name: "Witness (Optional)", required: false },
   ];
 
   const handleSignature = (party, details) => {
-    setSignatures(prev => ({ ...prev, [party]: details }));
+    setSignatures((prev) => ({ ...prev, [party]: details }));
   };
 
   const isComplete = () => {
@@ -753,7 +794,14 @@ export default function MultiSignatureDocument() {
     <div style={{ maxWidth: "800px", margin: "0 auto", padding: "2rem" }}>
       <h1>Legal Agreement Document</h1>
 
-      <div style={{ backgroundColor: "#f8f9fa", padding: "2rem", borderRadius: "8px", marginBottom: "2rem" }}>
+      <div
+        style={{
+          backgroundColor: "#f8f9fa",
+          padding: "2rem",
+          borderRadius: "8px",
+          marginBottom: "2rem",
+        }}
+      >
         <h2>Agreement Terms</h2>
         <p>This agreement is made between Party 1 and Party 2 for the following terms:</p>
         <ul>
@@ -765,24 +813,27 @@ export default function MultiSignatureDocument() {
       </div>
 
       <div style={{ display: "grid", gap: "2rem" }}>
-        {parties.map(party => (
-          <div key={party.key} style={{
-            border: "1px solid #dee2e6",
-            borderRadius: "8px",
-            padding: "1.5rem",
-            backgroundColor: "white"
-          }}>
-            <h3>{party.name} {party.required && <span style={{ color: "#dc3545" }}>*</span>}</h3>
+        {parties.map((party) => (
+          <div
+            key={party.key}
+            style={{
+              border: "1px solid #dee2e6",
+              borderRadius: "8px",
+              padding: "1.5rem",
+              backgroundColor: "white",
+            }}
+          >
+            <h3>
+              {party.name} {party.required && <span style={{ color: "#dc3545" }}>*</span>}
+            </h3>
 
-            <SignaturePad.Root
-              onDrawEnd={(details) => handleSignature(party.key, details)}
-            >
+            <SignaturePad.Root onDrawEnd={(details) => handleSignature(party.key, details)}>
               <SignaturePad.Control
                 style={{
                   border: signatures[party.key] ? "2px solid #28a745" : "2px dashed #ccc",
                   borderRadius: "8px",
                   height: "150px",
-                  backgroundColor: "#fafafa"
+                  backgroundColor: "#fafafa",
                 }}
               >
                 <SignaturePad.Guide
@@ -790,7 +841,7 @@ export default function MultiSignatureDocument() {
                     color: signatures[party.key] ? "#28a745" : "#666",
                     fontSize: "14px",
                     textAlign: "center",
-                    lineHeight: "150px"
+                    lineHeight: "150px",
                   }}
                 >
                   {signatures[party.key] ? "✓ Signed" : "Sign here"}
@@ -805,7 +856,7 @@ export default function MultiSignatureDocument() {
                     color: "white",
                     border: "none",
                     borderRadius: "4px",
-                    cursor: "pointer"
+                    cursor: "pointer",
                   }}
                 >
                   Clear
@@ -833,7 +884,7 @@ export default function MultiSignatureDocument() {
             border: "none",
             borderRadius: "4px",
             cursor: isComplete() ? "pointer" : "not-allowed",
-            fontSize: "16px"
+            fontSize: "16px",
           }}
         >
           Complete Agreement
@@ -858,13 +909,13 @@ The root container for the signature pad component.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `onDrawStart` | `(details: DrawDetails) => void` | - | Callback fired when drawing starts |
-| `onDrawEnd` | `(details: DrawDetails) => void` | - | Callback fired when drawing ends |
-| `onDraw` | `(details: DrawDetails) => void` | - | Callback fired during drawing |
-| `disabled` | `boolean` | `false` | Whether the signature pad is disabled |
-| `children` | `ReactNode` | - | The signature pad content |
+| Prop          | Type                             | Default | Description                           |
+| ------------- | -------------------------------- | ------- | ------------------------------------- |
+| `onDrawStart` | `(details: DrawDetails) => void` | -       | Callback fired when drawing starts    |
+| `onDrawEnd`   | `(details: DrawDetails) => void` | -       | Callback fired when drawing ends      |
+| `onDraw`      | `(details: DrawDetails) => void` | -       | Callback fired during drawing         |
+| `disabled`    | `boolean`                        | `false` | Whether the signature pad is disabled |
+| `children`    | `ReactNode`                      | -       | The signature pad content             |
 
 ### SignaturePad.Label
 
@@ -872,9 +923,9 @@ An optional label for the signature pad.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The label content |
+| Prop       | Type        | Default | Description       |
+| ---------- | ----------- | ------- | ----------------- |
+| `children` | `ReactNode` | -       | The label content |
 
 ### SignaturePad.Control
 
@@ -882,9 +933,9 @@ The interactive canvas area for drawing signatures.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The control content (usually includes Guide) |
+| Prop       | Type        | Default | Description                                  |
+| ---------- | ----------- | ------- | -------------------------------------------- |
+| `children` | `ReactNode` | -       | The control content (usually includes Guide) |
 
 ### SignaturePad.Guide
 
@@ -892,9 +943,9 @@ A guide or placeholder text shown in the signature area.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The guide content |
+| Prop       | Type        | Default | Description       |
+| ---------- | ----------- | ------- | ----------------- |
+| `children` | `ReactNode` | -       | The guide content |
 
 ### SignaturePad.ClearTrigger
 
@@ -902,9 +953,9 @@ A button to clear the signature.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The trigger content |
+| Prop       | Type        | Default | Description         |
+| ---------- | ----------- | ------- | ------------------- |
+| `children` | `ReactNode` | -       | The trigger content |
 
 ### SignaturePad.Segment
 
@@ -912,9 +963,9 @@ Represents a segment of the signature path.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The segment content |
+| Prop       | Type        | Default | Description         |
+| ---------- | ----------- | ------- | ------------------- |
+| `children` | `ReactNode` | -       | The segment content |
 
 ## Accessibility
 
@@ -928,11 +979,11 @@ The SignaturePad component includes comprehensive accessibility features:
 
 ### Keyboard Shortcuts
 
-| Key | Action |
-|-----|--------|
-| `Tab` | Navigate between controls |
-| `Enter` / `Space` | Activate buttons |
-| `Escape` | Clear signature (when focused) |
+| Key               | Action                         |
+| ----------------- | ------------------------------ |
+| `Tab`             | Navigate between controls      |
+| `Enter` / `Space` | Activate buttons               |
+| `Escape`          | Clear signature (when focused) |
 
 ## Best Practices
 

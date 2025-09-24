@@ -5,51 +5,53 @@ layout: ../../../layouts/DocsLayout.astro
 # Listbox
 
 ## Summary
+
 A flexible listbox component for selecting single or multiple items from a scrollable list. Ideal for forms, filters, and navigation menus where users need to choose from predefined options.
 
 ### Import
+
 ```ts
-import { Listbox } from 'liquidify-react/ark-ui/listbox'
+import { Listbox } from "liquidify-react/ark-ui/listbox";
 ```
 
 ## Examples
 
-import ListboxDemo from "../../../components/demos/ListboxDemo.tsx"
+import ListboxDemo from "../../../components/demos/ListboxDemo.tsx";
 
 ### Basic Usage
 
 <ListboxDemo client:only="react" />
-```tsx
-import { Listbox } from 'liquidify-react/ark-ui/listbox'
+```tsx import {Listbox} from "liquidify-react/ark-ui/listbox"
 
 const fruits = ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry']
 
 function BasicListbox() {
-  return (
-    <Listbox.Root>
-      <Listbox.Label>Choose a fruit</Listbox.Label>
-      <Listbox.Trigger>
-        <Listbox.Value placeholder="Select fruit..." />
-        <Listbox.Indicator>▼</Listbox.Indicator>
-      </Listbox.Trigger>
-      <Listbox.Content>
-        <Listbox.ItemGroup>
-          {fruits.map((fruit) => (
-            <Listbox.Item key={fruit} value={fruit}>
-              <Listbox.ItemText>{fruit}</Listbox.ItemText>
-              <Listbox.ItemIndicator>✓</Listbox.ItemIndicator>
-            </Listbox.Item>
-          ))}
-        </Listbox.ItemGroup>
-      </Listbox.Content>
-    </Listbox.Root>
-  )
+return (
+<Listbox.Root>
+<Listbox.Label>Choose a fruit</Listbox.Label>
+<Listbox.Trigger>
+<Listbox.Value placeholder="Select fruit..." />
+<Listbox.Indicator>▼</Listbox.Indicator>
+</Listbox.Trigger>
+<Listbox.Content>
+<Listbox.ItemGroup>
+{fruits.map((fruit) => (
+<Listbox.Item key={fruit} value={fruit}>
+<Listbox.ItemText>{fruit}</Listbox.ItemText>
+<Listbox.ItemIndicator>✓</Listbox.ItemIndicator>
+</Listbox.Item>
+))}
+</Listbox.ItemGroup>
+</Listbox.Content>
+</Listbox.Root>
+)
 }
-```
+
+````
 
 ### Multiple Selection
 ```tsx
-import { Listbox } from 'liquidify-react/ark-ui/listbox'
+import { Listbox } from "liquidify-react/ark-ui/listbox"
 
 const skills = ['JavaScript', 'TypeScript', 'React', 'Vue', 'Angular', 'Svelte']
 
@@ -74,18 +76,19 @@ function MultiSelectListbox() {
     </Listbox.Root>
   )
 }
-```
+````
 
 ### With Icons and Descriptions
+
 ```tsx
-import { Listbox } from 'liquidify-react/ark-ui/listbox'
+import { Listbox } from "liquidify-react/ark-ui/listbox";
 
 const countries = [
-  { code: 'US', name: 'United States', flag: '🇺🇸' },
-  { code: 'CA', name: 'Canada', flag: '🇨🇦' },
-  { code: 'GB', name: 'United Kingdom', flag: '🇬🇧' },
-  { code: 'DE', name: 'Germany', flag: '🇩🇪' },
-]
+  { code: "US", name: "United States", flag: "🇺🇸" },
+  { code: "CA", name: "Canada", flag: "🇨🇦" },
+  { code: "GB", name: "United Kingdom", flag: "🇬🇧" },
+  { code: "DE", name: "Germany", flag: "🇩🇪" },
+];
 
 function CountryListbox() {
   return (
@@ -106,35 +109,36 @@ function CountryListbox() {
         </Listbox.ItemGroup>
       </Listbox.Content>
     </Listbox.Root>
-  )
+  );
 }
 ```
 
 ### Custom Styling
+
 ```tsx
-import { Listbox } from 'liquidify-react/ark-ui/listbox'
-import { css } from 'styled-system/css'
+import { Listbox } from "liquidify-react/ark-ui/listbox";
+import { css } from "styled-system/css";
 
 const customListbox = css({
   '& [data-part="trigger"]': {
-    border: '2px solid token(colors.gray.300)',
-    borderRadius: '8px',
-    padding: '12px 16px',
-    backgroundColor: 'white',
-    _hover: { borderColor: 'token(colors.blue.500)' },
+    border: "2px solid token(colors.gray.300)",
+    borderRadius: "8px",
+    padding: "12px 16px",
+    backgroundColor: "white",
+    _hover: { borderColor: "token(colors.blue.500)" },
   },
   '& [data-part="content"]': {
-    border: '1px solid token(colors.gray.200)',
-    borderRadius: '8px',
-    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-    backgroundColor: 'white',
+    border: "1px solid token(colors.gray.200)",
+    borderRadius: "8px",
+    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+    backgroundColor: "white",
   },
   '& [data-part="item"]': {
-    padding: '8px 16px',
-    _hover: { backgroundColor: 'token(colors.blue.50)' },
-    _selected: { backgroundColor: 'token(colors.blue.100)' },
+    padding: "8px 16px",
+    _hover: { backgroundColor: "token(colors.blue.50)" },
+    _selected: { backgroundColor: "token(colors.blue.100)" },
   },
-})
+});
 
 function StyledListbox() {
   return (
@@ -155,25 +159,23 @@ function StyledListbox() {
         </Listbox.ItemGroup>
       </Listbox.Content>
     </Listbox.Root>
-  )
+  );
 }
 ```
 
 ### Form Integration
+
 ```tsx
-import { Listbox } from 'liquidify-react/ark-ui/listbox'
-import { useForm } from 'react-hook-form'
+import { Listbox } from "liquidify-react/ark-ui/listbox";
+import { useForm } from "react-hook-form";
 
 function FormListbox() {
-  const { register, handleSubmit, setValue, watch } = useForm()
-  const selectedValue = watch('country')
+  const { register, handleSubmit, setValue, watch } = useForm();
+  const selectedValue = watch("country");
 
   return (
     <form onSubmit={handleSubmit((data) => console.log(data))}>
-      <Listbox.Root
-        value={selectedValue}
-        onValueChange={(value) => setValue('country', value)}
-      >
+      <Listbox.Root value={selectedValue} onValueChange={(value) => setValue("country", value)}>
         <Listbox.Label>Country</Listbox.Label>
         <Listbox.Trigger>
           <Listbox.Value placeholder="Select country..." />
@@ -195,22 +197,23 @@ function FormListbox() {
       </Listbox.Root>
       <button type="submit">Submit</button>
     </form>
-  )
+  );
 }
 ```
 
 ### Searchable Listbox
-```tsx
-import { Listbox } from 'liquidify-react/ark-ui/listbox'
-import { useState } from 'react'
 
-const allItems = ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry', 'Fig', 'Grape']
+```tsx
+import { Listbox } from "liquidify-react/ark-ui/listbox";
+import { useState } from "react";
+
+const allItems = ["Apple", "Banana", "Cherry", "Date", "Elderberry", "Fig", "Grape"];
 
 function SearchableListbox() {
-  const [searchTerm, setSearchTerm] = useState('')
-  const filteredItems = allItems.filter(item =>
-    item.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+  const [searchTerm, setSearchTerm] = useState("");
+  const filteredItems = allItems.filter((item) =>
+    item.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
 
   return (
     <Listbox.Root>
@@ -220,7 +223,7 @@ function SearchableListbox() {
         placeholder="Search..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        style={{ marginBottom: '8px', padding: '8px', width: '100%' }}
+        style={{ marginBottom: "8px", padding: "8px", width: "100%" }}
       />
       <Listbox.Trigger>
         <Listbox.Value placeholder="Select fruit..." />
@@ -236,90 +239,100 @@ function SearchableListbox() {
         </Listbox.ItemGroup>
       </Listbox.Content>
     </Listbox.Root>
-  )
+  );
 }
 ```
 
 ## API Reference
 
 ### Listbox.Root
+
 The root container for the listbox.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string \| string[]` | - | The selected value(s) |
-| `onValueChange` | `(value: string \| string[]) => void` | - | Callback when value changes |
-| `multiple` | `boolean` | `false` | Allow multiple selections |
-| `disabled` | `boolean` | `false` | Disable the listbox |
-| `readOnly` | `boolean` | `false` | Make listbox read-only |
-| `loop` | `boolean` | `false` | Enable keyboard navigation loop |
-| `name` | `string` | - | Form field name |
+| Prop            | Type                                  | Default | Description                     |
+| --------------- | ------------------------------------- | ------- | ------------------------------- |
+| `value`         | `string \| string[]`                  | -       | The selected value(s)           |
+| `onValueChange` | `(value: string \| string[]) => void` | -       | Callback when value changes     |
+| `multiple`      | `boolean`                             | `false` | Allow multiple selections       |
+| `disabled`      | `boolean`                             | `false` | Disable the listbox             |
+| `readOnly`      | `boolean`                             | `false` | Make listbox read-only          |
+| `loop`          | `boolean`                             | `false` | Enable keyboard navigation loop |
+| `name`          | `string`                              | -       | Form field name                 |
 
 ### Listbox.Label
+
 Provides a label for the listbox.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | Label content |
+| Prop       | Type        | Default | Description   |
+| ---------- | ----------- | ------- | ------------- |
+| `children` | `ReactNode` | -       | Label content |
 
 ### Listbox.Trigger
+
 The button that opens the listbox dropdown.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | Trigger content |
-| `disabled` | `boolean` | `false` | Disable the trigger |
+| Prop       | Type        | Default | Description         |
+| ---------- | ----------- | ------- | ------------------- |
+| `children` | `ReactNode` | -       | Trigger content     |
+| `disabled` | `boolean`   | `false` | Disable the trigger |
 
 ### Listbox.Value
+
 Displays the selected value(s).
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `placeholder` | `string` | - | Placeholder text when no value selected |
+| Prop          | Type     | Default | Description                             |
+| ------------- | -------- | ------- | --------------------------------------- |
+| `placeholder` | `string` | -       | Placeholder text when no value selected |
 
 ### Listbox.Content
+
 The dropdown content container.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | Content children |
+| Prop       | Type        | Default | Description      |
+| ---------- | ----------- | ------- | ---------------- |
+| `children` | `ReactNode` | -       | Content children |
 
 ### Listbox.ItemGroup
+
 Groups listbox items together.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | Grouped items |
+| Prop       | Type        | Default | Description   |
+| ---------- | ----------- | ------- | ------------- |
+| `children` | `ReactNode` | -       | Grouped items |
 
 ### Listbox.Item
+
 An individual selectable item.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | Item value |
-| `disabled` | `boolean` | `false` | Disable this item |
-| `children` | `ReactNode` | - | Item content |
+| Prop       | Type        | Default | Description       |
+| ---------- | ----------- | ------- | ----------------- |
+| `value`    | `string`    | -       | Item value        |
+| `disabled` | `boolean`   | `false` | Disable this item |
+| `children` | `ReactNode` | -       | Item content      |
 
 ### Listbox.ItemText
+
 The text content of an item.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | Text content |
+| Prop       | Type        | Default | Description  |
+| ---------- | ----------- | ------- | ------------ |
+| `children` | `ReactNode` | -       | Text content |
 
 ### Listbox.ItemIndicator
+
 Shows selection state (typically a checkmark).
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | Indicator content |
+| Prop       | Type        | Default | Description       |
+| ---------- | ----------- | ------- | ----------------- |
+| `children` | `ReactNode` | -       | Indicator content |
 
 ### Listbox.Indicator
+
 Shows the dropdown state (typically an arrow).
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | Indicator content |
+| Prop       | Type        | Default | Description       |
+| ---------- | ----------- | ------- | ----------------- |
+| `children` | `ReactNode` | -       | Indicator content |
 
 ## Accessibility
 
@@ -331,6 +344,7 @@ The Listbox component follows WAI-ARIA guidelines for listbox patterns:
 - **Multiple Selection**: Announces count of selected items when using multiple mode
 
 ### Keyboard Shortcuts
+
 - `↑/↓`: Navigate between items
 - `Enter/Space`: Select item
 - `Escape`: Close dropdown
@@ -340,6 +354,7 @@ The Listbox component follows WAI-ARIA guidelines for listbox patterns:
 ## Best Practices
 
 ### Do's
+
 - Use clear, descriptive labels for the listbox
 - Provide meaningful placeholder text
 - Group related items when there are many options
@@ -347,17 +362,20 @@ The Listbox component follows WAI-ARIA guidelines for listbox patterns:
 - Use appropriate sizing based on content length
 
 ### Don'ts
+
 - Don't use listbox for free-form text input (use input fields instead)
 - Don't nest listboxes within other interactive elements
 - Don't hide the trigger element (keep it visible for accessibility)
 - Don't use extremely long item lists without virtualization
 
 ### Performance Tips
+
 - For large datasets (>100 items), consider virtualization
 - Use `React.memo` for custom item components
 - Debounce search input for better performance
 
 ## Related Components
+
 - [Combobox](/components/Combobox) - For searchable dropdowns with custom input
 - [Select](/components/Select) - For simpler single-selection dropdowns
 - [Checkbox](/components/Checkbox) - For individual boolean selections

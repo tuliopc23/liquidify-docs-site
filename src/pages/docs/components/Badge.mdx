@@ -2,9 +2,9 @@
 layout: ../../../layouts/DocsLayout.astro
 ---
 
-import { Badge } from "liquidify-react/badge"
-import { Button } from "liquidify-react/button"
-import { ComponentShowcase } from "../../../components/ComponentShowcase"
+import { Badge } from "liquidify-react/badge";
+import { Button } from "liquidify-react/button";
+import { ComponentShowcase } from "../../../components/ComponentShowcase";
 
 # Badge
 
@@ -13,7 +13,7 @@ Small status indicators and labels for displaying categories, counts, or states.
 ## Import
 
 ```tsx
-import { Badge } from "liquidify-react/badge"
+import { Badge } from "liquidify-react/badge";
 ```
 
 ## Basic Usage
@@ -29,8 +29,12 @@ import { Badge } from "liquidify-react/badge"
   client:load
 >
   <Badge client:load>Default</Badge>
-  <Badge tone="neutral" client:load>Neutral</Badge>
-  <Badge tone="blue" client:load>Blue</Badge>
+  <Badge tone="neutral" client:load>
+    Neutral
+  </Badge>
+  <Badge tone="blue" client:load>
+    Blue
+  </Badge>
 </ComponentShowcase>
 
 ## Custom Styling
@@ -46,25 +50,25 @@ import { Badge } from "liquidify-react/badge"
   client:load
 >
   <Badge client:load>New</Badge>
-  <Badge tone="blue" client:load>3</Badge>
-  <Badge tone="neutral" client:load>99+</Badge>
+  <Badge tone="blue" client:load>
+    3
+  </Badge>
+  <Badge tone="neutral" client:load>
+    99+
+  </Badge>
 </ComponentShowcase>
 
 ## With Custom Styling
 
 ```tsx
 export default function CustomExample() {
-	return (
-		<div style={{ display: "flex", gap: "1rem" }}>
-			<Badge style={{ backgroundColor: '#10b981', color: 'white' }}>
-				Success
-			</Badge>
+  return (
+    <div style={{ display: "flex", gap: "1rem" }}>
+      <Badge style={{ backgroundColor: "#10b981", color: "white" }}>Success</Badge>
 
-			<Badge style={{ backgroundColor: '#f59e0b', color: 'white' }}>
-				Warning
-			</Badge>
-		</div>
-	)
+      <Badge style={{ backgroundColor: "#f59e0b", color: "white" }}>Warning</Badge>
+    </div>
+  );
 }
 ```
 
@@ -97,7 +101,7 @@ export default function CustomExample() {
         position: "absolute",
         top: "-8px",
         right: "-8px",
-        fontSize: "12px"
+        fontSize: "12px",
       }}
       client:load
     >
@@ -109,10 +113,12 @@ export default function CustomExample() {
 ## API Reference
 
 ### Props
+
 - `tone`: `"neutral" | "blue"` - Visual tone of the badge (optional)
 - Standard HTML span attributes are supported
 
 ### Accessibility
+
 - Meaningful text content for screen readers
 - Proper color contrast ratios maintained
 - Inherits standard span semantics

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Checkbox } from 'liquidify-react/ark-ui/checkbox';
+import React from "react";
+import { Checkbox } from "liquidify-react/ark-ui/checkbox";
 
 export default function CheckboxDemo(): JSX.Element {
   return (

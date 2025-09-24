@@ -15,17 +15,20 @@ Join our mission to bring Apple's design excellence to the web. We welcome contr
 ### Development Setup
 
 1. **Fork and clone** the repository:
+
 ```bash
 git clone https://github.com/yourusername/liquidify.git
 cd liquidify
 ```
 
 2. **Install dependencies**:
+
 ```bash
 bun install
 ```
 
 3. **Run development environment**:
+
 ```bash
 # Build the library
 bun run build:lib
@@ -56,24 +59,28 @@ liquidify/
 ## Types of Contributions
 
 ### 🎨 Design System Enhancements
+
 - **Color tokens** and theme improvements
-- **Typography** scale refinements  
+- **Typography** scale refinements
 - **Spacing** and layout pattern additions
 - **Motion** and animation guidelines
 
 ### 🧩 Component Development
+
 - **New components** following Apple HIG principles
 - **Component variants** and configuration options
 - **Accessibility** improvements and WCAG compliance
 - **Performance** optimizations
 
 ### 📚 Documentation
+
 - **Component guides** with usage examples
 - **Design principles** and implementation notes
 - **Migration guides** for version updates
 - **Accessibility guides** and best practices
 
 ### 🧪 Testing & Quality
+
 - **Unit tests** for components
 - **Accessibility tests** with screen readers
 - **Visual regression tests** for design consistency
@@ -82,7 +89,9 @@ liquidify/
 ## Development Workflow
 
 ### 1. Issue Discussion
+
 Before starting work:
+
 - **Search existing issues** to avoid duplication
 - **Open an issue** for new features or bugs
 - **Discuss approach** with maintainers
@@ -91,75 +100,78 @@ Before starting work:
 ### 2. Implementation Standards
 
 #### Component Guidelines
+
 ```tsx
 // Follow this pattern for new components
-import { forwardRef } from "react"
-import { cx } from "styled-system/css"
-import { button } from "styled-system/recipes"
+import { forwardRef } from "react";
+import { cx } from "styled-system/css";
+import { button } from "styled-system/recipes";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-	variant?: "primary" | "secondary" | "ghost"
-	size?: "sm" | "md" | "lg"
+  variant?: "primary" | "secondary" | "ghost";
+  size?: "sm" | "md" | "lg";
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-	function Button({ variant = "primary", size = "md", className, ...props }, ref) {
-		return (
-			<button
-				ref={ref}
-				className={cx(button({ variant, size }), className)}
-				{...props}
-			/>
-		)
-	}
-)
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
+  { variant = "primary", size = "md", className, ...props },
+  ref,
+) {
+  return <button ref={ref} className={cx(button({ variant, size }), className)} {...props} />;
+});
 
-Button.displayName = "Button"
+Button.displayName = "Button";
 ```
 
 #### Styling with Panda CSS
+
 ```ts
 // Create recipes in libs/components/src/recipes/
-import { defineRecipe } from "@pandacss/dev"
+import { defineRecipe } from "@pandacss/dev";
 
 export const button = defineRecipe({
-	className: "button",
-	base: {
-		// Base styles following Apple HIG
-		display: "inline-flex",
-		alignItems: "center",
-		justifyContent: "center",
-		// ...
-	},
-	variants: {
-		variant: {
-			primary: { /* Apple blue */ },
-			secondary: { /* Subtle styling */ }
-		}
-	}
-})
+  className: "button",
+  base: {
+    // Base styles following Apple HIG
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    // ...
+  },
+  variants: {
+    variant: {
+      primary: {
+        /* Apple blue */
+      },
+      secondary: {
+        /* Subtle styling */
+      },
+    },
+  },
+});
 ```
 
 #### Testing Requirements
+
 ```tsx
 // Component tests with @testing-library/react
-import { render, screen } from "@testing-library/react"
-import { Button } from "./button"
+import { render, screen } from "@testing-library/react";
+import { Button } from "./button";
 
 describe("Button", () => {
-	it("renders with correct variant styles", () => {
-		render(<Button variant="primary">Click me</Button>)
-		expect(screen.getByRole("button")).toHaveClass("button--variant_primary")
-	})
+  it("renders with correct variant styles", () => {
+    render(<Button variant="primary">Click me</Button>);
+    expect(screen.getByRole("button")).toHaveClass("button--variant_primary");
+  });
 
-	it("supports custom className", () => {
-		render(<Button className="custom-class">Click me</Button>)
-		expect(screen.getByRole("button")).toHaveClass("custom-class")
-	})
-})
+  it("supports custom className", () => {
+    render(<Button className="custom-class">Click me</Button>);
+    expect(screen.getByRole("button")).toHaveClass("custom-class");
+  });
+});
 ```
 
 ### 3. Quality Checks
+
 Run these commands before submitting:
 
 ```bash
@@ -181,6 +193,7 @@ bun run build:lib
 ### 4. Pull Request Process
 
 #### PR Guidelines
+
 - **Keep PRs focused** - one feature or fix per PR
 - **Write clear titles** describing the change
 - **Include context** in the description
@@ -188,22 +201,27 @@ bun run build:lib
 - **Update documentation** for API changes
 
 #### PR Template
+
 ```markdown
 ## Summary
+
 Brief description of changes
 
 ## Type of Change
+
 - [ ] Bug fix
 - [ ] New feature
 - [ ] Breaking change
 - [ ] Documentation update
 
 ## Testing
+
 - [ ] Unit tests added/updated
 - [ ] Manual testing completed
 - [ ] Accessibility testing done
 
 ## Checklist
+
 - [ ] Code follows style guidelines
 - [ ] Self-review completed
 - [ ] Documentation updated
@@ -213,10 +231,11 @@ Brief description of changes
 ## Documentation Contributions
 
 ### Writing Component Docs
+
 1. **Create MDX files** in `docs-public/components/`
 2. **Follow the template** structure:
 
-```mdx
+````mdx
 # Component Name
 
 Brief description following Apple HIG principles.
@@ -224,17 +243,18 @@ Brief description following Apple HIG principles.
 ## Usage
 
 ```tsx
-import { Component } from "liquidify-react/component"
+import { Component } from "liquidify-react/component";
 
 export default function Example() {
-	return <Component>Content</Component>
+  return <Component>Content</Component>;
 }
 ```
+````
 
 ## Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| Prop    | Type   | Default   | Description          |
+| ------- | ------ | --------- | -------------------- |
 | variant | string | "primary" | Visual style variant |
 
 ## Accessibility
@@ -242,7 +262,8 @@ export default function Example() {
 - Follows WCAG 2.2 guidelines
 - Supports screen readers
 - Keyboard navigation included
-```
+
+````
 
 ### Documentation Standards
 - **Use subpath imports** in examples
@@ -265,17 +286,20 @@ npx changeset add
 
 # Describe your changes and select version bump type
 # Commit the changeset with your PR
-```
+````
 
 ## Community Guidelines
 
 ### Getting Help
+
 - **GitHub Issues** for bug reports and feature requests
 - **GitHub Discussions** for questions and ideas
 - **Code Review** feedback is learning-focused
 
 ### Recognition
+
 Contributors are recognized in:
+
 - Release notes and changelogs
 - GitHub contributor graphs
 - Special thanks in major releases
@@ -283,6 +307,7 @@ Contributors are recognized in:
 ## Design Philosophy
 
 Remember LiqUIdify's core principles:
+
 - **Apple HIG compliance** in every component
 - **Accessibility first** approach
 - **Performance optimization** built-in

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Tabs } from 'liquidify-react/ark-ui/tabs';
+import React from "react";
+import { Tabs } from "liquidify-react/ark-ui/tabs";
 
 export default function TabsDemo(): JSX.Element {
   return (

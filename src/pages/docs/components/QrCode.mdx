@@ -16,7 +16,7 @@ npm install liquidify-react
 ## Import
 
 ```tsx
-import { QrCode } from "liquidify-react/qrCode";
+import { QrCode } from "liquidify-react/ark-ui/qrCode";
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ import { QrCode } from "liquidify-react/qrCode";
 ### Basic QR Code
 
 ```tsx
-import { QrCode } from "liquidify-react/qrCode";
+import { QrCode } from "liquidify-react/ark-ui/qrCode";
 
 export default function BasicQrCode() {
   return (
@@ -43,7 +43,7 @@ export default function BasicQrCode() {
 
 ```tsx
 import { useState } from "react";
-import { QrCode } from "liquidify-react/qrCode";
+import { QrCode } from "liquidify-react/ark-ui/qrCode";
 
 export default function UrlSharing() {
   const [url, setUrl] = useState("https://github.com/yourusername/project");
@@ -52,7 +52,7 @@ export default function UrlSharing() {
     { label: "Portfolio", url: "https://yourportfolio.com" },
     { label: "GitHub", url: "https://github.com/yourusername" },
     { label: "LinkedIn", url: "https://linkedin.com/in/yourprofile" },
-    { label: "Documentation", url: "https://docs.yourproject.com" }
+    { label: "Documentation", url: "https://docs.yourproject.com" },
   ];
 
   return (
@@ -60,9 +60,7 @@ export default function UrlSharing() {
       <h3>Share URLs via QR Code</h3>
 
       <div style={{ marginBottom: "2rem" }}>
-        <label style={{ display: "block", marginBottom: "0.5rem" }}>
-          Enter URL to encode:
-        </label>
+        <label style={{ display: "block", marginBottom: "0.5rem" }}>Enter URL to encode:</label>
         <input
           type="url"
           value={url}
@@ -73,7 +71,7 @@ export default function UrlSharing() {
             padding: "0.5rem",
             border: "1px solid #ccc",
             borderRadius: "4px",
-            fontSize: "16px"
+            fontSize: "16px",
           }}
         />
       </div>
@@ -81,7 +79,7 @@ export default function UrlSharing() {
       <div style={{ marginBottom: "2rem" }}>
         <h4>Quick Links:</h4>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
-          {predefinedUrls.map(link => (
+          {predefinedUrls.map((link) => (
             <button
               key={link.label}
               onClick={() => setUrl(link.url)}
@@ -90,7 +88,7 @@ export default function UrlSharing() {
                 backgroundColor: "#f8f9fa",
                 border: "1px solid #dee2e6",
                 borderRadius: "4px",
-                cursor: "pointer"
+                cursor: "pointer",
               }}
             >
               {link.label}
@@ -101,9 +99,7 @@ export default function UrlSharing() {
 
       <div style={{ textAlign: "center" }}>
         <QrCode value={url} />
-        <p style={{ marginTop: "1rem", fontSize: "0.9rem", color: "#666" }}>
-          URL: {url}
-        </p>
+        <p style={{ marginTop: "1rem", fontSize: "0.9rem", color: "#666" }}>URL: {url}</p>
       </div>
     </div>
   );
@@ -114,14 +110,14 @@ export default function UrlSharing() {
 
 ```tsx
 import { useState } from "react";
-import { QrCode } from "liquidify-react/qrCode";
+import { QrCode } from "liquidify-react/ark-ui/qrCode";
 
 export default function ContactQrCode() {
   const [contact, setContact] = useState({
     name: "John Doe",
     phone: "+1-555-0123",
     email: "john.doe@example.com",
-    address: "123 Main St, City, State 12345"
+    address: "123 Main St, City, State 12345",
   });
 
   // Generate vCard format for contact information
@@ -132,7 +128,7 @@ FN:${contact.name}
 TEL:${contact.phone}
 EMAIL:${contact.email}
 ADR:${contact.address}
-END:VCARD`.replace(/\n/g, '\n');
+END:VCARD`.replace(/\n/g, "\n");
   };
 
   const vCardData = generateVCard(contact);
@@ -150,8 +146,13 @@ END:VCARD`.replace(/\n/g, '\n');
               <input
                 type="text"
                 value={contact.name}
-                onChange={(e) => setContact(prev => ({ ...prev, name: e.target.value }))}
-                style={{ width: "100%", padding: "0.5rem", border: "1px solid #ccc", borderRadius: "4px" }}
+                onChange={(e) => setContact((prev) => ({ ...prev, name: e.target.value }))}
+                style={{
+                  width: "100%",
+                  padding: "0.5rem",
+                  border: "1px solid #ccc",
+                  borderRadius: "4px",
+                }}
               />
             </div>
 
@@ -160,8 +161,13 @@ END:VCARD`.replace(/\n/g, '\n');
               <input
                 type="tel"
                 value={contact.phone}
-                onChange={(e) => setContact(prev => ({ ...prev, phone: e.target.value }))}
-                style={{ width: "100%", padding: "0.5rem", border: "1px solid #ccc", borderRadius: "4px" }}
+                onChange={(e) => setContact((prev) => ({ ...prev, phone: e.target.value }))}
+                style={{
+                  width: "100%",
+                  padding: "0.5rem",
+                  border: "1px solid #ccc",
+                  borderRadius: "4px",
+                }}
               />
             </div>
 
@@ -170,8 +176,13 @@ END:VCARD`.replace(/\n/g, '\n');
               <input
                 type="email"
                 value={contact.email}
-                onChange={(e) => setContact(prev => ({ ...prev, email: e.target.value }))}
-                style={{ width: "100%", padding: "0.5rem", border: "1px solid #ccc", borderRadius: "4px" }}
+                onChange={(e) => setContact((prev) => ({ ...prev, email: e.target.value }))}
+                style={{
+                  width: "100%",
+                  padding: "0.5rem",
+                  border: "1px solid #ccc",
+                  borderRadius: "4px",
+                }}
               />
             </div>
 
@@ -179,9 +190,14 @@ END:VCARD`.replace(/\n/g, '\n');
               <label style={{ display: "block", marginBottom: "0.25rem" }}>Address</label>
               <textarea
                 value={contact.address}
-                onChange={(e) => setContact(prev => ({ ...prev, address: e.target.value }))}
+                onChange={(e) => setContact((prev) => ({ ...prev, address: e.target.value }))}
                 rows={3}
-                style={{ width: "100%", padding: "0.5rem", border: "1px solid #ccc", borderRadius: "4px" }}
+                style={{
+                  width: "100%",
+                  padding: "0.5rem",
+                  border: "1px solid #ccc",
+                  borderRadius: "4px",
+                }}
               />
             </div>
           </form>
@@ -204,13 +220,13 @@ END:VCARD`.replace(/\n/g, '\n');
 
 ```tsx
 import { useState } from "react";
-import { QrCode } from "liquidify-react/qrCode";
+import { QrCode } from "liquidify-react/ark-ui/qrCode";
 
 export default function WifiQrCode() {
   const [wifi, setWifi] = useState({
     ssid: "MyHomeNetwork",
     password: "mypassword123",
-    security: "WPA"
+    security: "WPA",
   });
 
   // Generate WiFi QR code format: WIFI:T:WPA;S:MyHomeNetwork;P:mypassword123;;
@@ -231,8 +247,13 @@ export default function WifiQrCode() {
           <input
             type="text"
             value={wifi.ssid}
-            onChange={(e) => setWifi(prev => ({ ...prev, ssid: e.target.value }))}
-            style={{ width: "100%", padding: "0.5rem", border: "1px solid #ccc", borderRadius: "4px" }}
+            onChange={(e) => setWifi((prev) => ({ ...prev, ssid: e.target.value }))}
+            style={{
+              width: "100%",
+              padding: "0.5rem",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+            }}
           />
         </div>
 
@@ -241,8 +262,13 @@ export default function WifiQrCode() {
           <input
             type="password"
             value={wifi.password}
-            onChange={(e) => setWifi(prev => ({ ...prev, password: e.target.value }))}
-            style={{ width: "100%", padding: "0.5rem", border: "1px solid #ccc", borderRadius: "4px" }}
+            onChange={(e) => setWifi((prev) => ({ ...prev, password: e.target.value }))}
+            style={{
+              width: "100%",
+              padding: "0.5rem",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+            }}
           />
         </div>
 
@@ -250,8 +276,13 @@ export default function WifiQrCode() {
           <label style={{ display: "block", marginBottom: "0.25rem" }}>Security Type</label>
           <select
             value={wifi.security}
-            onChange={(e) => setWifi(prev => ({ ...prev, security: e.target.value }))}
-            style={{ width: "100%", padding: "0.5rem", border: "1px solid #ccc", borderRadius: "4px" }}
+            onChange={(e) => setWifi((prev) => ({ ...prev, security: e.target.value }))}
+            style={{
+              width: "100%",
+              padding: "0.5rem",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+            }}
           >
             <option value="WPA">WPA/WPA2</option>
             <option value="WEP">WEP</option>
@@ -262,10 +293,21 @@ export default function WifiQrCode() {
 
       <div style={{ textAlign: "center" }}>
         <QrCode value={wifiString} />
-        <div style={{ marginTop: "1rem", padding: "1rem", backgroundColor: "#f8f9fa", borderRadius: "8px" }}>
+        <div
+          style={{
+            marginTop: "1rem",
+            padding: "1rem",
+            backgroundColor: "#f8f9fa",
+            borderRadius: "8px",
+          }}
+        >
           <h4>Network Details</h4>
-          <p><strong>SSID:</strong> {wifi.ssid}</p>
-          <p><strong>Security:</strong> {wifi.security}</p>
+          <p>
+            <strong>SSID:</strong> {wifi.ssid}
+          </p>
+          <p>
+            <strong>Security:</strong> {wifi.security}
+          </p>
           <p style={{ fontSize: "0.9rem", color: "#666" }}>
             Scan with your phone's camera to connect automatically
           </p>
@@ -279,7 +321,7 @@ export default function WifiQrCode() {
 ### Event Details
 
 ```tsx
-import { QrCode } from "liquidify-react/qrCode";
+import { QrCode } from "liquidify-react/ark-ui/qrCode";
 
 export default function EventQrCode() {
   const events = [
@@ -288,22 +330,24 @@ export default function EventQrCode() {
       date: "2024-03-15",
       time: "9:00 AM - 5:00 PM",
       location: "Convention Center, Downtown",
-      description: "Annual technology conference featuring industry leaders and innovative workshops."
+      description:
+        "Annual technology conference featuring industry leaders and innovative workshops.",
     },
     {
       title: "Product Launch",
       date: "2024-03-20",
       time: "7:00 PM - 9:00 PM",
       location: "Innovation Hub, Tech District",
-      description: "Launch event for our latest product line with live demonstrations and networking."
+      description:
+        "Launch event for our latest product line with live demonstrations and networking.",
     },
     {
       title: "Team Building Workshop",
       date: "2024-03-25",
       time: "10:00 AM - 4:00 PM",
       location: "Corporate Office, Meeting Room A",
-      description: "Interactive workshop focused on team collaboration and communication skills."
-    }
+      description: "Interactive workshop focused on team collaboration and communication skills.",
+    },
   ];
 
   // Generate calendar event format
@@ -325,29 +369,32 @@ END:VEVENT`;
       <h3>Event QR Codes</h3>
       <p>Scan QR codes to add events to your calendar</p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem" }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "2rem",
+        }}
+      >
         {events.map((event, index) => (
-          <div key={index} style={{
-            border: "1px solid #dee2e6",
-            borderRadius: "8px",
-            padding: "1.5rem",
-            backgroundColor: "white"
-          }}>
+          <div
+            key={index}
+            style={{
+              border: "1px solid #dee2e6",
+              borderRadius: "8px",
+              padding: "1.5rem",
+              backgroundColor: "white",
+            }}
+          >
             <h4>{event.title}</h4>
             <div style={{ marginBottom: "1rem" }}>
               <p style={{ margin: "0.25rem 0", color: "#666" }}>
                 📅 {new Date(event.date).toLocaleDateString()}
               </p>
-              <p style={{ margin: "0.25rem 0", color: "#666" }}>
-                🕐 {event.time}
-              </p>
-              <p style={{ margin: "0.25rem 0", color: "#666" }}>
-                📍 {event.location}
-              </p>
+              <p style={{ margin: "0.25rem 0", color: "#666" }}>🕐 {event.time}</p>
+              <p style={{ margin: "0.25rem 0", color: "#666" }}>📍 {event.location}</p>
             </div>
-            <p style={{ fontSize: "0.9rem", marginBottom: "1rem" }}>
-              {event.description}
-            </p>
+            <p style={{ fontSize: "0.9rem", marginBottom: "1rem" }}>{event.description}</p>
 
             <div style={{ textAlign: "center" }}>
               <QrCode value={generateCalendarString(event)} />
@@ -366,7 +413,7 @@ END:VEVENT`;
 ### Product Information
 
 ```tsx
-import { QrCode } from "liquidify-react/qrCode";
+import { QrCode } from "liquidify-react/ark-ui/qrCode";
 
 export default function ProductQrCode() {
   const products = [
@@ -375,22 +422,22 @@ export default function ProductQrCode() {
       name: "Wireless Headphones",
       price: "$129.99",
       description: "Premium wireless headphones with noise cancellation",
-      url: "https://store.example.com/products/wireless-headphones"
+      url: "https://store.example.com/products/wireless-headphones",
     },
     {
       id: "PROD-002",
       name: "Smart Watch",
       price: "$299.99",
       description: "Advanced smartwatch with health monitoring features",
-      url: "https://store.example.com/products/smart-watch"
+      url: "https://store.example.com/products/smart-watch",
     },
     {
       id: "PROD-003",
       name: "Bluetooth Speaker",
       price: "$79.99",
       description: "Portable Bluetooth speaker with 12-hour battery life",
-      url: "https://store.example.com/products/bluetooth-speaker"
-    }
+      url: "https://store.example.com/products/bluetooth-speaker",
+    },
   ];
 
   return (
@@ -398,27 +445,39 @@ export default function ProductQrCode() {
       <h3>Product Catalog</h3>
       <p>Scan QR codes to view detailed product information</p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem" }}>
-        {products.map(product => (
-          <div key={product.id} style={{
-            border: "1px solid #dee2e6",
-            borderRadius: "8px",
-            padding: "1.5rem",
-            backgroundColor: "white",
-            display: "flex",
-            flexDirection: "column"
-          }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "2rem",
+        }}
+      >
+        {products.map((product) => (
+          <div
+            key={product.id}
+            style={{
+              border: "1px solid #dee2e6",
+              borderRadius: "8px",
+              padding: "1.5rem",
+              backgroundColor: "white",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
             <div style={{ flex: 1 }}>
               <h4>{product.name}</h4>
-              <p style={{ color: "#007bff", fontSize: "1.2rem", fontWeight: "bold", margin: "0.5rem 0" }}>
+              <p
+                style={{
+                  color: "#007bff",
+                  fontSize: "1.2rem",
+                  fontWeight: "bold",
+                  margin: "0.5rem 0",
+                }}
+              >
                 {product.price}
               </p>
-              <p style={{ color: "#666", marginBottom: "1rem" }}>
-                {product.description}
-              </p>
-              <p style={{ fontSize: "0.8rem", color: "#666" }}>
-                Product ID: {product.id}
-              </p>
+              <p style={{ color: "#666", marginBottom: "1rem" }}>{product.description}</p>
+              <p style={{ fontSize: "0.8rem", color: "#666" }}>Product ID: {product.id}</p>
             </div>
 
             <div style={{ textAlign: "center", marginTop: "1rem" }}>
@@ -439,7 +498,7 @@ export default function ProductQrCode() {
 
 ```tsx
 import { useState } from "react";
-import { QrCode } from "liquidify-react/qrCode";
+import { QrCode } from "liquidify-react/ark-ui/qrCode";
 
 export default function TextMessageQrCode() {
   const [message, setMessage] = useState("Hello! This is a QR code encoded message.");
@@ -470,7 +529,12 @@ export default function TextMessageQrCode() {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="+1-555-0123"
-            style={{ width: "100%", padding: "0.5rem", border: "1px solid #ccc", borderRadius: "4px" }}
+            style={{
+              width: "100%",
+              padding: "0.5rem",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+            }}
           />
           <small style={{ color: "#666" }}>
             Include phone number to create a clickable SMS link
@@ -478,26 +542,34 @@ export default function TextMessageQrCode() {
         </div>
 
         <div style={{ marginBottom: "1rem" }}>
-          <label style={{ display: "block", marginBottom: "0.25rem" }}>
-            Message
-          </label>
+          <label style={{ display: "block", marginBottom: "0.25rem" }}>Message</label>
           <textarea
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             rows={4}
             placeholder="Enter your message here..."
-            style={{ width: "100%", padding: "0.5rem", border: "1px solid #ccc", borderRadius: "4px" }}
+            style={{
+              width: "100%",
+              padding: "0.5rem",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+            }}
           />
         </div>
       </div>
 
       <div style={{ textAlign: "center" }}>
         <QrCode value={smsString} />
-        <div style={{ marginTop: "1rem", padding: "1rem", backgroundColor: "#f8f9fa", borderRadius: "8px" }}>
+        <div
+          style={{
+            marginTop: "1rem",
+            padding: "1rem",
+            backgroundColor: "#f8f9fa",
+            borderRadius: "8px",
+          }}
+        >
           <h4>Encoded Content</h4>
-          <p style={{ fontSize: "0.9rem", wordBreak: "break-all", margin: 0 }}>
-            {smsString}
-          </p>
+          <p style={{ fontSize: "0.9rem", wordBreak: "break-all", margin: 0 }}>{smsString}</p>
           {phone && (
             <p style={{ marginTop: "0.5rem", fontSize: "0.8rem", color: "#666" }}>
               📱 SMS to {phone}
@@ -513,7 +585,7 @@ export default function TextMessageQrCode() {
 ### Custom Styled QR Code
 
 ```tsx
-import { QrCode } from "liquidify-react/qrCode";
+import { QrCode } from "liquidify-react/ark-ui/qrCode";
 
 export default function CustomStyledQrCode() {
   const data = "https://example.com/custom-styled-qr";
@@ -529,38 +601,50 @@ export default function CustomStyledQrCode() {
             border: "4px solid #007bff",
             borderRadius: "12px",
             padding: "1rem",
-            backgroundColor: "#f8f9fa"
+            backgroundColor: "#f8f9fa",
           }}
         />
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "2rem" }}>
-        <div style={{
-          padding: "1rem",
-          border: "2px solid #28a745",
-          borderRadius: "8px",
-          backgroundColor: "#d4edda"
-        }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+          gap: "2rem",
+        }}
+      >
+        <div
+          style={{
+            padding: "1rem",
+            border: "2px solid #28a745",
+            borderRadius: "8px",
+            backgroundColor: "#d4edda",
+          }}
+        >
           <QrCode value="https://success.example.com" />
           <p style={{ marginTop: "0.5rem", color: "#155724" }}>Success Page</p>
         </div>
 
-        <div style={{
-          padding: "1rem",
-          border: "2px solid #ffc107",
-          borderRadius: "8px",
-          backgroundColor: "#fff3cd"
-        }}>
+        <div
+          style={{
+            padding: "1rem",
+            border: "2px solid #ffc107",
+            borderRadius: "8px",
+            backgroundColor: "#fff3cd",
+          }}
+        >
           <QrCode value="https://warning.example.com" />
           <p style={{ marginTop: "0.5rem", color: "#856404" }}>Warning Page</p>
         </div>
 
-        <div style={{
-          padding: "1rem",
-          border: "2px solid #dc3545",
-          borderRadius: "8px",
-          backgroundColor: "#f8d7da"
-        }}>
+        <div
+          style={{
+            padding: "1rem",
+            border: "2px solid #dc3545",
+            borderRadius: "8px",
+            backgroundColor: "#f8d7da",
+          }}
+        >
           <QrCode value="https://error.example.com" />
           <p style={{ marginTop: "0.5rem", color: "#721c24" }}>Error Page</p>
         </div>
@@ -578,15 +662,15 @@ The QR code generator component.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | The data to encode in the QR code |
-| `size` | `number` | `256` | The size of the QR code in pixels |
-| `level` | `"L" \| "M" \| "Q" \| "H"` | `"M"` | Error correction level (Low, Medium, Quartile, High) |
-| `includeMargin` | `boolean` | `false` | Whether to include a margin around the QR code |
-| `bgColor` | `string` | `"#FFFFFF"` | Background color |
-| `fgColor` | `string` | `"#000000"` | Foreground color |
-| All standard div props | - | - | Standard HTML div attributes |
+| Prop                   | Type                       | Default     | Description                                          |
+| ---------------------- | -------------------------- | ----------- | ---------------------------------------------------- |
+| `value`                | `string`                   | -           | The data to encode in the QR code                    |
+| `size`                 | `number`                   | `256`       | The size of the QR code in pixels                    |
+| `level`                | `"L" \| "M" \| "Q" \| "H"` | `"M"`       | Error correction level (Low, Medium, Quartile, High) |
+| `includeMargin`        | `boolean`                  | `false`     | Whether to include a margin around the QR code       |
+| `bgColor`              | `string`                   | `"#FFFFFF"` | Background color                                     |
+| `fgColor`              | `string`                   | `"#000000"` | Foreground color                                     |
+| All standard div props | -                          | -           | Standard HTML div attributes                         |
 
 ## Accessibility
 

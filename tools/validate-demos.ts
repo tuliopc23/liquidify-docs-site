@@ -4,20 +4,34 @@ import { readdir } from "node:fs/promises";
 import { join } from "node:path";
 
 const pages: Array<{ file: string; arkPath: string; expectClientOnly: boolean }> = [
-  { file: "src/pages/docs/components/Accordion.mdx", arkPath: "liquidify-react/ark-ui/accordion", expectClientOnly: true },
-  { file: "src/pages/docs/components/Tabs.mdx", arkPath: "liquidify-react/ark-ui/tabs", expectClientOnly: true },
-  { file: "src/pages/docs/components/Dialog.mdx", arkPath: "liquidify-react/ark-ui/dialog", expectClientOnly: true },
-  { file: "src/pages/docs/components/Popover.mdx", arkPath: "liquidify-react/ark-ui/popover", expectClientOnly: true },
-  { file: "src/pages/docs/components/Menu.mdx", arkPath: "liquidify-react/ark-ui/menu", expectClientOnly: true },
+  {
+    file: "src/pages/docs/components/Accordion.mdx",
+    arkPath: "liquidify-react/ark-ui/accordion",
+    expectClientOnly: true,
+  },
+  {
+    file: "src/pages/docs/components/Tabs.mdx",
+    arkPath: "liquidify-react/ark-ui/tabs",
+    expectClientOnly: true,
+  },
+  {
+    file: "src/pages/docs/components/Dialog.mdx",
+    arkPath: "liquidify-react/ark-ui/dialog",
+    expectClientOnly: true,
+  },
+  {
+    file: "src/pages/docs/components/Popover.mdx",
+    arkPath: "liquidify-react/ark-ui/popover",
+    expectClientOnly: true,
+  },
+  {
+    file: "src/pages/docs/components/Menu.mdx",
+    arkPath: "liquidify-react/ark-ui/menu",
+    expectClientOnly: true,
+  },
 ];
 
-const demoChunks = [
-  "AccordionDemo",
-  "TabsDemo",
-  "DialogDemo",
-  "PopoverDemo",
-  "MenuDemo",
-];
+const demoChunks = ["AccordionDemo", "TabsDemo", "DialogDemo", "PopoverDemo", "MenuDemo"];
 
 async function checkPages() {
   const errors: string[] = [];
@@ -41,7 +55,7 @@ async function checkPages() {
     errors.push(`dist/_astro missing. Run: bun run build`);
   }
   for (const name of demoChunks) {
-    const found = entries.some((f) => f.startsWith(`${name}.`) && f.endsWith('.js'));
+    const found = entries.some((f) => f.startsWith(`${name}.`) && f.endsWith(".js"));
     if (!found) errors.push(`dist/_astro: missing compiled chunk for ${name}`);
   }
 
@@ -52,4 +66,7 @@ async function checkPages() {
   console.log("OK: Demo pages use ark-ui imports, client-only hydration, and demo chunks built.");
 }
 
-checkPages().catch((err) => { console.error(err); process.exit(1); });
+checkPages().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

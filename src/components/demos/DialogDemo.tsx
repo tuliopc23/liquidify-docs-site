@@ -1,6 +1,6 @@
-import React from 'react';
-import { Dialog } from 'liquidify-react/ark-ui/dialog';
-import { Button } from 'liquidify-react/button';
+import React from "react";
+import { Dialog } from "liquidify-react/ark-ui/dialog";
+import { Button } from "liquidify-react/button";
 
 export default function DialogDemo(): JSX.Element {
   return (
@@ -15,11 +15,11 @@ export default function DialogDemo(): JSX.Element {
           <Dialog.Description>
             Are you sure you want to delete this item? This action cannot be undone.
           </Dialog.Description>
-          <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem' }}>
+          <div style={{ display: "flex", gap: "1rem", marginTop: "1.5rem" }}>
             <Dialog.CloseTrigger asChild>
-              <Button variant="secondary">Cancel</Button>
+              <Button variant="tinted" tone="neutral">Cancel</Button>
             </Dialog.CloseTrigger>
-            <Button variant="danger">Delete</Button>
+            <Button variant="filled" tone="destructive">Delete</Button>
           </div>
         </Dialog.Content>
       </Dialog.Positioner>

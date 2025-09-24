@@ -50,27 +50,27 @@ function IconButtonVariants() {
     <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
       <IconButton
         icon="heart"
-        variant="primary"
+        variant="filled" tone="accent"
         aria-label="Like"
       />
       <IconButton
         icon="share"
-        variant="secondary"
+        variant="tinted" tone="neutral"
         aria-label="Share"
       />
       <IconButton
         icon="bookmark"
-        variant="ghost"
+        variant="plain" tone="neutral"
         aria-label="Bookmark"
       />
       <IconButton
         icon="trash-2"
-        variant="danger"
+        variant="filled" tone="destructive"
         aria-label="Delete"
       />
       <IconButton
         icon="download"
-        variant="success"
+        variant="filled" tone="accent"
         aria-label="Download"
       />
     </div>
@@ -158,38 +158,38 @@ function Toolbar() {
     >
       <IconButton
         icon="bold"
-        variant="ghost"
+        variant="plain" tone="neutral"
         size="sm"
         aria-label="Bold text"
       />
       <IconButton
         icon="italic"
-        variant="ghost"
+        variant="plain" tone="neutral"
         size="sm"
         aria-label="Italic text"
       />
       <IconButton
         icon="underline"
-        variant="ghost"
+        variant="plain" tone="neutral"
         size="sm"
         aria-label="Underline text"
       />
       <div style={{ width: '1px', backgroundColor: '#e0e0e0', margin: '4px 0' }} />
       <IconButton
         icon="align-left"
-        variant="ghost"
+        variant="plain" tone="neutral"
         size="sm"
         aria-label="Align left"
       />
       <IconButton
         icon="align-center"
-        variant="ghost"
+        variant="plain" tone="neutral"
         size="sm"
         aria-label="Align center"
       />
       <IconButton
         icon="align-right"
-        variant="ghost"
+        variant="plain" tone="neutral"
         size="sm"
         aria-label="Align right"
       />
@@ -211,7 +211,7 @@ function CustomIconStyling() {
           size: 'lg',
           style: { color: '#ffd700' }
         }}
-        variant="ghost"
+        variant="plain" tone="neutral"
         aria-label="Favorite"
       />
       <IconButton
@@ -220,7 +220,7 @@ function CustomIconStyling() {
           size: 'md',
           style: { color: '#ff6b6b' }
         }}
-        variant="ghost"
+        variant="plain" tone="neutral"
         aria-label="Like"
       />
       <IconButton
@@ -229,7 +229,7 @@ function CustomIconStyling() {
           size: 'sm',
           style: { color: '#4caf50' }
         }}
-        variant="ghost"
+        variant="plain" tone="neutral"
         aria-label="Approve"
       />
     </div>
@@ -253,7 +253,7 @@ function ToggleIconButton() {
         iconProps={{
           style: { color: isFavorited ? '#ff6b6b' : '#666' }
         }}
-        variant="ghost"
+        variant="plain" tone="neutral"
         aria-label={isFavorited ? "Remove from favorites" : "Add to favorites"}
         onClick={() => setIsFavorited(!isFavorited)}
       />
@@ -262,7 +262,7 @@ function ToggleIconButton() {
         iconProps={{
           style: { color: isBookmarked ? '#2196f3' : '#666' }
         }}
-        variant="ghost"
+        variant="plain" tone="neutral"
         aria-label={isBookmarked ? "Remove bookmark" : "Add bookmark"}
         onClick={() => setIsBookmarked(!isBookmarked)}
       />

@@ -9,24 +9,24 @@ Circular slider for selecting angle values. Ideal for rotation controls, color w
 ## Import
 
 ```tsx
-import { AngleSlider } from "liquidify-react/angle-slider"
+import { AngleSlider } from "liquidify-react/ark-ui/angleSlider";
 ```
 
 ## Basic Usage
 
 ```tsx
 export default function Example() {
-	return (
-		<AngleSlider.Root defaultValue={45}>
-			<AngleSlider.Label>Rotation</AngleSlider.Label>
-			<AngleSlider.Control>
-				<AngleSlider.Track />
-				<AngleSlider.Range />
-				<AngleSlider.Thumb />
-			</AngleSlider.Control>
-			<AngleSlider.ValueText />
-		</AngleSlider.Root>
-	)
+  return (
+    <AngleSlider.Root defaultValue={45}>
+      <AngleSlider.Label>Rotation</AngleSlider.Label>
+      <AngleSlider.Control>
+        <AngleSlider.Track />
+        <AngleSlider.Range />
+        <AngleSlider.Thumb />
+      </AngleSlider.Control>
+      <AngleSlider.ValueText />
+    </AngleSlider.Root>
+  );
 }
 ```
 
@@ -34,44 +34,45 @@ export default function Example() {
 
 ```tsx
 export default function CustomRangeExample() {
-	return (
-		<AngleSlider.Root min={0} max={180} defaultValue={90}>
-			<AngleSlider.Label>Half Circle</AngleSlider.Label>
-			<AngleSlider.Control>
-				<AngleSlider.Track />
-				<AngleSlider.Range />
-				<AngleSlider.Thumb />
-			</AngleSlider.Control>
-			<AngleSlider.ValueText />
-		</AngleSlider.Root>
-	)
+  return (
+    <AngleSlider.Root min={0} max={180} defaultValue={90}>
+      <AngleSlider.Label>Half Circle</AngleSlider.Label>
+      <AngleSlider.Control>
+        <AngleSlider.Track />
+        <AngleSlider.Range />
+        <AngleSlider.Thumb />
+      </AngleSlider.Control>
+      <AngleSlider.ValueText />
+    </AngleSlider.Root>
+  );
 }
 ```
 
 ## Controlled State
 
 ```tsx
-import { useState } from "react"
+import { useState } from "react";
 
 export default function ControlledExample() {
-	const [angle, setAngle] = useState(0)
-	
-	return (
-		<AngleSlider.Root value={angle} onValueChange={setAngle}>
-			<AngleSlider.Label>Direction: {angle}°</AngleSlider.Label>
-			<AngleSlider.Control>
-				<AngleSlider.Track />
-				<AngleSlider.Range />
-				<AngleSlider.Thumb />
-			</AngleSlider.Control>
-		</AngleSlider.Root>
-	)
+  const [angle, setAngle] = useState(0);
+
+  return (
+    <AngleSlider.Root value={angle} onValueChange={setAngle}>
+      <AngleSlider.Label>Direction: {angle}°</AngleSlider.Label>
+      <AngleSlider.Control>
+        <AngleSlider.Track />
+        <AngleSlider.Range />
+        <AngleSlider.Thumb />
+      </AngleSlider.Control>
+    </AngleSlider.Root>
+  );
 }
 ```
 
 ## API Reference
 
 ### Root Props
+
 - `value`: `number` - Current angle value
 - `defaultValue`: `number` - Default angle (uncontrolled)
 - `min`: `number` - Minimum angle (default: 0)
@@ -80,6 +81,7 @@ export default function ControlledExample() {
 - `onValueChange`: `(value: number) => void` - Value change handler
 
 ### Accessibility
+
 - Full keyboard navigation with Arrow keys
 - Screen reader announcements for current value
 - Focus management and ARIA labels

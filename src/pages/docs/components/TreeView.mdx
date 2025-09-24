@@ -16,7 +16,7 @@ npm install liquidify-react
 ## Import
 
 ```tsx
-import { TreeView } from "liquidify-react/treeView";
+import { TreeView } from "liquidify-react/ark-ui/treeView";
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ import { TreeView } from "liquidify-react/treeView";
 ### Basic File Explorer
 
 ```tsx
-import { TreeView } from "liquidify-react/treeView";
+import { TreeView } from "liquidify-react/ark-ui/treeView";
 
 export default function BasicFileExplorer() {
   return (
@@ -68,7 +68,7 @@ export default function BasicFileExplorer() {
 
 ```tsx
 import { useState } from "react";
-import { TreeView } from "liquidify-react/treeView";
+import { TreeView } from "liquidify-react/ark-ui/treeView";
 
 export default function NavigationTree() {
   const [expandedItems, setExpandedItems] = useState(["products", "settings"]);
@@ -145,7 +145,7 @@ export default function NavigationTree() {
 ### Organizational Chart
 
 ```tsx
-import { TreeView } from "liquidify-react/treeView";
+import { TreeView } from "liquidify-react/ark-ui/treeView";
 
 export default function OrganizationalChart() {
   return (
@@ -210,7 +210,7 @@ export default function OrganizationalChart() {
 
 ```tsx
 import { useState } from "react";
-import { TreeView } from "liquidify-react/treeView";
+import { TreeView } from "liquidify-react/ark-ui/treeView";
 
 export default function DynamicTree() {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -234,15 +234,15 @@ export default function DynamicTree() {
               type: "folder",
               children: [
                 { id: "button", name: "Button.tsx", type: "file" },
-                { id: "input", name: "Input.tsx", type: "file" }
-              ]
-            }
-          ]
+                { id: "input", name: "Input.tsx", type: "file" },
+              ],
+            },
+          ],
         },
         { id: "package", name: "package.json", type: "file" },
-        { id: "readme", name: "README.md", type: "file" }
-      ]
-    }
+        { id: "readme", name: "README.md", type: "file" },
+      ],
+    },
   ];
 
   const renderTreeNode = (node) => {
@@ -252,7 +252,7 @@ export default function DynamicTree() {
           <TreeView.ItemText
             style={{
               color: selectedItem === node.id ? "#007bff" : "inherit",
-              cursor: "pointer"
+              cursor: "pointer",
             }}
             onClick={() => setSelectedItem(node.id)}
           >
@@ -268,9 +268,7 @@ export default function DynamicTree() {
           <TreeView.BranchIndicator>📁</TreeView.BranchIndicator>
           <TreeView.BranchText>{node.name}</TreeView.BranchText>
         </TreeView.BranchControl>
-        <TreeView.BranchContent>
-          {node.children?.map(renderTreeNode)}
-        </TreeView.BranchContent>
+        <TreeView.BranchContent>{node.children?.map(renderTreeNode)}</TreeView.BranchContent>
       </TreeView.Branch>
     );
   };
@@ -279,9 +277,7 @@ export default function DynamicTree() {
     <div style={{ width: "300px" }}>
       <TreeView.Root>
         <TreeView.Label>File Explorer</TreeView.Label>
-        <TreeView.Tree>
-          {treeData.map(renderTreeNode)}
-        </TreeView.Tree>
+        <TreeView.Tree>{treeData.map(renderTreeNode)}</TreeView.Tree>
       </TreeView.Root>
 
       {selectedItem && (
@@ -299,7 +295,7 @@ export default function DynamicTree() {
 
 ```tsx
 import { useState } from "react";
-import { TreeView } from "liquidify-react/treeView";
+import { TreeView } from "liquidify-react/ark-ui/treeView";
 
 export default function TreeWithCheckboxes() {
   const [checkedItems, setCheckedItems] = useState([]);
@@ -308,7 +304,7 @@ export default function TreeWithCheckboxes() {
     if (checked) {
       setCheckedItems([...checkedItems, itemId]);
     } else {
-      setCheckedItems(checkedItems.filter(id => id !== itemId));
+      setCheckedItems(checkedItems.filter((id) => id !== itemId));
     }
   };
 
@@ -391,7 +387,7 @@ export default function TreeWithCheckboxes() {
       <div style={{ marginTop: "1rem" }}>
         <h4>Selected Items ({checkedItems.length})</h4>
         <ul>
-          {checkedItems.map(item => (
+          {checkedItems.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
@@ -405,7 +401,7 @@ export default function TreeWithCheckboxes() {
 
 ```tsx
 import { useState, useMemo } from "react";
-import { TreeView } from "liquidify-react/treeView";
+import { TreeView } from "liquidify-react/ark-ui/treeView";
 
 export default function TreeWithSearch() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -417,8 +413,8 @@ export default function TreeWithSearch() {
       children: [
         { id: "apple", name: "Apple" },
         { id: "banana", name: "Banana" },
-        { id: "orange", name: "Orange" }
-      ]
+        { id: "orange", name: "Orange" },
+      ],
     },
     {
       id: "vegetables",
@@ -426,9 +422,9 @@ export default function TreeWithSearch() {
       children: [
         { id: "carrot", name: "Carrot" },
         { id: "broccoli", name: "Broccoli" },
-        { id: "spinach", name: "Spinach" }
-      ]
-    }
+        { id: "spinach", name: "Spinach" },
+      ],
+    },
   ];
 
   const filteredData = useMemo(() => {
@@ -439,9 +435,7 @@ export default function TreeWithSearch() {
       if (matches) return node;
 
       if (node.children) {
-        const filteredChildren = node.children
-          .map(filterNode)
-          .filter(Boolean);
+        const filteredChildren = node.children.map(filterNode).filter(Boolean);
         if (filteredChildren.length > 0) {
           return { ...node, children: filteredChildren };
         }
@@ -468,9 +462,7 @@ export default function TreeWithSearch() {
           <TreeView.BranchIndicator>📁</TreeView.BranchIndicator>
           <TreeView.BranchText>{node.name}</TreeView.BranchText>
         </TreeView.BranchControl>
-        <TreeView.BranchContent>
-          {node.children.map(renderTreeNode)}
-        </TreeView.BranchContent>
+        <TreeView.BranchContent>{node.children.map(renderTreeNode)}</TreeView.BranchContent>
       </TreeView.Branch>
     );
   };
@@ -493,9 +485,7 @@ export default function TreeWithSearch() {
           {filteredData.length > 0 ? (
             filteredData.map(renderTreeNode)
           ) : (
-            <div style={{ padding: "1rem", color: "#666" }}>
-              No items found
-            </div>
+            <div style={{ padding: "1rem", color: "#666" }}>No items found</div>
           )}
         </TreeView.Tree>
       </TreeView.Root>
@@ -512,10 +502,10 @@ The root container for the tree view component.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The tree view content |
-| All standard div props | - | - | Standard HTML div attributes |
+| Prop                   | Type        | Default | Description                  |
+| ---------------------- | ----------- | ------- | ---------------------------- |
+| `children`             | `ReactNode` | -       | The tree view content        |
+| All standard div props | -           | -       | Standard HTML div attributes |
 
 ### TreeView.Label
 
@@ -523,9 +513,9 @@ An optional label for the tree view.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The label content |
+| Prop       | Type        | Default | Description       |
+| ---------- | ----------- | ------- | ----------------- |
+| `children` | `ReactNode` | -       | The label content |
 
 ### TreeView.Tree
 
@@ -533,9 +523,9 @@ The main tree container that holds all branches and items.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The tree content |
+| Prop       | Type        | Default | Description      |
+| ---------- | ----------- | ------- | ---------------- |
+| `children` | `ReactNode` | -       | The tree content |
 
 ### TreeView.Branch
 
@@ -543,10 +533,10 @@ A branch node that can be expanded/collapsed to show child items.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `id` | `string` | - | Unique identifier for the branch |
-| `children` | `ReactNode` | - | The branch content |
+| Prop       | Type        | Default | Description                      |
+| ---------- | ----------- | ------- | -------------------------------- |
+| `id`       | `string`    | -       | Unique identifier for the branch |
+| `children` | `ReactNode` | -       | The branch content               |
 
 ### TreeView.BranchControl
 
@@ -554,9 +544,9 @@ The clickable control area for a branch that handles expansion/collapse.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The control content |
+| Prop       | Type        | Default | Description         |
+| ---------- | ----------- | ------- | ------------------- |
+| `children` | `ReactNode` | -       | The control content |
 
 ### TreeView.BranchContent
 
@@ -564,9 +554,9 @@ The container for child items within a branch.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The branch content |
+| Prop       | Type        | Default | Description        |
+| ---------- | ----------- | ------- | ------------------ |
+| `children` | `ReactNode` | -       | The branch content |
 
 ### TreeView.BranchIndicator
 
@@ -574,9 +564,9 @@ The visual indicator (usually an arrow or icon) showing branch state.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The indicator content |
+| Prop       | Type        | Default | Description           |
+| ---------- | ----------- | ------- | --------------------- |
+| `children` | `ReactNode` | -       | The indicator content |
 
 ### TreeView.BranchText
 
@@ -584,9 +574,9 @@ The text content for a branch node.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The branch text |
+| Prop       | Type        | Default | Description     |
+| ---------- | ----------- | ------- | --------------- |
+| `children` | `ReactNode` | -       | The branch text |
 
 ### TreeView.Item
 
@@ -594,9 +584,9 @@ A leaf node item that cannot be expanded.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The item content |
+| Prop       | Type        | Default | Description      |
+| ---------- | ----------- | ------- | ---------------- |
+| `children` | `ReactNode` | -       | The item content |
 
 ### TreeView.ItemIndicator
 
@@ -604,9 +594,9 @@ An optional indicator area for items (useful for checkboxes, icons, etc.).
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The indicator content |
+| Prop       | Type        | Default | Description           |
+| ---------- | ----------- | ------- | --------------------- |
+| `children` | `ReactNode` | -       | The indicator content |
 
 ### TreeView.ItemText
 
@@ -614,9 +604,9 @@ The text content for an item node.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The item text |
+| Prop       | Type        | Default | Description   |
+| ---------- | ----------- | ------- | ------------- |
+| `children` | `ReactNode` | -       | The item text |
 
 ## Accessibility
 
@@ -630,15 +620,15 @@ The TreeView component includes comprehensive accessibility features:
 
 ### Keyboard Shortcuts
 
-| Key | Action |
-|-----|--------|
-| `Arrow Up/Down` | Navigate between visible items |
-| `Arrow Left` | Collapse branch or move to parent |
-| `Arrow Right` | Expand branch or move to first child |
-| `Enter` / `Space` | Toggle branch expansion |
-| `Home` | Move to first item |
-| `End` | Move to last item |
-| `*` | Expand all siblings at current level |
+| Key               | Action                               |
+| ----------------- | ------------------------------------ |
+| `Arrow Up/Down`   | Navigate between visible items       |
+| `Arrow Left`      | Collapse branch or move to parent    |
+| `Arrow Right`     | Expand branch or move to first child |
+| `Enter` / `Space` | Toggle branch expansion              |
+| `Home`            | Move to first item                   |
+| `End`             | Move to last item                    |
+| `*`               | Expand all siblings at current level |
 
 ## Best Practices
 

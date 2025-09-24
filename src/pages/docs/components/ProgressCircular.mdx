@@ -16,7 +16,7 @@ npm install liquidify-react
 ## Import
 
 ```tsx
-import { ProgressCircular } from "liquidify-react/progressCircular";
+import { ProgressCircular } from "liquidify-react/ark-ui/progressCircular";
 ```
 
 ## Usage
@@ -25,13 +25,13 @@ import { ProgressCircular } from "liquidify-react/progressCircular";
 
 ```tsx
 import { useState } from "react";
-import { ProgressCircular } from "liquidify-react/progressCircular";
+import { ProgressCircular } from "liquidify-react/ark-ui/progressCircular";
 
 export default function BasicProgressCircular() {
   const [progress, setProgress] = useState(0);
 
   const incrementProgress = () => {
-    setProgress(prev => Math.min(100, prev + 10));
+    setProgress((prev) => Math.min(100, prev + 10));
   };
 
   const resetProgress = () => {
@@ -46,14 +46,10 @@ export default function BasicProgressCircular() {
         <button onClick={incrementProgress} style={{ marginRight: "1rem" }}>
           Increase Progress
         </button>
-        <button onClick={resetProgress}>
-          Reset
-        </button>
+        <button onClick={resetProgress}>Reset</button>
       </div>
 
-      <p style={{ marginTop: "1rem", color: "#666" }}>
-        Current progress: {progress}%
-      </p>
+      <p style={{ marginTop: "1rem", color: "#666" }}>Current progress: {progress}%</p>
     </div>
   );
 }
@@ -63,7 +59,7 @@ export default function BasicProgressCircular() {
 
 ```tsx
 import { useState, useEffect } from "react";
-import { ProgressCircular } from "liquidify-react/progressCircular";
+import { ProgressCircular } from "liquidify-react/ark-ui/progressCircular";
 
 export default function FileUploadProgress() {
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -75,11 +71,11 @@ export default function FileUploadProgress() {
     setUploadProgress(0);
 
     const interval = setInterval(() => {
-      setUploadProgress(prev => {
+      setUploadProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
           setIsUploading(false);
-          setUploadedFiles(prevFiles => [...prevFiles, fileName]);
+          setUploadedFiles((prevFiles) => [...prevFiles, fileName]);
           return 100;
         }
         return prev + Math.random() * 15;
@@ -141,28 +137,28 @@ export default function FileUploadProgress() {
 
 ```tsx
 import { useState, useEffect } from "react";
-import { ProgressCircular } from "liquidify-react/progressCircular";
+import { ProgressCircular } from "liquidify-react/ark-ui/progressCircular";
 
 export default function LoadingStates() {
   const [loadingStates, setLoadingStates] = useState({
     api: 0,
     database: 0,
-    cache: 0
+    cache: 0,
   });
 
   const [completed, setCompleted] = useState([]);
 
   useEffect(() => {
-    const services = ['api', 'database', 'cache'];
+    const services = ["api", "database", "cache"];
 
     services.forEach((service, index) => {
       setTimeout(() => {
         const interval = setInterval(() => {
-          setLoadingStates(prev => {
+          setLoadingStates((prev) => {
             const newValue = prev[service] + Math.random() * 20;
             if (newValue >= 100) {
               clearInterval(interval);
-              setCompleted(prevCompleted => [...prevCompleted, service]);
+              setCompleted((prevCompleted) => [...prevCompleted, service]);
               return { ...prev, [service]: 100 };
             }
             return { ...prev, [service]: newValue };
@@ -178,12 +174,19 @@ export default function LoadingStates() {
     <div style={{ maxWidth: "600px", margin: "0 auto", padding: "2rem" }}>
       <h3>System Initialization</h3>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "2rem", marginBottom: "2rem" }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+          gap: "2rem",
+          marginBottom: "2rem",
+        }}
+      >
         <div style={{ textAlign: "center" }}>
           <ProgressCircular
             value={loadingStates.api}
             size="md"
-            label={completed.includes('api') ? "API Ready" : "Loading API"}
+            label={completed.includes("api") ? "API Ready" : "Loading API"}
           />
           <p style={{ marginTop: "0.5rem", fontSize: "0.9rem" }}>
             {Math.round(loadingStates.api)}%
@@ -194,7 +197,7 @@ export default function LoadingStates() {
           <ProgressCircular
             value={loadingStates.database}
             size="md"
-            label={completed.includes('database') ? "DB Ready" : "Loading Database"}
+            label={completed.includes("database") ? "DB Ready" : "Loading Database"}
           />
           <p style={{ marginTop: "0.5rem", fontSize: "0.9rem" }}>
             {Math.round(loadingStates.database)}%
@@ -205,7 +208,7 @@ export default function LoadingStates() {
           <ProgressCircular
             value={loadingStates.cache}
             size="md"
-            label={completed.includes('cache') ? "Cache Ready" : "Loading Cache"}
+            label={completed.includes("cache") ? "Cache Ready" : "Loading Cache"}
           />
           <p style={{ marginTop: "0.5rem", fontSize: "0.9rem" }}>
             {Math.round(loadingStates.cache)}%
@@ -214,7 +217,14 @@ export default function LoadingStates() {
       </div>
 
       {allCompleted && (
-        <div style={{ textAlign: "center", padding: "2rem", backgroundColor: "#d4edda", borderRadius: "8px" }}>
+        <div
+          style={{
+            textAlign: "center",
+            padding: "2rem",
+            backgroundColor: "#d4edda",
+            borderRadius: "8px",
+          }}
+        >
           <h4 style={{ color: "#155724", margin: 0 }}>✅ All Systems Ready!</h4>
           <p style={{ color: "#155724", marginTop: "0.5rem" }}>
             Your application is now fully initialized and ready to use.
@@ -230,7 +240,7 @@ export default function LoadingStates() {
 
 ```tsx
 import { useState } from "react";
-import { ProgressCircular } from "liquidify-react/progressCircular";
+import { ProgressCircular } from "liquidify-react/ark-ui/progressCircular";
 
 export default function TaskCompletionTracker() {
   const [tasks, setTasks] = useState([
@@ -238,18 +248,18 @@ export default function TaskCompletionTracker() {
     { id: 2, title: "Write documentation", completed: false },
     { id: 3, title: "Implement features", completed: false },
     { id: 4, title: "Run tests", completed: false },
-    { id: 5, title: "Deploy to production", completed: false }
+    { id: 5, title: "Deploy to production", completed: false },
   ]);
 
-  const completedTasks = tasks.filter(task => task.completed).length;
+  const completedTasks = tasks.filter((task) => task.completed).length;
   const totalTasks = tasks.length;
   const progress = (completedTasks / totalTasks) * 100;
 
   const toggleTask = (taskId) => {
-    setTasks(prevTasks =>
-      prevTasks.map(task =>
-        task.id === taskId ? { ...task, completed: !task.completed } : task
-      )
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === taskId ? { ...task, completed: !task.completed } : task,
+      ),
     );
   };
 
@@ -263,15 +273,13 @@ export default function TaskCompletionTracker() {
           size="lg"
           label={`${completedTasks}/${totalTasks} Tasks`}
         />
-        <p style={{ marginTop: "1rem", color: "#666" }}>
-          {Math.round(progress)}% Complete
-        </p>
+        <p style={{ marginTop: "1rem", color: "#666" }}>{Math.round(progress)}% Complete</p>
       </div>
 
       <div>
         <h4>Task List</h4>
         <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-          {tasks.map(task => (
+          {tasks.map((task) => (
             <div
               key={task.id}
               style={{
@@ -281,7 +289,7 @@ export default function TaskCompletionTracker() {
                 border: "1px solid #dee2e6",
                 borderRadius: "8px",
                 backgroundColor: task.completed ? "#d4edda" : "#fff",
-                cursor: "pointer"
+                cursor: "pointer",
               }}
               onClick={() => toggleTask(task.id)}
             >
@@ -291,15 +299,15 @@ export default function TaskCompletionTracker() {
                 onChange={() => toggleTask(task.id)}
                 style={{ marginRight: "0.75rem" }}
               />
-              <span style={{
-                textDecoration: task.completed ? "line-through" : "none",
-                color: task.completed ? "#155724" : "#333"
-              }}>
+              <span
+                style={{
+                  textDecoration: task.completed ? "line-through" : "none",
+                  color: task.completed ? "#155724" : "#333",
+                }}
+              >
                 {task.title}
               </span>
-              {task.completed && (
-                <span style={{ marginLeft: "auto", color: "#28a745" }}>✓</span>
-              )}
+              {task.completed && <span style={{ marginLeft: "auto", color: "#28a745" }}>✓</span>}
             </div>
           ))}
         </div>
@@ -313,7 +321,7 @@ export default function TaskCompletionTracker() {
 
 ```tsx
 import { useState, useEffect } from "react";
-import { ProgressCircular } from "liquidify-react/progressCircular";
+import { ProgressCircular } from "liquidify-react/ark-ui/progressCircular";
 
 export default function CountdownTimer() {
   const [timeLeft, setTimeLeft] = useState(60); // 60 seconds
@@ -324,7 +332,7 @@ export default function CountdownTimer() {
     let interval;
     if (isRunning && timeLeft > 0) {
       interval = setInterval(() => {
-        setTimeLeft(prev => {
+        setTimeLeft((prev) => {
           if (prev <= 1) {
             setIsRunning(false);
             return 0;
@@ -356,13 +364,13 @@ export default function CountdownTimer() {
         <ProgressCircular
           value={progress}
           size="lg"
-          label={`${minutes}:${seconds.toString().padStart(2, '0')}`}
+          label={`${minutes}:${seconds.toString().padStart(2, "0")}`}
         />
       </div>
 
       <div style={{ marginBottom: "2rem" }}>
         <div style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "0.5rem" }}>
-          {minutes}:{seconds.toString().padStart(2, '0')}
+          {minutes}:{seconds.toString().padStart(2, "0")}
         </div>
         <div style={{ color: "#666" }}>
           {timeLeft === 0 ? "Time's up!" : isRunning ? "Focus time" : "Paused"}
@@ -380,7 +388,7 @@ export default function CountdownTimer() {
               border: "none",
               borderRadius: "4px",
               cursor: "pointer",
-              marginRight: "0.5rem"
+              marginRight: "0.5rem",
             }}
           >
             Start
@@ -397,7 +405,7 @@ export default function CountdownTimer() {
               border: "none",
               borderRadius: "4px",
               cursor: "pointer",
-              marginRight: "0.5rem"
+              marginRight: "0.5rem",
             }}
           >
             Pause
@@ -412,7 +420,7 @@ export default function CountdownTimer() {
             color: "white",
             border: "none",
             borderRadius: "4px",
-            cursor: "pointer"
+            cursor: "pointer",
           }}
         >
           Reset
@@ -427,14 +435,14 @@ export default function CountdownTimer() {
 
 ```tsx
 import { useState, useEffect } from "react";
-import { ProgressCircular } from "liquidify-react/progressCircular";
+import { ProgressCircular } from "liquidify-react/ark-ui/progressCircular";
 
 export default function MultipleProgressIndicators() {
   const [progresses, setProgresses] = useState({
     download: 0,
     upload: 0,
     processing: 0,
-    validation: 0
+    validation: 0,
   });
 
   const [activeProcess, setActiveProcess] = useState("download");
@@ -445,7 +453,7 @@ export default function MultipleProgressIndicators() {
     processes.forEach((process, index) => {
       setTimeout(() => {
         const interval = setInterval(() => {
-          setProgresses(prev => {
+          setProgresses((prev) => {
             const newValue = prev[process] + Math.random() * 8;
             if (newValue >= 100) {
               clearInterval(interval);
@@ -465,7 +473,7 @@ export default function MultipleProgressIndicators() {
     download: "Downloading files",
     upload: "Uploading data",
     processing: "Processing information",
-    validation: "Validating results"
+    validation: "Validating results",
   };
 
   const isProcessActive = (process) => {
@@ -479,25 +487,31 @@ export default function MultipleProgressIndicators() {
     <div style={{ maxWidth: "700px", margin: "0 auto", padding: "2rem" }}>
       <h3>Data Pipeline Progress</h3>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "2rem" }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+          gap: "2rem",
+        }}
+      >
         {Object.entries(progresses).map(([key, value]) => (
           <div key={key} style={{ textAlign: "center" }}>
-            <ProgressCircular
-              value={value}
-              size="md"
-              label={processLabels[key]}
-            />
-            <div style={{
-              marginTop: "0.5rem",
-              fontSize: "0.9rem",
-              color: isProcessActive(key) ? "#007bff" : "#666"
-            }}>
+            <ProgressCircular value={value} size="md" label={processLabels[key]} />
+            <div
+              style={{
+                marginTop: "0.5rem",
+                fontSize: "0.9rem",
+                color: isProcessActive(key) ? "#007bff" : "#666",
+              }}
+            >
               {Math.round(value)}%
             </div>
-            <div style={{
-              fontSize: "0.8rem",
-              color: value === 100 ? "#28a745" : isProcessActive(key) ? "#007bff" : "#ccc"
-            }}>
+            <div
+              style={{
+                fontSize: "0.8rem",
+                color: value === 100 ? "#28a745" : isProcessActive(key) ? "#007bff" : "#ccc",
+              }}
+            >
               {value === 100 ? "✓ Complete" : isProcessActive(key) ? "In Progress" : "Pending"}
             </div>
           </div>
@@ -522,7 +536,7 @@ export default function MultipleProgressIndicators() {
 ### Different Sizes
 
 ```tsx
-import { ProgressCircular } from "liquidify-react/progressCircular";
+import { ProgressCircular } from "liquidify-react/ark-ui/progressCircular";
 
 export default function DifferentSizes() {
   const sizes = ["xs", "sm", "md", "lg", "xl"];
@@ -531,14 +545,18 @@ export default function DifferentSizes() {
     <div style={{ padding: "2rem" }}>
       <h3>Progress Circular Sizes</h3>
 
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "2rem", flexWrap: "wrap" }}>
-        {sizes.map(size => (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "2rem",
+          flexWrap: "wrap",
+        }}
+      >
+        {sizes.map((size) => (
           <div key={size} style={{ textAlign: "center" }}>
-            <ProgressCircular
-              value={75}
-              size={size}
-              label={`${size.toUpperCase()}`}
-            />
+            <ProgressCircular value={75} size={size} label={`${size.toUpperCase()}`} />
             <div style={{ marginTop: "0.5rem", fontSize: "0.9rem", color: "#666" }}>
               Size: {size}
             </div>
@@ -548,7 +566,9 @@ export default function DifferentSizes() {
 
       <div style={{ marginTop: "3rem", textAlign: "center" }}>
         <h4>Size Comparison</h4>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem" }}>
+        <div
+          style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem" }}
+        >
           <ProgressCircular value={25} size="xs" />
           <ProgressCircular value={50} size="sm" />
           <ProgressCircular value={75} size="md" />
@@ -564,14 +584,21 @@ export default function DifferentSizes() {
 ### With Custom Styling
 
 ```tsx
-import { ProgressCircular } from "liquidify-react/progressCircular";
+import { ProgressCircular } from "liquidify-react/ark-ui/progressCircular";
 
 export default function CustomStyledProgress() {
   return (
     <div style={{ padding: "2rem", textAlign: "center" }}>
       <h3>Custom Styled Progress Circular</h3>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "2rem", marginTop: "2rem" }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+          gap: "2rem",
+          marginTop: "2rem",
+        }}
+      >
         <div>
           <ProgressCircular
             value={85}
@@ -579,7 +606,7 @@ export default function CustomStyledProgress() {
             label="Success"
             style={{
               "--progress-circular-track-color": "#d4edda",
-              "--progress-circular-range-color": "#28a745"
+              "--progress-circular-range-color": "#28a745",
             }}
           />
           <p style={{ marginTop: "1rem", color: "#28a745" }}>Task completed successfully</p>
@@ -592,7 +619,7 @@ export default function CustomStyledProgress() {
             label="Warning"
             style={{
               "--progress-circular-track-color": "#fff3cd",
-              "--progress-circular-range-color": "#ffc107"
+              "--progress-circular-range-color": "#ffc107",
             }}
           />
           <p style={{ marginTop: "1rem", color: "#856404" }}>Processing with warnings</p>
@@ -605,7 +632,7 @@ export default function CustomStyledProgress() {
             label="Error"
             style={{
               "--progress-circular-track-color": "#f8d7da",
-              "--progress-circular-range-color": "#dc3545"
+              "--progress-circular-range-color": "#dc3545",
             }}
           />
           <p style={{ marginTop: "1rem", color: "#721c24" }}>Error occurred</p>
@@ -624,14 +651,14 @@ The circular progress indicator component.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `number` | `0` | The current progress value |
-| `max` | `number` | `100` | The maximum progress value |
-| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | The size of the progress indicator |
-| `label` | `string` | - | The label text to display |
-| `children` | `ReactNode` | - | Custom content to display instead of label |
-| All standard div props | - | - | Standard HTML div attributes |
+| Prop                   | Type                                   | Default | Description                                |
+| ---------------------- | -------------------------------------- | ------- | ------------------------------------------ |
+| `value`                | `number`                               | `0`     | The current progress value                 |
+| `max`                  | `number`                               | `100`   | The maximum progress value                 |
+| `size`                 | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"`  | The size of the progress indicator         |
+| `label`                | `string`                               | -       | The label text to display                  |
+| `children`             | `ReactNode`                            | -       | Custom content to display instead of label |
+| All standard div props | -                                      | -       | Standard HTML div attributes               |
 
 ## Accessibility
 

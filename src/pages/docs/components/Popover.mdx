@@ -3,7 +3,7 @@ title: Popover
 description: A floating panel that displays rich content in a portal, triggered by user interaction.
 ---
 
-import PopoverDemo from "../../../components/demos/PopoverDemo.tsx"
+import PopoverDemo from "../../../components/demos/PopoverDemo.tsx";
 
 # Popover
 
@@ -18,7 +18,7 @@ bun add liquidify-react
 ## Import
 
 ```tsx
-import { Popover } from "liquidify-react/ark-ui/popover"
+import { Popover } from "liquidify-react/ark-ui/popover";
 ```
 
 ## Basic Usage
@@ -28,8 +28,8 @@ Create a simple popover with content:
 <PopoverDemo client:only="react" />
 
 ```tsx
-import { Popover } from "liquidify-react/ark-ui/popover"
-import { Button } from "liquidify-react/button"
+import { Popover } from "liquidify-react/ark-ui/popover";
+import { Button } from "liquidify-react/button";
 
 export function BasicExample() {
   return (
@@ -50,7 +50,7 @@ export function BasicExample() {
         </Popover.Content>
       </Popover.Positioner>
     </Popover.Root>
-  )
+  );
 }
 ```
 
@@ -59,19 +59,19 @@ export function BasicExample() {
 Use popovers for inline forms and actions:
 
 ```tsx
-import { useState } from "react"
-import { Popover } from "liquidify-react/ark-ui/popover"
-import { Button } from "liquidify-react/button"
+import { useState } from "react";
+import { Popover } from "liquidify-react/ark-ui/popover";
+import { Button } from "liquidify-react/button";
 
 export function FormExample() {
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log("Submitted:", { name, email })
+    e.preventDefault();
+    console.log("Submitted:", { name, email });
     // Close popover after submission
-  }
+  };
 
   return (
     <Popover.Root>
@@ -105,15 +105,19 @@ export function FormExample() {
             </div>
             <div style={{ display: "flex", gap: "8px", justifyContent: "flex-end" }}>
               <Popover.CloseTrigger asChild>
-                <Button variant="outline" size="sm">Cancel</Button>
+                <Button variant="outline" size="sm">
+                  Cancel
+                </Button>
               </Popover.CloseTrigger>
-              <Button type="submit" size="sm">Add Contact</Button>
+              <Button type="submit" size="sm">
+                Add Contact
+              </Button>
             </div>
           </form>
         </Popover.Content>
       </Popover.Positioner>
     </Popover.Root>
-  )
+  );
 }
 ```
 
@@ -122,12 +126,12 @@ export function FormExample() {
 Control the popover's open state programmatically:
 
 ```tsx
-import { useState } from "react"
-import { Popover } from "liquidify-react/popover"
-import { Button } from "liquidify-react/button"
+import { useState } from "react";
+import { Popover } from "liquidify-react/ark-ui/popover";
+import { Button } from "liquidify-react/button";
 
 export function ControlledExample() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   return (
     <div>
@@ -147,14 +151,12 @@ export function ControlledExample() {
           </Popover.Content>
         </Popover.Positioner>
       </Popover.Root>
-      
+
       <div style={{ marginTop: "16px" }}>
-        <Button onClick={() => setOpen(!open)}>
-          {open ? "Close" : "Open"} Popover Externally
-        </Button>
+        <Button onClick={() => setOpen(!open)}>{open ? "Close" : "Open"} Popover Externally</Button>
       </div>
     </div>
-  )
+  );
 }
 ```
 
@@ -163,8 +165,8 @@ export function ControlledExample() {
 Customize the popover's position and behavior:
 
 ```tsx
-import { Popover } from "liquidify-react/ark-ui/popover"
-import { Button } from "liquidify-react/button"
+import { Popover } from "liquidify-react/ark-ui/popover";
+import { Button } from "liquidify-react/button";
 
 export function PositioningExample() {
   return (
@@ -211,7 +213,7 @@ export function PositioningExample() {
         </Popover.Positioner>
       </Popover.Root>
     </div>
-  )
+  );
 }
 ```
 
@@ -220,14 +222,14 @@ export function PositioningExample() {
 Create a settings panel using popover:
 
 ```tsx
-import { useState } from "react"
-import { Popover } from "liquidify-react/popover"
-import { Button } from "liquidify-react/button"
+import { useState } from "react";
+import { Popover } from "liquidify-react/ark-ui/popover";
+import { Button } from "liquidify-react/button";
 
 export function SettingsExample() {
-  const [notifications, setNotifications] = useState(true)
-  const [darkMode, setDarkMode] = useState(false)
-  const [autoSave, setAutoSave] = useState(true)
+  const [notifications, setNotifications] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
+  const [autoSave, setAutoSave] = useState(true);
 
   return (
     <Popover.Root>
@@ -238,7 +240,7 @@ export function SettingsExample() {
         <Popover.Content style={{ padding: "20px", width: "280px" }}>
           <Popover.Arrow />
           <h3 style={{ margin: "0 0 16px 0" }}>Settings</h3>
-          
+
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
             <label style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <input
@@ -248,7 +250,7 @@ export function SettingsExample() {
               />
               Enable notifications
             </label>
-            
+
             <label style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <input
                 type="checkbox"
@@ -257,7 +259,7 @@ export function SettingsExample() {
               />
               Dark mode
             </label>
-            
+
             <label style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <input
                 type="checkbox"
@@ -267,7 +269,7 @@ export function SettingsExample() {
               Auto-save
             </label>
           </div>
-          
+
           <div style={{ marginTop: "16px", display: "flex", justifyContent: "flex-end" }}>
             <Popover.CloseTrigger asChild>
               <Button size="sm">Done</Button>
@@ -276,7 +278,7 @@ export function SettingsExample() {
         </Popover.Content>
       </Popover.Positioner>
     </Popover.Root>
-  )
+  );
 }
 ```
 
@@ -286,12 +288,12 @@ export function SettingsExample() {
 
 The root container for the popover.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `open` | `boolean` | `false` | Whether the popover is open |
-| `onOpenChange` | `(open: boolean) => void` | - | Callback when open state changes |
-| `modal` | `boolean` | `false` | Whether the popover is modal |
-| `portalled` | `boolean` | `true` | Whether to render in a portal |
+| Prop           | Type                      | Default | Description                      |
+| -------------- | ------------------------- | ------- | -------------------------------- |
+| `open`         | `boolean`                 | `false` | Whether the popover is open      |
+| `onOpenChange` | `(open: boolean) => void` | -       | Callback when open state changes |
+| `modal`        | `boolean`                 | `false` | Whether the popover is modal     |
+| `portalled`    | `boolean`                 | `true`  | Whether to render in a portal    |
 
 ### Popover.Trigger
 
@@ -301,12 +303,12 @@ The element that triggers the popover. Must be used with `asChild`.
 
 Controls the positioning of the popover content.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `side` | `"top" \| "right" \| "bottom" \| "left"` | `"bottom"` | Preferred side to render |
-| `align` | `"start" \| "center" \| "end"` | `"center"` | Alignment relative to trigger |
-| `sideOffset` | `number` | `4` | Distance from trigger element |
-| `alignOffset` | `number` | `0` | Additional alignment offset |
+| Prop          | Type                                     | Default    | Description                   |
+| ------------- | ---------------------------------------- | ---------- | ----------------------------- |
+| `side`        | `"top" \| "right" \| "bottom" \| "left"` | `"bottom"` | Preferred side to render      |
+| `align`       | `"start" \| "center" \| "end"`           | `"center"` | Alignment relative to trigger |
+| `sideOffset`  | `number`                                 | `4`        | Distance from trigger element |
+| `alignOffset` | `number`                                 | `0`        | Additional alignment offset   |
 
 ### Popover.Content
 

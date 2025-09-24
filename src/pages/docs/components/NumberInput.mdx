@@ -3,7 +3,7 @@ title: NumberInput
 description: A specialized input component for numeric values with increment/decrement controls and validation.
 ---
 
-import NumberInputDemo from "../../../components/demos/NumberInputDemo.tsx"
+import NumberInputDemo from "../../../components/demos/NumberInputDemo.tsx";
 
 # NumberInput
 
@@ -18,7 +18,7 @@ bun add liquidify-react
 ## Import
 
 ```tsx
-import { NumberInput } from "liquidify-react/ark-ui/numberInput"
+import { NumberInput } from "liquidify-react/ark-ui/numberInput";
 ```
 
 ## Basic Usage
@@ -28,7 +28,7 @@ Create a simple number input with increment/decrement buttons:
 <NumberInputDemo client:only="react" />
 
 ```tsx
-import { NumberInput } from "liquidify-react/ark-ui/numberInput"
+import { NumberInput } from "liquidify-react/ark-ui/numberInput";
 
 export function BasicExample() {
   return (
@@ -40,7 +40,7 @@ export function BasicExample() {
         <NumberInput.IncrementTrigger>+</NumberInput.IncrementTrigger>
       </NumberInput.Control>
     </NumberInput.Root>
-  )
+  );
 }
 ```
 
@@ -49,11 +49,11 @@ export function BasicExample() {
 Control the number input value with state:
 
 ```tsx
-import { useState } from "react"
-import { NumberInput } from "liquidify-react/ark-ui/numberInput"
+import { useState } from "react";
+import { NumberInput } from "liquidify-react/ark-ui/numberInput";
 
 export function ControlledExample() {
-  const [value, setValue] = useState("10")
+  const [value, setValue] = useState("10");
 
   return (
     <NumberInput.Root value={value} onValueChange={(details) => setValue(details.value)}>
@@ -65,7 +65,7 @@ export function ControlledExample() {
       </NumberInput.Control>
       <p>Current value: ${value}</p>
     </NumberInput.Root>
-  )
+  );
 }
 ```
 
@@ -74,16 +74,11 @@ export function ControlledExample() {
 Set boundaries and increment steps:
 
 ```tsx
-import { NumberInput } from "liquidify-react/ark-ui/numberInput"
+import { NumberInput } from "liquidify-react/ark-ui/numberInput";
 
 export function MinMaxStepExample() {
   return (
-    <NumberInput.Root 
-      min={0} 
-      max={100} 
-      step={5} 
-      defaultValue="50"
-    >
+    <NumberInput.Root min={0} max={100} step={5} defaultValue="50">
       <NumberInput.Label>Progress (%)</NumberInput.Label>
       <NumberInput.Control>
         <NumberInput.DecrementTrigger>-</NumberInput.DecrementTrigger>
@@ -94,7 +89,7 @@ export function MinMaxStepExample() {
         Value must be between 0 and 100, in steps of 5
       </NumberInput.HelperText>
     </NumberInput.Root>
-  )
+  );
 }
 ```
 
@@ -103,16 +98,11 @@ export function MinMaxStepExample() {
 Handle decimal values with specified precision:
 
 ```tsx
-import { NumberInput } from "liquidify-react/ark-ui/numberInput"
+import { NumberInput } from "liquidify-react/ark-ui/numberInput";
 
 export function DecimalExample() {
   return (
-    <NumberInput.Root 
-      defaultValue="3.14" 
-      step={0.01} 
-      precision={2}
-      min={0}
-    >
+    <NumberInput.Root defaultValue="3.14" step={0.01} precision={2} min={0}>
       <NumberInput.Label>Price ($)</NumberInput.Label>
       <NumberInput.Control>
         <NumberInput.DecrementTrigger>-</NumberInput.DecrementTrigger>
@@ -120,7 +110,7 @@ export function DecimalExample() {
         <NumberInput.IncrementTrigger>+</NumberInput.IncrementTrigger>
       </NumberInput.Control>
     </NumberInput.Root>
-  )
+  );
 }
 ```
 
@@ -129,15 +119,15 @@ export function DecimalExample() {
 Format numbers as currency with custom formatting:
 
 ```tsx
-import { NumberInput } from "liquidify-react/number-input"
+import { NumberInput } from "liquidify-react/ark-ui/numberInput";
 
 export function CurrencyExample() {
   return (
-    <NumberInput.Root 
+    <NumberInput.Root
       defaultValue="1234.56"
       formatOptions={{
         style: "currency",
-        currency: "USD"
+        currency: "USD",
       }}
     >
       <NumberInput.Label>Budget</NumberInput.Label>
@@ -147,7 +137,7 @@ export function CurrencyExample() {
         <NumberInput.IncrementTrigger>+</NumberInput.IncrementTrigger>
       </NumberInput.Control>
     </NumberInput.Root>
-  )
+  );
 }
 ```
 
@@ -156,27 +146,27 @@ export function CurrencyExample() {
 Show validation errors and invalid states:
 
 ```tsx
-import { useState } from "react"
-import { NumberInput } from "liquidify-react/ark-ui/numberInput"
+import { useState } from "react";
+import { NumberInput } from "liquidify-react/ark-ui/numberInput";
 
 export function ValidationExample() {
-  const [value, setValue] = useState("")
-  const [error, setError] = useState("")
+  const [value, setValue] = useState("");
+  const [error, setError] = useState("");
 
   const handleValueChange = (details) => {
-    setValue(details.value)
-    
-    const numValue = parseFloat(details.value)
+    setValue(details.value);
+
+    const numValue = parseFloat(details.value);
     if (details.value && (isNaN(numValue) || numValue < 1 || numValue > 10)) {
-      setError("Value must be between 1 and 10")
+      setError("Value must be between 1 and 10");
     } else {
-      setError("")
+      setError("");
     }
-  }
+  };
 
   return (
-    <NumberInput.Root 
-      value={value} 
+    <NumberInput.Root
+      value={value}
       onValueChange={handleValueChange}
       min={1}
       max={10}
@@ -188,11 +178,9 @@ export function ValidationExample() {
         <NumberInput.Input />
         <NumberInput.IncrementTrigger>+</NumberInput.IncrementTrigger>
       </NumberInput.Control>
-      {error && (
-        <NumberInput.ErrorText>{error}</NumberInput.ErrorText>
-      )}
+      {error && <NumberInput.ErrorText>{error}</NumberInput.ErrorText>}
     </NumberInput.Root>
-  )
+  );
 }
 ```
 
@@ -201,7 +189,7 @@ export function ValidationExample() {
 Disable the number input when needed:
 
 ```tsx
-import { NumberInput } from "liquidify-react/number-input"
+import { NumberInput } from "liquidify-react/ark-ui/numberInput";
 
 export function DisabledExample() {
   return (
@@ -212,11 +200,9 @@ export function DisabledExample() {
         <NumberInput.Input />
         <NumberInput.IncrementTrigger>+</NumberInput.IncrementTrigger>
       </NumberInput.Control>
-      <NumberInput.HelperText>
-        This field cannot be modified
-      </NumberInput.HelperText>
+      <NumberInput.HelperText>This field cannot be modified</NumberInput.HelperText>
     </NumberInput.Root>
-  )
+  );
 }
 ```
 
@@ -226,18 +212,18 @@ export function DisabledExample() {
 
 The root container for the number input.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | Controlled value |
-| `defaultValue` | `string` | `"0"` | Default value |
-| `onValueChange` | `(details) => void` | - | Callback when value changes |
-| `min` | `number` | - | Minimum allowed value |
-| `max` | `number` | - | Maximum allowed value |
-| `step` | `number` | `1` | Increment/decrement step |
-| `precision` | `number` | - | Number of decimal places |
-| `disabled` | `boolean` | `false` | Whether input is disabled |
-| `invalid` | `boolean` | `false` | Whether input is invalid |
-| `formatOptions` | `Intl.NumberFormatOptions` | - | Number formatting options |
+| Prop            | Type                       | Default | Description                 |
+| --------------- | -------------------------- | ------- | --------------------------- |
+| `value`         | `string`                   | -       | Controlled value            |
+| `defaultValue`  | `string`                   | `"0"`   | Default value               |
+| `onValueChange` | `(details) => void`        | -       | Callback when value changes |
+| `min`           | `number`                   | -       | Minimum allowed value       |
+| `max`           | `number`                   | -       | Maximum allowed value       |
+| `step`          | `number`                   | `1`     | Increment/decrement step    |
+| `precision`     | `number`                   | -       | Number of decimal places    |
+| `disabled`      | `boolean`                  | `false` | Whether input is disabled   |
+| `invalid`       | `boolean`                  | `false` | Whether input is invalid    |
+| `formatOptions` | `Intl.NumberFormatOptions` | -       | Number formatting options   |
 
 ### NumberInput.Label
 

@@ -1,0 +1,128 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+---
+
+import { Modal } from "liquidify-react/modal";
+import { Button } from "liquidify-react/button";
+
+# Modal
+
+Standalone modal component for focused user interactions. Provides a simpler API than Dialog for common modal use cases with Apple-inspired styling.
+
+## Import
+
+```tsx
+import { Modal } from "liquidify-react/modal";
+```
+
+## Basic Usage
+
+```tsx
+import { Modal } from "liquidify-react/modal";
+import { Button } from "liquidify-react/button";
+import { useState } from "react";
+
+export default function Example() {
+  const [open, setOpen] = useState(false);
+  
+  return (
+    <>
+      <Button onClick={() => setOpen(true)}>Open Modal</Button>
+      
+      <Modal
+        open={open}
+        onClose={() => setOpen(false)}
+        ariaLabel="Example Modal"
+      >
+        <h2>Modal Title</h2>
+        <p>Modal content goes here.</p>
+      </Modal>
+    </>
+  );
+}
+```
+
+## Close on Backdrop Click
+
+Control whether clicking outside the modal closes it:
+
+```tsx
+<Modal
+  open={open}
+  onClose={() => setOpen(false)}
+  closeOnBackdropClick={true}
+  ariaLabel="Click outside to close"
+>
+  <p>Click outside this modal to close it.</p>
+</Modal>
+```
+
+## Close on Escape Key
+
+Control whether pressing Escape closes the modal:
+
+```tsx
+<Modal
+  open={open}
+  onClose={() => setOpen(false)}
+  closeOnEsc={true}
+  ariaLabel="Press ESC to close"
+>
+  <p>Press Escape to close this modal.</p>
+</Modal>
+```
+
+## Accessible Labels
+
+Use `ariaLabel` or `ariaLabelledBy` for screen reader accessibility:
+
+```tsx
+// With aria-label
+<Modal
+  open={open}
+  onClose={() => setOpen(false)}
+  ariaLabel="Settings Modal"
+>
+  <h2>Settings</h2>
+</Modal>
+
+// With aria-labelledby (references ID of title element)
+<Modal
+  open={open}
+  onClose={() => setOpen(false)}
+  ariaLabelledBy="modal-title"
+>
+  <h2 id="modal-title">Settings</h2>
+</Modal>
+```
+
+## API Reference
+
+### Props
+
+- `open`: `boolean` - Controls modal visibility
+- `onClose`: `() => void` - Called when modal should close
+- `closeOnEsc`: `boolean` - Close on Escape key (default: `true`)
+- `closeOnBackdropClick`: `boolean` - Close on backdrop click (default: `true`)
+- `ariaLabel`: `string` - Accessible label for screen readers
+- `ariaLabelledBy`: `string` - ID of element that labels the modal
+- `children`: `React.ReactNode` - Modal content
+- All standard HTML div attributes are supported
+
+### Styling
+
+The Modal automatically applies:
+- 26px border radius (Apple HIG-compliant)
+- Liquid glass backdrop blur
+- Smooth entrance/exit animations
+- Proper z-index layering
+- Backdrop with translucent overlay
+
+### Accessibility
+
+- Traps focus within modal when open
+- Returns focus to trigger element on close
+- Escape key closes modal (configurable)
+- Backdrop click closes modal (configurable)
+- Proper ARIA labels required for screen readers
+- Prevents body scroll when open

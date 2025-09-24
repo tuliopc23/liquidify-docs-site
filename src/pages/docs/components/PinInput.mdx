@@ -16,7 +16,7 @@ bun add liquidify-react
 ## Import
 
 ```tsx
-import { PinInput } from "liquidify-react/pin-input"
+import { PinInput } from "liquidify-react/ark-ui/pinInput";
 ```
 
 ## Basic Usage
@@ -24,7 +24,7 @@ import { PinInput } from "liquidify-react/pin-input"
 Create a basic PIN input for verification codes:
 
 ```tsx
-import { PinInput } from "liquidify-react/pin-input"
+import { PinInput } from "liquidify-react/ark-ui/pinInput";
 
 export function BasicExample() {
   return (
@@ -37,7 +37,7 @@ export function BasicExample() {
         <PinInput.Input index={3} />
       </PinInput.Control>
     </PinInput.Root>
-  )
+  );
 }
 ```
 
@@ -46,11 +46,11 @@ export function BasicExample() {
 Control the PIN input value with state:
 
 ```tsx
-import { useState } from "react"
-import { PinInput } from "liquidify-react/pin-input"
+import { useState } from "react";
+import { PinInput } from "liquidify-react/ark-ui/pinInput";
 
 export function ControlledExample() {
-  const [value, setValue] = useState(["", "", "", ""])
+  const [value, setValue] = useState(["", "", "", ""]);
 
   return (
     <PinInput.Root value={value} onValueChange={(details) => setValue(details.value)}>
@@ -63,7 +63,7 @@ export function ControlledExample() {
       </PinInput.Control>
       <p>Current value: {value.join("")}</p>
     </PinInput.Root>
-  )
+  );
 }
 ```
 
@@ -72,7 +72,7 @@ export function ControlledExample() {
 Create a six-digit authentication input:
 
 ```tsx
-import { PinInput } from "liquidify-react/pin-input"
+import { PinInput } from "liquidify-react/ark-ui/pinInput";
 
 export function SixDigitExample() {
   return (
@@ -86,11 +86,9 @@ export function SixDigitExample() {
         <PinInput.Input index={4} />
         <PinInput.Input index={5} />
       </PinInput.Control>
-      <PinInput.HelperText>
-        Enter the 6-digit code from your authenticator app
-      </PinInput.HelperText>
+      <PinInput.HelperText>Enter the 6-digit code from your authenticator app</PinInput.HelperText>
     </PinInput.Root>
-  )
+  );
 }
 ```
 
@@ -99,7 +97,7 @@ export function SixDigitExample() {
 Create a masked PIN input for secure passwords:
 
 ```tsx
-import { PinInput } from "liquidify-react/pin-input"
+import { PinInput } from "liquidify-react/ark-ui/pinInput";
 
 export function MaskedExample() {
   return (
@@ -113,11 +111,9 @@ export function MaskedExample() {
         <PinInput.Input index={4} />
         <PinInput.Input index={5} />
       </PinInput.Control>
-      <PinInput.HelperText>
-        Enter your 6-digit security PIN
-      </PinInput.HelperText>
+      <PinInput.HelperText>Enter your 6-digit security PIN</PinInput.HelperText>
     </PinInput.Root>
-  )
+  );
 }
 ```
 
@@ -126,7 +122,7 @@ export function MaskedExample() {
 Allow letters and numbers for verification codes:
 
 ```tsx
-import { PinInput } from "liquidify-react/pin-input"
+import { PinInput } from "liquidify-react/ark-ui/pinInput";
 
 export function AlphanumericExample() {
   return (
@@ -139,11 +135,9 @@ export function AlphanumericExample() {
         <PinInput.Input index={3} />
         <PinInput.Input index={4} />
       </PinInput.Control>
-      <PinInput.HelperText>
-        Enter your 5-character license key
-      </PinInput.HelperText>
+      <PinInput.HelperText>Enter your 5-character license key</PinInput.HelperText>
     </PinInput.Root>
-  )
+  );
 }
 ```
 
@@ -152,27 +146,24 @@ export function AlphanumericExample() {
 Handle completion and validation:
 
 ```tsx
-import { useState } from "react"
-import { PinInput } from "liquidify-react/pin-input"
+import { useState } from "react";
+import { PinInput } from "liquidify-react/ark-ui/pinInput";
 
 export function ValidationExample() {
-  const [isValid, setIsValid] = useState(null)
+  const [isValid, setIsValid] = useState(null);
 
   const handleComplete = (details) => {
-    const code = details.value.join("")
-    const valid = code === "1234"
-    setIsValid(valid)
-    
+    const code = details.value.join("");
+    const valid = code === "1234";
+    setIsValid(valid);
+
     if (valid) {
-      console.log("PIN verified successfully!")
+      console.log("PIN verified successfully!");
     }
-  }
+  };
 
   return (
-    <PinInput.Root 
-      onValueComplete={handleComplete}
-      invalid={isValid === false}
-    >
+    <PinInput.Root onValueComplete={handleComplete} invalid={isValid === false}>
       <PinInput.Label>Enter PIN (hint: 1234)</PinInput.Label>
       <PinInput.Control>
         <PinInput.Input index={0} />
@@ -181,9 +172,7 @@ export function ValidationExample() {
         <PinInput.Input index={3} />
       </PinInput.Control>
       {isValid === false && (
-        <PinInput.ErrorText>
-          Incorrect PIN. Please try again.
-        </PinInput.ErrorText>
+        <PinInput.ErrorText>Incorrect PIN. Please try again.</PinInput.ErrorText>
       )}
       {isValid === true && (
         <PinInput.HelperText style={{ color: "green" }}>
@@ -191,7 +180,7 @@ export function ValidationExample() {
         </PinInput.HelperText>
       )}
     </PinInput.Root>
-  )
+  );
 }
 ```
 
@@ -200,7 +189,7 @@ export function ValidationExample() {
 Disable the PIN input when needed:
 
 ```tsx
-import { PinInput } from "liquidify-react/pin-input"
+import { PinInput } from "liquidify-react/ark-ui/pinInput";
 
 export function DisabledExample() {
   return (
@@ -212,11 +201,9 @@ export function DisabledExample() {
         <PinInput.Input index={2} />
         <PinInput.Input index={3} />
       </PinInput.Control>
-      <PinInput.HelperText>
-        This PIN has already been verified
-      </PinInput.HelperText>
+      <PinInput.HelperText>This PIN has already been verified</PinInput.HelperText>
     </PinInput.Root>
-  )
+  );
 }
 ```
 
@@ -226,18 +213,18 @@ export function DisabledExample() {
 
 The root container for the PIN input.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string[]` | - | Controlled value array |
-| `defaultValue` | `string[]` | - | Default value array |
-| `onValueChange` | `(details) => void` | - | Callback when value changes |
-| `onValueComplete` | `(details) => void` | - | Callback when all inputs are filled |
-| `type` | `"numeric" \| "alphabetic" \| "alphanumeric"` | `"numeric"` | Input type constraint |
-| `mask` | `boolean` | `false` | Whether to mask input values |
-| `placeholder` | `string` | - | Placeholder for empty inputs |
-| `disabled` | `boolean` | `false` | Whether inputs are disabled |
-| `invalid` | `boolean` | `false` | Whether inputs are invalid |
-| `autoFocus` | `boolean` | `false` | Auto-focus first input on mount |
+| Prop              | Type                                          | Default     | Description                         |
+| ----------------- | --------------------------------------------- | ----------- | ----------------------------------- |
+| `value`           | `string[]`                                    | -           | Controlled value array              |
+| `defaultValue`    | `string[]`                                    | -           | Default value array                 |
+| `onValueChange`   | `(details) => void`                           | -           | Callback when value changes         |
+| `onValueComplete` | `(details) => void`                           | -           | Callback when all inputs are filled |
+| `type`            | `"numeric" \| "alphabetic" \| "alphanumeric"` | `"numeric"` | Input type constraint               |
+| `mask`            | `boolean`                                     | `false`     | Whether to mask input values        |
+| `placeholder`     | `string`                                      | -           | Placeholder for empty inputs        |
+| `disabled`        | `boolean`                                     | `false`     | Whether inputs are disabled         |
+| `invalid`         | `boolean`                                     | `false`     | Whether inputs are invalid          |
+| `autoFocus`       | `boolean`                                     | `false`     | Auto-focus first input on mount     |
 
 ### PinInput.Label
 
@@ -251,9 +238,9 @@ Container for the input fields.
 
 Individual PIN input field.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `index` | `number` | - | Index of the input field (required) |
+| Prop    | Type     | Default | Description                         |
+| ------- | -------- | ------- | ----------------------------------- |
+| `index` | `number` | -       | Index of the input field (required) |
 
 ### PinInput.HelperText
 

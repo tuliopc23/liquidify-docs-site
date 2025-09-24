@@ -1,8 +1,8 @@
-import React from 'react';
-import { Listbox } from 'liquidify-react/ark-ui/listbox';
+import React from "react";
+import { Listbox } from "liquidify-react/ark-ui/listbox";
 
 export default function ListboxDemo(): JSX.Element {
-  const fruits = ['Apple', 'Banana', 'Cherry'];
+  const fruits = ["Apple", "Banana", "Cherry"];
   return (
     <Listbox.Root>
       <Listbox.Label>Choose a fruit</Listbox.Label>

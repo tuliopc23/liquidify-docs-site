@@ -16,10 +16,11 @@ Import the global styles once in your app's entry point:
 
 ```tsx
 // Import this once in your main app file
-import 'liquidify-react/styles'
+import "liquidify-react/styles";
 ```
 
 **Where to import:**
+
 - Next.js: `app/layout.tsx` or `pages/_app.tsx`
 - Vite: `src/main.tsx`
 - CRA: `src/index.tsx`
@@ -29,31 +30,34 @@ import 'liquidify-react/styles'
 
 #### Subpath Imports (Recommended)
 
-Import individual components from their dedicated paths for optimal tree-shaking:
+Import individual components from their dedicated paths for optimal tree-shaking. Base components are available at the top level, while interactive components built on Ark UI live under the `ark-ui` subpath:
 
 ```tsx
 // Single component imports
-import { Button } from 'liquidify-react/button'
-import { Card } from 'liquidify-react/card'
-import { Dialog } from 'liquidify-react/dialog'
-import { Input } from 'liquidify-react/input'
+import { Button } from "liquidify-react/button";
+import { Card } from "liquidify-react/card";
+// Ark UI components use the `ark-ui` subpath
+import { Dialog } from "liquidify-react/ark-ui/dialog";
+import { Checkbox } from "liquidify-react/ark-ui/checkbox";
 ```
 
 **Benefits:**
+
 - **Smaller bundles** - Only import what you use
 - **Faster builds** - Less code to process
 - **Better performance** - Reduced runtime overhead
 
 #### Root Imports
 
-Import multiple components from the main entry:
+Import multiple components from the main entry (useful when prototyping):
 
 ```tsx
 // Multiple components from root
-import { Button, Card, Dialog, Input } from 'liquidify-react'
+import { Button, Card, Dialog } from "liquidify-react";
 ```
 
 **Use when:**
+
 - Prototyping quickly
 - Using many components
 - Bundle size isn't critical
@@ -65,10 +69,10 @@ import { Button, Card, Dialog, Input } from 'liquidify-react'
 Organize components under a namespace:
 
 ```tsx
-import * as LiqUIdify from 'liquidify-react/button'
+import * as LiqUIdify from "liquidify-react/button";
 
 function App() {
-  return <LiqUIdify.Button>Click me</LiqUIdify.Button>
+  return <LiqUIdify.Button>Click me</LiqUIdify.Button>;
 }
 ```
 
@@ -78,14 +82,13 @@ Import related components together:
 
 ```tsx
 // Form components
-import { Input } from 'liquidify-react/input'
-import { Button } from 'liquidify-react/button'
-import { Checkbox } from 'liquidify-react/checkbox'
-import { Select } from 'liquidify-react/select'
+import { Checkbox } from "liquidify-react/ark-ui/checkbox";
+import { Select } from "liquidify-react/ark-ui/select";
+import { Button } from "liquidify-react/button";
 
-// Layout components
-import { Card } from 'liquidify-react/card'
-import { Tabs } from 'liquidify-react/tabs'
+// Layout & navigation
+import { Card } from "liquidify-react/card";
+import { Tabs } from "liquidify-react/ark-ui/tabs";
 ```
 
 ### Conditional Imports
@@ -93,11 +96,12 @@ import { Tabs } from 'liquidify-react/tabs'
 Load components conditionally using dynamic imports:
 
 ```tsx
-import { lazy } from 'react'
+import { lazy } from "react";
 
 // Lazy load heavy components
-const Dialog = lazy(() => import('liquidify-react/dialog').then(m => ({ default: m.Dialog })))
-const DataTable = lazy(() => import('liquidify-react/data-table').then(m => ({ default: m.DataTable })))
+const Dialog = lazy(() =>
+  import("liquidify-react/ark-ui/dialog").then((m) => ({ default: m.Dialog })),
+);
 ```
 
 ## Bundle Optimization
@@ -107,36 +111,39 @@ const DataTable = lazy(() => import('liquidify-react/data-table').then(m => ({ d
 Ensure your bundler supports tree shaking:
 
 #### Vite
+
 ```tsx
 // vite.config.ts
 export default defineConfig({
   build: {
     rollupOptions: {
-      treeshake: true
-    }
-  }
-})
+      treeshake: true,
+    },
+  },
+});
 ```
 
 #### Next.js
+
 ```tsx
 // next.config.js
 module.exports = {
   experimental: {
-    optimizePackageImports: ['liquidify-react']
-  }
-}
+    optimizePackageImports: ["liquidify-react"],
+  },
+};
 ```
 
 #### Webpack
+
 ```tsx
 // webpack.config.js
 module.exports = {
   optimization: {
     usedExports: true,
-    sideEffects: false
-  }
-}
+    sideEffects: false,
+  },
+};
 ```
 
 ### Bundle Analysis
@@ -157,33 +164,25 @@ ANALYZE=true npm run build
 
 ### Available Subpaths
 
-All components support subpath imports:
+Most interactive components are under the `ark-ui` namespace. Here are common examples:
 
 ```tsx
-// Form Components
-import { Button } from 'liquidify-react/button'
-import { Input } from 'liquidify-react/input'
-import { Checkbox } from 'liquidify-react/checkbox'
-import { RadioGroup } from 'liquidify-react/radio-group'
-import { Select } from 'liquidify-react/select'
+// Base components
+import { Button } from "liquidify-react/button";
+import { Card } from "liquidify-react/card";
+import { Badge } from "liquidify-react/badge";
+import { IconButton } from "liquidify-react/iconButton";
 
-// Layout Components
-import { Card } from 'liquidify-react/card'
-import { Tabs } from 'liquidify-react/tabs'
-import { Accordion } from 'liquidify-react/accordion'
-
-// Navigation Components
-import { Menu } from 'liquidify-react/menu'
-
-// Feedback Components
-import { Toast } from 'liquidify-react/toast'
-import { Dialog } from 'liquidify-react/dialog'
-import { Progress } from 'liquidify-react/progress'
-
-// Data Display
-import { Badge } from 'liquidify-react/badge'
-import { Avatar } from 'liquidify-react/avatar'
-import { Tooltip } from 'liquidify-react/tooltip'
+// Ark UI components
+import { Accordion } from "liquidify-react/ark-ui/accordion";
+import { Tabs } from "liquidify-react/ark-ui/tabs";
+import { Dialog } from "liquidify-react/ark-ui/dialog";
+import { Checkbox } from "liquidify-react/ark-ui/checkbox";
+import { RadioGroup } from "liquidify-react/ark-ui/radioGroup";
+import { Select } from "liquidify-react/ark-ui/select";
+import { Tooltip } from "liquidify-react/ark-ui/tooltip";
+import { Menu } from "liquidify-react/ark-ui/menu";
+import { Popover } from "liquidify-react/ark-ui/popover";
 ```
 
 ## TypeScript Support
@@ -193,12 +192,12 @@ import { Tooltip } from 'liquidify-react/tooltip'
 Import types alongside components:
 
 ```tsx
-import { Button, type ButtonProps } from 'liquidify-react/button'
-import { Card, type CardProps } from 'liquidify-react/card'
+import { Button, type ButtonProps } from "liquidify-react/button";
+import { Card, type CardProps } from "liquidify-react/card";
 
 interface MyComponentProps {
-  buttonProps?: ButtonProps
-  cardProps?: CardProps
+  buttonProps?: ButtonProps;
+  cardProps?: CardProps;
 }
 ```
 
@@ -207,16 +206,16 @@ interface MyComponentProps {
 Use component generics for type safety:
 
 ```tsx
-import { Select, type SelectProps } from 'liquidify-react/select'
+import { Select, type SelectProps } from "liquidify-react/ark-ui/select";
 
 interface User {
-  id: string
-  name: string
+  id: string;
+  name: string;
 }
 
 const UserSelect: React.FC<SelectProps<User>> = (props) => {
-  return <Select {...props} />
-}
+  return <Select {...props} />;
+};
 ```
 
 ## Best Practices
@@ -227,19 +226,19 @@ Organize imports in this order:
 
 ```tsx
 // 1. React and third-party libraries
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 // 2. Internal utilities and hooks
-import { useLocalStorage } from '@/hooks/useLocalStorage'
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 // 3. LiqUIdify components (grouped by type)
-import { Button } from 'liquidify-react/button'
-import { Input } from 'liquidify-react/input'
-import { Card } from 'liquidify-react/card'
+import { Button } from "liquidify-react/button";
+import { Card } from "liquidify-react/card";
+import { Dialog } from "liquidify-react/ark-ui/dialog";
 
 // 4. Local components
-import { UserProfile } from './UserProfile'
+import { UserProfile } from "./UserProfile";
 ```
 
 ### Performance Tips
@@ -264,13 +263,15 @@ Create a wrapper module for your app:
 
 ```tsx
 // src/components/ui.ts
-export { Button } from 'liquidify-react/button'
-export { Card } from 'liquidify-react/card'
-export { Input } from 'liquidify-react/input'
+export { Button } from "liquidify-react/button";
+export { Card } from "liquidify-react/card";
+export { Dialog } from "liquidify-react/ark-ui/dialog";
+export { Checkbox } from "liquidify-react/ark-ui/checkbox";
+export { Select } from "liquidify-react/ark-ui/select";
 // ... other components
 
 // Usage in your app
-import { Button, Card, Input } from '@/components/ui'
+import { Button, Card, Dialog, Checkbox, Select } from "@/components/ui";
 ```
 
 ### Custom Hook Integration
@@ -278,17 +279,17 @@ import { Button, Card, Input } from '@/components/ui'
 Combine imports with custom hooks:
 
 ```tsx
-import { Dialog } from 'liquidify-react/dialog'
-import { useDialog } from '@/hooks/useDialog'
+import { Dialog } from "liquidify-react/ark-ui/dialog";
+import { useDialog } from "@/hooks/useDialog";
 
 function MyComponent() {
-  const { isOpen, open, close } = useDialog()
-  
+  const { isOpen, open, close } = useDialog();
+
   return (
     <Dialog.Root open={isOpen} onOpenChange={close}>
       {/* Dialog content */}
     </Dialog.Root>
-  )
+  );
 }
 ```
 
@@ -297,26 +298,30 @@ function MyComponent() {
 ### Import Errors
 
 **Module not found:**
+
 ```bash
-# Ensure the component exists
-ls node_modules/liquidify-react/dist/components/
+# Ensure the component exists (Ark UI components live under the ark-ui folder)
+ls node_modules/liquidify-react/dist/libs/components/components/
+ls node_modules/liquidify-react/dist/libs/components/components/ark-ui/
 ```
 
 **Type errors:**
+
 ```tsx
 // Make sure you're importing from the correct path
-import { Button } from 'liquidify-react/button' // ✅ Correct
-import { Button } from 'liquidify-react/buttons' // ❌ Wrong
+import { Button } from "liquidify-react/button"; // ✅ Correct
+import { Button } from "liquidify-react/buttons"; // ❌ Wrong
 ```
 
 **CSS not loading:**
+
 ```tsx
 // Ensure styles are imported once in your app
-import 'liquidify-react/styles' // ✅ Required
+import "liquidify-react/styles"; // ✅ Required
 ```
 
 ## Next Steps
 
 - **[Components](/components)** - Explore all available components
-- **[Performance](/advanced/performance)** - Advanced optimization techniques  
+- **[Performance](/advanced/performance)** - Advanced optimization techniques
 - **[Design System](/advanced/design)** - Understand the design principles

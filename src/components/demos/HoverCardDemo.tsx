@@ -1,6 +1,6 @@
-import React from 'react';
-import { HoverCard } from 'liquidify-react/ark-ui/hoverCard';
-import { Button } from 'liquidify-react/button';
+import React from "react";
+import { HoverCard } from "liquidify-react/ark-ui/hoverCard";
+import { Button } from "liquidify-react/button";
 
 export default function HoverCardDemo(): JSX.Element {
   return (
@@ -11,7 +11,7 @@ export default function HoverCardDemo(): JSX.Element {
       <HoverCard.Positioner>
         <HoverCard.Content>
           <HoverCard.Arrow />
-          <div style={{ padding: '12px' }}>
+          <div style={{ padding: "12px" }}>
             <h4>Contextual Information</h4>
             <p>This card appears when you hover the trigger.</p>
           </div>

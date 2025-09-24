@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import './ComponentShowcase.css';
+import React, { useState } from "react";
+import "./ComponentShowcase.css";
 
 interface ComponentShowcaseProps {
   title?: string;
@@ -8,9 +8,9 @@ interface ComponentShowcaseProps {
   code?: string;
   className?: string;
   showCode?: boolean;
-  background?: 'default' | 'dark' | 'light' | 'transparent';
-  align?: 'left' | 'center' | 'right';
-  spacing?: 'tight' | 'normal' | 'loose';
+  background?: "default" | "dark" | "light" | "transparent";
+  align?: "left" | "center" | "right";
+  spacing?: "tight" | "normal" | "loose";
 }
 
 export function ComponentShowcase({
@@ -18,11 +18,11 @@ export function ComponentShowcase({
   description,
   children,
   code,
-  className = '',
+  className = "",
   showCode = true,
-  background = 'default',
-  align = 'center',
-  spacing = 'normal'
+  background = "default",
+  align = "center",
+  spacing = "normal",
 }: ComponentShowcaseProps) {
   const [isCodeVisible, setIsCodeVisible] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
@@ -34,7 +34,7 @@ export function ComponentShowcase({
         setIsCopied(true);
         setTimeout(() => setIsCopied(false), 2000);
       } catch (err) {
-        console.error('Failed to copy code:', err);
+        console.error("Failed to copy code:", err);
       }
     }
   };
@@ -45,9 +45,7 @@ export function ComponentShowcase({
         <div className="showcase-header">
           <div className="showcase-info">
             <h4 className="showcase-title">{title}</h4>
-            {description && (
-              <p className="showcase-description">{description}</p>
-            )}
+            {description && <p className="showcase-description">{description}</p>}
           </div>
           {code && showCode && (
             <div className="showcase-actions">
@@ -55,9 +53,9 @@ export function ComponentShowcase({
                 className="action-button"
                 onClick={() => setIsCodeVisible(!isCodeVisible)}
                 aria-expanded={isCodeVisible}
-                aria-label={isCodeVisible ? 'Hide code' : 'Show code'}
+                aria-label={isCodeVisible ? "Hide code" : "Show code"}
               >
-                {isCodeVisible ? '👁️‍🗨️' : '👁️'}
+                {isCodeVisible ? "👁️‍🗨️" : "👁️"}
               </button>
               <button
                 className="action-button"
@@ -65,7 +63,7 @@ export function ComponentShowcase({
                 aria-label="Copy code"
                 disabled={isCopied}
               >
-                {isCopied ? '✅' : '📋'}
+                {isCopied ? "✅" : "📋"}
               </button>
             </div>
           )}
@@ -73,24 +71,20 @@ export function ComponentShowcase({
       )}
 
       <div className="showcase-preview" data-align={align}>
-        <div className="preview-container">
-          {children}
-        </div>
+        <div className="preview-container">{children}</div>
       </div>
 
       {code && showCode && isCodeVisible && (
         <div className="showcase-code">
           <div className="code-header">
             <span className="code-language">tsx</span>
-            <button
-              className="copy-button"
-              onClick={handleCopyCode}
-              aria-label="Copy code"
-            >
-              {isCopied ? 'Copied!' : 'Copy'}
+            <button className="copy-button" onClick={handleCopyCode} aria-label="Copy code">
+              {isCopied ? "Copied!" : "Copy"}
             </button>
           </div>
-          <pre><code>{code}</code></pre>
+          <pre>
+            <code>{code}</code>
+          </pre>
         </div>
       )}
     </div>
@@ -98,13 +92,17 @@ export function ComponentShowcase({
 }
 
 // Export a simpler version for basic usage
-export function SimpleShowcase({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+export function SimpleShowcase({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <div className={`component-showcase showcase--transparent showcase--tight ${className}`}>
       <div className="showcase-preview" data-align="center">
-        <div className="preview-container">
-          {children}
-        </div>
+        <div className="preview-container">{children}</div>
       </div>
     </div>
   );

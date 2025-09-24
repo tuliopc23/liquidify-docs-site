@@ -3,7 +3,7 @@ title: HoverCard
 description: A floating card that appears when hovering over an element, perfect for contextual information and previews.
 ---
 
-import HoverCardDemo from "../../../components/demos/HoverCardDemo.tsx"
+import HoverCardDemo from "../../../components/demos/HoverCardDemo.tsx";
 
 # HoverCard
 
@@ -18,7 +18,7 @@ bun add liquidify-react
 ## Import
 
 ```tsx
-import { HoverCard } from "liquidify-react/ark-ui/hoverCard"
+import { HoverCard } from "liquidify-react/ark-ui/hoverCard";
 ```
 
 ## Basic Usage
@@ -28,8 +28,8 @@ Display contextual information when hovering over a trigger element:
 <HoverCardDemo client:only="react" />
 
 ```tsx
-import { HoverCard } from "liquidify-react/ark-ui/hoverCard"
-import { Button } from "liquidify-react/button"
+import { HoverCard } from "liquidify-react/ark-ui/hoverCard";
+import { Button } from "liquidify-react/button";
 
 export function BasicExample() {
   return (
@@ -47,7 +47,7 @@ export function BasicExample() {
         </HoverCard.Content>
       </HoverCard.Positioner>
     </HoverCard.Root>
-  )
+  );
 }
 ```
 
@@ -56,8 +56,8 @@ export function BasicExample() {
 Create rich profile previews for user mentions or avatars:
 
 ```tsx
-import { HoverCard } from "liquidify-react/ark-ui/hoverCard"
-import { Avatar } from "liquidify-react/avatar"
+import { HoverCard } from "liquidify-react/ark-ui/hoverCard";
+import { Avatar } from "liquidify-react/ark-ui/avatar";
 
 export function UserProfileExample() {
   return (
@@ -84,7 +84,7 @@ export function UserProfileExample() {
         </HoverCard.Content>
       </HoverCard.Positioner>
     </HoverCard.Root>
-  )
+  );
 }
 ```
 
@@ -93,12 +93,12 @@ export function UserProfileExample() {
 Control the hover card's visibility programmatically:
 
 ```tsx
-import { useState } from "react"
-import { HoverCard } from "liquidify-react/ark-ui/hoverCard"
-import { Button } from "liquidify-react/button"
+import { useState } from "react";
+import { HoverCard } from "liquidify-react/ark-ui/hoverCard";
+import { Button } from "liquidify-react/button";
 
 export function ControlledExample() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   return (
     <div>
@@ -118,14 +118,12 @@ export function ControlledExample() {
           </HoverCard.Content>
         </HoverCard.Positioner>
       </HoverCard.Root>
-      
+
       <div style={{ marginTop: "16px" }}>
-        <Button onClick={() => setOpen(!open)}>
-          {open ? "Hide" : "Show"} Hover Card
-        </Button>
+        <Button onClick={() => setOpen(!open)}>{open ? "Hide" : "Show"} Hover Card</Button>
       </div>
     </div>
-  )
+  );
 }
 ```
 
@@ -134,8 +132,8 @@ export function ControlledExample() {
 Customize the hover card's position and behavior:
 
 ```tsx
-import { HoverCard } from "liquidify-react/hover-card"
-import { Button } from "liquidify-react/button"
+import { HoverCard } from "liquidify-react/ark-ui/hoverCard";
+import { Button } from "liquidify-react/button";
 
 export function PositioningExample() {
   return (
@@ -143,12 +141,7 @@ export function PositioningExample() {
       <HoverCard.Trigger asChild>
         <Button variant="outline">Custom Positioning</Button>
       </HoverCard.Trigger>
-      <HoverCard.Positioner 
-        side="top" 
-        align="center"
-        sideOffset={8}
-        alignOffset={0}
-      >
+      <HoverCard.Positioner side="top" align="center" sideOffset={8} alignOffset={0}>
         <HoverCard.Content>
           <HoverCard.Arrow />
           <div style={{ padding: "12px" }}>
@@ -157,7 +150,7 @@ export function PositioningExample() {
         </HoverCard.Content>
       </HoverCard.Positioner>
     </HoverCard.Root>
-  )
+  );
 }
 ```
 
@@ -167,12 +160,12 @@ export function PositioningExample() {
 
 The root container for the hover card.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `open` | `boolean` | `false` | Whether the hover card is open |
-| `onOpenChange` | `(open: boolean) => void` | - | Callback when open state changes |
-| `openDelay` | `number` | `700` | Delay before opening (ms) |
-| `closeDelay` | `number` | `300` | Delay before closing (ms) |
+| Prop           | Type                      | Default | Description                      |
+| -------------- | ------------------------- | ------- | -------------------------------- |
+| `open`         | `boolean`                 | `false` | Whether the hover card is open   |
+| `onOpenChange` | `(open: boolean) => void` | -       | Callback when open state changes |
+| `openDelay`    | `number`                  | `700`   | Delay before opening (ms)        |
+| `closeDelay`   | `number`                  | `300`   | Delay before closing (ms)        |
 
 ### HoverCard.Trigger
 
@@ -182,12 +175,12 @@ The element that triggers the hover card. Must be used with `asChild`.
 
 Controls the positioning of the hover card content.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `side` | `"top" \| "right" \| "bottom" \| "left"` | `"bottom"` | Preferred side to render |
-| `align` | `"start" \| "center" \| "end"` | `"center"` | Alignment relative to trigger |
-| `sideOffset` | `number` | `4` | Distance from trigger element |
-| `alignOffset` | `number` | `0` | Additional alignment offset |
+| Prop          | Type                                     | Default    | Description                   |
+| ------------- | ---------------------------------------- | ---------- | ----------------------------- |
+| `side`        | `"top" \| "right" \| "bottom" \| "left"` | `"bottom"` | Preferred side to render      |
+| `align`       | `"start" \| "center" \| "end"`           | `"center"` | Alignment relative to trigger |
+| `sideOffset`  | `number`                                 | `4`        | Distance from trigger element |
+| `alignOffset` | `number`                                 | `0`        | Additional alignment offset   |
 
 ### HoverCard.Content
 

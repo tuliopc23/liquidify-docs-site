@@ -2,160 +2,110 @@
 layout: ../../../layouts/DocsLayout.astro
 ---
 
-import { Button } from "liquidify-react/button"
-import { ComponentShowcase, SimpleShowcase } from "../../../components/ComponentShowcase"
+import { Button } from "liquidify-react/button";
+import ButtonBasicDemo from "../../../components/demos/ButtonBasicDemo.tsx";
+import ButtonVariantsDemo from "../../../components/demos/ButtonVariantsDemo.tsx";
+import ButtonSizesDemo from "../../../components/demos/ButtonSizesDemo.tsx";
+import ButtonStatesDemo from "../../../components/demos/ButtonStatesDemo.tsx";
 
 # Button
 
-Interactive elements that trigger actions when clicked. Essential for forms, navigation, and user interactions with multiple variants for different contexts.
+Interactive elements that trigger actions when clicked. Essential for forms, navigation, and user interactions with Apple HIG-compliant styling.
 
 ## Import
 
 ```tsx
-import { Button } from "liquidify-react/button"
+import { Button } from "liquidify-react/button";
 ```
 
 ## Basic Usage
 
-<ComponentShowcase
-  title="Button Variants"
-  description="Different button styles for various use cases"
-  code={`<div style={{ display: "flex", gap: "1rem" }}>
-  <Button variant="primary">Primary</Button>
-  <Button variant="secondary">Secondary</Button>
-  <Button variant="ghost">Ghost</Button>
-</div>`}
-  client:load
->
-  <Button variant="primary" client:load>Primary</Button>
-  <Button variant="secondary" client:load>Secondary</Button>
-  <Button variant="ghost" client:load>Ghost</Button>
-</ComponentShowcase>
+<ButtonBasicDemo client:load />
 
-```tsx title="Button.tsx"
-import { Button } from "liquidify-react/button"
+```tsx
+import { Button } from "liquidify-react/button";
 
 export default function Example() {
   return (
     <div style={{ display: "flex", gap: "1rem" }}>
-      <Button variant="primary">Primary</Button>
-      <Button variant="secondary">Secondary</Button>
-      <Button variant="ghost">Ghost</Button>
+      <Button variant="filled" tone="accent">Filled Accent</Button>
+      <Button variant="tinted" tone="neutral">Tinted Neutral</Button>
+      <Button variant="plain" tone="neutral">Plain</Button>
     </div>
-  )
+  );
 }
 ```
 
+## Variants and Tones
+
+The Button uses Apple's HIG-compliant API with `variant` (visual emphasis) and `tone` (semantic meaning).
+
+### Variants
+
+- **filled**: High emphasis, solid background
+- **tinted**: Medium emphasis, tinted background
+- **plain**: Low emphasis, transparent background
+
+### Tones
+
+- **accent**: Primary actions (blue accent)
+- **neutral**: Secondary actions (gray)
+- **destructive**: Destructive actions (red)
+
+<ButtonVariantsDemo client:load />
+
 ## Sizes
 
-<ComponentShowcase
-  title="Button Sizes"
-  description="Different sizes for various interface contexts"
-  code={`<div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-  <Button size="sm">Small</Button>
-  <Button size="md">Medium</Button>
-  <Button size="lg">Large</Button>
-</div>`}
-  client:load
->
-  <Button size="sm" client:load>Small</Button>
-  <Button size="md" client:load>Medium</Button>
-  <Button size="lg" client:load>Large</Button>
-</ComponentShowcase>
-
-## With Icons
+<ButtonSizesDemo client:load />
 
 ```tsx
-export default function IconsExample() {
-	return (
-		<div style={{ display: "flex", gap: "1rem" }}>
-			<Button>
-				<PlusIcon />
-				Add Item
-			</Button>
-			
-			<Button variant="secondary">
-				Download
-				<DownloadIcon />
-			</Button>
-			
-			<Button variant="ghost" size="sm">
-				<SearchIcon />
-			</Button>
-		</div>
-	)
-}
+<Button size="compact">Compact</Button>
+<Button size="regular">Regular</Button>
+<Button size="large">Large</Button>
 ```
 
 ## States
 
-<ComponentShowcase
-  title="Button States"
-  description="Different interaction states for buttons"
-  code={`<div style={{ display: "flex", gap: "1rem" }}>
-  <Button>Default</Button>
-  <Button disabled>Disabled</Button>
-</div>`}
-  client:load
->
-  <Button client:load>Default</Button>
-  <Button disabled client:load>Disabled</Button>
-</ComponentShowcase>
+<ButtonStatesDemo client:load />
 
-## Button Variants
+```tsx
+<Button disabled>Disabled</Button>
+<Button loading>Loading</Button>
+```
 
-<ComponentShowcase
-  title="All Button Variants"
-  description="Complete set of available button variants"
-  code={`<div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-  <Button variant="primary">Primary</Button>
-  <Button variant="secondary">Secondary</Button>
-  <Button variant="ghost">Ghost</Button>
-  <Button variant="danger">Danger</Button>
-  <Button variant="success">Success</Button>
-  <Button variant="warning">Warning</Button>
-</div>`}
-  client:load
->
-  <Button variant="primary" client:load>Primary</Button>
-  <Button variant="secondary" client:load>Secondary</Button>
-  <Button variant="ghost" client:load>Ghost</Button>
-  <Button variant="danger" client:load>Danger</Button>
-  <Button variant="success" client:load>Success</Button>
-  <Button variant="warning" client:load>Warning</Button>
-</ComponentShowcase>
+## Legacy API (Deprecated)
 
-## Sizes
+For backward compatibility, the old API still works but shows deprecation warnings:
 
-<ComponentShowcase
-  title="All Button Sizes"
-  description="Complete set of available button sizes"
-  code={`<div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-  <Button size="sm">Small</Button>
-  <Button size="md">Medium</Button>
-  <Button size="lg">Large</Button>
-  <Button size="xl">Extra Large</Button>
-</div>`}
-  background="light"
-  client:load
->
-  <Button size="sm" client:load>Small</Button>
-  <Button size="md" client:load>Medium</Button>
-  <Button size="lg" client:load>Large</Button>
-  <Button size="xl" client:load>Extra Large</Button>
-</ComponentShowcase>
+```tsx
+// ⚠️ DEPRECATED - Will be removed in future versions
+<Button variant="primary">Primary</Button>     // → variant="filled" tone="accent"
+<Button variant="secondary">Secondary</Button> // → variant="tinted" tone="neutral"
+<Button variant="ghost">Ghost</Button>         // → variant="plain" tone="neutral"
+<Button variant="danger">Danger</Button>       // → variant="filled" tone="destructive"
+```
 
 ## API Reference
 
 ### Props
-- `variant`: `"primary" | "secondary" | "ghost" | "danger" | "success" | "warning"` - Visual style variant (optional)
-- `size`: `"sm" | "md" | "lg" | "xl"` - Button size (optional)
-- `disabled`: `boolean` - Disable button interaction (inherited from HTML button)
-- `children`: `React.ReactNode` - Button content (required)
+
+- `variant`: `"filled" | "tinted" | "plain"` - Visual emphasis level
+- `tone`: `"accent" | "neutral" | "destructive"` - Semantic color tone
+- `size`: `"compact" | "regular" | "large"` - Button size (also accepts legacy `"sm" | "md" | "lg" | "xl"`)
+- `as`: `React.ElementType` - Polymorphic element type (e.g., `"a"` for links)
+- `icon`: `React.ReactNode` - Icon element to render
+- `iconPosition`: `"start" | "end"` - Icon placement
+- `loading`: `boolean` - Show loading state
+- `disabled`: `boolean` - Disable button interaction
+- `magneticHover`: `boolean` - Enable magnetic hover effect
+- `magneticStrength`: `number` - Magnetic effect strength
 - Standard HTML button attributes are supported
 
 ### Accessibility
+
+- Minimum 44×44px touch target (enforced via size variants)
 - Full keyboard navigation with Enter and Space
-- Disabled state properly announced
-- Loading state with aria-busy
-- Focus management and visual indicators
+- Disabled state with proper `aria-disabled`
+- Loading state with `aria-busy`
+- Focus ring using accent color
+- Icon-only buttons require `aria-label`
