@@ -29,6 +29,24 @@ The Accordion component documentation SHALL demonstrate core usage and variants 
 - **WHEN** reading the Accessibility section
 - **THEN** it SHALL describe keyboard navigation and ARIA roles as implemented by Ark‑UI
 
+### Requirement: Client-only Demo Rendering
+All interactive Ark-UI wrappers in MDX SHALL render via client-only React demos to avoid SSR runtime errors while preserving real component behavior and styling.
+
+#### Scenario: Hydration strategy
+- **WHEN** embedding interactive Ark-UI examples in MDX
+- **THEN** the page SHALL import a small demo from `src/components/demos/<Component>Demo.tsx`
+- **AND** render it with `client:only="react"`
+- **AND** the code block SHALL show the equivalent usage with correct import path
+
+### Requirement: Documentation Coverage
+The documentation SHALL include live demos and correct import paths for the initial set of Ark‑UI components.
+
+#### Scenario: Components covered in this change
+- **WHEN** reviewing the site
+- **THEN** the following components SHALL have client-only demos and corrected imports:
+- Accordion, Tabs, Dialog, Popover, Menu, Tooltip, HoverCard, Select, Combobox, NumberInput,
+- Checkbox, RadioGroup, Switch, DatePicker, Listbox, Collapsible, PinInput
+
 ### Requirement: Tabs Documentation
 The Tabs component documentation SHALL include basic usage and at least one variant demonstration.
 
