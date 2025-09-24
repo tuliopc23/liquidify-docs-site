@@ -1,6 +1,15 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
-  "organizeImports": { "enabled": true },
+  "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
+  "files": {
+    "includes": ["src/**", "public/**", "scripts/**", "tools/**"],
+    "experimentalScannerIgnores": [
+      "node_modules/**",
+      "dist/**",
+      "**/dist/**",
+      "docs-public/**",
+      "**/*.mdx"
+    ]
+  },
   "formatter": { "enabled": false },
   "linter": {
     "enabled": true,
@@ -12,5 +21,14 @@
       },
       "security": { "noDangerouslySetInnerHtml": "error" }
     }
-  }
+  },
+  "overrides": [
+    {
+      "files": {
+        "maxSize": 1048576
+      },
+      "linter": { "enabled": false },
+      "formatter": { "enabled": false }
+    }
+  ]
 }

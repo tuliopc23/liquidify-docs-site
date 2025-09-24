@@ -16,7 +16,7 @@ bun add liquidify-react
 ## Import
 
 ```tsx
-import { Slider } from "liquidify-react/slider"
+import { Slider } from "liquidify-react/ark-ui/slider";
 ```
 
 ## Basic Usage
@@ -24,7 +24,7 @@ import { Slider } from "liquidify-react/slider"
 Create a simple slider for value selection:
 
 ```tsx
-import { Slider } from "liquidify-react/slider"
+import { Slider } from "liquidify-react/ark-ui/slider";
 
 export function BasicExample() {
   return (
@@ -38,7 +38,7 @@ export function BasicExample() {
         <Slider.Thumb index={0} />
       </Slider.Control>
     </Slider.Root>
-  )
+  );
 }
 ```
 
@@ -47,17 +47,17 @@ export function BasicExample() {
 Control the slider value with state:
 
 ```tsx
-import { useState } from "react"
-import { Slider } from "liquidify-react/slider"
+import { useState } from "react";
+import { Slider } from "liquidify-react/ark-ui/slider";
 
 export function ControlledExample() {
-  const [value, setValue] = useState([25])
+  const [value, setValue] = useState([25]);
 
   return (
-    <Slider.Root 
-      value={value} 
+    <Slider.Root
+      value={value}
       onValueChange={(details) => setValue(details.value)}
-      min={0} 
+      min={0}
       max={100}
     >
       <Slider.Label>Price Range ($)</Slider.Label>
@@ -70,7 +70,7 @@ export function ControlledExample() {
       </Slider.Control>
       <p>Selected value: ${value[0]}</p>
     </Slider.Root>
-  )
+  );
 }
 ```
 
@@ -79,17 +79,17 @@ export function ControlledExample() {
 Create a dual-thumb slider for selecting ranges:
 
 ```tsx
-import { useState } from "react"
-import { Slider } from "liquidify-react/slider"
+import { useState } from "react";
+import { Slider } from "liquidify-react/ark-ui/slider";
 
 export function RangeExample() {
-  const [range, setRange] = useState([20, 80])
+  const [range, setRange] = useState([20, 80]);
 
   return (
-    <Slider.Root 
-      value={range} 
+    <Slider.Root
+      value={range}
       onValueChange={(details) => setRange(details.value)}
-      min={0} 
+      min={0}
       max={100}
     >
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -106,7 +106,7 @@ export function RangeExample() {
         <Slider.Thumb index={1} />
       </Slider.Control>
     </Slider.Root>
-  )
+  );
 }
 ```
 
@@ -115,7 +115,7 @@ export function RangeExample() {
 Use discrete steps for value selection:
 
 ```tsx
-import { Slider } from "liquidify-react/slider"
+import { Slider } from "liquidify-react/ark-ui/slider";
 
 export function StepExample() {
   return (
@@ -128,13 +128,21 @@ export function StepExample() {
         </Slider.Track>
         <Slider.Thumb index={0} />
       </Slider.Control>
-      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "8px", fontSize: "12px", color: "#6b7280" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginTop: "8px",
+          fontSize: "12px",
+          color: "#6b7280",
+        }}
+      >
         {Array.from({ length: 11 }, (_, i) => (
           <span key={i}>{i}</span>
         ))}
       </div>
     </Slider.Root>
-  )
+  );
 }
 ```
 
@@ -143,7 +151,7 @@ export function StepExample() {
 Create a vertical orientation slider:
 
 ```tsx
-import { Slider } from "liquidify-react/slider"
+import { Slider } from "liquidify-react/ark-ui/slider";
 
 export function VerticalExample() {
   return (
@@ -158,13 +166,13 @@ export function VerticalExample() {
         </Slider.Control>
         <Slider.ValueText />
       </Slider.Root>
-      
+
       <div style={{ fontSize: "12px", color: "#6b7280" }}>
         <div>100°F</div>
         <div style={{ marginTop: "120px" }}>0°F</div>
       </div>
     </div>
-  )
+  );
 }
 ```
 
@@ -173,32 +181,34 @@ export function VerticalExample() {
 Use sliders for color value selection:
 
 ```tsx
-import { useState } from "react"
-import { Slider } from "liquidify-react/slider"
+import { useState } from "react";
+import { Slider } from "liquidify-react/ark-ui/slider";
 
 export function ColorPickerExample() {
-  const [red, setRed] = useState([128])
-  const [green, setGreen] = useState([128])
-  const [blue, setBlue] = useState([128])
+  const [red, setRed] = useState([128]);
+  const [green, setGreen] = useState([128]);
+  const [blue, setBlue] = useState([128]);
 
-  const rgbColor = `rgb(${red[0]}, ${green[0]}, ${blue[0]})`
+  const rgbColor = `rgb(${red[0]}, ${green[0]}, ${blue[0]})`;
 
   return (
     <div>
-      <div style={{ 
-        width: "100px", 
-        height: "100px", 
-        backgroundColor: rgbColor,
-        border: "1px solid #e5e7eb",
-        borderRadius: "8px",
-        marginBottom: "20px"
-      }} />
-      
+      <div
+        style={{
+          width: "100px",
+          height: "100px",
+          backgroundColor: rgbColor,
+          border: "1px solid #e5e7eb",
+          borderRadius: "8px",
+          marginBottom: "20px",
+        }}
+      />
+
       <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-        <Slider.Root 
-          value={red} 
+        <Slider.Root
+          value={red}
           onValueChange={(details) => setRed(details.value)}
-          min={0} 
+          min={0}
           max={255}
         >
           <Slider.Label style={{ color: "#ef4444" }}>Red: {red[0]}</Slider.Label>
@@ -210,10 +220,10 @@ export function ColorPickerExample() {
           </Slider.Control>
         </Slider.Root>
 
-        <Slider.Root 
-          value={green} 
+        <Slider.Root
+          value={green}
           onValueChange={(details) => setGreen(details.value)}
-          min={0} 
+          min={0}
           max={255}
         >
           <Slider.Label style={{ color: "#10b981" }}>Green: {green[0]}</Slider.Label>
@@ -225,10 +235,10 @@ export function ColorPickerExample() {
           </Slider.Control>
         </Slider.Root>
 
-        <Slider.Root 
-          value={blue} 
+        <Slider.Root
+          value={blue}
           onValueChange={(details) => setBlue(details.value)}
-          min={0} 
+          min={0}
           max={255}
         >
           <Slider.Label style={{ color: "#3b82f6" }}>Blue: {blue[0]}</Slider.Label>
@@ -240,12 +250,10 @@ export function ColorPickerExample() {
           </Slider.Control>
         </Slider.Root>
       </div>
-      
-      <p style={{ marginTop: "16px", fontFamily: "monospace" }}>
-        {rgbColor}
-      </p>
+
+      <p style={{ marginTop: "16px", fontFamily: "monospace" }}>{rgbColor}</p>
     </div>
-  )
+  );
 }
 ```
 
@@ -254,7 +262,7 @@ export function ColorPickerExample() {
 Show a disabled slider component:
 
 ```tsx
-import { Slider } from "liquidify-react/slider"
+import { Slider } from "liquidify-react/ark-ui/slider";
 
 export function DisabledExample() {
   return (
@@ -267,11 +275,9 @@ export function DisabledExample() {
         </Slider.Track>
         <Slider.Thumb index={0} />
       </Slider.Control>
-      <p style={{ color: "#6b7280", fontSize: "14px" }}>
-        This slider cannot be modified
-      </p>
+      <p style={{ color: "#6b7280", fontSize: "14px" }}>This slider cannot be modified</p>
     </Slider.Root>
-  )
+  );
 }
 ```
 
@@ -280,23 +286,23 @@ export function DisabledExample() {
 Format slider values with custom display:
 
 ```tsx
-import { useState } from "react"
-import { Slider } from "liquidify-react/slider"
+import { useState } from "react";
+import { Slider } from "liquidify-react/ark-ui/slider";
 
 export function FormattedExample() {
-  const [value, setValue] = useState([50])
-  
+  const [value, setValue] = useState([50]);
+
   const formatValue = (val) => {
-    if (val < 25) return "Low"
-    if (val < 75) return "Medium"
-    return "High"
-  }
+    if (val < 25) return "Low";
+    if (val < 75) return "Medium";
+    return "High";
+  };
 
   return (
-    <Slider.Root 
-      value={value} 
+    <Slider.Root
+      value={value}
       onValueChange={(details) => setValue(details.value)}
-      min={0} 
+      min={0}
       max={100}
     >
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -311,13 +317,21 @@ export function FormattedExample() {
         </Slider.Track>
         <Slider.Thumb index={0} />
       </Slider.Control>
-      <div style={{ display: "flex", justifyContent: "space-between", marginTop: "8px", fontSize: "12px", color: "#6b7280" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginTop: "8px",
+          fontSize: "12px",
+          color: "#6b7280",
+        }}
+      >
         <span>Low</span>
         <span>Medium</span>
         <span>High</span>
       </div>
     </Slider.Root>
-  )
+  );
 }
 ```
 
@@ -327,17 +341,17 @@ export function FormattedExample() {
 
 The root container for the slider component.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `number[]` | - | Controlled slider values |
-| `defaultValue` | `number[]` | `[0]` | Default slider values |
-| `onValueChange` | `(details) => void` | - | Callback when value changes |
-| `min` | `number` | `0` | Minimum slider value |
-| `max` | `number` | `100` | Maximum slider value |
-| `step` | `number` | `1` | Step increment for values |
-| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Slider orientation |
-| `disabled` | `boolean` | `false` | Whether the slider is disabled |
-| `invalid` | `boolean` | `false` | Whether the slider is invalid |
+| Prop            | Type                         | Default        | Description                    |
+| --------------- | ---------------------------- | -------------- | ------------------------------ |
+| `value`         | `number[]`                   | -              | Controlled slider values       |
+| `defaultValue`  | `number[]`                   | `[0]`          | Default slider values          |
+| `onValueChange` | `(details) => void`          | -              | Callback when value changes    |
+| `min`           | `number`                     | `0`            | Minimum slider value           |
+| `max`           | `number`                     | `100`          | Maximum slider value           |
+| `step`          | `number`                     | `1`            | Step increment for values      |
+| `orientation`   | `"horizontal" \| "vertical"` | `"horizontal"` | Slider orientation             |
+| `disabled`      | `boolean`                    | `false`        | Whether the slider is disabled |
+| `invalid`       | `boolean`                    | `false`        | Whether the slider is invalid  |
 
 ### Slider.Label
 
@@ -363,9 +377,9 @@ The filled portion indicating the selected range.
 
 Individual draggable thumb for value selection.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `index` | `number` | - | Index of the thumb (required) |
+| Prop    | Type     | Default | Description                   |
+| ------- | -------- | ------- | ----------------------------- |
+| `index` | `number` | -       | Index of the thumb (required) |
 
 ## Accessibility
 

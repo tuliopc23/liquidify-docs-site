@@ -16,7 +16,7 @@ npm install liquidify-react
 ## Import
 
 ```tsx
-import { Toast } from "liquidify-react/toast";
+import { Toast } from "liquidify-react/ark-ui/toast";
 ```
 
 ## Usage
@@ -25,23 +25,19 @@ import { Toast } from "liquidify-react/toast";
 
 ```tsx
 import { useState } from "react";
-import { Toast } from "liquidify-react/toast";
+import { Toast } from "liquidify-react/ark-ui/toast";
 
 export default function BasicToast() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div>
-      <button onClick={() => setIsOpen(true)}>
-        Show Toast
-      </button>
-      
+      <button onClick={() => setIsOpen(true)}>Show Toast</button>
+
       {isOpen && (
         <Toast.Root open={isOpen} onOpenChange={setIsOpen}>
           <Toast.Title>Success!</Toast.Title>
-          <Toast.Description>
-            Your changes have been saved successfully.
-          </Toast.Description>
+          <Toast.Description>Your changes have been saved successfully.</Toast.Description>
           <Toast.CloseTrigger>×</Toast.CloseTrigger>
         </Toast.Root>
       )}
@@ -54,7 +50,7 @@ export default function BasicToast() {
 
 ```tsx
 import { useState } from "react";
-import { Toast } from "liquidify-react/toast";
+import { Toast } from "liquidify-react/ark-ui/toast";
 
 export default function StatusToasts() {
   const [activeToast, setActiveToast] = useState(null);
@@ -68,19 +64,25 @@ export default function StatusToasts() {
       <button onClick={() => showToast("success", "Success!", "Operation completed successfully.")}>
         Success Toast
       </button>
-      <button onClick={() => showToast("error", "Error!", "Something went wrong. Please try again.")}>
+      <button
+        onClick={() => showToast("error", "Error!", "Something went wrong. Please try again.")}
+      >
         Error Toast
       </button>
-      <button onClick={() => showToast("warning", "Warning!", "Please review your input before proceeding.")}>
+      <button
+        onClick={() =>
+          showToast("warning", "Warning!", "Please review your input before proceeding.")
+        }
+      >
         Warning Toast
       </button>
       <button onClick={() => showToast("info", "Info", "Here's some helpful information.")}>
         Info Toast
       </button>
-      
+
       {activeToast && (
-        <Toast.Root 
-          open={!!activeToast} 
+        <Toast.Root
+          open={!!activeToast}
           onOpenChange={() => setActiveToast(null)}
           status={activeToast.status}
         >
@@ -98,7 +100,7 @@ export default function StatusToasts() {
 
 ```tsx
 import { useState } from "react";
-import { Toast } from "liquidify-react/toast";
+import { Toast } from "liquidify-react/ark-ui/toast";
 
 export default function ActionToast() {
   const [isOpen, setIsOpen] = useState(false);
@@ -110,19 +112,13 @@ export default function ActionToast() {
 
   return (
     <div>
-      <button onClick={() => setIsOpen(true)}>
-        Delete Item
-      </button>
-      
+      <button onClick={() => setIsOpen(true)}>Delete Item</button>
+
       {isOpen && (
         <Toast.Root open={isOpen} onOpenChange={setIsOpen}>
           <Toast.Title>Item Deleted</Toast.Title>
-          <Toast.Description>
-            The item has been moved to trash.
-          </Toast.Description>
-          <Toast.ActionTrigger onClick={handleUndo}>
-            Undo
-          </Toast.ActionTrigger>
+          <Toast.Description>The item has been moved to trash.</Toast.Description>
+          <Toast.ActionTrigger onClick={handleUndo}>Undo</Toast.ActionTrigger>
           <Toast.CloseTrigger>×</Toast.CloseTrigger>
         </Toast.Root>
       )}
@@ -135,7 +131,7 @@ export default function ActionToast() {
 
 ```tsx
 import { useState, useEffect } from "react";
-import { Toast } from "liquidify-react/toast";
+import { Toast } from "liquidify-react/ark-ui/toast";
 
 export default function AutoDismissToast() {
   const [isOpen, setIsOpen] = useState(false);
@@ -152,10 +148,8 @@ export default function AutoDismissToast() {
 
   return (
     <div>
-      <button onClick={() => setIsOpen(true)}>
-        Show Auto-dismiss Toast
-      </button>
-      
+      <button onClick={() => setIsOpen(true)}>Show Auto-dismiss Toast</button>
+
       {isOpen && (
         <Toast.Root open={isOpen} onOpenChange={setIsOpen}>
           <Toast.Title>Auto-dismiss</Toast.Title>
@@ -174,7 +168,7 @@ export default function AutoDismissToast() {
 
 ```tsx
 import { useState, useCallback } from "react";
-import { Toast } from "liquidify-react/toast";
+import { Toast } from "liquidify-react/ark-ui/toast";
 
 export default function ToastManager() {
   const [toasts, setToasts] = useState([]);
@@ -182,65 +176,77 @@ export default function ToastManager() {
   const addToast = useCallback((toast) => {
     const id = Date.now();
     const newToast = { ...toast, id };
-    setToasts(prev => [...prev, newToast]);
+    setToasts((prev) => [...prev, newToast]);
 
     // Auto-remove after 4 seconds
     setTimeout(() => {
-      setToasts(prev => prev.filter(t => t.id !== id));
+      setToasts((prev) => prev.filter((t) => t.id !== id));
     }, 4000);
   }, []);
 
   const removeToast = useCallback((id) => {
-    setToasts(prev => prev.filter(t => t.id !== id));
+    setToasts((prev) => prev.filter((t) => t.id !== id));
   }, []);
 
   return (
     <div>
       <div style={{ display: "flex", gap: "1rem", marginBottom: "2rem" }}>
-        <button onClick={() => addToast({ 
-          status: "success", 
-          title: "Success!", 
-          description: "Task completed successfully." 
-        })}>
+        <button
+          onClick={() =>
+            addToast({
+              status: "success",
+              title: "Success!",
+              description: "Task completed successfully.",
+            })
+          }
+        >
           Add Success Toast
         </button>
-        <button onClick={() => addToast({ 
-          status: "error", 
-          title: "Error!", 
-          description: "An error occurred." 
-        })}>
+        <button
+          onClick={() =>
+            addToast({
+              status: "error",
+              title: "Error!",
+              description: "An error occurred.",
+            })
+          }
+        >
           Add Error Toast
         </button>
-        <button onClick={() => addToast({ 
-          status: "info", 
-          title: "Info", 
-          description: "Here's some information." 
-        })}>
+        <button
+          onClick={() =>
+            addToast({
+              status: "info",
+              title: "Info",
+              description: "Here's some information.",
+            })
+          }
+        >
           Add Info Toast
         </button>
       </div>
 
-      <div style={{ 
-        position: "fixed", 
-        top: "1rem", 
-        right: "1rem", 
-        zIndex: 1000,
-        display: "flex",
-        flexDirection: "column",
-        gap: "0.5rem"
-      }}>
+      <div
+        style={{
+          position: "fixed",
+          top: "1rem",
+          right: "1rem",
+          zIndex: 1000,
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.5rem",
+        }}
+      >
         {toasts.map((toast) => (
-          <Toast.Root 
-            key={toast.id} 
-            open={true} 
+          <Toast.Root
+            key={toast.id}
+            open={true}
             onOpenChange={() => removeToast(toast.id)}
             status={toast.status}
           >
             <Toast.Title>{toast.title}</Toast.Title>
             <Toast.Description>{toast.description}</Toast.Description>
-            <Toast.CloseTrigger onClick={() => removeToast(toast.id)}>
-              ×
-            </Toast.CloseTrigger>
+            <Toast.CloseTrigger onClick={() => removeToast(toast.id)}>×</Toast.CloseTrigger>
           </Toast.Root>
         ))}
       </div>
@@ -253,32 +259,27 @@ export default function ToastManager() {
 
 ```tsx
 import { useState } from "react";
-import { Toast } from "liquidify-react/toast";
+import { Toast } from "liquidify-react/ark-ui/toast";
 
 export default function PersistentToast() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div>
-      <button onClick={() => setIsOpen(true)}>
-        Show Persistent Toast
-      </button>
-      
+      <button onClick={() => setIsOpen(true)}>Show Persistent Toast</button>
+
       {isOpen && (
-        <Toast.Root 
-          open={isOpen} 
-          onOpenChange={setIsOpen}
-          status="warning"
-          persist={true}
-        >
+        <Toast.Root open={isOpen} onOpenChange={setIsOpen} status="warning" persist={true}>
           <Toast.Title>Action Required</Toast.Title>
           <Toast.Description>
             Please complete your profile to continue using the application.
           </Toast.Description>
-          <Toast.ActionTrigger onClick={() => {
-            console.log("Navigate to profile");
-            setIsOpen(false);
-          }}>
+          <Toast.ActionTrigger
+            onClick={() => {
+              console.log("Navigate to profile");
+              setIsOpen(false);
+            }}
+          >
             Complete Profile
           </Toast.ActionTrigger>
           <Toast.CloseTrigger>×</Toast.CloseTrigger>
@@ -293,18 +294,18 @@ export default function PersistentToast() {
 
 ```tsx
 import { useState } from "react";
-import { Toast } from "liquidify-react/toast";
+import { Toast } from "liquidify-react/ark-ui/toast";
 
 export default function LoadingToast() {
   const [loadingToast, setLoadingToast] = useState(false);
 
   const handleAsyncAction = async () => {
     setLoadingToast(true);
-    
+
     try {
       // Simulate async operation
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
       setLoadingToast(false);
       // Could show success toast here
     } catch (error) {
@@ -315,16 +316,12 @@ export default function LoadingToast() {
 
   return (
     <div>
-      <button onClick={handleAsyncAction}>
-        Start Process
-      </button>
-      
+      <button onClick={handleAsyncAction}>Start Process</button>
+
       {loadingToast && (
         <Toast.Root open={loadingToast} onOpenChange={setLoadingToast}>
           <Toast.Title>Processing...</Toast.Title>
-          <Toast.Description>
-            Please wait while we process your request.
-          </Toast.Description>
+          <Toast.Description>Please wait while we process your request.</Toast.Description>
         </Toast.Root>
       )}
     </div>
@@ -340,15 +337,15 @@ The root container for the toast component.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `open` | `boolean` | - | Whether the toast is visible |
-| `onOpenChange` | `(open: boolean) => void` | - | Callback fired when visibility changes |
-| `status` | `"info" \| "success" \| "warning" \| "error"` | `"info"` | The status/type of the toast |
-| `duration` | `number` | `5000` | Auto-dismiss duration in milliseconds |
-| `persist` | `boolean` | `false` | Whether the toast should persist until manually closed |
-| `pauseOnHover` | `boolean` | `true` | Whether to pause auto-dismiss on hover |
-| `pauseOnPageIdle` | `boolean` | `true` | Whether to pause auto-dismiss when page is idle |
+| Prop              | Type                                          | Default  | Description                                            |
+| ----------------- | --------------------------------------------- | -------- | ------------------------------------------------------ |
+| `open`            | `boolean`                                     | -        | Whether the toast is visible                           |
+| `onOpenChange`    | `(open: boolean) => void`                     | -        | Callback fired when visibility changes                 |
+| `status`          | `"info" \| "success" \| "warning" \| "error"` | `"info"` | The status/type of the toast                           |
+| `duration`        | `number`                                      | `5000`   | Auto-dismiss duration in milliseconds                  |
+| `persist`         | `boolean`                                     | `false`  | Whether the toast should persist until manually closed |
+| `pauseOnHover`    | `boolean`                                     | `true`   | Whether to pause auto-dismiss on hover                 |
+| `pauseOnPageIdle` | `boolean`                                     | `true`   | Whether to pause auto-dismiss when page is idle        |
 
 ### Toast.Title
 
@@ -356,9 +353,9 @@ The title/heading of the toast.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The title content |
+| Prop       | Type        | Default | Description       |
+| ---------- | ----------- | ------- | ----------------- |
+| `children` | `ReactNode` | -       | The title content |
 
 ### Toast.Description
 
@@ -366,9 +363,9 @@ The description text of the toast.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The description content |
+| Prop       | Type        | Default | Description             |
+| ---------- | ----------- | ------- | ----------------------- |
+| `children` | `ReactNode` | -       | The description content |
 
 ### Toast.CloseTrigger
 
@@ -376,10 +373,10 @@ The button to close/dismiss the toast.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The close trigger content |
-| `onClick` | `() => void` | - | Custom click handler |
+| Prop       | Type         | Default | Description               |
+| ---------- | ------------ | ------- | ------------------------- |
+| `children` | `ReactNode`  | -       | The close trigger content |
+| `onClick`  | `() => void` | -       | Custom click handler      |
 
 ### Toast.ActionTrigger
 
@@ -387,10 +384,10 @@ An action button within the toast.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The action trigger content |
-| `onClick` | `() => void` | - | Action click handler |
+| Prop       | Type         | Default | Description                |
+| ---------- | ------------ | ------- | -------------------------- |
+| `children` | `ReactNode`  | -       | The action trigger content |
+| `onClick`  | `() => void` | -       | Action click handler       |
 
 ## Accessibility
 
@@ -404,10 +401,10 @@ The Toast component includes comprehensive accessibility features:
 
 ### Keyboard Shortcuts
 
-| Key | Action |
-|-----|--------|
-| `Escape` | Close the focused toast |
-| `Tab` | Navigate between toast actions |
+| Key               | Action                                  |
+| ----------------- | --------------------------------------- |
+| `Escape`          | Close the focused toast                 |
+| `Tab`             | Navigate between toast actions          |
 | `Enter` / `Space` | Activate focused action or close button |
 
 ## Best Practices

@@ -16,7 +16,7 @@ npm install liquidify-react
 ## Import
 
 ```tsx
-import { TagsInput } from "liquidify-react/tagsInput";
+import { TagsInput } from "liquidify-react/ark-ui/tagsInput";
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ import { TagsInput } from "liquidify-react/tagsInput";
 ### Basic TagsInput
 
 ```tsx
-import { TagsInput } from "liquidify-react/tagsInput";
+import { TagsInput } from "liquidify-react/ark-ui/tagsInput";
 
 export default function BasicTagsInput() {
   return (
@@ -53,7 +53,7 @@ export default function BasicTagsInput() {
 
 ```tsx
 import { useState } from "react";
-import { TagsInput } from "liquidify-react/tagsInput";
+import { TagsInput } from "liquidify-react/ark-ui/tagsInput";
 
 export default function ControlledTagsInput() {
   const [tags, setTags] = useState(["Design", "Development"]);
@@ -87,7 +87,7 @@ export default function ControlledTagsInput() {
 
 ```tsx
 import { useState } from "react";
-import { TagsInput } from "liquidify-react/tagsInput";
+import { TagsInput } from "liquidify-react/ark-ui/tagsInput";
 
 export default function ValidatedTagsInput() {
   const [tags, setTags] = useState(["email", "urgent"]);
@@ -98,7 +98,7 @@ export default function ValidatedTagsInput() {
       setError("Maximum 5 tags allowed");
       return;
     }
-    if (newTags.some(tag => tag.length > 20)) {
+    if (newTags.some((tag) => tag.length > 20)) {
       setError("Tags must be 20 characters or less");
       return;
     }
@@ -119,13 +119,8 @@ export default function ValidatedTagsInput() {
             <TagsInput.ItemInput />
           </TagsInput.Item>
         ))}
-        <TagsInput.Input 
-          placeholder="Add label..." 
-          disabled={tags.length >= 5}
-        />
-        {tags.length > 0 && (
-          <TagsInput.ClearTrigger>Clear all</TagsInput.ClearTrigger>
-        )}
+        <TagsInput.Input placeholder="Add label..." disabled={tags.length >= 5} />
+        {tags.length > 0 && <TagsInput.ClearTrigger>Clear all</TagsInput.ClearTrigger>}
       </TagsInput.Control>
       <TagsInput.HiddenInput />
       {error && <p style={{ color: "red", fontSize: "14px" }}>{error}</p>}
@@ -138,17 +133,13 @@ export default function ValidatedTagsInput() {
 
 ```tsx
 import { useState } from "react";
-import { TagsInput } from "liquidify-react/tagsInput";
+import { TagsInput } from "liquidify-react/ark-ui/tagsInput";
 
 export default function CustomDelimitersTagsInput() {
   const [tags, setTags] = useState(["apple", "banana"]);
 
   return (
-    <TagsInput.Root 
-      value={tags} 
-      onValueChange={setTags}
-      delimiter={[",", ";", "|"]}
-    >
+    <TagsInput.Root value={tags} onValueChange={setTags} delimiter={[",", ";", "|"]}>
       <TagsInput.Label>Fruits (separate with comma, semicolon, or pipe)</TagsInput.Label>
       <TagsInput.Control>
         {tags.map((value, index) => (
@@ -172,7 +163,7 @@ export default function CustomDelimitersTagsInput() {
 ### Read-only TagsInput
 
 ```tsx
-import { TagsInput } from "liquidify-react/tagsInput";
+import { TagsInput } from "liquidify-react/ark-ui/tagsInput";
 
 export default function ReadOnlyTagsInput() {
   const tags = ["Production", "Critical", "Urgent"];
@@ -198,7 +189,7 @@ export default function ReadOnlyTagsInput() {
 ### Disabled TagsInput
 
 ```tsx
-import { TagsInput } from "liquidify-react/tagsInput";
+import { TagsInput } from "liquidify-react/ark-ui/tagsInput";
 
 export default function DisabledTagsInput() {
   const tags = ["React", "TypeScript", "Next.js"];
@@ -229,17 +220,13 @@ export default function DisabledTagsInput() {
 
 ```tsx
 import { useState } from "react";
-import { TagsInput } from "liquidify-react/tagsInput";
+import { TagsInput } from "liquidify-react/ark-ui/tagsInput";
 
 export default function InlineEditingTagsInput() {
   const [tags, setTags] = useState(["UI Design", "Frontend Development"]);
 
   return (
-    <TagsInput.Root 
-      value={tags} 
-      onValueChange={setTags}
-      editable
-    >
+    <TagsInput.Root value={tags} onValueChange={setTags} editable>
       <TagsInput.Label>Project Areas (Double-click to edit)</TagsInput.Label>
       <TagsInput.Control>
         {tags.map((value, index) => (
@@ -255,9 +242,7 @@ export default function InlineEditingTagsInput() {
         <TagsInput.ClearTrigger>Clear all</TagsInput.ClearTrigger>
       </TagsInput.Control>
       <TagsInput.HiddenInput />
-      <p style={{ fontSize: "14px", color: "gray" }}>
-        Tip: Double-click any tag to edit it inline
-      </p>
+      <p style={{ fontSize: "14px", color: "gray" }}>Tip: Double-click any tag to edit it inline</p>
     </TagsInput.Root>
   );
 }
@@ -271,18 +256,18 @@ The root container for the tags input component.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string[]` | - | The controlled values of the tags input |
-| `defaultValue` | `string[]` | `[]` | The default values when uncontrolled |
-| `onValueChange` | `(values: string[]) => void` | - | Callback fired when the values change |
-| `disabled` | `boolean` | `false` | Whether the tags input is disabled |
-| `readOnly` | `boolean` | `false` | Whether the tags input is read-only |
-| `editable` | `boolean` | `false` | Whether tags can be edited inline |
-| `delimiter` | `string \| string[]` | `","` | Characters that trigger tag creation |
-| `max` | `number` | - | Maximum number of tags allowed |
-| `allowOverflow` | `boolean` | `false` | Whether to allow exceeding the max |
-| `validate` | `(value: string) => boolean` | - | Custom validation function |
+| Prop            | Type                         | Default | Description                             |
+| --------------- | ---------------------------- | ------- | --------------------------------------- |
+| `value`         | `string[]`                   | -       | The controlled values of the tags input |
+| `defaultValue`  | `string[]`                   | `[]`    | The default values when uncontrolled    |
+| `onValueChange` | `(values: string[]) => void` | -       | Callback fired when the values change   |
+| `disabled`      | `boolean`                    | `false` | Whether the tags input is disabled      |
+| `readOnly`      | `boolean`                    | `false` | Whether the tags input is read-only     |
+| `editable`      | `boolean`                    | `false` | Whether tags can be edited inline       |
+| `delimiter`     | `string \| string[]`         | `","`   | Characters that trigger tag creation    |
+| `max`           | `number`                     | -       | Maximum number of tags allowed          |
+| `allowOverflow` | `boolean`                    | `false` | Whether to allow exceeding the max      |
+| `validate`      | `(value: string) => boolean` | -       | Custom validation function              |
 
 ### TagsInput.Label
 
@@ -290,9 +275,9 @@ The label for the tags input.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The label content |
+| Prop       | Type        | Default | Description       |
+| ---------- | ----------- | ------- | ----------------- |
+| `children` | `ReactNode` | -       | The label content |
 
 ### TagsInput.Control
 
@@ -300,9 +285,9 @@ The container for tags and input.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The control content |
+| Prop       | Type        | Default | Description         |
+| ---------- | ----------- | ------- | ------------------- |
+| `children` | `ReactNode` | -       | The control content |
 
 ### TagsInput.Input
 
@@ -310,10 +295,10 @@ The input field for adding new tags.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `placeholder` | `string` | - | Placeholder text for the input |
-| All standard input props | - | - | Standard HTML input attributes |
+| Prop                     | Type     | Default | Description                    |
+| ------------------------ | -------- | ------- | ------------------------------ |
+| `placeholder`            | `string` | -       | Placeholder text for the input |
+| All standard input props | -        | -       | Standard HTML input attributes |
 
 ### TagsInput.Item
 
@@ -321,11 +306,11 @@ A tag item container.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `index` | `number` | - | The index of the tag |
-| `value` | `string` | - | The value of the tag |
-| `children` | `ReactNode` | - | The tag content |
+| Prop       | Type        | Default | Description          |
+| ---------- | ----------- | ------- | -------------------- |
+| `index`    | `number`    | -       | The index of the tag |
+| `value`    | `string`    | -       | The value of the tag |
+| `children` | `ReactNode` | -       | The tag content      |
 
 ### TagsInput.ItemPreview
 
@@ -333,9 +318,9 @@ The display state of a tag item.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The preview content |
+| Prop       | Type        | Default | Description         |
+| ---------- | ----------- | ------- | ------------------- |
+| `children` | `ReactNode` | -       | The preview content |
 
 ### TagsInput.ItemText
 
@@ -343,9 +328,9 @@ The text content of a tag.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The tag text |
+| Prop       | Type        | Default | Description  |
+| ---------- | ----------- | ------- | ------------ |
+| `children` | `ReactNode` | -       | The tag text |
 
 ### TagsInput.ItemInput
 
@@ -353,9 +338,9 @@ The input field for editing a tag.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| All standard input props | - | - | Standard HTML input attributes |
+| Prop                     | Type | Default | Description                    |
+| ------------------------ | ---- | ------- | ------------------------------ |
+| All standard input props | -    | -       | Standard HTML input attributes |
 
 ### TagsInput.ItemDeleteTrigger
 
@@ -363,9 +348,9 @@ The button to delete a tag.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The delete trigger content |
+| Prop       | Type        | Default | Description                |
+| ---------- | ----------- | ------- | -------------------------- |
+| `children` | `ReactNode` | -       | The delete trigger content |
 
 ### TagsInput.ClearTrigger
 
@@ -373,9 +358,9 @@ The button to clear all tags.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The clear trigger content |
+| Prop       | Type        | Default | Description               |
+| ---------- | ----------- | ------- | ------------------------- |
+| `children` | `ReactNode` | -       | The clear trigger content |
 
 ### TagsInput.HiddenInput
 
@@ -383,9 +368,9 @@ A hidden input that contains the tag values for form submission.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| All standard input props | - | - | Standard HTML input attributes |
+| Prop                     | Type | Default | Description                    |
+| ------------------------ | ---- | ------- | ------------------------------ |
+| All standard input props | -    | -       | Standard HTML input attributes |
 
 ## Accessibility
 
@@ -399,16 +384,16 @@ The TagsInput component includes comprehensive accessibility features:
 
 ### Keyboard Shortcuts
 
-| Key | Action |
-|-----|--------|
-| `Enter` | Create a new tag from input value |
-| `Backspace` | Delete the last tag when input is empty |
-| `Delete` | Delete the focused tag |
-| `Arrow Left/Right` | Navigate between tags |
-| `Tab` | Move focus to next element |
-| `Shift + Tab` | Move focus to previous element |
-| `Escape` | Cancel tag editing or clear input |
-| `F2` | Start editing the focused tag (when editable) |
+| Key                | Action                                        |
+| ------------------ | --------------------------------------------- |
+| `Enter`            | Create a new tag from input value             |
+| `Backspace`        | Delete the last tag when input is empty       |
+| `Delete`           | Delete the focused tag                        |
+| `Arrow Left/Right` | Navigate between tags                         |
+| `Tab`              | Move focus to next element                    |
+| `Shift + Tab`      | Move focus to previous element                |
+| `Escape`           | Cancel tag editing or clear input             |
+| `F2`               | Start editing the focused tag (when editable) |
 
 ## Best Practices
 

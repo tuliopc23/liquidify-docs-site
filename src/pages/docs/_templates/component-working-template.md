@@ -5,6 +5,7 @@ This template provides a structure for documenting LiqUIdify React components wi
 ## Available Components
 
 Currently available components in liquidify-react v0.6.9:
+
 - `badge` - Status indicators and labels
 - `button` - Interactive buttons
 - `card` - Content containers
@@ -14,13 +15,13 @@ Currently available components in liquidify-react v0.6.9:
 
 ## Template Structure
 
-```mdx
+````mdx
 ---
 layout: ../../../layouts/DocsLayout.astro
 ---
 
-import { ComponentName } from "liquidify-react/component-name"
-import { ComponentShowcase } from "../../../components/ComponentShowcase"
+import { ComponentName } from "liquidify-react/component-name";
+import { ComponentShowcase } from "../../../components/ComponentShowcase";
 
 # ComponentName
 
@@ -29,32 +30,36 @@ Brief description of the component and its use cases.
 ## Import
 
 ```tsx
-import { ComponentName } from "liquidify-react/component-name"
+import { ComponentName } from "liquidify-react/component-name";
 ```
+````
 
 ## Basic Usage
 
 <ComponentShowcase
-  title="Basic Example"
-  description="Simple usage demonstration"
-  code={`<ComponentName>
+title="Basic Example"
+description="Simple usage demonstration"
+code={`<ComponentName>
   Example content
 </ComponentName>`}
-  client:load
->
-  <ComponentName client:load>
+client:load
+
+>   <ComponentName client:load>
+
     Example content
+
   </ComponentName>
 </ComponentShowcase>
 
 ## Variants
 
 <ComponentShowcase
-  title="Component Variants"
-  description="Different visual styles"
-  code={`<div style={{ display: "flex", gap: "1rem" }}>
-  <ComponentName variant="primary">Primary</ComponentName>
-  <ComponentName variant="secondary">Secondary</ComponentName>
+title="Component Variants"
+description="Different visual styles"
+code={`<div style={{ display: "flex", gap: "1rem" }}>
+<ComponentName variant="primary">Primary</ComponentName>
+<ComponentName variant="secondary">Secondary</ComponentName>
+
 </div>`}
   client:load
 >
@@ -65,13 +70,16 @@ import { ComponentName } from "liquidify-react/component-name"
 ## API Reference
 
 ### Props
+
 - List all props with types and descriptions
 - Include default values where applicable
 
 ### Accessibility
+
 - Keyboard navigation details
 - Screen reader support
 - ARIA attributes used
+
 ```
 
 ## ComponentShowcase Props
@@ -94,3 +102,4 @@ The enhanced ComponentShowcase component supports:
 3. Provide both live examples and code blocks
 4. Include comprehensive API documentation
 5. Document accessibility features
+```

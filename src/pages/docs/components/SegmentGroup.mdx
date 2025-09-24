@@ -16,7 +16,7 @@ npm install liquidify-react
 ## Import
 
 ```tsx
-import { SegmentGroup } from "liquidify-react/segmentGroup";
+import { SegmentGroup } from "liquidify-react/ark-ui/segmentGroup";
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ import { SegmentGroup } from "liquidify-react/segmentGroup";
 
 ```tsx
 import { useState } from "react";
-import { SegmentGroup } from "liquidify-react/segmentGroup";
+import { SegmentGroup } from "liquidify-react/ark-ui/segmentGroup";
 
 export default function BasicSegmentGroup() {
   const [value, setValue] = useState("option1");
@@ -51,7 +51,9 @@ export default function BasicSegmentGroup() {
         </SegmentGroup.Item>
       </SegmentGroup.Root>
 
-      <p style={{ marginTop: "1rem" }}>Selected: <strong>{value}</strong></p>
+      <p style={{ marginTop: "1rem" }}>
+        Selected: <strong>{value}</strong>
+      </p>
     </div>
   );
 }
@@ -61,7 +63,7 @@ export default function BasicSegmentGroup() {
 
 ```tsx
 import { useState } from "react";
-import { SegmentGroup } from "liquidify-react/segmentGroup";
+import { SegmentGroup } from "liquidify-react/ark-ui/segmentGroup";
 
 export default function ViewModeSelector() {
   const [viewMode, setViewMode] = useState("grid");
@@ -69,16 +71,23 @@ export default function ViewModeSelector() {
   const items = [
     { value: "list", label: "List", icon: "📋" },
     { value: "grid", label: "Grid", icon: "⚏" },
-    { value: "card", label: "Card", icon: "🃏" }
+    { value: "card", label: "Card", icon: "🃏" },
   ];
 
   return (
     <div style={{ padding: "2rem" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "2rem",
+        }}
+      >
         <h3>Product Catalog</h3>
 
         <SegmentGroup.Root value={viewMode} onValueChange={(details) => setViewMode(details.value)}>
-          {items.map(item => (
+          {items.map((item) => (
             <SegmentGroup.Item key={item.value} value={item.value}>
               <SegmentGroup.ItemText>
                 {item.icon} {item.label}
@@ -89,19 +98,28 @@ export default function ViewModeSelector() {
         </SegmentGroup.Root>
       </div>
 
-      <div style={{
-        padding: "2rem",
-        border: "1px solid #dee2e6",
-        borderRadius: "8px",
-        textAlign: "center",
-        backgroundColor: "#f8f9fa"
-      }}>
-        <h4>Current View: {items.find(item => item.value === viewMode)?.label}</h4>
+      <div
+        style={{
+          padding: "2rem",
+          border: "1px solid #dee2e6",
+          borderRadius: "8px",
+          textAlign: "center",
+          backgroundColor: "#f8f9fa",
+        }}
+      >
+        <h4>Current View: {items.find((item) => item.value === viewMode)?.label}</h4>
         <p>Displaying products in {viewMode} mode</p>
 
         {viewMode === "list" && (
           <div>
-            <div style={{ display: "flex", justifyContent: "space-between", padding: "0.5rem", borderBottom: "1px solid #dee2e6" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                padding: "0.5rem",
+                borderBottom: "1px solid #dee2e6",
+              }}
+            >
               <span>Product Name</span>
               <span>Price</span>
             </div>
@@ -113,10 +131,26 @@ export default function ViewModeSelector() {
         )}
 
         {viewMode === "grid" && (
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "1rem" }}>
-            {[1, 2, 3, 4].map(i => (
-              <div key={i} style={{ padding: "1rem", backgroundColor: "white", borderRadius: "4px" }}>
-                <div style={{ width: "100%", height: "80px", backgroundColor: "#e9ecef", marginBottom: "0.5rem" }}></div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
+              gap: "1rem",
+            }}
+          >
+            {[1, 2, 3, 4].map((i) => (
+              <div
+                key={i}
+                style={{ padding: "1rem", backgroundColor: "white", borderRadius: "4px" }}
+              >
+                <div
+                  style={{
+                    width: "100%",
+                    height: "80px",
+                    backgroundColor: "#e9ecef",
+                    marginBottom: "0.5rem",
+                  }}
+                ></div>
                 <div>Product {i}</div>
                 <div>$29.99</div>
               </div>
@@ -125,12 +159,37 @@ export default function ViewModeSelector() {
         )}
 
         {viewMode === "card" && (
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "1rem" }}>
-            {[1, 2].map(i => (
-              <div key={i} style={{ padding: "1rem", backgroundColor: "white", borderRadius: "8px", boxShadow: "0 2px 4px rgba(0,0,0,0.1)" }}>
-                <div style={{ width: "100%", height: "120px", backgroundColor: "#e9ecef", marginBottom: "1rem", borderRadius: "4px" }}></div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+              gap: "1rem",
+            }}
+          >
+            {[1, 2].map((i) => (
+              <div
+                key={i}
+                style={{
+                  padding: "1rem",
+                  backgroundColor: "white",
+                  borderRadius: "8px",
+                  boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+                }}
+              >
+                <div
+                  style={{
+                    width: "100%",
+                    height: "120px",
+                    backgroundColor: "#e9ecef",
+                    marginBottom: "1rem",
+                    borderRadius: "4px",
+                  }}
+                ></div>
                 <h5>Product {i}</h5>
-                <p>This is a detailed description of the product with more information about its features and benefits.</p>
+                <p>
+                  This is a detailed description of the product with more information about its
+                  features and benefits.
+                </p>
                 <div style={{ fontWeight: "bold", color: "#007bff" }}>$29.99</div>
               </div>
             ))}
@@ -146,13 +205,14 @@ export default function ViewModeSelector() {
 
 ```tsx
 import { useState } from "react";
-import { SegmentGroup } from "liquidify-react/segmentGroup";
+import { SegmentGroup } from "liquidify-react/ark-ui/segmentGroup";
 
 export default function TextFormattingControls() {
   const [alignment, setAlignment] = useState("left");
   const [fontSize, setFontSize] = useState("medium");
 
-  const sampleText = "The quick brown fox jumps over the lazy dog. This is a sample text to demonstrate the formatting controls.";
+  const sampleText =
+    "The quick brown fox jumps over the lazy dog. This is a sample text to demonstrate the formatting controls.";
 
   return (
     <div style={{ padding: "2rem", maxWidth: "600px", margin: "0 auto" }}>
@@ -160,7 +220,10 @@ export default function TextFormattingControls() {
 
       <div style={{ marginBottom: "2rem" }}>
         <h4>Text Alignment</h4>
-        <SegmentGroup.Root value={alignment} onValueChange={(details) => setAlignment(details.value)}>
+        <SegmentGroup.Root
+          value={alignment}
+          onValueChange={(details) => setAlignment(details.value)}
+        >
           <SegmentGroup.Item value="left">
             <SegmentGroup.ItemText>⬅️ Left</SegmentGroup.ItemText>
             <SegmentGroup.ItemControl />
@@ -208,17 +271,24 @@ export default function TextFormattingControls() {
         </SegmentGroup.Root>
       </div>
 
-      <div style={{
-        padding: "1rem",
-        border: "1px solid #dee2e6",
-        borderRadius: "8px",
-        backgroundColor: "#f8f9fa",
-        textAlign: alignment,
-        fontSize: fontSize === "small" ? "14px" :
-                  fontSize === "medium" ? "16px" :
-                  fontSize === "large" ? "18px" : "20px",
-        lineHeight: alignment === "justify" ? "1.6" : "1.4"
-      }}>
+      <div
+        style={{
+          padding: "1rem",
+          border: "1px solid #dee2e6",
+          borderRadius: "8px",
+          backgroundColor: "#f8f9fa",
+          textAlign: alignment,
+          fontSize:
+            fontSize === "small"
+              ? "14px"
+              : fontSize === "medium"
+                ? "16px"
+                : fontSize === "large"
+                  ? "18px"
+                  : "20px",
+          lineHeight: alignment === "justify" ? "1.6" : "1.4",
+        }}
+      >
         <h4>Preview</h4>
         <p>{sampleText}</p>
       </div>
@@ -231,7 +301,7 @@ export default function TextFormattingControls() {
 
 ```tsx
 import { useState } from "react";
-import { SegmentGroup } from "liquidify-react/segmentGroup";
+import { SegmentGroup } from "liquidify-react/ark-ui/segmentGroup";
 
 export default function FilterControls() {
   const [statusFilter, setStatusFilter] = useState("all");
@@ -242,10 +312,10 @@ export default function FilterControls() {
     { id: 2, title: "Review design mockups", status: "in-progress", date: "2024-01-16" },
     { id: 3, title: "Update documentation", status: "pending", date: "2024-01-17" },
     { id: 4, title: "Fix login bug", status: "completed", date: "2024-01-14" },
-    { id: 5, title: "Plan team meeting", status: "pending", date: "2024-01-18" }
+    { id: 5, title: "Plan team meeting", status: "pending", date: "2024-01-18" },
   ];
 
-  const filteredTasks = tasks.filter(task => {
+  const filteredTasks = tasks.filter((task) => {
     if (statusFilter === "all") return true;
     return task.status === statusFilter;
   });
@@ -259,10 +329,14 @@ export default function FilterControls() {
 
   const getStatusColor = (status) => {
     switch (status) {
-      case "completed": return "#28a745";
-      case "in-progress": return "#007bff";
-      case "pending": return "#ffc107";
-      default: return "#6c757d";
+      case "completed":
+        return "#28a745";
+      case "in-progress":
+        return "#007bff";
+      case "pending":
+        return "#ffc107";
+      default:
+        return "#6c757d";
     }
   };
 
@@ -272,7 +346,10 @@ export default function FilterControls() {
 
       <div style={{ marginBottom: "2rem" }}>
         <h4>Filter by Status</h4>
-        <SegmentGroup.Root value={statusFilter} onValueChange={(details) => setStatusFilter(details.value)}>
+        <SegmentGroup.Root
+          value={statusFilter}
+          onValueChange={(details) => setStatusFilter(details.value)}
+        >
           <SegmentGroup.Item value="all">
             <SegmentGroup.ItemText>📋 All</SegmentGroup.ItemText>
             <SegmentGroup.ItemControl />
@@ -313,27 +390,32 @@ export default function FilterControls() {
       <div>
         <h4>Tasks ({sortedTasks.length})</h4>
         <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-          {sortedTasks.map(task => (
-            <div key={task.id} style={{
-              padding: "1rem",
-              border: "1px solid #dee2e6",
-              borderRadius: "8px",
-              backgroundColor: "white",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center"
-            }}>
+          {sortedTasks.map((task) => (
+            <div
+              key={task.id}
+              style={{
+                padding: "1rem",
+                border: "1px solid #dee2e6",
+                borderRadius: "8px",
+                backgroundColor: "white",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
               <div>
                 <h5 style={{ margin: 0 }}>{task.title}</h5>
                 <small style={{ color: "#666" }}>{task.date}</small>
               </div>
-              <span style={{
-                padding: "0.25rem 0.5rem",
-                borderRadius: "12px",
-                fontSize: "0.8rem",
-                color: "white",
-                backgroundColor: getStatusColor(task.status)
-              }}>
+              <span
+                style={{
+                  padding: "0.25rem 0.5rem",
+                  borderRadius: "12px",
+                  fontSize: "0.8rem",
+                  color: "white",
+                  backgroundColor: getStatusColor(task.status),
+                }}
+              >
                 {task.status.replace("-", " ")}
               </span>
             </div>
@@ -349,7 +431,7 @@ export default function FilterControls() {
 
 ```tsx
 import { useState } from "react";
-import { SegmentGroup } from "liquidify-react/segmentGroup";
+import { SegmentGroup } from "liquidify-react/ark-ui/segmentGroup";
 
 export default function ThemeSelector() {
   const [theme, setTheme] = useState("light");
@@ -358,32 +440,34 @@ export default function ThemeSelector() {
     light: {
       name: "Light",
       icon: "☀️",
-      colors: { bg: "#ffffff", text: "#333333", accent: "#007bff" }
+      colors: { bg: "#ffffff", text: "#333333", accent: "#007bff" },
     },
     dark: {
       name: "Dark",
       icon: "🌙",
-      colors: { bg: "#1a1a1a", text: "#ffffff", accent: "#4dabf7" }
+      colors: { bg: "#1a1a1a", text: "#ffffff", accent: "#4dabf7" },
     },
     auto: {
       name: "Auto",
       icon: "🔄",
-      colors: { bg: "#f8f9fa", text: "#333333", accent: "#28a745" }
-    }
+      colors: { bg: "#f8f9fa", text: "#333333", accent: "#28a745" },
+    },
   };
 
   const currentTheme = themes[theme];
 
   return (
-    <div style={{
-      padding: "2rem",
-      maxWidth: "600px",
-      margin: "0 auto",
-      backgroundColor: currentTheme.colors.bg,
-      color: currentTheme.colors.text,
-      borderRadius: "12px",
-      transition: "all 0.3s ease"
-    }}>
+    <div
+      style={{
+        padding: "2rem",
+        maxWidth: "600px",
+        margin: "0 auto",
+        backgroundColor: currentTheme.colors.bg,
+        color: currentTheme.colors.text,
+        borderRadius: "12px",
+        transition: "all 0.3s ease",
+      }}
+    >
       <h3>Theme Settings</h3>
 
       <div style={{ marginBottom: "2rem" }}>
@@ -400,32 +484,58 @@ export default function ThemeSelector() {
         </SegmentGroup.Root>
       </div>
 
-      <div style={{
-        padding: "2rem",
-        backgroundColor: theme === "dark" ? "#2d2d2d" : "#f8f9fa",
-        borderRadius: "8px",
-        border: `2px solid ${currentTheme.colors.accent}`
-      }}>
+      <div
+        style={{
+          padding: "2rem",
+          backgroundColor: theme === "dark" ? "#2d2d2d" : "#f8f9fa",
+          borderRadius: "8px",
+          border: `2px solid ${currentTheme.colors.accent}`,
+        }}
+      >
         <h4>Preview</h4>
-        <p>This is how your content will look with the <strong>{currentTheme.name}</strong> theme.</p>
+        <p>
+          This is how your content will look with the <strong>{currentTheme.name}</strong> theme.
+        </p>
 
         <div style={{ marginTop: "1rem" }}>
-          <button style={{
-            padding: "0.5rem 1rem",
-            backgroundColor: currentTheme.colors.accent,
-            color: "white",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer"
-          }}>
+          <button
+            style={{
+              padding: "0.5rem 1rem",
+              backgroundColor: currentTheme.colors.accent,
+              color: "white",
+              border: "none",
+              borderRadius: "4px",
+              cursor: "pointer",
+            }}
+          >
             Sample Button
           </button>
         </div>
 
         <div style={{ marginTop: "1rem", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-          <div style={{ height: "4px", backgroundColor: currentTheme.colors.accent, borderRadius: "2px" }}></div>
-          <div style={{ height: "4px", backgroundColor: currentTheme.colors.accent, borderRadius: "2px", width: "80%" }}></div>
-          <div style={{ height: "4px", backgroundColor: currentTheme.colors.accent, borderRadius: "2px", width: "60%" }}></div>
+          <div
+            style={{
+              height: "4px",
+              backgroundColor: currentTheme.colors.accent,
+              borderRadius: "2px",
+            }}
+          ></div>
+          <div
+            style={{
+              height: "4px",
+              backgroundColor: currentTheme.colors.accent,
+              borderRadius: "2px",
+              width: "80%",
+            }}
+          ></div>
+          <div
+            style={{
+              height: "4px",
+              backgroundColor: currentTheme.colors.accent,
+              borderRadius: "2px",
+              width: "60%",
+            }}
+          ></div>
         </div>
       </div>
     </div>
@@ -437,7 +547,7 @@ export default function ThemeSelector() {
 
 ```tsx
 import { useState } from "react";
-import { SegmentGroup } from "liquidify-react/segmentGroup";
+import { SegmentGroup } from "liquidify-react/ark-ui/segmentGroup";
 
 export default function UnitConverter() {
   const [fromUnit, setFromUnit] = useState("celsius");
@@ -447,7 +557,7 @@ export default function UnitConverter() {
   const temperatureUnits = [
     { value: "celsius", label: "Celsius", symbol: "°C" },
     { value: "fahrenheit", label: "Fahrenheit", symbol: "°F" },
-    { value: "kelvin", label: "Kelvin", symbol: "K" }
+    { value: "kelvin", label: "Kelvin", symbol: "K" },
   ];
 
   const convertTemperature = (value, from, to) => {
@@ -462,7 +572,7 @@ export default function UnitConverter() {
         celsius = numValue;
         break;
       case "fahrenheit":
-        celsius = (numValue - 32) * 5/9;
+        celsius = ((numValue - 32) * 5) / 9;
         break;
       case "kelvin":
         celsius = numValue - 273.15;
@@ -476,7 +586,7 @@ export default function UnitConverter() {
       case "celsius":
         return celsius.toFixed(2);
       case "fahrenheit":
-        return (celsius * 9/5 + 32).toFixed(2);
+        return ((celsius * 9) / 5 + 32).toFixed(2);
       case "kelvin":
         return (celsius + 273.15).toFixed(2);
       default:
@@ -491,11 +601,9 @@ export default function UnitConverter() {
       <h3>Temperature Converter</h3>
 
       <div style={{ marginBottom: "2rem" }}>
-        <label style={{ display: "block", marginBottom: "0.5rem" }}>
-          From
-        </label>
+        <label style={{ display: "block", marginBottom: "0.5rem" }}>From</label>
         <SegmentGroup.Root value={fromUnit} onValueChange={(details) => setFromUnit(details.value)}>
-          {temperatureUnits.map(unit => (
+          {temperatureUnits.map((unit) => (
             <SegmentGroup.Item key={unit.value} value={unit.value}>
               <SegmentGroup.ItemText>{unit.label}</SegmentGroup.ItemText>
               <SegmentGroup.ItemControl />
@@ -505,11 +613,9 @@ export default function UnitConverter() {
       </div>
 
       <div style={{ marginBottom: "2rem" }}>
-        <label style={{ display: "block", marginBottom: "0.5rem" }}>
-          To
-        </label>
+        <label style={{ display: "block", marginBottom: "0.5rem" }}>To</label>
         <SegmentGroup.Root value={toUnit} onValueChange={(details) => setToUnit(details.value)}>
-          {temperatureUnits.map(unit => (
+          {temperatureUnits.map((unit) => (
             <SegmentGroup.Item key={unit.value} value={unit.value}>
               <SegmentGroup.ItemText>{unit.label}</SegmentGroup.ItemText>
               <SegmentGroup.ItemControl />
@@ -519,9 +625,7 @@ export default function UnitConverter() {
       </div>
 
       <div style={{ marginBottom: "2rem" }}>
-        <label style={{ display: "block", marginBottom: "0.5rem" }}>
-          Enter Value
-        </label>
+        <label style={{ display: "block", marginBottom: "0.5rem" }}>Enter Value</label>
         <input
           type="number"
           value={inputValue}
@@ -532,28 +636,28 @@ export default function UnitConverter() {
             padding: "0.5rem",
             border: "1px solid #ccc",
             borderRadius: "4px",
-            fontSize: "16px"
+            fontSize: "16px",
           }}
         />
       </div>
 
-      <div style={{
-        padding: "1rem",
-        backgroundColor: "#f8f9fa",
-        borderRadius: "8px",
-        textAlign: "center"
-      }}>
+      <div
+        style={{
+          padding: "1rem",
+          backgroundColor: "#f8f9fa",
+          borderRadius: "8px",
+          textAlign: "center",
+        }}
+      >
         <h4>Result</h4>
         {result ? (
           <div style={{ fontSize: "24px", fontWeight: "bold", color: "#007bff" }}>
-            {inputValue} {temperatureUnits.find(u => u.value === fromUnit)?.symbol} =
+            {inputValue} {temperatureUnits.find((u) => u.value === fromUnit)?.symbol} =
             <br />
-            {result} {temperatureUnits.find(u => u.value === toUnit)?.symbol}
+            {result} {temperatureUnits.find((u) => u.value === toUnit)?.symbol}
           </div>
         ) : (
-          <div style={{ color: "#666" }}>
-            Enter a value to see the conversion
-          </div>
+          <div style={{ color: "#666" }}>Enter a value to see the conversion</div>
         )}
       </div>
     </div>
@@ -565,7 +669,7 @@ export default function UnitConverter() {
 
 ```tsx
 import { useState } from "react";
-import { SegmentGroup } from "liquidify-react/segmentGroup";
+import { SegmentGroup } from "liquidify-react/ark-ui/segmentGroup";
 
 export default function MediaPlayerControls() {
   const [playbackSpeed, setPlaybackSpeed] = useState("1x");
@@ -576,14 +680,14 @@ export default function MediaPlayerControls() {
     { value: "1x", label: "Normal" },
     { value: "1.25x", label: "1.25x" },
     { value: "1.5x", label: "1.5x" },
-    { value: "2x", label: "2x" }
+    { value: "2x", label: "2x" },
   ];
 
   const qualities = [
     { value: "auto", label: "Auto" },
     { value: "720p", label: "720p" },
     { value: "1080p", label: "1080p" },
-    { value: "4k", label: "4K" }
+    { value: "4k", label: "4K" },
   ];
 
   return (
@@ -592,8 +696,11 @@ export default function MediaPlayerControls() {
 
       <div style={{ marginBottom: "2rem" }}>
         <h4>Playback Speed</h4>
-        <SegmentGroup.Root value={playbackSpeed} onValueChange={(details) => setPlaybackSpeed(details.value)}>
-          {speeds.map(speed => (
+        <SegmentGroup.Root
+          value={playbackSpeed}
+          onValueChange={(details) => setPlaybackSpeed(details.value)}
+        >
+          {speeds.map((speed) => (
             <SegmentGroup.Item key={speed.value} value={speed.value}>
               <SegmentGroup.ItemText>{speed.label}</SegmentGroup.ItemText>
               <SegmentGroup.ItemControl />
@@ -605,7 +712,7 @@ export default function MediaPlayerControls() {
       <div style={{ marginBottom: "2rem" }}>
         <h4>Video Quality</h4>
         <SegmentGroup.Root value={quality} onValueChange={(details) => setQuality(details.value)}>
-          {qualities.map(q => (
+          {qualities.map((q) => (
             <SegmentGroup.Item key={q.value} value={q.value}>
               <SegmentGroup.ItemText>{q.label}</SegmentGroup.ItemText>
               <SegmentGroup.ItemControl />
@@ -614,37 +721,47 @@ export default function MediaPlayerControls() {
         </SegmentGroup.Root>
       </div>
 
-      <div style={{
-        padding: "2rem",
-        backgroundColor: "#1a1a1a",
-        color: "white",
-        borderRadius: "8px",
-        textAlign: "center"
-      }}>
+      <div
+        style={{
+          padding: "2rem",
+          backgroundColor: "#1a1a1a",
+          color: "white",
+          borderRadius: "8px",
+          textAlign: "center",
+        }}
+      >
         <div style={{ fontSize: "48px", marginBottom: "1rem" }}>▶️</div>
         <h4>Sample Video Player</h4>
-        <p>Playback Speed: <strong>{playbackSpeed}</strong></p>
-        <p>Quality: <strong>{quality}</strong></p>
+        <p>
+          Playback Speed: <strong>{playbackSpeed}</strong>
+        </p>
+        <p>
+          Quality: <strong>{quality}</strong>
+        </p>
 
         <div style={{ marginTop: "1rem", display: "flex", justifyContent: "center", gap: "1rem" }}>
-          <button style={{
-            padding: "0.5rem 1rem",
-            backgroundColor: "#007bff",
-            color: "white",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer"
-          }}>
+          <button
+            style={{
+              padding: "0.5rem 1rem",
+              backgroundColor: "#007bff",
+              color: "white",
+              border: "none",
+              borderRadius: "4px",
+              cursor: "pointer",
+            }}
+          >
             Play
           </button>
-          <button style={{
-            padding: "0.5rem 1rem",
-            backgroundColor: "#6c757d",
-            color: "white",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer"
-          }}>
+          <button
+            style={{
+              padding: "0.5rem 1rem",
+              backgroundColor: "#6c757d",
+              color: "white",
+              border: "none",
+              borderRadius: "4px",
+              cursor: "pointer",
+            }}
+          >
             Pause
           </button>
         </div>
@@ -662,14 +779,14 @@ The root container for the segment group component.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | The controlled value |
-| `defaultValue` | `string` | - | The default value when uncontrolled |
-| `onValueChange` | `(details: ValueChangeDetails) => void` | - | Callback fired when value changes |
-| `disabled` | `boolean` | `false` | Whether the segment group is disabled |
-| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | The orientation of the segment group |
-| `children` | `ReactNode` | - | The segment group content |
+| Prop            | Type                                    | Default        | Description                           |
+| --------------- | --------------------------------------- | -------------- | ------------------------------------- |
+| `value`         | `string`                                | -              | The controlled value                  |
+| `defaultValue`  | `string`                                | -              | The default value when uncontrolled   |
+| `onValueChange` | `(details: ValueChangeDetails) => void` | -              | Callback fired when value changes     |
+| `disabled`      | `boolean`                               | `false`        | Whether the segment group is disabled |
+| `orientation`   | `"horizontal" \| "vertical"`            | `"horizontal"` | The orientation of the segment group  |
+| `children`      | `ReactNode`                             | -              | The segment group content             |
 
 ### SegmentGroup.Item
 
@@ -677,11 +794,11 @@ An individual segment item within the group.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `string` | - | The unique value for this segment item |
-| `disabled` | `boolean` | `false` | Whether this item is disabled |
-| `children` | `ReactNode` | - | The segment item content |
+| Prop       | Type        | Default | Description                            |
+| ---------- | ----------- | ------- | -------------------------------------- |
+| `value`    | `string`    | -       | The unique value for this segment item |
+| `disabled` | `boolean`   | `false` | Whether this item is disabled          |
+| `children` | `ReactNode` | -       | The segment item content               |
 
 ### SegmentGroup.ItemText
 
@@ -689,9 +806,9 @@ The text content for a segment item.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The text content |
+| Prop       | Type        | Default | Description      |
+| ---------- | ----------- | ------- | ---------------- |
+| `children` | `ReactNode` | -       | The text content |
 
 ### SegmentGroup.ItemControl
 
@@ -699,9 +816,9 @@ The interactive control element for a segment item.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The control content |
+| Prop       | Type        | Default | Description         |
+| ---------- | ----------- | ------- | ------------------- |
+| `children` | `ReactNode` | -       | The control content |
 
 ### SegmentGroup.Indicator
 
@@ -709,9 +826,9 @@ A visual indicator for the selected segment.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The indicator content |
+| Prop       | Type        | Default | Description           |
+| ---------- | ----------- | ------- | --------------------- |
+| `children` | `ReactNode` | -       | The indicator content |
 
 ## Accessibility
 
@@ -725,14 +842,14 @@ The SegmentGroup component includes comprehensive accessibility features:
 
 ### Keyboard Shortcuts
 
-| Key | Action |
-|-----|--------|
-| `Tab` | Move focus into the segment group |
+| Key                | Action                                 |
+| ------------------ | -------------------------------------- |
+| `Tab`              | Move focus into the segment group      |
 | `Arrow Left/Right` | Navigate between segments (horizontal) |
-| `Arrow Up/Down` | Navigate between segments (vertical) |
-| `Space` / `Enter` | Select the focused segment |
-| `Home` | Move to first segment |
-| `End` | Move to last segment |
+| `Arrow Up/Down`    | Navigate between segments (vertical)   |
+| `Space` / `Enter`  | Select the focused segment             |
+| `Home`             | Move to first segment                  |
+| `End`              | Move to last segment                   |
 
 ## Best Practices
 

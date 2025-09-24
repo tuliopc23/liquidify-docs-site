@@ -1,0 +1,3 @@
+# Ignore MDX docs during formatting due to illustrative JSX snippets
+**/*.mdx
+Astrodocs.md

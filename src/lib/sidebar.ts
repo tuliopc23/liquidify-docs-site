@@ -29,7 +29,10 @@ function pushUnique(arr: NavItem[], item: NavItem) {
 
 export async function getSidebar(): Promise<NavItem[]> {
   // Eagerly import all docs pages
-  const modules = import.meta.glob('/src/pages/docs/**/*.{md,mdx}', { eager: true }) as Record<string, any>;
+  const modules = import.meta.glob("/src/pages/docs/**/*.{md,mdx}", { eager: true }) as Record<
+    string,
+    any
+  >;
 
   // Build groups; special bucket for root-level meta pages
   const groups: Record<string, NavItem> = {};
@@ -43,8 +46,8 @@ export async function getSidebar(): Promise<NavItem[]> {
     const mod = modules[fullPath];
     const fmTitle: string | undefined = mod?.frontmatter?.title;
 
-    const segments = href.split('/').filter(Boolean); // e.g. ['docs','guides','getting-started']
-    if (segments[0] !== 'docs') continue;
+    const segments = href.split("/").filter(Boolean); // e.g. ['docs','guides','getting-started']
+    if (segments[0] !== "docs") continue;
 
     const top = segments[1];
 
@@ -55,10 +58,13 @@ export async function getSidebar(): Promise<NavItem[]> {
 
     // Group name logic
     let groupKey = top;
-    if (/^DOCUMENTATION_/.test(segments[1] || "")) groupKey = 'meta';
+    if (/^DOCUMENTATION_/.test(segments[1] || "")) groupKey = "meta";
 
     if (!groups[groupKey]) {
-      groups[groupKey] = { label: groupKey === 'meta' ? 'Meta' : displayGroupLabel(groupKey), children: [] };
+      groups[groupKey] = {
+        label: groupKey === "meta" ? "Meta" : displayGroupLabel(groupKey),
+        children: [],
+      };
     }
 
     // If this is a group index (/docs/<group>/index.mdx), do not add a duplicate link item; the header already represents the group.
@@ -69,7 +75,7 @@ export async function getSidebar(): Promise<NavItem[]> {
     // Simple leaf under a group: /docs/<group>/<page>.mdx
     if (segments.length === 3 && !isIndex) {
       const itemLabel = fmTitle ?? titleize(segments[2]);
-      pushUnique(groups[groupKey].children!, { label: itemLabel, href: `/${segments.join('/')}` });
+      pushUnique(groups[groupKey].children!, { label: itemLabel, href: `/${segments.join("/")}` });
       continue;
     }
 
@@ -78,7 +84,9 @@ export async function getSidebar(): Promise<NavItem[]> {
     if (segments.length >= 3) {
       const parentSlug = segments[2];
       const parentLabel = titleize(parentSlug);
-      let parent = groups[groupKey].children!.find((c) => c.label.toLowerCase() === parentLabel.toLowerCase());
+      let parent = groups[groupKey].children!.find(
+        (c) => c.label.toLowerCase() === parentLabel.toLowerCase(),
+      );
       if (!parent) {
         parent = { label: parentLabel, children: [] };
         groups[groupKey].children!.push(parent);
@@ -87,7 +95,7 @@ export async function getSidebar(): Promise<NavItem[]> {
       if (!isIndex) {
         // Add the leaf page under the parent
         const itemLabel = fmTitle ?? titleize(segments[segments.length - 1]);
-        pushUnique(parent.children!, { label: itemLabel, href: `/${segments.join('/')}` });
+        pushUnique(parent.children!, { label: itemLabel, href: `/${segments.join("/")}` });
       }
     }
   }
@@ -99,7 +107,7 @@ export async function getSidebar(): Promise<NavItem[]> {
   }
 
   // Preferred display order
-  const order = ['Guides', 'Components', 'Advanced', 'Contributing', 'Templates', 'Meta'];
+  const order = ["Guides", "Components", "Advanced", "Contributing", "Templates", "Meta"];
   const nav = Object.values(groups);
   sortItems(nav);
   nav.sort((a, b) => {

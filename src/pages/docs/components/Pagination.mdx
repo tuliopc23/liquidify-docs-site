@@ -16,7 +16,7 @@ npm install liquidify-react
 ## Import
 
 ```tsx
-import { Pagination } from "liquidify-react/pagination";
+import { Pagination } from "liquidify-react/ark-ui/pagination";
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ import { Pagination } from "liquidify-react/pagination";
 
 ```tsx
 import { useState } from "react";
-import { Pagination } from "liquidify-react/pagination";
+import { Pagination } from "liquidify-react/ark-ui/pagination";
 
 export default function BasicPagination() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -58,7 +58,7 @@ export default function BasicPagination() {
 
 ```tsx
 import { useState, useMemo } from "react";
-import { Pagination } from "liquidify-react/pagination";
+import { Pagination } from "liquidify-react/ark-ui/pagination";
 
 export default function DataTablePagination() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -70,7 +70,7 @@ export default function DataTablePagination() {
     name: `Item ${i + 1}`,
     category: ["Electronics", "Books", "Clothing", "Home", "Sports"][i % 5],
     price: Math.floor(Math.random() * 100) + 10,
-    status: ["Active", "Inactive", "Pending"][i % 3]
+    status: ["Active", "Inactive", "Pending"][i % 3],
   }));
 
   const totalPages = Math.ceil(allData.length / itemsPerPage);
@@ -95,30 +95,50 @@ export default function DataTablePagination() {
         <table style={{ width: "100%", borderCollapse: "collapse" }}>
           <thead style={{ backgroundColor: "#f8f9fa" }}>
             <tr>
-              <th style={{ padding: "1rem", textAlign: "left", borderBottom: "1px solid #dee2e6" }}>ID</th>
-              <th style={{ padding: "1rem", textAlign: "left", borderBottom: "1px solid #dee2e6" }}>Name</th>
-              <th style={{ padding: "1rem", textAlign: "left", borderBottom: "1px solid #dee2e6" }}>Category</th>
-              <th style={{ padding: "1rem", textAlign: "left", borderBottom: "1px solid #dee2e6" }}>Price</th>
-              <th style={{ padding: "1rem", textAlign: "left", borderBottom: "1px solid #dee2e6" }}>Status</th>
+              <th style={{ padding: "1rem", textAlign: "left", borderBottom: "1px solid #dee2e6" }}>
+                ID
+              </th>
+              <th style={{ padding: "1rem", textAlign: "left", borderBottom: "1px solid #dee2e6" }}>
+                Name
+              </th>
+              <th style={{ padding: "1rem", textAlign: "left", borderBottom: "1px solid #dee2e6" }}>
+                Category
+              </th>
+              <th style={{ padding: "1rem", textAlign: "left", borderBottom: "1px solid #dee2e6" }}>
+                Price
+              </th>
+              <th style={{ padding: "1rem", textAlign: "left", borderBottom: "1px solid #dee2e6" }}>
+                Status
+              </th>
             </tr>
           </thead>
           <tbody>
-            {currentData.map(item => (
+            {currentData.map((item) => (
               <tr key={item.id} style={{ borderBottom: "1px solid #eee" }}>
                 <td style={{ padding: "1rem" }}>{item.id}</td>
                 <td style={{ padding: "1rem" }}>{item.name}</td>
                 <td style={{ padding: "1rem" }}>{item.category}</td>
                 <td style={{ padding: "1rem" }}>${item.price}</td>
                 <td style={{ padding: "1rem" }}>
-                  <span style={{
-                    padding: "0.25rem 0.5rem",
-                    borderRadius: "12px",
-                    fontSize: "0.8rem",
-                    backgroundColor: item.status === "Active" ? "#d4edda" :
-                                   item.status === "Inactive" ? "#f8d7da" : "#fff3cd",
-                    color: item.status === "Active" ? "#155724" :
-                           item.status === "Inactive" ? "#721c24" : "#856404"
-                  }}>
+                  <span
+                    style={{
+                      padding: "0.25rem 0.5rem",
+                      borderRadius: "12px",
+                      fontSize: "0.8rem",
+                      backgroundColor:
+                        item.status === "Active"
+                          ? "#d4edda"
+                          : item.status === "Inactive"
+                            ? "#f8d7da"
+                            : "#fff3cd",
+                      color:
+                        item.status === "Active"
+                          ? "#155724"
+                          : item.status === "Inactive"
+                            ? "#721c24"
+                            : "#856404",
+                    }}
+                  >
                     {item.status}
                   </span>
                 </td>
@@ -174,7 +194,7 @@ export default function DataTablePagination() {
 
 ```tsx
 import { useState, useMemo } from "react";
-import { Pagination } from "liquidify-react/pagination";
+import { Pagination } from "liquidify-react/ark-ui/pagination";
 
 export default function SearchResultsPagination() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -189,13 +209,14 @@ export default function SearchResultsPagination() {
       description: `Learn ${searchQuery} with this comprehensive tutorial covering advanced concepts and best practices.`,
       url: `https://example.com/${searchQuery}-tutorial-${i + 1}`,
       type: ["Article", "Video", "Course", "Documentation"][i % 4],
-      date: new Date(Date.now() - Math.random() * 365 * 24 * 60 * 60 * 1000).toLocaleDateString()
+      date: new Date(Date.now() - Math.random() * 365 * 24 * 60 * 60 * 1000).toLocaleDateString(),
     }));
 
     // Filter based on search query
-    return baseResults.filter(result =>
-      result.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      result.description.toLowerCase().includes(searchQuery.toLowerCase())
+    return baseResults.filter(
+      (result) =>
+        result.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        result.description.toLowerCase().includes(searchQuery.toLowerCase()),
     );
   }, [searchQuery]);
 
@@ -227,7 +248,7 @@ export default function SearchResultsPagination() {
               flex: 1,
               padding: "0.5rem",
               border: "1px solid #ccc",
-              borderRadius: "4px"
+              borderRadius: "4px",
             }}
           />
           <button
@@ -238,7 +259,7 @@ export default function SearchResultsPagination() {
               color: "white",
               border: "none",
               borderRadius: "4px",
-              cursor: "pointer"
+              cursor: "pointer",
             }}
           >
             Search
@@ -248,32 +269,44 @@ export default function SearchResultsPagination() {
         <div style={{ color: "#666", fontSize: "0.9rem" }}>
           Found {allResults.length} results for "{searchQuery}"
           {allResults.length > 0 && (
-            <span> • Showing {startResult} to {endResult}</span>
+            <span>
+              {" "}
+              • Showing {startResult} to {endResult}
+            </span>
           )}
         </div>
       </div>
 
       {currentResults.length > 0 ? (
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2rem" }}>
-          {currentResults.map(result => (
-            <div key={result.id} style={{
-              padding: "1rem",
-              border: "1px solid #dee2e6",
-              borderRadius: "8px",
-              backgroundColor: "white"
-            }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}>
+        <div
+          style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2rem" }}
+        >
+          {currentResults.map((result) => (
+            <div
+              key={result.id}
+              style={{
+                padding: "1rem",
+                border: "1px solid #dee2e6",
+                borderRadius: "8px",
+                backgroundColor: "white",
+              }}
+            >
+              <div
+                style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.5rem" }}
+              >
                 <h4 style={{ margin: 0 }}>
                   <a href={result.url} style={{ color: "#007bff", textDecoration: "none" }}>
                     {result.title}
                   </a>
                 </h4>
-                <span style={{
-                  padding: "0.25rem 0.5rem",
-                  backgroundColor: "#e9ecef",
-                  borderRadius: "12px",
-                  fontSize: "0.8rem"
-                }}>
+                <span
+                  style={{
+                    padding: "0.25rem 0.5rem",
+                    backgroundColor: "#e9ecef",
+                    borderRadius: "12px",
+                    fontSize: "0.8rem",
+                  }}
+                >
                   {result.type}
                 </span>
               </div>
@@ -338,7 +371,7 @@ export default function SearchResultsPagination() {
 
 ```tsx
 import { useState } from "react";
-import { Pagination } from "liquidify-react/pagination";
+import { Pagination } from "liquidify-react/ark-ui/pagination";
 
 export default function ContentGalleryPagination() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -349,15 +382,12 @@ export default function ContentGalleryPagination() {
     id: i + 1,
     title: `Gallery Item ${i + 1}`,
     image: `https://picsum.photos/300/200?random=${i + 1}`,
-    category: ["Nature", "Architecture", "People", "Technology", "Art"][i % 5]
+    category: ["Nature", "Architecture", "People", "Technology", "Art"][i % 5],
   }));
 
   const totalPages = Math.ceil(allItems.length / itemsPerPage);
 
-  const currentItems = allItems.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
+  const currentItems = allItems.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   const startItem = (currentPage - 1) * itemsPerPage + 1;
   const endItem = Math.min(currentPage * itemsPerPage, allItems.length);
@@ -370,19 +400,24 @@ export default function ContentGalleryPagination() {
         Showing {startItem} to {endItem} of {allItems.length} photos
       </div>
 
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
-        gap: "1rem",
-        marginBottom: "2rem"
-      }}>
-        {currentItems.map(item => (
-          <div key={item.id} style={{
-            border: "1px solid #dee2e6",
-            borderRadius: "8px",
-            overflow: "hidden",
-            backgroundColor: "white"
-          }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+          gap: "1rem",
+          marginBottom: "2rem",
+        }}
+      >
+        {currentItems.map((item) => (
+          <div
+            key={item.id}
+            style={{
+              border: "1px solid #dee2e6",
+              borderRadius: "8px",
+              overflow: "hidden",
+              backgroundColor: "white",
+            }}
+          >
             <img
               src={item.image}
               alt={item.title}
@@ -390,17 +425,19 @@ export default function ContentGalleryPagination() {
                 width: "100%",
                 height: "200px",
                 objectFit: "cover",
-                display: "block"
+                display: "block",
               }}
             />
             <div style={{ padding: "1rem" }}>
               <h4 style={{ margin: "0 0 0.5rem 0", fontSize: "1rem" }}>{item.title}</h4>
-              <span style={{
-                padding: "0.25rem 0.5rem",
-                backgroundColor: "#e9ecef",
-                borderRadius: "12px",
-                fontSize: "0.8rem"
-              }}>
+              <span
+                style={{
+                  padding: "0.25rem 0.5rem",
+                  backgroundColor: "#e9ecef",
+                  borderRadius: "12px",
+                  fontSize: "0.8rem",
+                }}
+              >
                 {item.category}
               </span>
             </div>
@@ -454,7 +491,7 @@ export default function ContentGalleryPagination() {
 
 ```tsx
 import { useState } from "react";
-import { Pagination } from "liquidify-react/pagination";
+import { Pagination } from "liquidify-react/ark-ui/pagination";
 
 export default function CompactPagination() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -463,7 +500,9 @@ export default function CompactPagination() {
   return (
     <div style={{ textAlign: "center", padding: "2rem" }}>
       <h3>Compact Pagination</h3>
-      <p>Page {currentPage} of {totalPages}</p>
+      <p>
+        Page {currentPage} of {totalPages}
+      </p>
 
       <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem" }}>
         <Pagination.Root
@@ -491,7 +530,7 @@ export default function CompactPagination() {
                 padding: "0.25rem",
                 textAlign: "center",
                 border: "1px solid #ccc",
-                borderRadius: "4px"
+                borderRadius: "4px",
               }}
             />
             <span style={{ fontSize: "0.9rem", color: "#666" }}>of {totalPages}</span>
@@ -509,7 +548,7 @@ export default function CompactPagination() {
 
 ```tsx
 import { useState, useMemo } from "react";
-import { Pagination } from "liquidify-react/pagination";
+import { Pagination } from "liquidify-react/ark-ui/pagination";
 
 export default function PaginationWithPageSize() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -519,7 +558,7 @@ export default function PaginationWithPageSize() {
     id: i + 1,
     name: `User ${i + 1}`,
     email: `user${i + 1}@example.com`,
-    role: ["Admin", "User", "Moderator"][i % 3]
+    role: ["Admin", "User", "Moderator"][i % 3],
   }));
 
   const totalPages = Math.ceil(allData.length / pageSize);
@@ -536,7 +575,14 @@ export default function PaginationWithPageSize() {
     <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "2rem" }}>
       <h3>User Management</h3>
 
-      <div style={{ marginBottom: "2rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <div
+        style={{
+          marginBottom: "2rem",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
         <div style={{ color: "#666" }}>
           Showing {startItem} to {endItem} of {allData.length} users
         </div>
@@ -560,32 +606,57 @@ export default function PaginationWithPageSize() {
         </div>
       </div>
 
-      <div style={{ border: "1px solid #dee2e6", borderRadius: "8px", overflow: "hidden", marginBottom: "2rem" }}>
+      <div
+        style={{
+          border: "1px solid #dee2e6",
+          borderRadius: "8px",
+          overflow: "hidden",
+          marginBottom: "2rem",
+        }}
+      >
         <table style={{ width: "100%", borderCollapse: "collapse" }}>
           <thead style={{ backgroundColor: "#f8f9fa" }}>
             <tr>
-              <th style={{ padding: "1rem", textAlign: "left", borderBottom: "1px solid #dee2e6" }}>ID</th>
-              <th style={{ padding: "1rem", textAlign: "left", borderBottom: "1px solid #dee2e6" }}>Name</th>
-              <th style={{ padding: "1rem", textAlign: "left", borderBottom: "1px solid #dee2e6" }}>Email</th>
-              <th style={{ padding: "1rem", textAlign: "left", borderBottom: "1px solid #dee2e6" }}>Role</th>
+              <th style={{ padding: "1rem", textAlign: "left", borderBottom: "1px solid #dee2e6" }}>
+                ID
+              </th>
+              <th style={{ padding: "1rem", textAlign: "left", borderBottom: "1px solid #dee2e6" }}>
+                Name
+              </th>
+              <th style={{ padding: "1rem", textAlign: "left", borderBottom: "1px solid #dee2e6" }}>
+                Email
+              </th>
+              <th style={{ padding: "1rem", textAlign: "left", borderBottom: "1px solid #dee2e6" }}>
+                Role
+              </th>
             </tr>
           </thead>
           <tbody>
-            {currentData.map(user => (
+            {currentData.map((user) => (
               <tr key={user.id} style={{ borderBottom: "1px solid #eee" }}>
                 <td style={{ padding: "1rem" }}>{user.id}</td>
                 <td style={{ padding: "1rem" }}>{user.name}</td>
                 <td style={{ padding: "1rem" }}>{user.email}</td>
                 <td style={{ padding: "1rem" }}>
-                  <span style={{
-                    padding: "0.25rem 0.5rem",
-                    borderRadius: "12px",
-                    fontSize: "0.8rem",
-                    backgroundColor: user.role === "Admin" ? "#d4edda" :
-                                   user.role === "Moderator" ? "#fff3cd" : "#e9ecef",
-                    color: user.role === "Admin" ? "#155724" :
-                           user.role === "Moderator" ? "#856404" : "#333"
-                  }}>
+                  <span
+                    style={{
+                      padding: "0.25rem 0.5rem",
+                      borderRadius: "12px",
+                      fontSize: "0.8rem",
+                      backgroundColor:
+                        user.role === "Admin"
+                          ? "#d4edda"
+                          : user.role === "Moderator"
+                            ? "#fff3cd"
+                            : "#e9ecef",
+                      color:
+                        user.role === "Admin"
+                          ? "#155724"
+                          : user.role === "Moderator"
+                            ? "#856404"
+                            : "#333",
+                    }}
+                  >
                     {user.role}
                   </span>
                 </td>
@@ -641,7 +712,7 @@ export default function PaginationWithPageSize() {
 
 ```tsx
 import { useState, useEffect } from "react";
-import { Pagination } from "liquidify-react/pagination";
+import { Pagination } from "liquidify-react/ark-ui/pagination";
 
 export default function PaginationAlternative() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -658,15 +729,15 @@ export default function PaginationAlternative() {
   const loadPageData = async (page) => {
     setIsLoading(true);
     // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const newData = Array.from({ length: itemsPerPage }, (_, i) => ({
       id: (page - 1) * itemsPerPage + i + 1,
       title: `Content Item ${(page - 1) * itemsPerPage + i + 1}`,
-      description: `This is the description for content item ${(page - 1) * itemsPerPage + i + 1}.`
+      description: `This is the description for content item ${(page - 1) * itemsPerPage + i + 1}.`,
     }));
 
-    setAllData(prev => page === 1 ? newData : [...prev, ...newData]);
+    setAllData((prev) => (page === 1 ? newData : [...prev, ...newData]));
     setIsLoading(false);
   };
 
@@ -677,14 +748,17 @@ export default function PaginationAlternative() {
       <h3>Content Feed</h3>
 
       <div style={{ marginBottom: "2rem" }}>
-        {allData.map(item => (
-          <div key={item.id} style={{
-            padding: "1rem",
-            marginBottom: "1rem",
-            border: "1px solid #dee2e6",
-            borderRadius: "8px",
-            backgroundColor: "white"
-          }}>
+        {allData.map((item) => (
+          <div
+            key={item.id}
+            style={{
+              padding: "1rem",
+              marginBottom: "1rem",
+              border: "1px solid #dee2e6",
+              borderRadius: "8px",
+              backgroundColor: "white",
+            }}
+          >
             <h4>{item.title}</h4>
             <p>{item.description}</p>
           </div>
@@ -715,7 +789,7 @@ export default function PaginationAlternative() {
             disabled={currentPage === totalPages || isLoading}
             onClick={() => {
               if (currentPage < totalPages && !isLoading) {
-                setCurrentPage(prev => prev + 1);
+                setCurrentPage((prev) => prev + 1);
               }
             }}
           >
@@ -736,14 +810,14 @@ The root container for the pagination component.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `count` | `number` | - | Total number of pages |
-| `page` | `number` | `1` | Current active page |
-| `onPageChange` | `(details: PageChangeDetails) => void` | - | Callback fired when page changes |
-| `siblingCount` | `number` | `1` | Number of sibling pages to show |
-| `boundaryCount` | `number` | `1` | Number of boundary pages to show |
-| `children` | `ReactNode` | - | The pagination content |
+| Prop            | Type                                   | Default | Description                      |
+| --------------- | -------------------------------------- | ------- | -------------------------------- |
+| `count`         | `number`                               | -       | Total number of pages            |
+| `page`          | `number`                               | `1`     | Current active page              |
+| `onPageChange`  | `(details: PageChangeDetails) => void` | -       | Callback fired when page changes |
+| `siblingCount`  | `number`                               | `1`     | Number of sibling pages to show  |
+| `boundaryCount` | `number`                               | `1`     | Number of boundary pages to show |
+| `children`      | `ReactNode`                            | -       | The pagination content           |
 
 ### Pagination.Item
 
@@ -751,10 +825,10 @@ An individual page number item.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `value` | `number` | - | The page number this item represents |
-| `children` | `ReactNode` | - | The item content |
+| Prop       | Type        | Default | Description                          |
+| ---------- | ----------- | ------- | ------------------------------------ |
+| `value`    | `number`    | -       | The page number this item represents |
+| `children` | `ReactNode` | -       | The item content                     |
 
 ### Pagination.Ellipsis
 
@@ -762,9 +836,9 @@ The ellipsis indicator for skipped page numbers.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The ellipsis content |
+| Prop       | Type        | Default | Description          |
+| ---------- | ----------- | ------- | -------------------- |
+| `children` | `ReactNode` | -       | The ellipsis content |
 
 ### Pagination.PrevTrigger
 
@@ -772,10 +846,10 @@ The previous page navigation trigger.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The trigger content |
-| All standard button props | - | - | Standard HTML button attributes |
+| Prop                      | Type        | Default | Description                     |
+| ------------------------- | ----------- | ------- | ------------------------------- |
+| `children`                | `ReactNode` | -       | The trigger content             |
+| All standard button props | -           | -       | Standard HTML button attributes |
 
 ### Pagination.NextTrigger
 
@@ -783,10 +857,10 @@ The next page navigation trigger.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The trigger content |
-| All standard button props | - | - | Standard HTML button attributes |
+| Prop                      | Type        | Default | Description                     |
+| ------------------------- | ----------- | ------- | ------------------------------- |
+| `children`                | `ReactNode` | -       | The trigger content             |
+| All standard button props | -           | -       | Standard HTML button attributes |
 
 ## Accessibility
 
@@ -801,13 +875,13 @@ The Pagination component includes comprehensive accessibility features:
 
 ### Keyboard Shortcuts
 
-| Key | Action |
-|-----|--------|
-| `Tab` | Navigate between pagination controls |
-| `Enter` / `Space` | Activate current page or trigger |
-| `Arrow Left/Right` | Navigate between page items |
-| `Home` | Go to first page |
-| `End` | Go to last page |
+| Key                | Action                               |
+| ------------------ | ------------------------------------ |
+| `Tab`              | Navigate between pagination controls |
+| `Enter` / `Space`  | Activate current page or trigger     |
+| `Arrow Left/Right` | Navigate between page items          |
+| `Home`             | Go to first page                     |
+| `End`              | Go to last page                      |
 
 ## Best Practices
 

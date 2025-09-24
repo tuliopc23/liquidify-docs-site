@@ -16,7 +16,7 @@ npm install liquidify-react
 ## Import
 
 ```tsx
-import { Toggle } from "liquidify-react/toggle";
+import { Toggle } from "liquidify-react/ark-ui/toggle";
 ```
 
 ## Usage
@@ -24,14 +24,10 @@ import { Toggle } from "liquidify-react/toggle";
 ### Basic Toggle
 
 ```tsx
-import { Toggle } from "liquidify-react/toggle";
+import { Toggle } from "liquidify-react/ark-ui/toggle";
 
 export default function BasicToggle() {
-  return (
-    <Toggle.Root>
-      Toggle me
-    </Toggle.Root>
-  );
+  return <Toggle.Root>Toggle me</Toggle.Root>;
 }
 ```
 
@@ -39,7 +35,7 @@ export default function BasicToggle() {
 
 ```tsx
 import { useState } from "react";
-import { Toggle } from "liquidify-react/toggle";
+import { Toggle } from "liquidify-react/ark-ui/toggle";
 
 export default function ControlledToggle() {
   const [isPressed, setIsPressed] = useState(false);
@@ -59,14 +55,14 @@ export default function ControlledToggle() {
 
 ```tsx
 import { useState } from "react";
-import { Toggle } from "liquidify-react/toggle";
+import { Toggle } from "liquidify-react/ark-ui/toggle";
 
 export default function IconToggle() {
   const [isFavorite, setIsFavorite] = useState(false);
 
   return (
-    <Toggle.Root 
-      pressed={isFavorite} 
+    <Toggle.Root
+      pressed={isFavorite}
       onPressedChange={setIsFavorite}
       aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
     >
@@ -79,14 +75,12 @@ export default function IconToggle() {
 ### Disabled Toggle
 
 ```tsx
-import { Toggle } from "liquidify-react/toggle";
+import { Toggle } from "liquidify-react/ark-ui/toggle";
 
 export default function DisabledToggle() {
   return (
     <div style={{ display: "flex", gap: "1rem" }}>
-      <Toggle.Root disabled>
-        Disabled (Off)
-      </Toggle.Root>
+      <Toggle.Root disabled>Disabled (Off)</Toggle.Root>
       <Toggle.Root disabled pressed>
         Disabled (On)
       </Toggle.Root>
@@ -99,7 +93,7 @@ export default function DisabledToggle() {
 
 ```tsx
 import { useState } from "react";
-import { Toggle } from "liquidify-react/toggle";
+import { Toggle } from "liquidify-react/ark-ui/toggle";
 
 export default function SettingsToggles() {
   const [settings, setSettings] = useState({
@@ -109,34 +103,34 @@ export default function SettingsToggles() {
   });
 
   const updateSetting = (key, value) => {
-    setSettings(prev => ({ ...prev, [key]: value }));
+    setSettings((prev) => ({ ...prev, [key]: value }));
   };
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <label>Enable Notifications</label>
-        <Toggle.Root 
+        <Toggle.Root
           pressed={settings.notifications}
           onPressedChange={(pressed) => updateSetting("notifications", pressed)}
         >
           {settings.notifications ? "On" : "Off"}
         </Toggle.Root>
       </div>
-      
+
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <label>Dark Mode</label>
-        <Toggle.Root 
+        <Toggle.Root
           pressed={settings.darkMode}
           onPressedChange={(pressed) => updateSetting("darkMode", pressed)}
         >
           {settings.darkMode ? "🌙" : "☀️"}
         </Toggle.Root>
       </div>
-      
+
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <label>Auto Save</label>
-        <Toggle.Root 
+        <Toggle.Root
           pressed={settings.autoSave}
           onPressedChange={(pressed) => updateSetting("autoSave", pressed)}
         >
@@ -152,13 +146,13 @@ export default function SettingsToggles() {
 
 ```tsx
 import { useState } from "react";
-import { Toggle } from "liquidify-react/toggle";
+import { Toggle } from "liquidify-react/ark-ui/toggle";
 
 export default function StyledToggle() {
   const [isEnabled, setIsEnabled] = useState(false);
 
   return (
-    <Toggle.Root 
+    <Toggle.Root
       pressed={isEnabled}
       onPressedChange={setIsEnabled}
       style={{
@@ -169,7 +163,7 @@ export default function StyledToggle() {
         color: isEnabled ? "green" : "gray",
         fontWeight: "bold",
         cursor: "pointer",
-        transition: "all 0.2s ease"
+        transition: "all 0.2s ease",
       }}
     >
       {isEnabled ? "✓ Enabled" : "○ Disabled"}
@@ -186,14 +180,14 @@ The toggle button component.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `pressed` | `boolean` | - | Whether the toggle is pressed (controlled) |
-| `defaultPressed` | `boolean` | `false` | Whether the toggle is initially pressed (uncontrolled) |
-| `onPressedChange` | `(pressed: boolean) => void` | - | Callback fired when pressed state changes |
-| `disabled` | `boolean` | `false` | Whether the toggle is disabled |
-| `children` | `ReactNode` | - | The toggle content |
-| All button props | - | - | Standard HTML button attributes |
+| Prop              | Type                         | Default | Description                                            |
+| ----------------- | ---------------------------- | ------- | ------------------------------------------------------ |
+| `pressed`         | `boolean`                    | -       | Whether the toggle is pressed (controlled)             |
+| `defaultPressed`  | `boolean`                    | `false` | Whether the toggle is initially pressed (uncontrolled) |
+| `onPressedChange` | `(pressed: boolean) => void` | -       | Callback fired when pressed state changes              |
+| `disabled`        | `boolean`                    | `false` | Whether the toggle is disabled                         |
+| `children`        | `ReactNode`                  | -       | The toggle content                                     |
+| All button props  | -                            | -       | Standard HTML button attributes                        |
 
 ## Accessibility
 
@@ -207,11 +201,11 @@ The Toggle component includes comprehensive accessibility features:
 
 ### Keyboard Shortcuts
 
-| Key | Action |
-|-----|--------|
-| `Space` | Toggle the pressed state |
-| `Enter` | Toggle the pressed state |
-| `Tab` | Move focus to next element |
+| Key           | Action                         |
+| ------------- | ------------------------------ |
+| `Space`       | Toggle the pressed state       |
+| `Enter`       | Toggle the pressed state       |
+| `Tab`         | Move focus to next element     |
 | `Shift + Tab` | Move focus to previous element |
 
 ## Best Practices

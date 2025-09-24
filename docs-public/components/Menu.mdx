@@ -16,7 +16,7 @@ bun add @liquidify/components
 ## Import
 
 ```tsx
-import { Menu } from "@liquidify/components/menu"
+import { Menu } from "@liquidify/components/menu";
 ```
 
 ## Basic Usage
@@ -24,8 +24,8 @@ import { Menu } from "@liquidify/components/menu"
 Create a simple dropdown menu with actions:
 
 ```tsx
-import { Menu } from "@liquidify/components/menu"
-import { Button } from "@liquidify/components/button"
+import { Menu } from "@liquidify/components/menu";
+import { Button } from "@liquidify/components/button";
 
 export function BasicExample() {
   return (
@@ -35,20 +35,14 @@ export function BasicExample() {
       </Menu.Trigger>
       <Menu.Positioner>
         <Menu.Content>
-          <Menu.Item onClick={() => console.log("Profile")}>
-            Profile
-          </Menu.Item>
-          <Menu.Item onClick={() => console.log("Settings")}>
-            Settings
-          </Menu.Item>
+          <Menu.Item onClick={() => console.log("Profile")}>Profile</Menu.Item>
+          <Menu.Item onClick={() => console.log("Settings")}>Settings</Menu.Item>
           <Menu.Separator />
-          <Menu.Item onClick={() => console.log("Logout")}>
-            Logout
-          </Menu.Item>
+          <Menu.Item onClick={() => console.log("Logout")}>Logout</Menu.Item>
         </Menu.Content>
       </Menu.Positioner>
     </Menu.Root>
-  )
+  );
 }
 ```
 
@@ -57,17 +51,17 @@ export function BasicExample() {
 Create a right-click context menu:
 
 ```tsx
-import { Menu } from "@liquidify/components/menu"
+import { Menu } from "@liquidify/components/menu";
 
 export function ContextMenuExample() {
   return (
     <Menu.Root>
       <Menu.ContextTrigger asChild>
-        <div 
-          style={{ 
-            padding: "40px", 
-            border: "2px dashed #ccc", 
-            textAlign: "center" 
+        <div
+          style={{
+            padding: "40px",
+            border: "2px dashed #ccc",
+            textAlign: "center",
           }}
         >
           Right-click me for context menu
@@ -83,7 +77,7 @@ export function ContextMenuExample() {
         </Menu.Content>
       </Menu.Positioner>
     </Menu.Root>
-  )
+  );
 }
 ```
 
@@ -92,8 +86,8 @@ export function ContextMenuExample() {
 Create menus with nested submenus:
 
 ```tsx
-import { Menu } from "@liquidify/components/menu"
-import { Button } from "@liquidify/components/button"
+import { Menu } from "@liquidify/components/menu";
+import { Button } from "@liquidify/components/button";
 
 export function NestedMenuExample() {
   return (
@@ -105,7 +99,7 @@ export function NestedMenuExample() {
         <Menu.Content>
           <Menu.Item>New File</Menu.Item>
           <Menu.Item>Open File</Menu.Item>
-          
+
           <Menu.Root>
             <Menu.TriggerItem>Export</Menu.TriggerItem>
             <Menu.Positioner>
@@ -116,14 +110,14 @@ export function NestedMenuExample() {
               </Menu.Content>
             </Menu.Positioner>
           </Menu.Root>
-          
+
           <Menu.Separator />
           <Menu.Item>Save</Menu.Item>
           <Menu.Item>Save As...</Menu.Item>
         </Menu.Content>
       </Menu.Positioner>
     </Menu.Root>
-  )
+  );
 }
 ```
 
@@ -132,8 +126,8 @@ export function NestedMenuExample() {
 Enhanced menu items with icons and keyboard shortcuts:
 
 ```tsx
-import { Menu } from "@liquidify/components/menu"
-import { Button } from "@liquidify/components/button"
+import { Menu } from "@liquidify/components/menu";
+import { Button } from "@liquidify/components/button";
 
 export function EnhancedMenuExample() {
   return (
@@ -177,7 +171,7 @@ export function EnhancedMenuExample() {
         </Menu.Content>
       </Menu.Positioner>
     </Menu.Root>
-  )
+  );
 }
 ```
 
@@ -186,12 +180,12 @@ export function EnhancedMenuExample() {
 Control the menu's open state programmatically:
 
 ```tsx
-import { useState } from "react"
-import { Menu } from "@liquidify/components/menu"
-import { Button } from "@liquidify/components/button"
+import { useState } from "react";
+import { Menu } from "@liquidify/components/menu";
+import { Button } from "@liquidify/components/button";
 
 export function ControlledMenuExample() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   return (
     <div>
@@ -201,21 +195,17 @@ export function ControlledMenuExample() {
         </Menu.Trigger>
         <Menu.Positioner>
           <Menu.Content>
-            <Menu.Item onClick={() => setOpen(false)}>
-              Close Menu
-            </Menu.Item>
+            <Menu.Item onClick={() => setOpen(false)}>Close Menu</Menu.Item>
             <Menu.Item>Keep Open</Menu.Item>
           </Menu.Content>
         </Menu.Positioner>
       </Menu.Root>
-      
+
       <div style={{ marginTop: "16px" }}>
-        <Button onClick={() => setOpen(!open)}>
-          {open ? "Close" : "Open"} Menu
-        </Button>
+        <Button onClick={() => setOpen(!open)}>{open ? "Close" : "Open"} Menu</Button>
       </div>
     </div>
-  )
+  );
 }
 ```
 
@@ -225,11 +215,11 @@ export function ControlledMenuExample() {
 
 The root container for the menu.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `open` | `boolean` | `false` | Whether the menu is open |
-| `onOpenChange` | `(open: boolean) => void` | - | Callback when open state changes |
-| `closeOnSelect` | `boolean` | `true` | Whether to close menu when item is selected |
+| Prop            | Type                      | Default | Description                                 |
+| --------------- | ------------------------- | ------- | ------------------------------------------- |
+| `open`          | `boolean`                 | `false` | Whether the menu is open                    |
+| `onOpenChange`  | `(open: boolean) => void` | -       | Callback when open state changes            |
+| `closeOnSelect` | `boolean`                 | `true`  | Whether to close menu when item is selected |
 
 ### Menu.Trigger
 
@@ -243,10 +233,10 @@ The element that triggers the menu on right-click.
 
 Controls the positioning of the menu content.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `side` | `"top" \| "right" \| "bottom" \| "left"` | `"bottom"` | Preferred side to render |
-| `align` | `"start" \| "center" \| "end"` | `"start"` | Alignment relative to trigger |
+| Prop    | Type                                     | Default    | Description                   |
+| ------- | ---------------------------------------- | ---------- | ----------------------------- |
+| `side`  | `"top" \| "right" \| "bottom" \| "left"` | `"bottom"` | Preferred side to render      |
+| `align` | `"start" \| "center" \| "end"`           | `"start"`  | Alignment relative to trigger |
 
 ### Menu.Content
 
@@ -256,10 +246,10 @@ The container for menu items.
 
 An individual menu item that can be clicked.
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `onClick` | `() => void` | - | Click handler |
-| `disabled` | `boolean` | `false` | Whether the item is disabled |
+| Prop       | Type         | Default | Description                  |
+| ---------- | ------------ | ------- | ---------------------------- |
+| `onClick`  | `() => void` | -       | Click handler                |
+| `disabled` | `boolean`    | `false` | Whether the item is disabled |
 
 ### Menu.TriggerItem
 

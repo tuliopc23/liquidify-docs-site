@@ -2,8 +2,8 @@
 layout: ../../../layouts/DocsLayout.astro
 ---
 
-import { Button } from "liquidify-react/button"
-import { ComponentShowcase, SimpleShowcase } from "../../../components/ComponentShowcase"
+import { Button } from "liquidify-react/button";
+import { ComponentShowcase, SimpleShowcase } from "../../../components/ComponentShowcase";
 
 # Button
 
@@ -12,7 +12,7 @@ Interactive elements that trigger actions when clicked. Essential for forms, nav
 ## Import
 
 ```tsx
-import { Button } from "liquidify-react/button"
+import { Button } from "liquidify-react/button";
 ```
 
 ## Basic Usage
@@ -27,13 +27,19 @@ import { Button } from "liquidify-react/button"
 </div>`}
   client:load
 >
-  <Button variant="primary" client:load>Primary</Button>
-  <Button variant="secondary" client:load>Secondary</Button>
-  <Button variant="ghost" client:load>Ghost</Button>
+  <Button variant="primary" client:load>
+    Primary
+  </Button>
+  <Button variant="secondary" client:load>
+    Secondary
+  </Button>
+  <Button variant="ghost" client:load>
+    Ghost
+  </Button>
 </ComponentShowcase>
 
 ```tsx title="Button.tsx"
-import { Button } from "liquidify-react/button"
+import { Button } from "liquidify-react/button";
 
 export default function Example() {
   return (
@@ -42,7 +48,7 @@ export default function Example() {
       <Button variant="secondary">Secondary</Button>
       <Button variant="ghost">Ghost</Button>
     </div>
-  )
+  );
 }
 ```
 
@@ -58,32 +64,38 @@ export default function Example() {
 </div>`}
   client:load
 >
-  <Button size="sm" client:load>Small</Button>
-  <Button size="md" client:load>Medium</Button>
-  <Button size="lg" client:load>Large</Button>
+  <Button size="sm" client:load>
+    Small
+  </Button>
+  <Button size="md" client:load>
+    Medium
+  </Button>
+  <Button size="lg" client:load>
+    Large
+  </Button>
 </ComponentShowcase>
 
 ## With Icons
 
 ```tsx
 export default function IconsExample() {
-	return (
-		<div style={{ display: "flex", gap: "1rem" }}>
-			<Button>
-				<PlusIcon />
-				Add Item
-			</Button>
-			
-			<Button variant="secondary">
-				Download
-				<DownloadIcon />
-			</Button>
-			
-			<Button variant="ghost" size="sm">
-				<SearchIcon />
-			</Button>
-		</div>
-	)
+  return (
+    <div style={{ display: "flex", gap: "1rem" }}>
+      <Button>
+        <PlusIcon />
+        Add Item
+      </Button>
+
+      <Button variant="secondary">
+        Download
+        <DownloadIcon />
+      </Button>
+
+      <Button variant="ghost" size="sm">
+        <SearchIcon />
+      </Button>
+    </div>
+  );
 }
 ```
 
@@ -99,7 +111,9 @@ export default function IconsExample() {
   client:load
 >
   <Button client:load>Default</Button>
-  <Button disabled client:load>Disabled</Button>
+  <Button disabled client:load>
+    Disabled
+  </Button>
 </ComponentShowcase>
 
 ## Button Variants
@@ -117,12 +131,24 @@ export default function IconsExample() {
 </div>`}
   client:load
 >
-  <Button variant="primary" client:load>Primary</Button>
-  <Button variant="secondary" client:load>Secondary</Button>
-  <Button variant="ghost" client:load>Ghost</Button>
-  <Button variant="danger" client:load>Danger</Button>
-  <Button variant="success" client:load>Success</Button>
-  <Button variant="warning" client:load>Warning</Button>
+  <Button variant="primary" client:load>
+    Primary
+  </Button>
+  <Button variant="secondary" client:load>
+    Secondary
+  </Button>
+  <Button variant="ghost" client:load>
+    Ghost
+  </Button>
+  <Button variant="danger" client:load>
+    Danger
+  </Button>
+  <Button variant="success" client:load>
+    Success
+  </Button>
+  <Button variant="warning" client:load>
+    Warning
+  </Button>
 </ComponentShowcase>
 
 ## Sizes
@@ -139,15 +165,24 @@ export default function IconsExample() {
   background="light"
   client:load
 >
-  <Button size="sm" client:load>Small</Button>
-  <Button size="md" client:load>Medium</Button>
-  <Button size="lg" client:load>Large</Button>
-  <Button size="xl" client:load>Extra Large</Button>
+  <Button size="sm" client:load>
+    Small
+  </Button>
+  <Button size="md" client:load>
+    Medium
+  </Button>
+  <Button size="lg" client:load>
+    Large
+  </Button>
+  <Button size="xl" client:load>
+    Extra Large
+  </Button>
 </ComponentShowcase>
 
 ## API Reference
 
 ### Props
+
 - `variant`: `"primary" | "secondary" | "ghost" | "danger" | "success" | "warning"` - Visual style variant (optional)
 - `size`: `"sm" | "md" | "lg" | "xl"` - Button size (optional)
 - `disabled`: `boolean` - Disable button interaction (inherited from HTML button)
@@ -155,6 +190,7 @@ export default function IconsExample() {
 - Standard HTML button attributes are supported
 
 ### Accessibility
+
 - Full keyboard navigation with Enter and Space
 - Disabled state properly announced
 - Loading state with aria-busy

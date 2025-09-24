@@ -1,6 +1,7 @@
 # LiqUIdify Documentation Structure
 
 ## Overview
+
 This document outlines the complete documentation structure for LiqUIdify, following Apple Human Interface Guidelines typography hierarchy and organized for optimal developer experience.
 
 ## Directory Structure
@@ -30,37 +31,44 @@ docs-public/
 ## Documentation Order & User Journey
 
 ### 1. **Discovery Phase**
+
 - `index.mdx` - First impression and value proposition
 - `guides/overview.mdx` - Understanding the library's purpose
 
-### 2. **Setup Phase** 
+### 2. **Setup Phase**
+
 - `guides/getting-started.mdx` - Quick 5-minute setup
 - `guides/installing.mdx` - Detailed installation for different environments
 - `guides/importing.mdx` - Import strategies and tree-shaking
 
 ### 3. **Implementation Phase**
+
 - `components/index.mdx` - Browse all available components
 - `components/[ComponentName].mdx` - Individual component usage
 
 ### 4. **Advanced Phase**
+
 - `advanced/design.mdx` - Design system understanding
 - `advanced/accessibility.mdx` - Accessibility implementation
 - `advanced/performance.mdx` - Optimization techniques
 - `advanced/migration.mdx` - Version upgrades
 
 ### 5. **Contribution Phase**
+
 - `contributing.mdx` - How to contribute to the library
 
 ## Typography Hierarchy (Apple HIG Inspired)
 
 ### Large Title (h1)
+
 - **Size**: 34px
 - **Weight**: Regular (400)
 - **Use**: Main page titles, section headers
 - **Line Height**: 1.2
 - **Tracking**: -0.4px
 
-### Title 1 (h2) 
+### Title 1 (h2)
+
 - **Size**: 28px
 - **Weight**: Regular (400)
 - **Use**: Major section divisions
@@ -68,6 +76,7 @@ docs-public/
 - **Tracking**: -0.3px
 
 ### Title 2 (h3)
+
 - **Size**: 22px
 - **Weight**: Regular (400)
 - **Use**: Subsection headers
@@ -75,6 +84,7 @@ docs-public/
 - **Tracking**: -0.2px
 
 ### Title 3 (h4)
+
 - **Size**: 20px
 - **Weight**: Semibold (600)
 - **Use**: Component features, API sections
@@ -82,6 +92,7 @@ docs-public/
 - **Tracking**: -0.1px
 
 ### Headline (h5)
+
 - **Size**: 17px
 - **Weight**: Semibold (600)
 - **Use**: Property names, method names
@@ -89,6 +100,7 @@ docs-public/
 - **Tracking**: 0px
 
 ### Body (p, li)
+
 - **Size**: 17px
 - **Weight**: Regular (400)
 - **Use**: Main content, descriptions
@@ -96,6 +108,7 @@ docs-public/
 - **Tracking**: 0px
 
 ### Caption (small)
+
 - **Size**: 13px
 - **Weight**: Regular (400)
 - **Use**: Code comments, metadata
@@ -105,28 +118,33 @@ docs-public/
 ## Content Guidelines
 
 ### Voice & Tone
+
 - **Clear and direct** - Apple-style conciseness
 - **Focused on outcomes** - What developers can achieve
 - **Technically accurate** - Precise without being verbose
 - **Encouraging** - Help developers feel confident
 
 ### Code Examples
+
 - Always provide working, copy-pasteable code
 - Use TypeScript for all examples
 - Include import statements
 - Show real-world usage patterns
 
 ### Navigation Structure
+
 - **Logical progression** from basic to advanced
 - **Cross-references** between related topics
 - **Clear next steps** at the end of each page
 - **Consistent formatting** across all pages
 
 ## File Naming Conventions
+
 - Use kebab-case for files: `getting-started.mdx`
 - Use PascalCase for component docs: `Button.mdx`
 - Keep filenames descriptive but concise
 - Match the page title where possible
 
 ## Completion Tracking
+
 See `DOCUMENTATION_STATUS.md` for current completion status and progress tracking.

@@ -16,7 +16,7 @@ npm install liquidify-react
 ## Import
 
 ```tsx
-import { Tour } from "liquidify-react/tour";
+import { Tour } from "liquidify-react/ark-ui/tour";
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ import { Tour } from "liquidify-react/tour";
 
 ```tsx
 import { useState } from "react";
-import { Tour } from "liquidify-react/tour";
+import { Tour } from "liquidify-react/ark-ui/tour";
 
 export default function BasicTour() {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,26 +35,24 @@ export default function BasicTour() {
     {
       target: "#step1",
       title: "Welcome!",
-      description: "This is your dashboard where you can see all your projects."
+      description: "This is your dashboard where you can see all your projects.",
     },
     {
-      target: "#step2", 
+      target: "#step2",
       title: "Create New",
-      description: "Click here to create a new project or item."
+      description: "Click here to create a new project or item.",
     },
     {
       target: "#step3",
       title: "Settings",
-      description: "Access your account settings and preferences here."
-    }
+      description: "Access your account settings and preferences here.",
+    },
   ];
 
   return (
     <div>
-      <button onClick={() => setIsOpen(true)}>
-        Start Tour
-      </button>
-      
+      <button onClick={() => setIsOpen(true)}>Start Tour</button>
+
       <div style={{ padding: "2rem", display: "flex", gap: "2rem" }}>
         <div id="step1" style={{ padding: "1rem", border: "1px solid #ccc" }}>
           Dashboard Content
@@ -67,8 +65,8 @@ export default function BasicTour() {
         </div>
       </div>
 
-      <Tour.Root 
-        open={isOpen} 
+      <Tour.Root
+        open={isOpen}
         onOpenChange={setIsOpen}
         step={currentStep}
         onStepChange={setCurrentStep}
@@ -79,31 +77,29 @@ export default function BasicTour() {
             <Tour.Arrow>
               <Tour.ArrowTip />
             </Tour.Arrow>
-            
+
             <Tour.Title>{steps[currentStep]?.title}</Tour.Title>
             <Tour.Description>{steps[currentStep]?.description}</Tour.Description>
-            
+
             <div style={{ display: "flex", justifyContent: "space-between", marginTop: "1rem" }}>
-              <button 
+              <button
                 onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
                 disabled={currentStep === 0}
               >
                 Previous
               </button>
-              
-              <span>{currentStep + 1} of {steps.length}</span>
-              
+
+              <span>
+                {currentStep + 1} of {steps.length}
+              </span>
+
               {currentStep < steps.length - 1 ? (
-                <button onClick={() => setCurrentStep(currentStep + 1)}>
-                  Next
-                </button>
+                <button onClick={() => setCurrentStep(currentStep + 1)}>Next</button>
               ) : (
-                <button onClick={() => setIsOpen(false)}>
-                  Finish
-                </button>
+                <button onClick={() => setIsOpen(false)}>Finish</button>
               )}
             </div>
-            
+
             <Tour.CloseTrigger>×</Tour.CloseTrigger>
           </Tour.Content>
         </Tour.Positioner>
@@ -117,7 +113,7 @@ export default function BasicTour() {
 
 ```tsx
 import { useState } from "react";
-import { Tour } from "liquidify-react/tour";
+import { Tour } from "liquidify-react/ark-ui/tour";
 
 export default function ProductFeatureTour() {
   const [tourOpen, setTourOpen] = useState(false);
@@ -126,41 +122,55 @@ export default function ProductFeatureTour() {
   const tourSteps = [
     {
       title: "File Explorer",
-      description: "Browse and manage all your files in this sidebar. You can create folders, upload files, and organize your workspace.",
-      target: "#file-explorer"
+      description:
+        "Browse and manage all your files in this sidebar. You can create folders, upload files, and organize your workspace.",
+      target: "#file-explorer",
     },
     {
-      title: "Code Editor", 
-      description: "Write and edit your code here. The editor supports syntax highlighting, auto-completion, and real-time error detection.",
-      target: "#code-editor"
+      title: "Code Editor",
+      description:
+        "Write and edit your code here. The editor supports syntax highlighting, auto-completion, and real-time error detection.",
+      target: "#code-editor",
     },
     {
       title: "Preview Panel",
-      description: "See a live preview of your changes instantly. No need to refresh - updates happen automatically as you type.",
-      target: "#preview-panel"
+      description:
+        "See a live preview of your changes instantly. No need to refresh - updates happen automatically as you type.",
+      target: "#preview-panel",
     },
     {
       title: "Terminal",
-      description: "Run commands, install packages, and view build outputs directly in the integrated terminal.",
-      target: "#terminal"
+      description:
+        "Run commands, install packages, and view build outputs directly in the integrated terminal.",
+      target: "#terminal",
     },
     {
       title: "Collaboration",
-      description: "Share your workspace with teammates. See their cursors in real-time and collaborate seamlessly.",
-      target: "#collaboration"
-    }
+      description:
+        "Share your workspace with teammates. See their cursors in real-time and collaborate seamlessly.",
+      target: "#collaboration",
+    },
   ];
 
   return (
     <div>
-      <header style={{ padding: "1rem", borderBottom: "1px solid #ccc", display: "flex", justifyContent: "space-between" }}>
+      <header
+        style={{
+          padding: "1rem",
+          borderBottom: "1px solid #ccc",
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
         <h1>Code Editor</h1>
         <div>
           <button onClick={() => setTourOpen(true)}>Take Tour</button>
-          <span id="collaboration" style={{ marginLeft: "1rem" }}>👥 Collaborate</span>
+          <span id="collaboration" style={{ marginLeft: "1rem" }}>
+            👥 Collaborate
+          </span>
         </div>
       </header>
-      
+
       <div style={{ display: "flex", height: "500px" }}>
         <div id="file-explorer" style={{ width: "200px", background: "#f5f5f5", padding: "1rem" }}>
           <h3>Files</h3>
@@ -170,51 +180,56 @@ export default function ProductFeatureTour() {
             <li>📄 script.js</li>
           </ul>
         </div>
-        
-        <div id="code-editor" style={{ flex: 1, padding: "1rem", background: "#1e1e1e", color: "white" }}>
+
+        <div
+          id="code-editor"
+          style={{ flex: 1, padding: "1rem", background: "#1e1e1e", color: "white" }}
+        >
           <h3>Code Editor</h3>
           <pre style={{ color: "#ddd" }}>
-{`function hello() {
+            {`function hello() {
   console.log("Hello, World!");
 }`}
           </pre>
         </div>
-        
+
         <div id="preview-panel" style={{ width: "300px", padding: "1rem", background: "#fff" }}>
           <h3>Preview</h3>
           <p>Your preview appears here...</p>
         </div>
       </div>
-      
-      <div id="terminal" style={{ height: "100px", background: "#000", color: "#00ff00", padding: "1rem" }}>
+
+      <div
+        id="terminal"
+        style={{ height: "100px", background: "#000", color: "#00ff00", padding: "1rem" }}
+      >
         <div>Terminal $ npm start</div>
         <div>Server running on port 3000...</div>
       </div>
 
-      <Tour.Root 
-        open={tourOpen} 
-        onOpenChange={setTourOpen}
-        step={step}
-        onStepChange={setStep}
-      >
+      <Tour.Root open={tourOpen} onOpenChange={setTourOpen} step={step} onStepChange={setStep}>
         <Tour.Spotlight />
         <Tour.Positioner>
           <Tour.Content>
             <Tour.Arrow>
               <Tour.ArrowTip />
             </Tour.Arrow>
-            
+
             <Tour.Title>{tourSteps[step]?.title}</Tour.Title>
             <Tour.Description>{tourSteps[step]?.description}</Tour.Description>
-            
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "1rem" }}>
-              <button 
-                onClick={() => setStep(Math.max(0, step - 1))}
-                disabled={step === 0}
-              >
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginTop: "1rem",
+              }}
+            >
+              <button onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>
                 ← Back
               </button>
-              
+
               <div style={{ display: "flex", gap: "4px" }}>
                 {tourSteps.map((_, index) => (
                   <div
@@ -223,12 +238,12 @@ export default function ProductFeatureTour() {
                       width: "8px",
                       height: "8px",
                       borderRadius: "50%",
-                      background: index === step ? "#007bff" : "#ccc"
+                      background: index === step ? "#007bff" : "#ccc",
                     }}
                   />
                 ))}
               </div>
-              
+
               <Tour.ActionTrigger
                 onClick={() => {
                   if (step < tourSteps.length - 1) {
@@ -241,16 +256,16 @@ export default function ProductFeatureTour() {
                 {step < tourSteps.length - 1 ? "Next →" : "Get Started"}
               </Tour.ActionTrigger>
             </div>
-            
-            <Tour.CloseTrigger 
-              style={{ 
-                position: "absolute", 
-                top: "8px", 
+
+            <Tour.CloseTrigger
+              style={{
+                position: "absolute",
+                top: "8px",
                 right: "8px",
                 background: "none",
                 border: "none",
                 fontSize: "18px",
-                cursor: "pointer"
+                cursor: "pointer",
               }}
             >
               ×
@@ -267,7 +282,7 @@ export default function ProductFeatureTour() {
 
 ```tsx
 import { useState } from "react";
-import { Tour } from "liquidify-react/tour";
+import { Tour } from "liquidify-react/ark-ui/tour";
 
 export default function ConditionalTour() {
   const [tourOpen, setTourOpen] = useState(false);
@@ -276,23 +291,28 @@ export default function ConditionalTour() {
 
   const getStepsForUser = (type) => {
     const commonSteps = [
-      { target: "#welcome", title: "Welcome!", description: "Welcome to our platform!" }
+      { target: "#welcome", title: "Welcome!", description: "Welcome to our platform!" },
     ];
 
     const beginnerSteps = [
       { target: "#tutorial", title: "Start Here", description: "Check out our beginner tutorial." },
-      { target: "#help", title: "Need Help?", description: "Access help documentation anytime." }
+      { target: "#help", title: "Need Help?", description: "Access help documentation anytime." },
     ];
 
     const advancedSteps = [
-      { target: "#advanced", title: "Advanced Features", description: "Explore powerful advanced tools." },
-      { target: "#api", title: "API Access", description: "Integrate with our API for custom solutions." }
+      {
+        target: "#advanced",
+        title: "Advanced Features",
+        description: "Explore powerful advanced tools.",
+      },
+      {
+        target: "#api",
+        title: "API Access",
+        description: "Integrate with our API for custom solutions.",
+      },
     ];
 
-    return [
-      ...commonSteps,
-      ...(type === "beginner" ? beginnerSteps : advancedSteps)
-    ];
+    return [...commonSteps, ...(type === "beginner" ? beginnerSteps : advancedSteps)];
   };
 
   const currentSteps = getStepsForUser(userType);
@@ -301,7 +321,7 @@ export default function ConditionalTour() {
     <div>
       <div style={{ marginBottom: "1rem" }}>
         <label>
-          User Type: 
+          User Type:
           <select value={userType} onChange={(e) => setUserType(e.target.value)}>
             <option value="beginner">Beginner</option>
             <option value="advanced">Advanced</option>
@@ -312,7 +332,14 @@ export default function ConditionalTour() {
         </button>
       </div>
 
-      <div style={{ padding: "2rem", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1rem" }}>
+      <div
+        style={{
+          padding: "2rem",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+          gap: "1rem",
+        }}
+      >
         <div id="welcome" style={{ padding: "1rem", border: "1px solid #ccc" }}>
           Welcome Section
         </div>
@@ -330,41 +357,40 @@ export default function ConditionalTour() {
         </div>
       </div>
 
-      <Tour.Root 
-        open={tourOpen} 
-        onOpenChange={setTourOpen}
-        step={step}
-        onStepChange={setStep}
-      >
+      <Tour.Root open={tourOpen} onOpenChange={setTourOpen} step={step} onStepChange={setStep}>
         <Tour.Spotlight />
         <Tour.Positioner>
           <Tour.Content>
             <Tour.Arrow>
               <Tour.ArrowTip />
             </Tour.Arrow>
-            
+
             <div style={{ padding: "1rem" }}>
-              <Tour.Title style={{ marginBottom: "0.5rem", fontSize: "1.2rem", fontWeight: "bold" }}>
+              <Tour.Title
+                style={{ marginBottom: "0.5rem", fontSize: "1.2rem", fontWeight: "bold" }}
+              >
                 {currentSteps[step]?.title}
               </Tour.Title>
-              
+
               <Tour.Description style={{ marginBottom: "1rem", color: "#666" }}>
                 {currentSteps[step]?.description}
               </Tour.Description>
-              
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <button 
+
+              <div
+                style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}
+              >
+                <button
                   onClick={() => setStep(Math.max(0, step - 1))}
                   disabled={step === 0}
                   style={{ padding: "0.5rem 1rem" }}
                 >
                   Previous
                 </button>
-                
+
                 <span style={{ fontSize: "0.9rem", color: "#888" }}>
                   {step + 1} of {currentSteps.length}
                 </span>
-                
+
                 <button
                   onClick={() => {
                     if (step < currentSteps.length - 1) {
@@ -374,22 +400,28 @@ export default function ConditionalTour() {
                       setStep(0);
                     }
                   }}
-                  style={{ padding: "0.5rem 1rem", backgroundColor: "#007bff", color: "white", border: "none", borderRadius: "4px" }}
+                  style={{
+                    padding: "0.5rem 1rem",
+                    backgroundColor: "#007bff",
+                    color: "white",
+                    border: "none",
+                    borderRadius: "4px",
+                  }}
                 >
                   {step < currentSteps.length - 1 ? "Next" : "Finish"}
                 </button>
               </div>
             </div>
-            
-            <Tour.CloseTrigger 
-              style={{ 
-                position: "absolute", 
-                top: "8px", 
+
+            <Tour.CloseTrigger
+              style={{
+                position: "absolute",
+                top: "8px",
                 right: "8px",
                 background: "none",
                 border: "none",
                 fontSize: "16px",
-                cursor: "pointer"
+                cursor: "pointer",
               }}
             >
               ✕
@@ -410,13 +442,13 @@ The root container for the tour component.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `open` | `boolean` | - | Whether the tour is visible |
-| `onOpenChange` | `(open: boolean) => void` | - | Callback fired when visibility changes |
-| `step` | `number` | `0` | Current step index |
-| `onStepChange` | `(step: number) => void` | - | Callback fired when step changes |
-| `steps` | `TourStep[]` | - | Array of tour step configurations |
+| Prop           | Type                      | Default | Description                            |
+| -------------- | ------------------------- | ------- | -------------------------------------- |
+| `open`         | `boolean`                 | -       | Whether the tour is visible            |
+| `onOpenChange` | `(open: boolean) => void` | -       | Callback fired when visibility changes |
+| `step`         | `number`                  | `0`     | Current step index                     |
+| `onStepChange` | `(step: number) => void`  | -       | Callback fired when step changes       |
+| `steps`        | `TourStep[]`              | -       | Array of tour step configurations      |
 
 ### Tour.Positioner
 
@@ -424,9 +456,9 @@ The positioning wrapper for tour content.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The positioner content |
+| Prop       | Type        | Default | Description            |
+| ---------- | ----------- | ------- | ---------------------- |
+| `children` | `ReactNode` | -       | The positioner content |
 
 ### Tour.Content
 
@@ -434,9 +466,9 @@ The main content container for the tour step.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The tour content |
+| Prop       | Type        | Default | Description      |
+| ---------- | ----------- | ------- | ---------------- |
+| `children` | `ReactNode` | -       | The tour content |
 
 ### Tour.Title
 
@@ -444,9 +476,9 @@ The title of the current tour step.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The title content |
+| Prop       | Type        | Default | Description       |
+| ---------- | ----------- | ------- | ----------------- |
+| `children` | `ReactNode` | -       | The title content |
 
 ### Tour.Description
 
@@ -454,9 +486,9 @@ The description text for the current tour step.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The description content |
+| Prop       | Type        | Default | Description             |
+| ---------- | ----------- | ------- | ----------------------- |
+| `children` | `ReactNode` | -       | The description content |
 
 ### Tour.ActionTrigger
 
@@ -464,10 +496,10 @@ A button for tour actions (next, previous, finish).
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `onClick` | `() => void` | - | Action click handler |
-| `children` | `ReactNode` | - | The action trigger content |
+| Prop       | Type         | Default | Description                |
+| ---------- | ------------ | ------- | -------------------------- |
+| `onClick`  | `() => void` | -       | Action click handler       |
+| `children` | `ReactNode`  | -       | The action trigger content |
 
 ### Tour.CloseTrigger
 
@@ -475,9 +507,9 @@ A button to close/exit the tour.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The close trigger content |
+| Prop       | Type        | Default | Description               |
+| ---------- | ----------- | ------- | ------------------------- |
+| `children` | `ReactNode` | -       | The close trigger content |
 
 ### Tour.Spotlight
 
@@ -485,9 +517,9 @@ A visual spotlight effect that highlights the target element.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| All standard div props | - | - | Standard HTML div attributes |
+| Prop                   | Type | Default | Description                  |
+| ---------------------- | ---- | ------- | ---------------------------- |
+| All standard div props | -    | -       | Standard HTML div attributes |
 
 ### Tour.Arrow
 
@@ -495,9 +527,9 @@ The pointing arrow for the tour content.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `children` | `ReactNode` | - | The arrow content (usually ArrowTip) |
+| Prop       | Type        | Default | Description                          |
+| ---------- | ----------- | ------- | ------------------------------------ |
+| `children` | `ReactNode` | -       | The arrow content (usually ArrowTip) |
 
 ### Tour.ArrowTip
 
@@ -505,9 +537,9 @@ The tip/point of the tour arrow.
 
 #### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| All standard div props | - | - | Standard HTML div attributes |
+| Prop                   | Type | Default | Description                  |
+| ---------------------- | ---- | ------- | ---------------------------- |
+| All standard div props | -    | -       | Standard HTML div attributes |
 
 ## Accessibility
 
@@ -521,13 +553,13 @@ The Tour component includes comprehensive accessibility features:
 
 ### Keyboard Shortcuts
 
-| Key | Action |
-|-----|--------|
-| `Escape` | Close the tour |
-| `Tab` | Navigate between tour controls |
-| `Enter` / `Space` | Activate focused button |
-| `Arrow Left` | Previous step (when applicable) |
-| `Arrow Right` | Next step (when applicable) |
+| Key               | Action                          |
+| ----------------- | ------------------------------- |
+| `Escape`          | Close the tour                  |
+| `Tab`             | Navigate between tour controls  |
+| `Enter` / `Space` | Activate focused button         |
+| `Arrow Left`      | Previous step (when applicable) |
+| `Arrow Right`     | Next step (when applicable)     |
 
 ## Best Practices
 

@@ -1,17 +1,17 @@
-import React, { useMemo, useState } from 'react';
-import { Combobox } from 'liquidify-react/ark-ui/combobox';
+import React, { useMemo, useState } from "react";
+import { Combobox } from "liquidify-react/ark-ui/combobox";
 
 export default function ComboboxDemo(): JSX.Element {
   const allItems = [
-    { label: 'React', value: 'react' },
-    { label: 'Vue', value: 'vue' },
-    { label: 'Angular', value: 'angular' },
-    { label: 'Svelte', value: 'svelte' },
+    { label: "React", value: "react" },
+    { label: "Vue", value: "vue" },
+    { label: "Angular", value: "angular" },
+    { label: "Svelte", value: "svelte" },
   ];
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const filtered = useMemo(
     () => allItems.filter((i) => i.label.toLowerCase().includes(inputValue.toLowerCase())),
-    [inputValue]
+    [inputValue],
   );
   return (
     <div>
@@ -24,7 +24,7 @@ export default function ComboboxDemo(): JSX.Element {
         <Combobox.Positioner>
           <Combobox.Content>
             {filtered.length === 0 ? (
-              <div style={{ padding: '1rem', color: '#666' }}>No results</div>
+              <div style={{ padding: "1rem", color: "#666" }}>No results</div>
             ) : (
               filtered.map((item) => (
                 <Combobox.Item key={item.value} item={item}>

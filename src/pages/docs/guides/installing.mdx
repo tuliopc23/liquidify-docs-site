@@ -200,6 +200,8 @@ Ensure you've imported the styles in your app's entry point:
 import 'liquidify-react/styles'
 ```
 
+If using Astro, import once in your layout (as this docs site does) in `src/layouts/DocsLayout.astro`.
+
 #### TypeScript Errors
 Make sure you have compatible TypeScript and React types:
 
@@ -208,7 +210,7 @@ npm install -D typescript@latest @types/react@latest @types/react-dom@latest
 ```
 
 #### Build Errors
-For build issues, ensure your bundler supports CSS imports and ES modules.
+For build issues, ensure your bundler supports CSS imports and ES modules. Ark UI components are exported under `liquidify-react/ark-ui/*` — verify paths if you see "module not found".
 
 ### Environment Variables
 

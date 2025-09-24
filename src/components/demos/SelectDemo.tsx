@@ -1,11 +1,11 @@
-import React from 'react';
-import { Select } from 'liquidify-react/ark-ui/select';
+import React from "react";
+import { Select } from "liquidify-react/ark-ui/select";
 
 export default function SelectDemo(): JSX.Element {
   const options = [
-    { label: 'Apple', value: 'apple' },
-    { label: 'Banana', value: 'banana' },
-    { label: 'Orange', value: 'orange' },
+    { label: "Apple", value: "apple" },
+    { label: "Banana", value: "banana" },
+    { label: "Orange", value: "orange" },
   ];
   return (
     <div>

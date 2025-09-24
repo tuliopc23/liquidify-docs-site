@@ -5,20 +5,20 @@ Interactive elements that trigger actions when clicked. Essential for forms, nav
 ## Import
 
 ```tsx
-import { Button } from "liquidify-react/button"
+import { Button } from "liquidify-react/button";
 ```
 
 ## Basic Usage
 
 ```tsx
 export default function Example() {
-	return (
-		<div style={{ display: "flex", gap: "1rem" }}>
-			<Button variant="primary">Primary</Button>
-			<Button variant="secondary">Secondary</Button>
-			<Button variant="ghost">Ghost</Button>
-		</div>
-	)
+  return (
+    <div style={{ display: "flex", gap: "1rem" }}>
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="ghost">Ghost</Button>
+    </div>
+  );
 }
 ```
 
@@ -26,13 +26,13 @@ export default function Example() {
 
 ```tsx
 export default function SizesExample() {
-	return (
-		<div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-			<Button size="sm">Small</Button>
-			<Button size="md">Medium</Button>
-			<Button size="lg">Large</Button>
-		</div>
-	)
+  return (
+    <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+      <Button size="sm">Small</Button>
+      <Button size="md">Medium</Button>
+      <Button size="lg">Large</Button>
+    </div>
+  );
 }
 ```
 
@@ -40,23 +40,23 @@ export default function SizesExample() {
 
 ```tsx
 export default function IconsExample() {
-	return (
-		<div style={{ display: "flex", gap: "1rem" }}>
-			<Button>
-				<PlusIcon />
-				Add Item
-			</Button>
-			
-			<Button variant="secondary">
-				Download
-				<DownloadIcon />
-			</Button>
-			
-			<Button variant="ghost" size="sm">
-				<SearchIcon />
-			</Button>
-		</div>
-	)
+  return (
+    <div style={{ display: "flex", gap: "1rem" }}>
+      <Button>
+        <PlusIcon />
+        Add Item
+      </Button>
+
+      <Button variant="secondary">
+        Download
+        <DownloadIcon />
+      </Button>
+
+      <Button variant="ghost" size="sm">
+        <SearchIcon />
+      </Button>
+    </div>
+  );
 }
 ```
 
@@ -64,13 +64,13 @@ export default function IconsExample() {
 
 ```tsx
 export default function StatesExample() {
-	return (
-		<div style={{ display: "flex", gap: "1rem" }}>
-			<Button>Default</Button>
-			<Button disabled>Disabled</Button>
-			<Button loading>Loading</Button>
-		</div>
-	)
+  return (
+    <div style={{ display: "flex", gap: "1rem" }}>
+      <Button>Default</Button>
+      <Button disabled>Disabled</Button>
+      <Button loading>Loading</Button>
+    </div>
+  );
 }
 ```
 
@@ -78,17 +78,18 @@ export default function StatesExample() {
 
 ```tsx
 export default function LinkExample() {
-	return (
-		<Button asChild>
-			<a href="/dashboard">Go to Dashboard</a>
-		</Button>
-	)
+  return (
+    <Button asChild>
+      <a href="/dashboard">Go to Dashboard</a>
+    </Button>
+  );
 }
 ```
 
 ## API Reference
 
 ### Props
+
 - `variant`: `"primary" | "secondary" | "ghost" | "destructive"` - Visual style
 - `size`: `"sm" | "md" | "lg"` - Button size
 - `disabled`: `boolean` - Disable interaction
@@ -96,6 +97,7 @@ export default function LinkExample() {
 - `asChild`: `boolean` - Render as child element (for links)
 
 ### Accessibility
+
 - Full keyboard navigation with Enter and Space
 - Disabled state properly announced
 - Loading state with aria-busy

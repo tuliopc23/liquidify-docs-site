@@ -2,9 +2,9 @@
 layout: ../../../layouts/DocsLayout.astro
 ---
 
-import { Accordion } from "liquidify-react/ark-ui/accordion"
-import AccordionDemo from "../../../components/demos/AccordionDemo.tsx"
-import { ComponentShowcase } from "../../../components/ComponentShowcase"
+import { Accordion } from "liquidify-react/ark-ui/accordion";
+import AccordionDemo from "../../../components/demos/AccordionDemo.tsx";
+import { ComponentShowcase } from "../../../components/ComponentShowcase";
 
 # Accordion
 
@@ -13,7 +13,7 @@ Collapsible content sections that expand and collapse to reveal or hide informat
 ## Import
 
 ```tsx
-import { Accordion } from "liquidify-react/ark-ui/accordion"
+import { Accordion } from "liquidify-react/ark-ui/accordion";
 ```
 
 ## Basic Usage
@@ -50,9 +50,7 @@ import { Accordion } from "liquidify-react/ark-ui/accordion"
   </Accordion.Item>
   <Accordion.Item value="item-2">
     <Accordion.ItemTrigger>How do I install it?</Accordion.ItemTrigger>
-    <Accordion.ItemContent>
-      Run npm install liquidify-react to get started.
-    </Accordion.ItemContent>
+    <Accordion.ItemContent>Run npm install liquidify-react to get started.</Accordion.ItemContent>
   </Accordion.Item>
 </Accordion.Root>
 ```
@@ -63,9 +61,7 @@ import { Accordion } from "liquidify-react/ark-ui/accordion"
 <Accordion.Root type="multiple">
   <Accordion.Item value="features">
     <Accordion.ItemTrigger>Features</Accordion.ItemTrigger>
-    <Accordion.ItemContent>
-      Accessible, performant, and beautiful components.
-    </Accordion.ItemContent>
+    <Accordion.ItemContent>Accessible, performant, and beautiful components.</Accordion.ItemContent>
   </Accordion.Item>
   <Accordion.Item value="support">
     <Accordion.ItemTrigger>Support</Accordion.ItemTrigger>
@@ -79,11 +75,13 @@ import { Accordion } from "liquidify-react/ark-ui/accordion"
 ## API Reference
 
 ### Root Props
+
 - `type`: `"single" | "multiple"` - Allow one or multiple items open
 - `collapsible`: `boolean` - Allow collapsing all items (single mode only)
 - `defaultValue`: `string | string[]` - Default expanded items
 
 ### Accessibility
+
 - Full keyboard navigation with Arrow keys and Enter/Space
 - ARIA attributes for screen readers
 - Focus management between trigger and content

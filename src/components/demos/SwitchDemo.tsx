@@ -1,5 +1,5 @@
-import React from 'react';
-import { Switch } from 'liquidify-react/ark-ui/switch';
+import React from "react";
+import { Switch } from "liquidify-react/ark-ui/switch";
 
 export default function SwitchDemo(): JSX.Element {
   return (
