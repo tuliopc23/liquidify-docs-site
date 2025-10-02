@@ -1,4 +1,3 @@
-import React from "react";
 import { Select } from "liquidify-react/ark-ui/select";
 
 export default function SelectDemo(): JSX.Element {

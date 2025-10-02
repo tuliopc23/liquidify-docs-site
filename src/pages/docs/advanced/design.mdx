@@ -77,20 +77,69 @@ import { Card } from 'liquidify-react/card'
 
 ## Typography System
 
-### Font Hierarchy
+LiqUIdify documentation implements the complete Apple Human Interface Guidelines typography scale for optimal readability and visual hierarchy. This system is automatically applied to all documentation pages and can serve as a reference for your own implementations.
 
-LiqUIdify uses a typography scale inspired by Apple's system fonts:
+### Apple HIG Typography Scale
+
+The typography system implements Apple's precise text style specifications:
+
+| Style | Size | Weight | Line Height | Usage |
+|-------|------|--------|-------------|-------|
+| **Large Title** | 34px | Bold | 1.25 | Section headers, hero titles |
+| **Title 1** | 28px | Bold | 1.25 | Page titles, primary headings |
+| **Title 2** | 22px | Semibold | 1.25 | Major section headers |
+| **Title 3** | 20px | Semibold | 1.25 | Subsection headers |
+| **Headline** | 17px | Semibold | 1.47 | Content emphasis |
+| **Body** | 17px | Regular | 1.47 | Main body text |
+| **Callout** | 16px | Regular | 1.47 | Secondary content |
+| **Subheadline** | 15px | Regular | 1.47 | Captions, labels |
+| **Footnote** | 13px | Regular | 1.47 | Fine print, metadata |
+| **Caption** | 12px | Regular | 1.47 | Smallest text |
+
+### Automatic Markdown Styling
+
+In documentation pages, markdown headings automatically receive HIG typography:
+
+```markdown
+# Page Title → Title 1 (28px bold)
+
+## Section Header → Title 2 (22px semibold)
+
+### Subsection → Title 3 (20px semibold)
+
+Body text is automatically styled at 17px with optimal line-height.
+```
+
+### Using Typography Classes
+
+Apply HIG styles explicitly with utility classes:
 
 ```tsx
-// Typography components follow Apple's scale
-<div className="space-y-4">
-  <h1 className="text-4xl font-normal tracking-tight">Large Title</h1>
-  <h2 className="text-3xl font-normal tracking-tight">Title 1</h2>
-  <h3 className="text-2xl font-normal tracking-tight">Title 2</h3>
-  <h4 className="text-xl font-semibold">Title 3</h4>
-  <h5 className="text-lg font-semibold">Headline</h5>
-  <p className="text-base">Body text for comfortable reading</p>
-  <p className="text-sm text-muted">Caption and metadata</p>
+<h1 className="hig-large-title">Large Title</h1>
+<h2 className="hig-title-1">Title 1</h2>
+<h3 className="hig-title-2">Title 2</h3>
+<h4 className="hig-title-3">Title 3</h4>
+<p className="hig-body">Body text with optimal reading line-height</p>
+<p className="hig-footnote">Footnote text for metadata</p>
+<p className="hig-caption">Caption for smallest text</p>
+```
+
+### Spacing and Rhythm
+
+The typography system implements an 8px vertical rhythm grid:
+
+- **xs**: 8px - Between list items
+- **sm**: 16px - Between paragraphs
+- **md**: 24px - Between subsections
+- **lg**: 32px - Between major sections
+- **xl**: 48px - Between content blocks
+
+```tsx
+// Spacing is automatically applied in documentation
+<div className="docs-content">
+  <h2>Section</h2> {/* 32px margin-top */}
+  <p>Content</p>    {/* 16px margin-bottom */}
+  <h3>Subsection</h3> {/* 24px margin-top */}
 </div>
 ```
 

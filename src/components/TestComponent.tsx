@@ -1,5 +1,3 @@
-import React from "react";
-
 interface TestComponentProps {
   message?: string;
 }
@@ -17,7 +15,9 @@ export function TestComponent({ message = "React component is working!" }: TestC
     >
       <h4>Test Component</h4>
       <p>{message}</p>
-      <button onClick={() => alert("React is interactive!")}>Click me!</button>
+      <button type="button" onClick={() => alert("React is interactive!")}>
+        Click me!
+      </button>
     </div>
   );
 }

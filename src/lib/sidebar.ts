@@ -29,9 +29,15 @@ function pushUnique(arr: NavItem[], item: NavItem) {
 
 export async function getSidebar(): Promise<NavItem[]> {
   // Eagerly import all docs pages
+  interface ModuleWithFrontmatter {
+    frontmatter?: {
+      title?: string;
+    };
+  }
+
   const modules = import.meta.glob("/src/pages/docs/**/*.{md,mdx}", { eager: true }) as Record<
     string,
-    any
+    ModuleWithFrontmatter
   >;
 
   // Build groups; special bucket for root-level meta pages
@@ -73,29 +79,39 @@ export async function getSidebar(): Promise<NavItem[]> {
     }
 
     // Simple leaf under a group: /docs/<group>/<page>.mdx
-    if (segments.length === 3 && !isIndex) {
+    if (segments.length === 3 && !isIndex && segments[2]) {
       const itemLabel = fmTitle ?? titleize(segments[2]);
-      pushUnique(groups[groupKey].children!, { label: itemLabel, href: `/${segments.join("/")}` });
+      const children = groups[groupKey]?.children;
+      if (children) {
+        pushUnique(children, { label: itemLabel, href: `/${segments.join("/")}` });
+      }
       continue;
     }
 
     // Nested sections: /docs/<group>/<section>/index.mdx or deeper
     // Treat <section>/index as a parent; children as deeper pages
-    if (segments.length >= 3) {
+    if (segments.length >= 3 && segments[2]) {
       const parentSlug = segments[2];
       const parentLabel = titleize(parentSlug);
-      let parent = groups[groupKey].children!.find(
-        (c) => c.label.toLowerCase() === parentLabel.toLowerCase(),
-      );
+      const groupChildren = groups[groupKey]?.children;
+      if (!groupChildren) continue;
+
+      let parent = groupChildren.find((c) => c.label.toLowerCase() === parentLabel.toLowerCase());
       if (!parent) {
         parent = { label: parentLabel, children: [] };
-        groups[groupKey].children!.push(parent);
+        groupChildren.push(parent);
       }
 
       if (!isIndex) {
-        // Add the leaf page under the parent
-        const itemLabel = fmTitle ?? titleize(segments[segments.length - 1]);
-        pushUnique(parent.children!, { label: itemLabel, href: `/${segments.join("/")}` });
+        const lastSegment = segments[segments.length - 1];
+        if (lastSegment) {
+          // Add the leaf page under the parent
+          const itemLabel = fmTitle ?? titleize(lastSegment);
+          const parentChildren = parent.children;
+          if (parentChildren) {
+            pushUnique(parentChildren, { label: itemLabel, href: `/${segments.join("/")}` });
+          }
+        }
       }
     }
   }

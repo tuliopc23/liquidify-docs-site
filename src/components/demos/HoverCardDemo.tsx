@@ -1,4 +1,3 @@
-import React from "react";
 import { HoverCard } from "liquidify-react/ark-ui/hoverCard";
 import { Button } from "liquidify-react/button";
 

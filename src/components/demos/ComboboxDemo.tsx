@@ -1,5 +1,5 @@
-import React, { useMemo, useState } from "react";
 import { Combobox } from "liquidify-react/ark-ui/combobox";
+import { useMemo, useState } from "react";
 
 export default function ComboboxDemo(): JSX.Element {
   const allItems = [

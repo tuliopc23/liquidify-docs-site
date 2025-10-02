@@ -3,6 +3,7 @@
 Complete guide to all correct import paths for liquidify-react components.
 
 ## Build Status
+
 ✅ All 70 pages build successfully
 ✅ All import paths verified and corrected
 ✅ No import errors
@@ -17,9 +18,9 @@ These components are at the top level and import directly:
 import { Button } from "liquidify-react/button";
 import { Badge } from "liquidify-react/badge";
 import { Card } from "liquidify-react/card";
-import { IconButton } from "liquidify-react/iconButton";  // camelCase!
+import { IconButton } from "liquidify-react/iconButton"; // camelCase!
 import { Icon } from "liquidify-react/icons";
-import { SymbolTile } from "liquidify-react/symbolTile";  // camelCase!
+import { SymbolTile } from "liquidify-react/symbolTile"; // camelCase!
 ```
 
 ---
@@ -27,20 +28,23 @@ import { SymbolTile } from "liquidify-react/symbolTile";  // camelCase!
 ## New Components (v0.6.14+)
 
 ### Modal
+
 ```tsx
 import { Modal } from "liquidify-react/modal";
 ```
 
 ### Forms Components
+
 ```tsx
 import { TextInput } from "liquidify-react/forms";
 import { Textarea } from "liquidify-react/forms";
-import { Select } from "liquidify-react/forms";  // Forms Select, different from Ark UI Select
+import { Select } from "liquidify-react/forms"; // Forms Select, different from Ark UI Select
 ```
 
 ### Segmented Control
+
 ```tsx
-import { SegmentedControl } from "liquidify-react/segmented-control";  // kebab-case!
+import { SegmentedControl } from "liquidify-react/segmented-control"; // kebab-case!
 ```
 
 ---
@@ -50,6 +54,7 @@ import { SegmentedControl } from "liquidify-react/segmented-control";  // kebab-
 **IMPORTANT**: All interactive components built on Ark UI use the `/ark-ui/` prefix with **camelCase** directory names.
 
 ### Pattern
+
 ```tsx
 import { ComponentName } from "liquidify-react/ark-ui/componentName";
 //                                                    └─ camelCase!
@@ -115,7 +120,7 @@ import { RatingGroup } from "liquidify-react/ark-ui/ratingGroup";
 // S
 import { ScrollArea } from "liquidify-react/ark-ui/scrollArea";
 import { SegmentGroup } from "liquidify-react/ark-ui/segmentGroup";
-import { Select } from "liquidify-react/ark-ui/select";  // Ark UI Select
+import { Select } from "liquidify-react/ark-ui/select"; // Ark UI Select
 import { SignaturePad } from "liquidify-react/ark-ui/signaturePad";
 import { Slider } from "liquidify-react/ark-ui/slider";
 import { Splitter } from "liquidify-react/ark-ui/splitter";
@@ -139,6 +144,7 @@ import { TreeView } from "liquidify-react/ark-ui/treeView";
 ## Common Mistakes to Avoid
 
 ❌ **WRONG** - kebab-case without ark-ui prefix:
+
 ```tsx
 import { AngleSlider } from "liquidify-react/angle-slider";
 import { ColorPicker } from "liquidify-react/color-picker";
@@ -147,6 +153,7 @@ import { RadioGroup } from "liquidify-react/radio-group";
 ```
 
 ✅ **CORRECT** - ark-ui prefix with camelCase:
+
 ```tsx
 import { AngleSlider } from "liquidify-react/ark-ui/angleSlider";
 import { ColorPicker } from "liquidify-react/ark-ui/colorPicker";
@@ -180,19 +187,19 @@ import "liquidify-react/styles";
 
 ## Quick Lookup Table
 
-| Component | Import Path |
-|-----------|------------|
-| Button | `liquidify-react/button` |
-| Badge | `liquidify-react/badge` |
-| Card | `liquidify-react/card` |
-| Modal | `liquidify-react/modal` |
-| IconButton | `liquidify-react/iconButton` |
-| SymbolTile | `liquidify-react/symbolTile` |
-| TextInput | `liquidify-react/forms` |
-| Textarea | `liquidify-react/forms` |
-| Select (forms) | `liquidify-react/forms` |
-| SegmentedControl | `liquidify-react/segmented-control` |
-| All Ark UI (47) | `liquidify-react/ark-ui/[camelCaseName]` |
+| Component        | Import Path                              |
+| ---------------- | ---------------------------------------- |
+| Button           | `liquidify-react/button`                 |
+| Badge            | `liquidify-react/badge`                  |
+| Card             | `liquidify-react/card`                   |
+| Modal            | `liquidify-react/modal`                  |
+| IconButton       | `liquidify-react/iconButton`             |
+| SymbolTile       | `liquidify-react/symbolTile`             |
+| TextInput        | `liquidify-react/forms`                  |
+| Textarea         | `liquidify-react/forms`                  |
+| Select (forms)   | `liquidify-react/forms`                  |
+| SegmentedControl | `liquidify-react/segmented-control`      |
+| All Ark UI (47)  | `liquidify-react/ark-ui/[camelCaseName]` |
 
 ---
 
@@ -216,6 +223,7 @@ import ButtonDemo from "../../../components/demos/ButtonDemo.tsx";
 ```
 
 **Key points**:
+
 - Import component for types/reference
 - Create separate demo component file
 - Use `client:load` or `client:only="react"` directive

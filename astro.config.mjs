@@ -3,6 +3,10 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import expressiveCode from "astro-expressive-code";
+import { fileURLToPath } from "node:url";
+import path from "node:path";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,4 +26,14 @@ export default defineConfig({
     }),
     mdx(),
   ],
+  vite: {
+    resolve: {
+      alias: {
+        "liquidify-react/styles": path.resolve(
+          __dirname,
+          "node_modules/liquidify-react/libs/components/dist/liquidify.css",
+        ),
+      },
+    },
+  },
 });

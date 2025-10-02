@@ -15,9 +15,9 @@ LiqUIdify supports granular imports to minimize bundle size. Import only the com
 // ✅ Recommended: Subpath imports
 import { Button } from "liquidify-react/button"
 import { Card } from "liquidify-react/card"
-import { Dialog } from "liquidify-react/dialog"
+import { Dialog } from "liquidify-react/ark-ui/dialog"
 
-// ❌ Avoid: Barrel imports
+// ❌ Avoid: Barrel imports (less tree-shakeable)
 import { Button, Card, Dialog } from "liquidify-react"
 ```
 
@@ -58,14 +58,12 @@ Load components on-demand for faster initial page loads:
 ```tsx
 import { lazy, Suspense } from "react"
 
-const Dialog = lazy(() => import("liquidify-react/dialog").then(m => ({ default: m.Dialog })))
-const DataTable = lazy(() => import("liquidify-react/data-table").then(m => ({ default: m.DataTable })))
+const Dialog = lazy(() => import("liquidify-react/ark-ui/dialog").then(m => ({ default: m.Dialog })))
 
 function App() {
 	return (
 		<Suspense fallback={<div>Loading...</div>}>
 			<Dialog />
-			<DataTable />
 		</Suspense>
 	)
 }
@@ -107,7 +105,6 @@ Prevent hydration mismatches with proper server/client handling:
 
 ```tsx
 import { useEffect, useState } from "react"
-import { ThemeProvider } from "liquidify-react/theme"
 
 function App({ children }) {
 	const [mounted, setMounted] = useState(false)
@@ -120,11 +117,7 @@ function App({ children }) {
 		return <div>{children}</div>
 	}
 
-	return (
-		<ThemeProvider>
-			{children}
-		</ThemeProvider>
-	)
+	return <div>{children}</div>
 }
 ```
 
@@ -166,10 +159,15 @@ LiqUIdify animations use GPU-accelerated transforms:
 Respect user accessibility preferences:
 
 ```tsx
-import { useReducedMotion } from "liquidify-react/hooks"
+import { useEffect, useState } from "react"
 
 function AnimatedComponent() {
-	const shouldReduceMotion = useReducedMotion()
+	const [shouldReduceMotion, setShouldReduceMotion] = useState(false)
+	
+	useEffect(() => {
+		const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
+		setShouldReduceMotion(mediaQuery.matches)
+	}, [])
 	
 	return (
 		<div

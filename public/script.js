@@ -33,7 +33,7 @@ function setTopbarVariable() {
   const topbar = document.querySelector(".topbar");
   if (!topbar) return;
   const h = topbar.offsetHeight;
-  document.documentElement.style.setProperty("--topbar-h", h + "px");
+  document.documentElement.style.setProperty("--topbar-h", `${h}px`);
 }
 window.addEventListener("load", setTopbarVariable);
 window.addEventListener("resize", setTopbarVariable);
@@ -76,7 +76,7 @@ window.addEventListener("keydown", (e) => {
 (function themeSetup() {
   const toggle = document.getElementById("themeToggle");
   const root = document.documentElement;
-  const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)");
+  const prefersLight = window.matchMedia?.("(prefers-color-scheme: light)");
 
   function applyTheme(mode) {
     root.setAttribute("data-theme", mode);
@@ -90,7 +90,7 @@ window.addEventListener("keydown", (e) => {
   function currentPref() {
     const saved = localStorage.getItem("theme");
     if (saved === "light" || saved === "dark") return saved;
-    return prefersLight && prefersLight.matches ? "light" : "dark";
+    return prefersLight?.matches ? "light" : "dark";
   }
 
   applyTheme(currentPref());

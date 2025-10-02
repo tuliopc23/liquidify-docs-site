@@ -1,4 +1,3 @@
-import React from "react";
 import { RadioGroup } from "liquidify-react/ark-ui/radioGroup";
 
 export default function RadioGroupDemo(): JSX.Element {

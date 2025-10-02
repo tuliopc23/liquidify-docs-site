@@ -2,9 +2,12 @@
 import type { AstroGlobal } from "astro";
 import { getSidebar } from "../lib/sidebar";
 import "liquidify-react/styles";
+import "../styles/hig-typography.css";
+// biome-ignore lint/correctness/noUnusedVariables: Variables are used in Astro template below
 const sidebar = await getSidebar();
 const { url } = Astro as unknown as AstroGlobal;
 
+// biome-ignore lint/correctness/noUnusedVariables: Variables are used in Astro template below
 const topNav = [
   { label: "Docs", href: "/docs" },
   { label: "Guides", href: "/docs/guides" },
@@ -12,7 +15,8 @@ const topNav = [
   { label: "Advanced", href: "/docs/advanced" },
   { label: "Contributing", href: "/docs/contributing" },
 ];
-const isActive = (href: string) => url.pathname === href || url.pathname.startsWith(href + "/");
+// biome-ignore lint/correctness/noUnusedVariables: Function is used in Astro template below
+const isActive = (href: string) => url.pathname === href || url.pathname.startsWith(`${href}/`);
 ---
 
 <html lang="en" data-theme="dark">
@@ -221,7 +225,7 @@ const isActive = (href: string) => url.pathname === href || url.pathname.startsW
       </aside>
 
       <!-- Right: content area -->
-      <section class="content" id="content">
+      <section class="content docs-content" id="content">
         <slot />
       </section>
     </main>

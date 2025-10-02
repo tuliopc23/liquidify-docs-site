@@ -1,4 +1,3 @@
-import React from "react";
 import { Menu } from "liquidify-react/ark-ui/menu";
 import { Button } from "liquidify-react/button";
 

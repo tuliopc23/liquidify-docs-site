@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import { NumberInput } from "liquidify-react/ark-ui/numberInput";
+import { useState } from "react";
 
 export default function NumberInputDemo(): JSX.Element {
   const [value, setValue] = useState("10");

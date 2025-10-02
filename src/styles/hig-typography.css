@@ -1,0 +1,323 @@
+/**
+ * Apple Human Interface Guidelines Typography System
+ * 
+ * Implements the HIG text styles for consistent, readable documentation.
+ * Based on SF Pro Display/Text font family with precise sizing and spacing.
+ */
+
+:root {
+  /* ========================================
+     Font Sizes (Apple HIG Scale)
+     ======================================== */
+  --hig-font-large-title: 48px;
+  --hig-font-title-1: 40px;
+  --hig-font-title-2: 28px;
+  --hig-font-title-3: 22px;
+  --hig-font-headline: 17px;
+  --hig-font-body: 17px;
+  --hig-font-callout: 16px;
+  --hig-font-subheadline: 15px;
+  --hig-font-footnote: 13px;
+  --hig-font-caption: 12px;
+
+  /* ========================================
+     Line Heights
+     ======================================== */
+  --hig-line-height-tight: 1.1; /* For large headings */
+  --hig-line-height-heading: 1.2; /* For medium headings */
+  --hig-line-height-normal: 1.47058823529; /* For body (25/17) */
+  --hig-line-height-relaxed: 1.6; /* For special cases */
+
+  /* ========================================
+     Font Weights
+     ======================================== */
+  --hig-weight-regular: 400;
+  --hig-weight-medium: 500;
+  --hig-weight-semibold: 600;
+  --hig-weight-bold: 700;
+  --hig-weight-heavy: 800;
+
+  /* ========================================
+     Spacing (8px Grid System)
+     ======================================== */
+  --hig-space-xs: 8px;
+  --hig-space-sm: 16px;
+  --hig-space-md: 24px;
+  --hig-space-lg: 32px;
+  --hig-space-xl: 48px;
+  --hig-space-2xl: 64px;
+
+  /* ========================================
+     Letter Spacing (Tracking)
+     ======================================== */
+  --hig-tracking-tight: -0.02em;
+  --hig-tracking-normal: 0;
+  --hig-tracking-wide: 0.01em;
+}
+
+/* ========================================
+   Typography Utility Classes
+   ======================================== */
+
+.hig-large-title {
+  font-size: var(--hig-font-large-title);
+  font-weight: var(--hig-weight-bold);
+  line-height: var(--hig-line-height-tight);
+  letter-spacing: var(--hig-tracking-tight);
+}
+
+.hig-title-1 {
+  font-size: var(--hig-font-title-1);
+  font-weight: var(--hig-weight-bold);
+  line-height: var(--hig-line-height-tight);
+  letter-spacing: var(--hig-tracking-tight);
+}
+
+.hig-title-2 {
+  font-size: var(--hig-font-title-2);
+  font-weight: var(--hig-weight-bold);
+  line-height: var(--hig-line-height-heading);
+  letter-spacing: var(--hig-tracking-tight);
+}
+
+.hig-title-3 {
+  font-size: var(--hig-font-title-3);
+  font-weight: var(--hig-weight-semibold);
+  line-height: var(--hig-line-height-heading);
+  letter-spacing: var(--hig-tracking-normal);
+}
+
+.hig-headline {
+  font-size: var(--hig-font-headline);
+  font-weight: var(--hig-weight-semibold);
+  line-height: var(--hig-line-height-normal);
+  letter-spacing: var(--hig-tracking-normal);
+}
+
+.hig-body {
+  font-size: var(--hig-font-body);
+  font-weight: var(--hig-weight-regular);
+  line-height: var(--hig-line-height-normal);
+  letter-spacing: var(--hig-tracking-normal);
+}
+
+.hig-callout {
+  font-size: var(--hig-font-callout);
+  font-weight: var(--hig-weight-regular);
+  line-height: var(--hig-line-height-normal);
+  letter-spacing: var(--hig-tracking-normal);
+}
+
+.hig-subheadline {
+  font-size: var(--hig-font-subheadline);
+  font-weight: var(--hig-weight-regular);
+  line-height: var(--hig-line-height-normal);
+  letter-spacing: var(--hig-tracking-wide);
+}
+
+.hig-footnote {
+  font-size: var(--hig-font-footnote);
+  font-weight: var(--hig-weight-regular);
+  line-height: var(--hig-line-height-normal);
+  letter-spacing: var(--hig-tracking-normal);
+}
+
+.hig-caption {
+  font-size: var(--hig-font-caption);
+  font-weight: var(--hig-weight-regular);
+  line-height: var(--hig-line-height-normal);
+  letter-spacing: var(--hig-tracking-normal);
+}
+
+/* ========================================
+   Automatic Markdown Heading Styles
+   Applied to content within .docs-content
+   ======================================== */
+
+.docs-content {
+  /* Page title */
+  & h1 {
+    font-size: var(--hig-font-large-title);
+    font-weight: var(--hig-weight-bold);
+    line-height: var(--hig-line-height-tight);
+    letter-spacing: var(--hig-tracking-tight);
+    margin-top: 0;
+    margin-bottom: var(--hig-space-md);
+  }
+
+  /* Major sections */
+  & h2 {
+    font-size: var(--hig-font-title-1);
+    font-weight: var(--hig-weight-bold);
+    line-height: var(--hig-line-height-tight);
+    letter-spacing: var(--hig-tracking-tight);
+    margin-top: var(--hig-space-xl);
+    margin-bottom: var(--hig-space-sm);
+  }
+
+  /* Subsections */
+  & h3 {
+    font-size: var(--hig-font-title-2);
+    font-weight: var(--hig-weight-bold);
+    line-height: var(--hig-line-height-heading);
+    letter-spacing: var(--hig-tracking-tight);
+    margin-top: var(--hig-space-lg);
+    margin-bottom: var(--hig-space-sm);
+  }
+
+  /* Minor headings */
+  & h4 {
+    font-size: var(--hig-font-title-3);
+    font-weight: var(--hig-weight-semibold);
+    line-height: var(--hig-line-height-heading);
+    letter-spacing: var(--hig-tracking-normal);
+    margin-top: var(--hig-space-md);
+    margin-bottom: var(--hig-space-xs);
+  }
+
+  /* Body text */
+  & p {
+    font-size: var(--hig-font-body);
+    font-weight: var(--hig-weight-regular);
+    line-height: var(--hig-line-height-normal);
+    letter-spacing: var(--hig-tracking-normal);
+    margin-bottom: var(--hig-space-sm);
+  }
+
+  /* Lists */
+  & ul,
+  & ol {
+    font-size: var(--hig-font-body);
+    line-height: var(--hig-line-height-normal);
+    margin-bottom: var(--hig-space-sm);
+    padding-left: var(--hig-space-md);
+  }
+
+  & li {
+    margin-bottom: var(--hig-space-xs);
+  }
+
+  & li > p {
+    margin-bottom: var(--hig-space-xs);
+  }
+
+  /* Blockquotes */
+  & blockquote {
+    font-size: var(--hig-font-callout);
+    font-style: italic;
+    line-height: var(--hig-line-height-normal);
+    margin: var(--hig-space-md) 0;
+    padding-left: var(--hig-space-sm);
+    border-left: 3px solid currentColor;
+    opacity: 0.8;
+  }
+
+  /* Code blocks */
+  & pre {
+    margin: var(--hig-space-md) 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  /* Inline code */
+  & code {
+    font-family: "SF Mono", "Monaco", "Cascadia Code", "Courier New", monospace;
+    font-size: 0.92em;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(128, 128, 128, 0.1);
+  }
+
+  & pre code {
+    padding: 0;
+    background: transparent;
+  }
+
+  /* Tables */
+  & table {
+    font-size: var(--hig-font-callout);
+    line-height: var(--hig-line-height-normal);
+    margin: var(--hig-space-md) 0;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  & th {
+    font-weight: var(--hig-weight-semibold);
+    text-align: left;
+    padding: var(--hig-space-xs) var(--hig-space-sm);
+    border-bottom: 2px solid currentColor;
+  }
+
+  & td {
+    padding: var(--hig-space-xs) var(--hig-space-sm);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  }
+
+  /* Horizontal rules */
+  & hr {
+    border: none;
+    border-top: 1px solid rgba(128, 128, 128, 0.2);
+    margin: var(--hig-space-lg) 0;
+  }
+
+  /* Links */
+  & a {
+    font-weight: var(--hig-weight-medium);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  & a:hover {
+    opacity: 0.7;
+  }
+
+  /* First paragraph after heading - reduce top spacing */
+  & h1 + p,
+  & h2 + p,
+  & h3 + p,
+  & h4 + p {
+    margin-top: 0;
+  }
+
+  /* Consecutive headings */
+  & h1 + h2,
+  & h2 + h3,
+  & h3 + h4 {
+    margin-top: var(--hig-space-sm);
+  }
+}
+
+/* ========================================
+   Responsive Adjustments
+   Note: HIG typically uses fixed sizes, but we add 
+   slight adjustments for very small screens
+   ======================================== */
+
+@media (max-width: 640px) {
+  :root {
+    --hig-font-large-title: 34px;
+    --hig-font-title-1: 28px;
+    --hig-font-title-2: 22px;
+    --hig-font-title-3: 20px;
+  }
+
+  .docs-content {
+    & h1 {
+      margin-bottom: var(--hig-space-sm);
+    }
+
+    & h2 {
+      margin-top: var(--hig-space-lg);
+    }
+
+    & h3 {
+      margin-top: var(--hig-space-md);
+    }
+  }
+}
+
+/* ========================================
+   Dark Mode Compatibility
+   Inherits colors from theme, no overrides needed
+   ======================================== */

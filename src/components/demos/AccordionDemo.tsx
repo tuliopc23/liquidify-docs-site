@@ -1,4 +1,3 @@
-import React from "react";
 import { Accordion } from "liquidify-react/ark-ui/accordion";
 
 export default function AccordionDemo(): JSX.Element {

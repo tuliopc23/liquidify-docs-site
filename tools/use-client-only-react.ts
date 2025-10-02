@@ -6,7 +6,7 @@ import { join } from "node:path";
 const componentsDocsDir = join(process.cwd(), "src/pages/docs/components");
 
 async function processFile(filePath: string) {
-  let content = await readFile(filePath, "utf-8");
+  const content = await readFile(filePath, "utf-8");
   if (!content.includes("liquidify-react/ark-ui/")) return false;
 
   // Replace client:load with client:only="react" in this file

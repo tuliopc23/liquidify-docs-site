@@ -1,4 +1,3 @@
-import React from "react";
 import { PinInput } from "liquidify-react/ark-ui/pinInput";
 
 export default function PinInputDemo(): JSX.Element {

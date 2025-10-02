@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
-import { $, Glob } from "bun";
 import { readFile, writeFile } from "node:fs/promises";
 import { dirname, relative, sep } from "node:path";
+import { Glob } from "bun";
 
 // Compute relative path from an mdx file to src/layouts/DocsLayout.astro
 function layoutRel(fromFile: string) {
@@ -11,12 +11,12 @@ function layoutRel(fromFile: string) {
 }
 
 async function ensureLayout(file: string) {
-  let content = await readFile(file, "utf8");
+  const content = await readFile(file, "utf8");
   const hasFM = content.trimStart().startsWith("---\n");
 
   if (!hasFM) {
     const rel = layoutRel(file);
-    const injected = `---\nlayout: ${rel}\n---\n\n` + content;
+    const injected = `---\nlayout: ${rel}\n---\n\n${content}`;
     await writeFile(file, injected, "utf8");
     return true;
   }

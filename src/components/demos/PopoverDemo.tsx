@@ -1,4 +1,3 @@
-import React from "react";
 import { Popover } from "liquidify-react/ark-ui/popover";
 import { Button } from "liquidify-react/button";
 

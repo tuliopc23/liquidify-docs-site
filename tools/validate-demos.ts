@@ -1,6 +1,5 @@
 #!/usr/bin/env bun
-import { readFile } from "node:fs/promises";
-import { readdir } from "node:fs/promises";
+import { readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 const pages: Array<{ file: string; arkPath: string; expectClientOnly: boolean }> = [
@@ -51,7 +50,7 @@ async function checkPages() {
   let entries: string[] = [];
   try {
     entries = await readdir(distAstro);
-  } catch (e) {
+  } catch (_e) {
     errors.push(`dist/_astro missing. Run: bun run build`);
   }
   for (const name of demoChunks) {
@@ -60,7 +59,7 @@ async function checkPages() {
   }
 
   if (errors.length) {
-    console.error("Demo validation failed:\n" + errors.map((e) => `- ${e}`).join("\n"));
+    console.error(`Demo validation failed:\n${errors.map((e) => `- ${e}`).join("\n")}`);
     process.exit(1);
   }
   console.log("OK: Demo pages use ark-ui imports, client-only hydration, and demo chunks built.");

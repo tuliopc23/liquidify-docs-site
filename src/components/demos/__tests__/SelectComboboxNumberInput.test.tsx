@@ -1,9 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
-import React from "react";
-import SelectDemo from "../SelectDemo";
+import { describe, expect, it } from "vitest";
 import ComboboxDemo from "../ComboboxDemo";
 import NumberInputDemo from "../NumberInputDemo";
+import SelectDemo from "../SelectDemo";
 
 describe("Select/Combobox/NumberInput demos", () => {
   it("renders select label", () => {

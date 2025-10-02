@@ -1,4 +1,3 @@
-import React from "react";
 import { Collapsible } from "liquidify-react/ark-ui/collapsible";
 
 export default function CollapsibleDemo(): JSX.Element {

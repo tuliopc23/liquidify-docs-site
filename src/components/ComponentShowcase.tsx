@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 import "./ComponentShowcase.css";
 
 interface ComponentShowcaseProps {
@@ -50,6 +51,7 @@ export function ComponentShowcase({
           {code && showCode && (
             <div className="showcase-actions">
               <button
+                type="button"
                 className="action-button"
                 onClick={() => setIsCodeVisible(!isCodeVisible)}
                 aria-expanded={isCodeVisible}
@@ -58,6 +60,7 @@ export function ComponentShowcase({
                 {isCodeVisible ? "👁️‍🗨️" : "👁️"}
               </button>
               <button
+                type="button"
                 className="action-button"
                 onClick={handleCopyCode}
                 aria-label="Copy code"
@@ -78,7 +81,12 @@ export function ComponentShowcase({
         <div className="showcase-code">
           <div className="code-header">
             <span className="code-language">tsx</span>
-            <button className="copy-button" onClick={handleCopyCode} aria-label="Copy code">
+            <button
+              type="button"
+              className="copy-button"
+              onClick={handleCopyCode}
+              aria-label="Copy code"
+            >
               {isCopied ? "Copied!" : "Copy"}
             </button>
           </div>

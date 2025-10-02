@@ -1,4 +1,3 @@
-import React from "react";
 import { Listbox } from "liquidify-react/ark-ui/listbox";
 
 export default function ListboxDemo(): JSX.Element {

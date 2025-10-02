@@ -1,4 +1,3 @@
-import React from "react";
 import { DatePicker } from "liquidify-react/ark-ui/datePicker";
 
 export default function DatePickerDemo(): JSX.Element {

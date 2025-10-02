@@ -7,14 +7,16 @@ Components render without styles because **CSS variables are referenced but not 
 ## Current State (v0.6.16)
 
 ### ✅ What's Working
+
 - Package publishes successfully (410KB CSS)
-- `.liquid-button` class exists with all style rules  
+- `.liquid-button` class exists with all style rules
 - Component code is correct and uses HIG API (variant + tone)
 - Import path works: `import "liquidify-react/styles"`
 - **JavaScript generates correct class names** (e.g., `.liquid-button--variant_filled--tone_accent`)
 - Component TypeScript uses new API properly
 
 ### ❌ What's Broken
+
 - **Base design tokens missing** - `:root` only has `--made-with-panda: "🐼"`
 - **Compound variant CSS classes missing** - No `.liquid-button--variant_filled`, `.liquid-button--tone_accent` in CSS
 - **Components render with classes but no styles** - Classes applied but CSS rules don't exist
@@ -24,11 +26,15 @@ Components render without styles because **CSS variables are referenced but not 
 ### 1. CSS Variables Not Defined
 
 **Current `:root` in liquidify.css**:
+
 ```css
-:root{--made-with-panda: "🐼"}
+:root {
+  --made-with-panda: "🐼";
+}
 ```
 
 **Expected (from styled-system/styles.css)**:
+
 ```css
 @layer tokens {
   :where(:root, :host) {
@@ -36,7 +42,7 @@ Components render without styles because **CSS variables are referenced but not 
     --colors-glass-border: rgba(255, 255, 255, 0.2);
     --font-sizes-footnote: 13px;
     --radii-roles-button: 8px;
-    --colors-accent-dynamic: var(--ui-accent, #007AFF);
+    --colors-accent-dynamic: var(--ui-accent, #007aff);
     --blurs-glass-md: 10px;
     --spacing-glass-sm: 8px;
     /* ... 200+ more tokens ... */
@@ -47,16 +53,20 @@ Components render without styles because **CSS variables are referenced but not 
 ### 2. Component Code Uses New API Correctly
 
 **The JavaScript DOES generate correct class names**:
+
 ```html
-<button class="liquid-button liquid-button--variant_filled liquid-button--size_regular liquid-button--tone_accent">
+<button
+  class="liquid-button liquid-button--variant_filled liquid-button--size_regular liquid-button--tone_accent"
+></button>
 ```
 
 **But the recipe metadata still shows old variants**:
+
 ```javascript
 O = {
   variant: ["primary", "secondary", "ghost", "danger", "success", "warning"],
-  size: ["sm", "md", "lg", "xl"]
-}
+  size: ["sm", "md", "lg", "xl"],
+};
 // This doesn't include filled/tinted/plain or tone, but classes are still generated
 ```
 
@@ -65,11 +75,13 @@ O = {
 ### 3. CSS Classes Missing
 
 **HTML has classes**:
+
 ```html
 class="liquid-button liquid-button--variant_filled liquid-button--tone_accent"
 ```
 
 **But CSS only has**:
+
 ```css
 .liquid-button--variant_primary { ... }
 .liquid-button--variant_secondary { ... }
@@ -86,18 +98,20 @@ class="liquid-button liquid-button--variant_filled liquid-button--tone_accent"
 The `styled-system/styles.css` (82KB) contains all base tokens in `@layer tokens`, but when bundled by Vite, these are not included in `dist/libs/components/liquidify.css`.
 
 **Check**:
+
 1. Does `libs/components/src/index.ts` import the styled-system CSS?
+
    ```typescript
-   import "../../../styled-system/styles.css";  // This line needed
+   import "../../../styled-system/styles.css"; // This line needed
    ```
 
 2. Is Vite externalizing CSS? Check `vite.config.ts`:
    ```typescript
    external: (source) => {
      if (source.endsWith(".css")) {
-       return false;  // Must be false to bundle CSS
+       return false; // Must be false to bundle CSS
      }
-   }
+   };
    ```
 
 ### Issue 2: Panda Compound Variants Not Generating CSS
@@ -112,15 +126,16 @@ compoundVariants: [
     css: {
       background: "token(colors.button.hig.filled.accent.default.bg)",
       // ... more styles
-    }
+    },
   },
   // ... more compound variants
-]
+];
 ```
 
 **But Panda is NOT generating CSS classes for these!**
 
 The issue is that:
+
 1. Empty variant objects (`filled: {}`, `tone: {}`) are being ignored
 2. Even with placeholders, compound variants might not generate separate classes
 3. Panda may need both variants defined separately AND compound variants
@@ -128,6 +143,7 @@ The issue is that:
 **Possible fixes**:
 
 **Option A**: Add placeholder to make Panda recognize variants:
+
 ```typescript
 variants: {
   variant: {
@@ -144,6 +160,7 @@ variants: {
 ```
 
 **Option B**: Move compound variant styles into regular variants:
+
 ```typescript
 variants: {
   variant: {
@@ -168,7 +185,7 @@ grep "colors-glass-bg: rgba" libs/components/styled-system/styles.css
 # Should show: --colors-glass-bg: rgba(255, 255, 255, 0.1);
 
 # 2. Check if base tokens are in final bundle
-grep "colors-glass-bg: rgba" dist/libs/components/liquidify.css  
+grep "colors-glass-bg: rgba" dist/libs/components/liquidify.css
 # Should show the same - if not, tokens aren't being bundled
 
 # 3. Check button variants in build

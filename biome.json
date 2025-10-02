@@ -17,7 +17,8 @@
       "correctness": { "noUnusedVariables": "error" },
       "style": {
         "useConst": "warn",
-        "noInferrableTypes": "off"
+        "noInferrableTypes": "off",
+        "noDescendingSpecificity": "off"
       },
       "security": { "noDangerouslySetInnerHtml": "error" }
     }

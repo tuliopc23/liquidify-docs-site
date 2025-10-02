@@ -1,4 +1,3 @@
-import React from "react";
 import { Dialog } from "liquidify-react/ark-ui/dialog";
 import { Button } from "liquidify-react/button";
 
@@ -17,9 +16,13 @@ export default function DialogDemo(): JSX.Element {
           </Dialog.Description>
           <div style={{ display: "flex", gap: "1rem", marginTop: "1.5rem" }}>
             <Dialog.CloseTrigger asChild>
-              <Button variant="tinted" tone="neutral">Cancel</Button>
+              <Button variant="tinted" tone="neutral">
+                Cancel
+              </Button>
             </Dialog.CloseTrigger>
-            <Button variant="filled" tone="destructive">Delete</Button>
+            <Button variant="filled" tone="destructive">
+              Delete
+            </Button>
           </div>
         </Dialog.Content>
       </Dialog.Positioner>
